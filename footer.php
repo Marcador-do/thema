@@ -11,9 +11,9 @@
 ?>
 		</div>
 		<!-- /#page-content-wrapper -->
-
 	</div>
 	<!-- /#wrapper -->
+
 	<script type="text/javascript">
 		var init;
 		(function(page){

@@ -72,78 +72,42 @@ AUTHORS;
 			</li>
 			<li>
 				<a href="#buscar"> 
-					<span class="sidebar-icon">
-						<i class="material-icons md-light md-24">search</i>
-					</span>
-					<span class="sidebar-menu-item">
-						Buscar
-					</span>
+					<span class="sidebar-icon"><i class="material-icons md-light md-24">search</i></span>
+					<span class="sidebar-menu-item">Buscar</span>
 				</a> 
 			</li>
 			<li sidebar-nav-submenu class>
 				<a href="#" class="">
-					<span class="sidebar-icon">
-						<i class="material-icons md-light md-24">motorcycle</i>
-					</span>
-					<span class="sidebar-menu-item">
-						Deportes
-					</span>
+					<span class="sidebar-icon"><i class="material-icons md-light md-24">motorcycle</i></span>
+					<span class="sidebar-menu-item">Deportes</span>
 				</a> 
 				<ul class="sidebar-nav-submenu">
-					<li>
-						<a href="#besibol">Beisbol</a>
-					</li>
-					<li>
-						<a href="#baloncesto">Baloncesto</a>
-					</li>
-					<li>
-						<a href="#futbol">Futbol</a>
-					</li>
-					<li>
-						<a href="#boxeo">Boxeo</a>
-					</li>
-					<li>
-						<a href="#voleibol">Voleibol</a>
-					</li>
-					<li>
-						<a href="#nascar">Nascar</a>
-					</li>
-					<li>
-						<a href="#nfl">NFL</a>
-					</li>
-					<li>
-						<a href="#tenis">Tenis</a>
-					</li>
+					<li><a href="#besibol">Beisbol</a></li>
+					<li><a href="#baloncesto">Baloncesto</a></li>
+					<li><a href="#futbol">Futbol</a></li>
+					<li><a href="#boxeo">Boxeo</a></li>
+					<li><a href="#voleibol">Voleibol</a></li>
+					<li><a href="#nascar">Nascar</a></li>
+					<li><a href="#nfl">NFL</a></li>
+					<li><a href="#tenis">Tenis</a></li>
 				</ul>
 			</li>
 			<li>
 				<a href="#">
-					<span class="sidebar-icon">
-						<i class="material-icons md-light md-24">play_circle_outline</i>
-					</span>
-					<span class="sidebar-menu-item">
-						Videos
-					</span>
+					<span class="sidebar-icon"><i class="material-icons md-light md-24">play_circle_outline</i></span>
+					<span class="sidebar-menu-item">Videos</span>
 				</a> 
 			</li>
 			<li>
 				<a href="#">
-					<span class="sidebar-icon">
-						<i class="material-icons md-light md-24">star</i>
-					</span>
-					<span class="sidebar-menu-item">
-						Favoritos
-					</span>
+					<span class="sidebar-icon"><i class="material-icons md-light md-24">star</i></span>
+					<span class="sidebar-menu-item">Favoritos</span>
 				</a> 
 			</li>
 			<li>
 				<a href="#" class="sidebar-show-more">
-					<span class="sidebar-icon">
-						<i class="material-icons md-light md-24">more_horiz</i>
-					</span>
-					<span class="sidebar-menu-item">
-						Más
-					</span>
+					<span class="sidebar-icon"><i class="material-icons md-light md-24">more_horiz</i></span>
+					<span class="sidebar-menu-item">Má</span>
 				</a> 
 			</li>
 		</ul>
