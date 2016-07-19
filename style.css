@@ -1,0 +1,451 @@
+/*
+Theme Name: Marcador.do Official
+Theme URI: http://marcador.do/
+Author: Richard Blondet
+Author URI: http://richardblondet.com
+Description: Marcador.do is the most comprehensive sports entertainment platform for the Dominican Republic. Follows closely the impact of Dominicans in Major League Baseball, NBA, Soccer, Dominican League Baseball, Dominican Football League and everything that happens in the personal lives of athletes. This template is a custom build to meet their standards.
+Version: 1.0
+License: GNU General Public License v3.0
+License URI: http://www.gnu.org/licenses/gpl-3.0.txt
+Tags: red, black, grey, white, light, bootstrap 3.x.x
+Text Domain: marcadordo
+
+This theme, like WordPress, is licensed under the GPL.
+*/
+
+/*
+Colors:
+#E80303  (Primary)
+#3D3D3D  (Nav Grey)
+#3D3D3D  (Opacity 74%)
+*/
+/*------------------------------*/
+/*------ TABLE OF CONTENT ------
+--------------------------------
+0. General Styling
+1. Wrapper
+2. Sidebar Styles
+3. Navbar
+4. Material Icons Rules
+/*------------------------------*/
+
+/* 0. General Styling */
+body {
+	font-family: 'Roboto', sans-serif;
+}
+
+/* 1. Wrapper */
+#wrapper {
+	padding-left: 0;
+	position: relative;
+	-webkit-transition: all 0.2s ease;
+	-moz-transition: all 0.2s ease;
+	-o-transition: all 0.2s ease;
+	transition: all 0.2s ease;
+}
+#wrapper.toggled {
+	padding-left: 64px;
+}
+#sidebar-wrapper {
+	z-index: 1000;
+	position: fixed;
+	left: 0;
+	width: 0;
+	height: 100%;
+	margin-left: 0;
+	// overflow-y: auto;
+	background: #3D3D3D;
+	-webkit-transition: all 0.2s ease;
+	-moz-transition: all 0.2s ease;
+	-o-transition: all 0.2s ease;
+	transition: all 0.2s ease;
+}
+#sidebar-wrapper::-webkit-scrollbar {
+    width: 0px;  /* remove scrollbar space */
+    background: transparent;  /* optional: just make scrollbar invisible */
+}
+#wrapper.toggled #sidebar-wrapper {
+	width: 65px;
+	overflow-y: scroll;
+}
+#page-content-wrapper {
+	width: 100%;
+	position: absolute;
+}
+#wrapper.toggled #page-content-wrapper {
+	position: absolute;
+	margin-right: -250px;
+}
+@media screen and ( min-width: 480px ) {
+	#wrapper {
+		padding-left: 70px;
+	}
+	#wrapper.toggled {
+		padding-left: 250px;
+	}
+	#sidebar-wrapper {
+		width: 70px;
+	}
+	#wrapper.toggled #sidebar-wrapper {
+		width: 250px;
+	}
+	#page-content-wrapper {
+		position: relative;
+	}
+	#wrapper.toggled #page-content-wrapper {
+		position: relative;
+		margin-right: 0;
+	}
+}
+
+/* 2. Sidebar Styles */
+.sidebar-nav {
+	top: 0;*/
+	width: 100%;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+.sidebar-nav li {
+	line-height: 40px;
+}
+.sidebar-nav li a {
+	display: block;
+	text-decoration: none;
+	color: #999999;
+    width: 100%;
+    padding-top: 7px;
+   	position: relative;
+   	left: -70px;
+   	-webkit-transition: left 0.1s ease;
+   	-moz-transition: left 0.1s ease;
+   	-ms-transition: left 0.1s ease;
+   	-o-transition: left 0.1s ease;
+   	transition: left 0.1s ease;
+}
+#wrapper.toggled .sidebar-nav li a {
+	left: 0;
+}
+@media screen and (min-width: 480px) {
+	.sidebar-nav li a {
+		padding: 10px;
+		left: 0;
+	}
+	.sidebar-nav li a:hover {
+		background-color: #5f5f5f;
+	}
+	#wrapper .sidebar-nav li[sidebar-nav-submenu]:before,
+	#wrapper .sidebar-nav li[sidebar-nav-submenu]:after {
+		opacity: 0;
+		-webkit-transition: opacity 0.1s ease;
+		-moz-transition: opacity 0.1s ease;
+		-ms-transition: opacity 0.1s ease;
+		-o-transition: opacity 0.1s ease;
+		transition: opacity 0.1s ease;
+		content: "";
+		position: absolute;
+		right: 16px;
+		top: 27px;
+		background-color: #ededed;
+		height: 10px;
+		width: 3px;
+		border-radius: 6px;
+	}
+	#wrapper.toggled .sidebar-nav li[sidebar-nav-submenu]:before,
+	#wrapper.toggled .sidebar-nav li[sidebar-nav-submenu]:after {
+		opacity: 1;
+	}
+	#wrapper.toggled .sidebar-nav li[sidebar-nav-submenu]:before {
+		transform: rotate(315deg);
+		z-index: 2;
+		right: 22px;
+	}
+	#wrapper.toggled .sidebar-nav li[sidebar-nav-submenu]:after {
+		transform: rotate(45deg);
+	}
+	#wrapper.toggled .sidebar-nav li[sidebar-nav-submenu].toggled:before,
+	#wrapper.toggled .sidebar-nav li[sidebar-nav-submenu].toggled:after {
+		margin-right: 6px;
+	}
+	#wrapper.toggled .sidebar-nav li[sidebar-nav-submenu].toggled:before {
+		right: 11px;
+	}
+}
+.sidebar-nav li a:hover {
+	text-decoration: none;
+}
+.sidebar-nav li a:active,
+.sidebar-nav li a:focus {
+	text-decoration: none;
+}
+.sidebar-nav li a .sidebar-icon i {
+	color: #A6A6A6;
+}
+.sidebar-nav li a .sidebar-icon, 
+.sidebar-nav li a .sidebar-menu-item {
+    position: relative;
+    width: 100%;
+    display: block;
+    text-align: center;
+    height: 29px;
+}
+.sidebar-nav li a .sidebar-menu-item {
+    line-height: 1;
+    font-weight: 300;
+    font-size: 11px;
+}
+@media screen and (min-width: 480px) {
+	#wrapper .sidebar-nav li a .sidebar-icon {
+		display: inline-block;
+		width: 50px;
+		position: relative;
+		top: 7px;
+	}
+	#wrapper.toggled .sidebar-nav li a .sidebar-icon {}
+	.sidebar-nav li a .sidebar-icon i {
+		font-size: 26px;
+	}
+	#wrapper .sidebar-nav li a .sidebar-menu-item {
+	    display: none;
+	    position: absolute;
+	    left: 70px;
+	    top: 13px;
+	    width: 100px;
+	    line-height: 2.6;
+	    text-align: left;
+	    font-size: 14px;
+	}
+	#wrapper.toggled .sidebar-nav li a .sidebar-menu-item {
+		display: inline-block;
+	}
+	#wrapper .sidebar-nav li a.sidebar-bar-close .sidebar-icon {
+		top: -2px;
+		left: -7px;
+	}
+}
+.sidebar-nav li .sidebar-bar-close {
+    padding: 15px;
+    line-height: 3.5;
+    background-color: #E80303;
+    height: 51px;
+}
+@media screen and (min-width: 480px) {
+	.sidebar-nav li .sidebar-bar-close {
+		height: 60px;
+		background-color: inherit;
+	}
+}
+.sidebar-nav li .sidebar-bar-close .sidebar-icon i {
+	color: #fff;
+}
+#wrapper .sidebar-bar-close .sidebar-icon .menu-mc {
+	display: none;
+}
+#wrapper.toggled .sidebar-bar-close .sidebar-icon .menu-mc {
+	display: none;
+}
+#wrapper .sidebar-bar-close .sidebar-icon .close-mc {
+	display: block;
+}
+#wrapper.toggled .sidebar-bar-close .sidebar-icon .close-mc {
+	display: block;
+}
+@media screen and (min-width: 480px) {
+	#wrapper .sidebar-bar-close .sidebar-icon .menu-mc {
+		display: block;
+	}
+	#wrapper.toggled .sidebar-bar-close .sidebar-icon .menu-mc {
+		display: none;
+	}
+	#wrapper .sidebar-bar-close .sidebar-icon .close-mc {
+		display: none;
+	}
+	#wrapper.toggled .sidebar-bar-close .sidebar-icon .close-mc {
+		display: block;
+	}
+}
+.sidebar-nav li .sidebar-show-more {
+	border-top: solid 1px rgba(255, 255, 255, 0.12);
+	border-bottom: solid 1px rgba(255, 255, 255, 0.12);
+}
+.sidebar-nav li.active a,
+.sidebar-nav li a.active {
+	background-color: #E80303;
+}
+.sidebar-nav li.active a .sidebar-menu-item,
+.sidebar-nav li a.active .sidebar-menu-item,
+.sidebar-nav li.active a .sidebar-icon i,
+.sidebar-nav li a.active .sidebar-icon i {
+	color: #fff;
+}
+.sidebar-nav li .sidebar-nav-submenu,
+.sidebar-nav li.active .sidebar-nav-submenu,
+.sidebar-nav li .sidebar-nav-submenu li,
+.sidebar-nav li .sidebar-nav-submenu li a { 
+	// background-color: #3d3d3d;
+	background-color: #fff;
+}
+.sidebar-nav li[sidebar-nav-submenu] {
+	position: relative;
+	cursor: pointer;
+}
+#wrapper.toggled .sidebar-nav li[sidebar-nav-submenu].toggled {
+	background-color: #5f5f5f;
+}
+.sidebar-nav li .sidebar-nav-submenu {
+	list-style: none;
+	padding-left: 10px;
+	height: 0;
+	opacity: 0;
+	overflow: hidden;
+}
+.sidebar-nav li[sidebar-nav-submenu] a {
+	pointer-events: hover;
+}
+@media screen and (min-width: 480px) {
+	.sidebar-nav li .sidebar-nav-submenu,
+	.sidebar-nav li.active .sidebar-nav-submenu,
+	.sidebar-nav li .sidebar-nav-submenu li,
+	.sidebar-nav li .sidebar-nav-submenu li a { 
+		background-color: #3d3d3d;
+	}
+}
+#wrapper .sidebar-nav li.toggled .sidebar-nav-submenu {
+	left: -2000px;
+	opacity: 0;
+	-webkit-transition: left 0 0.2s ease, opacity 0.1s ease;
+	-moz-transition: left 0 0.2s ease, opacity 0.1s ease;
+	-ms-transition: left 0 0.2s ease, opacity 0.1s ease;
+	-o-transition: left 0 0.2s ease, opacity 0.1s ease;
+	transition: left 0 0.2s ease, opacity 0.1s ease;
+}
+#wrapper.toggled .sidebar-nav li.toggled .sidebar-nav-submenu {
+	opacity: 1;
+	left: 66px;
+	position: fixed;
+    top: 51px;
+    z-index: 200;
+    width: 80vw;
+}
+#wrapper.toggled .sidebar-nav li .sidebar-nav-submenu li a {
+	border-bottom: solid 1px #e0e0e0;
+	position: relative;
+	padding-left: 5px;
+}
+#wrapper.toggled .sidebar-nav li .sidebar-nav-submenu li a:before,
+#wrapper.toggled .sidebar-nav li .sidebar-nav-submenu li a:after {
+	content: "";
+	position: absolute;
+	right: 10px;
+	bottom: 14px;
+	width: 3px;
+	height: 12px;
+	background-color: #ccc;
+}
+#wrapper.toggled .sidebar-nav li .sidebar-nav-submenu li a:before {
+	transform: rotate(315deg);
+	bottom: 22px;
+}
+#wrapper.toggled .sidebar-nav li .sidebar-nav-submenu li a:after {
+	transform: rotate(45deg);
+}
+#wrapper.toggled .sidebar-nav li .sidebar-nav-submenu li a:active,
+#wrapper.toggled .sidebar-nav li .sidebar-nav-submenu li a:focus,
+#wrapper.toggled .sidebar-nav li .sidebar-nav-submenu li a:hover {
+	background-color: #e0e0e0;
+	color: #000;
+}
+@media screen and (min-width: 480px) {
+	/* Submenu */
+	#wrapper .sidebar-nav li[sidebar-nav-submenu] .sidebar-nav-submenu {
+		left: 70px;
+	    opacity: 1;
+	    position: absolute;
+	    top: 0;
+	    padding: 0;
+	    height: auto;
+	    display: none;
+	}
+	#wrapper .sidebar-nav li[sidebar-nav-submenu]:hover .sidebar-nav-submenu {
+		display: block;
+	}
+	#wrapper.toggled .sidebar-nav li[sidebar-nav-submenu]:hover .sidebar-nav-submenu {
+		display: none;
+	}
+	#wrapper.toggled .sidebar-nav li[sidebar-nav-submenu].toggled .sidebar-nav-submenu {
+	    left: 0;
+	    position: relative;
+	    top: 0;
+	    z-index: 200;
+	    width: 100%;
+	    display: block;
+	}
+	#wrapper.toggled .sidebar-nav li .sidebar-nav-submenu li a {
+		border-bottom: none;
+		padding-left: 25px;
+		margin-left: 25px;
+	}
+	#wrapper.toggled .sidebar-nav li .sidebar-nav-submenu li a:before,
+	#wrapper.toggled .sidebar-nav li .sidebar-nav-submenu li a:after {
+		display: none;
+	}
+	#wrapper.toggled .sidebar-nav li .sidebar-nav-submenu li a:active,
+	#wrapper.toggled .sidebar-nav li .sidebar-nav-submenu li a:focus,
+	#wrapper.toggled .sidebar-nav li .sidebar-nav-submenu li a:hover {
+		background-color: grey;
+		color: #fff;
+	}
+
+}
+.sidebar-nav li.toggled .sidebar-nav-submenu {
+	height: auto;
+	opacity: 1;
+	left: 0;
+}
+.sidebar-nav li .sidebar-nav-submenu li a:hover {
+	background-color: grey;
+	color: white;
+}
+/* 3. Navbar */
+.navbar-marcador {
+	background-color: #E80303;
+	border-color: #E80303;
+}
+@media screen and (min-width: 480px) {
+	.navbar-marcador {
+		min-height: 60px;
+	}
+}
+.navbar-brand {
+	padding: 14px 15px;
+}
+.navbar-brand.navbar-menu-btn {
+	display: block;
+}
+#wrapper.toggled .navbar-brand.navbar-menu-btn {
+	display: none;
+}
+@media screen and (min-width: 480px) {
+	.navbar-brand {
+		height: 59px;
+		padding: 18px 15px;
+	}
+	.navbar-brand.navbar-menu-btn {
+		display: none;
+	}
+}
+
+/* 4. Material Icons Rules */
+/* Rules for sizing the icon. */
+.material-icons.md-18 { font-size: 18px; }
+.material-icons.md-24 { font-size: 24px; }
+.material-icons.md-36 { font-size: 36px; }
+.material-icons.md-48 { font-size: 48px; }
+
+/* Rules for using icons as black on a light background. */
+.material-icons.md-dark { color: rgba(0, 0, 0, 0.54); }
+.material-icons.md-dark.md-inactive { color: rgba(0, 0, 0, 0.26); }
+
+/* Rules for using icons as white on a dark background. */
+.material-icons.md-light { color: rgba(255, 255, 255, 1); }
+.material-icons.md-light.md-inactive { color: rgba(255, 255, 255, 0.3); }
