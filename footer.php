@@ -13,7 +13,6 @@
 		<!-- /#page-content-wrapper -->
 	</div>
 	<!-- /#wrapper -->
-
 	<script type="text/javascript">
 		var init;
 		(function(page){
@@ -28,7 +27,8 @@
 					document.getElementsByClassName("sidebar-bar-close")[0],
 					document.getElementsByClassName("navbar-menu-btn")[0]
 				];
-				[].forEach.call(menuToggleButtons, function(btn){
+				/** Add the event to everyone of the provided buttons */
+				[].forEach.call( menuToggleButtons, function(btn){
 					btn.onclick = function(e) {
 						e.preventDefault();
 						if( sideMenu.isOpen() ) {
@@ -38,6 +38,16 @@
 						}
 					}
 				});
+
+				/** Add the close to the `esc` keypress */
+				document.onkeyup = function( e ) {
+					var key_number = ( typeof e.which === "number" ) ? e.which : e.keyCode;
+					if( key_number === 27 ) {
+						if( sideMenu.isOpen() ) {
+							sideMenu.close();
+						}
+					}
+				}
 			}
 
 			/**
@@ -49,9 +59,32 @@
 
 				new SidebarNav_SubMenu( elements );
 			}
+
+			/**
+			 * Open the sidebar menu and focus the input when clicked
+			 * @return {Bool} undefined
+			 */
+			function sidebarSearchPatch() {
+				var sideMenu = SidebarMenu.getInstance();
+				var searchButton = document.querySelector("#sidebar-search-toggle");
+				var input = document.querySelectorAll('#sidebar-search-form .form-control')[0];
+					
+					/** Obey to the clicked event without modifying onclick */
+					searchButton.addEventListener('click', function( e ) {
+						if(! sideMenu.isOpen() ) {
+							sideMenu.open();
+							/* always open the search when this clicked */
+							searchButton.className = "toggled";
+							/** Focus input right away */
+							input.focus();
+						}
+					});
+			}
+
 			init = function() {
 				setSidebarMenu();
 				setSubmenuSidebar();
+				sidebarSearchPatch();
 			};
 			/** @type {function} triggers on page load */
 			page.onload = init;
