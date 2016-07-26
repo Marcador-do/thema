@@ -49,11 +49,11 @@ var SidebarMenu = (function() {
 		 */
 		var isOpen = function() {
 			var bool;
-			if (parentElement.classList) {
+			if ( parentElement.classList ) {
 				bool = parentElement.classList.contains( classOpener );
 			}
 			else {
-				bool = new RegExp('(^| )' + classOpener + '( |$)', 'gi').test(parentElement.className);
+				bool = new RegExp('(^| )' + classOpener + '( |$)', 'gi').test( parentElement.className );
 			}
 			return bool;
 		};
