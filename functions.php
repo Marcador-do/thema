@@ -15,9 +15,11 @@
  **/
 function marcador_styles() {
 	$google_roboto_font = 'https://fonts.googleapis.com/css?family=Material+Icons|Roboto:300,400,700';
+	$benton_marcador_font = '/assets/fonts/benton-marcador/font.css';
 	$twitter_bootstrap  = '/assets/vendor/bootstrap/css/bootstrap.min.css?id=5d472e23c7e390b505e8dd6606f3a9ce';
 
 	wp_enqueue_style( 'google-roboto-font', $google_roboto_font, array() );
+	wp_enqueue_style( 'benton-marcador-font', get_template_directory_uri() . $benton_marcador_font, array() );
 	wp_enqueue_style( 'twitter-bootstrap', get_template_directory_uri() . $twitter_bootstrap, array() );
 	wp_enqueue_style( 'marcador-main', get_template_directory_uri() . '/style.css', array('twitter-bootstrap'), '1.0.0' );
 }
@@ -38,3 +40,6 @@ function marcador_scripts() {
 add_action( 'wp_enqueue_scripts', 'marcador_styles' );
 // Load Scripts
 add_action( 'wp_enqueue_scripts', 'marcador_scripts' );
+
+
+add_theme_support( 'post-thumbnails' );
