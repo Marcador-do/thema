@@ -13,6 +13,7 @@
 		<!-- /#page-content-wrapper -->
 	</div>
 	<!-- /#wrapper -->
+	<?php wp_footer(); ?>
 	<script type="text/javascript">
 		var init;
 		(function(page){
