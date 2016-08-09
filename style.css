@@ -33,6 +33,9 @@ Colors:
 8. Sidebar footer copy
 9. Navbar submenu marcador
 10. Hero unit
+11. 11. Marcador Hero Post Scoreore
+12. Marcador Post Listing 
+13. Marcador archive, date, author, search generic title
 /*------------------------------*/
 
 /* 0. General Styling */
@@ -57,7 +60,8 @@ p {
 	transition: all 0.2s ease;
 }
 #wrapper.toggled {
-	margin-left: 64px;
+	// margin-left: 64px;
+	padding-left: 64px;
 }
 #sidebar-wrapper {
 	z-index: 1000;
@@ -94,6 +98,7 @@ p {
 		margin-left: 70px;
 	}
 	#wrapper.toggled {
+		padding-left: 0;
 		margin-left: 250px;
 	}
 	#sidebar-wrapper {
@@ -747,6 +752,7 @@ p {
 	padding: 11px 24px;
 	font-family: 'marcador-regular';
 	position: relative;
+	text-transform: uppercase;
 }
 #marcador-navbar-submenu .nav li.active a {
 	background-color: #707070;
@@ -766,12 +772,13 @@ p {
 }
 
 /* 10. Hero unit */
-.marcador-hero-post {}
+.marcador-hero-post {
+	margin-bottom: 15px;
+}
 
 .marcador-hero-unit {
 	position: relative;
 	min-height: 225px;
-	max-height: 300px;
 	background-color: #ccc;
 	background-size: cover;
 	background-position: center;
@@ -789,10 +796,258 @@ p {
     margin-top: 125px;
     margin-bottom: 25px;
     color: #fff;
+    text-decoration: none;
+}
+.marcador-hero-unit:hover .hero-heading h1,
+.marcador-hero-unit .hero-heading,
+.marcador-hero-permalink:hover,
+.marcador-hero-permalink:hover h1,
+.marcador-hero-unit .hero-heading h1:hover {
+	text-decoration: none;
+	outline: none;
 }
 @media screen and ( min-width: 480px ) {
 	.marcador-hero-unit {
 		margin-left: 0;
 		margin-right: 0;
+		min-height: 290px;
 	}
+	.marcador-hero-unit .hero-heading h1 {
+		margin-top: 200px;
+		font-size: 35px;
+		line-height: 1.2;
+		letter-spacing: 0.5px;
+	}
+}
+
+/* 11. Marcador Hero Post Score */
+.marcador-hero-post.score .marcador-hero-unit {
+	margin-bottom: 30px;
+	min-height: 340px;
+}
+.marcador-hero-post.score .hero-heading h1 {
+	color: #000;
+	font-size: 20px;
+}
+.marcador-hero-post.score .hero-heading .excerpt {
+	font-size: 16px;
+	color: #777;
+	margin-top: 10px;
+}
+.hero-score {
+    position: absolute;
+    bottom: -30px;
+    width: 100%;
+    color: #fff;
+}
+.score-marc {
+    position: relative;
+    width: 125px;
+    border: solid 8px #fff;
+    margin: 0 auto;
+    height: 95px;
+    border-radius: 5px;
+    background-color: #777;
+}
+.score-marc:before {
+	content: "";
+	position: absolute;
+	top: 7px;
+	left: 0;
+	width: 51%;
+	height: 50%;
+	border-right: solid 2px #fff;
+	display: block;
+	z-index: 1;
+}
+.team-name {
+    font-size: 16px;
+}
+.team-1, 
+.team-2 {
+    position: absolute;
+    bottom: 45px;
+    width: 30%;
+}
+.team-1 {
+	left: 0;
+	text-align: right;
+}
+.team-2 {
+    right: 0;
+    text-align: left;
+}
+.score-team-1,
+.score-team-2 {
+    position: absolute;
+    top: 0;
+    height: 100%;
+    background-color: #999;
+    width: 50%;
+    font-size: 3em;
+    text-align: center;
+}
+.score-team-1 {
+	left: 0;
+}
+.score-team-2 {
+    right: 0;
+}
+.score-status {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #3d3d3d;
+    text-align: center;
+    padding: 3px 0;
+    font-size: 12px;
+}
+@media screen and ( min-width: 480px ) {
+	.team-name {
+		font-size: 30px;
+	}
+	.team-1, 
+	.team-2 {
+	    width: 40%;
+	}
+}
+
+/* 12. Marcador Post Listing */
+.marcador-posts-listing-wrapper {
+	border-top: solid 1px #ececec;
+	padding-top: 25px;
+    margin-bottom: 25px;
+}
+.marcador-post-list-category a {
+    text-transform: uppercase;
+    font-weight: 700;
+    color: #6d6c6c;
+    font-style: italic;
+}
+.marcador-post-list-image {
+    height: 120px;
+    width: 100%;
+    background-color: #ccc;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.marcador-post-list .marcador-post-list-image-col {
+    padding: 0;
+}
+.marcador-post-list-title {
+    margin-top: 2px;
+    font-family: 'marcador-bold';
+    margin-bottom: 2px;
+}
+.marcador-post-list-excerpt {
+	font-family: 'marcador-regular';
+	color: #888;
+}
+.marcador-post-list-title a {
+	color: #333;
+}
+.marcador-post-list-meta a {
+    position: relative;
+    top: 17px;
+    font-size: 12px;
+    color: #aab0b5;
+    font-weight: 700;
+    text-align: right;
+    font-style: italic;
+}
+.marcador-post-list-author,
+.marcador-post-list-date {
+    display: inline-block;
+}
+.marcador-post-list-author {}
+.marcador-post-list-date {}
+.marcador-post-list .container-fluid {
+    padding-bottom: 25px;
+    border-bottom: solid 1px #ececec;
+}
+.marcador-post-list {
+    margin-bottom: 25px;
+}
+.marcador-post-list-fav {
+	display: inline-block;
+    position: absolute;
+    bottom: -25px;
+    right: 0;
+}
+.marcador-post-list-fav .material-icons {
+	color: #E80303;
+}
+@media screen and ( min-width: 480px ) {
+	.marcador-post-list-author a {
+		padding-right: 15px;
+	}
+	.marcador-post-list-date a {
+		padding-left: 15px;
+		border-left: solid 3px #aab0b5;
+	}
+}
+@media screen and ( min-width: 768px ) {
+	.marcador-post-list {
+		margin-left: 50px;	
+	}
+	.marcador-post-list-image {
+		min-height: 165px;
+	}
+}
+
+/* 13. Marcador archive, date, author, search generic title */
+#marcador-page-template {
+    margin-top: 15px;
+}
+.page-header-template {
+    padding: 5px 25px;
+    border-left: solid 10px #e80303;
+    box-shadow: 0 2px 4px #dadada;
+}
+.page-header-template .page-title {
+    font-style: italic;
+    font-size: 18px;
+    margin: 10px 0;
+    letter-spacing: 0.5px;
+}
+@media screen and ( min-width: 480px ) {
+	.page-header-template {
+		padding: 10px 25px;
+	}	
+	.page-header-template .page-title {
+		font-size: 24px;
+	}
+}
+
+#single-post-template-file {
+	margin-top: 15px;
+}
+.single-post-featured-image {
+	min-height: 400px;
+	background-color: #ccc;
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+}
+.single-post-featured-image-description {
+    font-size: 12px;
+    margin-top: 7px;
+    margin-bottom: 7px;
+    font-style: italic;
+    font-weight: 600;
+}
+.single-post-list-author a,
+.single-post-list-date a {
+    font-size: 14px;
+    color: #aab0b5;
+    font-weight: 700;
+    text-align: right;
+    font-style: italic;
+}
+.single-post-list-author,
+.single-post-list-date {
+    display: inline-block;
+    color: #aab0b5;
 }
