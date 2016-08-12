@@ -36,14 +36,19 @@
               $ID = ob_get_clean(); ?>
             <?php wp_nonce_field( 'marcadordo-form' ); ?>
             <input type="hidden" name="submitted" value="1">
-            <p><label>Nombre Completo: </label>
-            <input class="form-control input-lg" name="message_name" required="" type="text" /></p>
-            <p><label>Email: </label>
-            <input class="form-control input-lg" name="message_email" required="" type="text" /></p>
-            <p><label>Teléfono: </label>
-            <input class="form-control input-lg" name="message_phone" required="" type="text" /></p>
-            <p><label>Cuéntanos un poco acerca de ti: </label>
-            <textarea class="form-control input-lg" name="message_text"></textarea></p>
+
+            <p><label class="form-label-marc">Nombre completo: </label>
+            <input type="text" name="message_name" class="form-control input-lg" value="<?php echo esc_attr($_POST['message_name']); ?>" required /></p>
+            
+            <p><label class="form-label-marc">Email: </label>
+            <input type="text" name="message_email" class="form-control input-lg" value="<?php echo esc_attr($_POST['message_email']); ?>" required /></p>
+
+            <p><label class="form-label-marc">Teléfono: </label>
+            <input type="text" name="message_phone" class="form-control input-lg" value="<?php echo esc_attr($_POST['message_phone']); ?>" required /></p>
+
+            <p><label class="form-label-marc">Mensaje: </label>
+            <textarea name="message_text" class="form-control input-lg" required><?php echo esc_attr($_POST['message_text']); ?></textarea></p>
+            
             <div class="g-recaptcha" data-sitekey="6LdRKScTAAAAAJPyo5vFu88ynXXJ52hIisA4IQlv"></div>
             <p><input type="submit" class="btn btn-primary btn-lg" value="Enviar" /></p>
           </form>

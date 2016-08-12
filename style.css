@@ -36,6 +36,7 @@ Colors:
 11. 11. Marcador Hero Post Scoreore
 12. Marcador Post Listing 
 13. Marcador archive, date, author, search generic title
+14. Marcador content styles
 /*------------------------------*/
 
 /* 0. General Styling */
@@ -981,11 +982,11 @@ p {
 }
 @media screen and ( min-width: 480px ) {
 	.marcador-post-list-author a {
-		padding-right: 15px;
+		// padding-right: 15px;
 	}
 	.marcador-post-list-date a {
-		padding-left: 15px;
-		border-left: solid 3px #aab0b5;
+		// padding-left: 15px;
+		// border-left: solid 3px #aab0b5;
 	}
 }
 @media screen and ( min-width: 768px ) {
@@ -1024,8 +1025,11 @@ p {
 #single-post-template-file {
 	margin-top: 15px;
 }
+.single-post-title-content .single-post-title {
+	font-size: 24px;
+}
 .single-post-featured-image {
-	min-height: 400px;
+	min-height: 185px;
 	background-color: #ccc;
 	background-size: cover;
 	background-position: center;
@@ -1050,4 +1054,63 @@ p {
 .single-post-list-date {
     display: inline-block;
     color: #aab0b5;
+}
+.single-post-list-author a {
+	text-transform: uppercase;
+}
+@media screen and (min-width : 480px) {
+	.single-post-featured-image {
+		min-height: 400px;
+	}
+}
+
+/* 14. Marcador content styles */ 
+.single-post-content p {
+	font-size: 18px;
+}
+.single-post-content p strong {
+	font-family: 'marcador-bold';
+}
+.single-post-content iframe {
+	max-width: 100% !important;
+	height: auto;
+}
+.meta-divisor {
+    margin: 0 10px -4px 10px;
+    display: inline-block;
+    border: solid 1px;
+    height: 17px;
+}
+/* images */
+img.aligncenter {
+	display: block;
+    max-width: 100%;
+    height: auto;
+    margin: 0 auto;
+}
+img.alignnone.size-full {
+	display: block;
+    min-width: 100%;
+    max-width: 100%;
+    height: auto;
+}
+img.aligncenter.size-full {
+	display: block;
+    min-width: 100%;
+    max-width: 100%;
+    height: auto;
+    margin: 0 auto;
+}
+@media screen and (min-width : 480px) {
+	.single-post-content p {
+		font-size: 18px;
+	}
+}
+@media screen and (min-width : 990px) {
+	.single-post-content p {
+		font-size: 23px;
+	}
+	.single-post-title-content .single-post-title {
+		font-size: 40px;
+	}
 }

@@ -82,7 +82,7 @@
 												</div>
 												<div class="marcador-post-list-date">
 													<a href="<?php echo esc_url( get_day_link( $year = get_the_date('Y') , $month = get_the_date('m'), $day = get_the_date('d') ) ) ?>">
-														<?php the_date('M d, Y', '', ''); ?>
+														<?php the_date('M d, Y', '<div class="meta-divisor"></div>', ''); ?>
 													</a> 
 												</div>
 												<!-- Conditional if favorite -->

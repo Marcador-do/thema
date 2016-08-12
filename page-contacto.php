@@ -31,25 +31,25 @@
         <div class="page-content-template">
           <?php echo $response; ?>
           <?php the_content(); ?>
-          <form action="<?php the_permalink(); ?>" method="post" name="work-with-us-form">
+          <form action="<?php the_permalink(); ?>" method="post" name="contact-form">
             <?php ob_start(); the_ID();
               $ID = ob_get_clean(); ?>
             <?php wp_nonce_field( 'marcadordo-form' ); ?>
             <input type="hidden" name="submitted" value="1">
-            <p><label>Nombre: </label>
+            <p><label class="form-label-marc">Nombre: </label>
             <input type="text" name="message_name" class="form-control input-lg" value="<?php echo esc_attr($_POST['message_name']); ?>" required /></p>
-            <p><label>Email: </label>
+            <p><label class="form-label-marc">Email: </label>
             <input type="text" name="message_email" class="form-control input-lg" value="<?php echo esc_attr($_POST['message_email']); ?>" required /></p>
-            <p><label>Teléfono: </label>
+            <p><label class="form-label-marc">Teléfono: </label>
             <input type="text" name="message_phone" class="form-control input-lg" value="<?php echo esc_attr($_POST['message_phone']); ?>" required /></p>
-            <p><label>Asunto</label>
-              <input id="a" type="radio" name="message_asunto" value="anunciarse"> <label for="a">Anunciarse en nuestras plataformas</label><br>
-              <input type="radio" name="message_asunto" value="propuesta">  <label for="a">Propuesta de negocios</label><br>
-              <input type="radio" name="message_asunto" value="sugerencia"> Sugerencias</p>
-            <p><label>Nombre de la Empresa (Opcional): </label>
+            <p><label class="form-label-marc">Asunto</label><br>
+              <input id="anunciarse" type="radio" name="message_asunto" value="anunciarse"> <label for="anunciarse">Anunciarse en nuestras plataformas</label><br>
+              <input id="propuesta" type="radio" name="message_asunto" value="propuesta"> <label for="propuesta">Propuesta de negocios</label><br>
+              <input id="sugerencia" type="radio" name="message_asunto" value="sugerencia"> <label for="sugerencia">Sugerencias</label></p>
+            <p><label class="form-label-marc">Nombre de la Empresa (Opcional): </label>
             <input type="text" name="message_enterprise" class="form-control input-lg" value="<?php echo esc_attr($_POST['message_enterprise']); ?>" /></p>
-            <p><label>Mensaje (Opcional): </label>
-            <textarea name="message_text" class="form-control input-lg"><?php echo esc_attr($_POST['message_text']); ?></textarea></p>
+            <p><label class="form-label-marc">Mensaje: </label>
+            <textarea name="message_text" class="form-control input-lg" required><?php echo esc_attr($_POST['message_text']); ?></textarea></p>
             <div class="g-recaptcha" data-sitekey="6LdRKScTAAAAAJPyo5vFu88ynXXJ52hIisA4IQlv"></div>
             <p><input type="submit" class="btn btn-primary btn-lg" value="Enviar" /></p>
           </form>
