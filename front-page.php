@@ -125,10 +125,7 @@
 										<div class="col-xs-8 col-sm-7">
 											<div class="marcador-post-list-content">
 												<div class="marcador-post-list-category">
-													<a href="#category-permalink">
-														Tenis
-													</a> 
-														<?php the_category(); ?>
+														<?php the_category(', '); ?>
 												</div>
 												<div class="marcador-post-list-title">
 													<a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
