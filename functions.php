@@ -166,7 +166,6 @@ function marcador_mail_taxonomy_function() {
 		'show_admin_column'          => false,
 		'show_in_nav_menus'          => false,
 		'show_tagcloud'              => false,
-		'update_count_callback'      => 'marcador_mail_taxonomy_count_function',
 	);
 	register_taxonomy( 'marcador_mail_taxonomy', array( 'marcador_mail_post' ), $args );
 
