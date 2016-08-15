@@ -60,6 +60,7 @@
 
 <div class="container-fluid">
 	<div class="row">
+
 		<div class="col-xs-12 col-sm-12 col-lg-9">
 			<!-- Marcador posts -->
 			<div class="marcador-posts-listing-wrapper">
@@ -67,153 +68,122 @@
 					<div class="row">
 
 	<?php continue; endif; ?>
-
 			<?php include (get_template_directory() . "/includes/marcador_hero_post_list_item.include.php"); ?>
-
 <?php endwhile; ?>
 					</div>
 				</div>
 			</div>
 			<!-- .marcador-posts-listing -->
 		</div>
-	</div>
-</div>
 
-<?php
-	/**
-	 * Front page: First Section
-   */
-	$cat_first_section = get_category_by_slug( 'baloncesto' );
-	$display_type = 1;  // TODO: Get from options
-	$args = array(
-	//	'category_name'    => '', // TODO: get as option
-		'category__in'     => array( $cat_first_section->cat_ID ),
-		'post__not_in' => $destacadas_ids,
-		'post_type' => 'any',
-		'post_status' => array(
-			'publish',
-			),
-		'order'               => 'DESC',
-		'orderby'             => 'date',
-		'ignore_sticky_posts' => false,
-		'posts_per_page'         => 3,
-		'perm' => 'readable',
-	);
-	$first_section = new WP_Query( $args );
-?>
-<?php if ( $first_section->have_posts() ): ?>
+		<?php
+			/**
+			 * Front page: First Section
+		   */
+			$cat_first_section = get_category_by_slug( 'baloncesto' );
+			$display_type = 1;  // TODO: Get from options
+			$args = array(
+			//	'category_name'    => '', // TODO: get as option
+				'category__in'     => array( $cat_first_section->cat_ID ),
+				'post__not_in' => $destacadas_ids,
+				'post_type' => 'any',
+				'post_status' => array(
+					'publish',
+					),
+				'order'               => 'DESC',
+				'orderby'             => 'date',
+				'ignore_sticky_posts' => false,
+				'posts_per_page'         => 3,
+				'perm' => 'readable',
+			);
+			$first_section = new WP_Query( $args );
+		?>
+		<?php if ( $first_section->have_posts() ): ?>
+		<div class="col-xs-12 col-sm-12 col-lg-9">
+			<header class="page-header-template">
+				<h2 class="page-title"><?php echo $cat_first_section->name; ?></h2>
+			</header>
+			<br>
+		</div>
 
-<div id="marcador-page-template" class="search">
-	<div class="container-fluid">
-		<div class="row">
-			<div class="col-xs-12 col-sm-12 col-lg-9">
-				<header class="page-header-template">
-					<h2 class="page-title">
-						<?php echo $cat_first_section->name; ?>
-					</h2>
-				</header>
-			</div>
-		</div> 
-	</div>
-</div>
+			<?php while ( $first_section->have_posts() ): $first_section->the_post(); ?>
+				<?php if ( $first_section->current_post === 0 ):  ?>
+					<?php include (get_template_directory() . "/includes/marcador_hero_post.include.php"); ?>
 
-		<?php while ( $first_section->have_posts() ): $first_section->the_post(); ?>
-			<?php if ( $first_section->current_post === 0 ):  ?>
-				<?php include (get_template_directory() . "/includes/marcador_hero_post.include.php"); ?>
-
-<div class="container-fluid">
-	<div class="row">
 		<div class="col-xs-12 col-sm-12 col-lg-9">
 			<!-- Marcador posts -->
 			<div class="marcador-posts-listing-wrapper">
 				<div class="container-fluid">
 					<div class="row">
-			<?php continue; endif; ?>
+				<?php continue; endif; ?>
 
-				<?php include (get_template_directory() . "/includes/marcador_hero_post_list_item.include.php"); ?>
+					<?php include (get_template_directory() . "/includes/marcador_hero_post_list_item.include.php"); ?>
 
-
-		<?php endwhile; ?>
+			<?php endwhile; ?>
 					</div>
 				</div>
 			</div>
 		<!-- .marcador-posts-listing -->
 		</div>
-	</div>
-</div>
-<?php endif; ?>
+		<?php endif; ?>
 
 
-
-
-<?php
-	/**
-	 * Front page: First Section
-   */
-	$cat_second_section = get_category_by_slug( 'beisbol' );
-	$display_type = 1;  // TODO: Get from options
-	$args = array(
-	//	'category_name'    => '', // TODO: get as option
-		'category__in'     	=> array( $cat_second_section->cat_ID ),
-		'post__not_in' 			=> $destacadas_ids,
-		'post_type' 				=> 'any',
-		'post_status' 			=> array(
-			'publish',
-			),
-		'order'               => 'DESC',
-		'orderby'             => 'date',
-		'ignore_sticky_posts' => false,
-		'posts_per_page'         => 3,
-		'perm' => 'readable',
-	);
-	$second_section = new WP_Query( $args );
-?>
-<?php if ( $second_section->have_posts() ): ?>
-
-<div id="marcador-page-template" class="search">
-	<div class="container-fluid">
-		<div class="row">
-			<div class="col-xs-12 col-sm-12 col-lg-9">
-				<header class="page-header-template">
-					<h2 class="page-title">
-						<?php echo $cat_second_section->name; ?>
-					</h2>
-				</header>
-			</div>
-		</div> 
-	</div>
-</div>
-
-		<?php while ( $second_section->have_posts() ): $second_section->the_post(); ?>
-			<?php if ( $second_section->current_post === 0 ):  ?>
-				<?php include (get_template_directory() . "/includes/marcador_hero_post.include.php"); ?>
-
-<div class="container-fluid">
-	<div class="row">
+		<?php
+			/**
+			 * Front page: Second Section
+		   */
+			$cat_second_section = get_category_by_slug( 'beisbol' );
+			$display_type = 1;  // TODO: Get from options
+			$args = array(
+			//	'category_name'    => '', // TODO: get as option
+				'category__in'     	=> array( $cat_second_section->cat_ID ),
+				'post__not_in' 			=> $destacadas_ids,
+				'post_type' 				=> 'any',
+				'post_status' 			=> array(
+					'publish',
+					),
+				'order'               => 'DESC',
+				'orderby'             => 'date',
+				'ignore_sticky_posts' => false,
+				'posts_per_page'         => 3,
+				'perm' => 'readable',
+			);
+			$second_section = new WP_Query( $args );
+		?>
+		<?php if ( $second_section->have_posts() ): ?>
 		<div class="col-xs-12 col-sm-12 col-lg-9">
-			<!-- Marcador posts -->
-			<div class="marcador-posts-listing-wrapper">
-				<div class="container-fluid">
-					<div class="row">
-			<?php continue; endif; ?>
-
-				<?php include (get_template_directory() . "/includes/marcador_hero_post_list_item_one_col.include.php"); ?>
-
-
-		<?php endwhile; ?>
-					</div>
-				</div>
-			</div>
-		<!-- .marcador-posts-listing -->
+			<header class="page-header-template">
+				<h2 class="page-title"><?php echo $cat_second_section->name; ?></h2>
+			</header>
+			<br>
 		</div>
+
+				<?php while ( $second_section->have_posts() ): $second_section->the_post(); ?>
+					<?php if ( $second_section->current_post === 0 ):  ?>
+						<?php include (get_template_directory() . "/includes/marcador_hero_post.include.php"); ?>
+
+				<div class="col-xs-12 col-sm-12 col-lg-9">
+					<!-- Marcador posts -->
+					<div class="marcador-posts-listing-wrapper">
+						<div class="container-fluid">
+							<div class="row">
+					<?php continue; endif; ?>
+
+						<?php include (get_template_directory() . "/includes/marcador_hero_post_list_item_one_col.include.php"); ?>
+
+
+				<?php endwhile; ?>
+							</div>
+						</div>
+					</div>
+				<!-- .marcador-posts-listing -->
+				</div>
+
+		<?php endif; ?>
+
+
 	</div>
 </div>
-<?php endif; ?>
-
-
-
-
-
 
 <?php /*<div id="marcador-page-template" class="search">
 	<div class="container-fluid">
