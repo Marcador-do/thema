@@ -187,7 +187,7 @@ $logo_customizer = get_option( 'marcador_logo_setting_handler', get_template_dir
 						<a href="#" class="navbar-brand navbar-menu-btn">
 							<i class="material-icons md-light">menu</i>
 						</a>
-						<a class="navbar-brand" href="#">
+						<a class="navbar-brand" href="<?php echo home_url();?>">
 							<img id="logo" src="<?php echo $logo_customizer; ?>" height="24" width="130" alt="logo">
 						</a>
 					</div>
