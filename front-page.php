@@ -24,8 +24,15 @@
 <?php /* <!-- /#marcador-navbar-submenu --> */ ?>
 
 <?php
+	/**
+	 * Front page: Destacados
+   */
+	$cat_dest = get_category_by_slug( 'destacado' );
+	$cat_dests = get_category_by_slug( 'destacadas' );
+	$display_type = 2;  // TODO: Get from options
 	$args = array(
-		'category_name'    => 'destacado,destacadas',
+	//	'category_name'    => 'destacado,destacadas',
+		'category__in' => array( $cat_dest->cat_ID, $cat_dests->cat_ID ), // TODO: Get from options
 		'post_type' => 'any',
 		
 		'post_status' => array(
@@ -59,7 +66,7 @@
 
 	<?php continue; endif; ?>
 
-			<?php $col = 2; include (get_template_directory() . "/includes/marcador_hero_post_list_item.include.php"); ?>
+			<?php include (get_template_directory() . "/includes/marcador_hero_post_list_item.include.php"); ?>
 
 <?php endwhile; ?>
 					</div>
@@ -71,11 +78,16 @@
 </div>
 
 
-
-
 <?php
+	/**
+	 * Front page: First Section
+   */
+	$cat_first_section = get_category_by_slug( 'baloncesto' );
+	$display_type = 1;  // TODO: Get from options
 	$args = array(
-		'category_name'    => 'baloncesto', // TODO: get as option
+	//	'category_name'    => '', // TODO: get as option
+		'category__in'     => array( $cat_first_section->cat_ID ),
+		'category__not_in' => array( $cat_dest->cat_ID, $cat_dests->cat_ID ),
 		'post_type' => 'any',
 		'post_status' => array(
 			'publish',
@@ -83,11 +95,10 @@
 		'order'               => 'DESC',
 		'orderby'             => 'date',
 		'ignore_sticky_posts' => false,
-		'posts_per_page'         => 5,
+		'posts_per_page'         => 3,
 		'perm' => 'readable',
 	);
 	$first_section = new WP_Query( $args );
-	$cat = get_category_by_slug( 'baloncesto' );
 ?>
 <?php if ( $first_section->have_posts() ): ?>
 
@@ -97,7 +108,7 @@
 			<div class="col-xs-12 col-sm-12 col-lg-9">
 				<header class="page-header-template">
 					<h2 class="page-title">
-						<?php echo $cat->name; ?>
+						<?php echo $cat_first_section->name; ?>
 					</h2>
 				</header>
 			</div>
@@ -118,7 +129,7 @@
 					<div class="row">
 			<?php continue; endif; ?>
 
-				<?php $col = 1;  include (get_template_directory() . "/includes/marcador_hero_post_list_item.include.php"); ?>
+				<?php include (get_template_directory() . "/includes/marcador_hero_post_list_item.include.php"); ?>
 
 
 		<?php endwhile; ?>
@@ -130,6 +141,78 @@
 	</div>
 </div>
 <?php endif; ?>
+
+
+
+
+<?php
+	/**
+	 * Front page: First Section
+   */
+	$cat_second_section = get_category_by_slug( 'beisbol' );
+	$display_type = 1;  // TODO: Get from options
+	$args = array(
+	//	'category_name'    => '', // TODO: get as option
+		'category__in'     => array( $cat_second_section->cat_ID ),
+		'category__not_in' => array( $cat_dest->cat_ID, $cat_dests->cat_ID ),
+		'post_type' => 'any',
+		'post_status' => array(
+			'publish',
+			),
+		'order'               => 'DESC',
+		'orderby'             => 'date',
+		'ignore_sticky_posts' => false,
+		'posts_per_page'         => 3,
+		'perm' => 'readable',
+	);
+	$second_section = new WP_Query( $args );
+?>
+<?php if ( $second_section->have_posts() ): ?>
+
+<div id="marcador-page-template" class="search">
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-xs-12 col-sm-12 col-lg-9">
+				<header class="page-header-template">
+					<h2 class="page-title">
+						<?php echo $cat_second_section->name; ?>
+					</h2>
+				</header>
+			</div>
+		</div> 
+	</div>
+</div>
+
+		<?php while ( $second_section->have_posts() ): $second_section->the_post(); ?>
+			<?php if ( $second_section->current_post === 0 ):  ?>
+				<?php include (get_template_directory() . "/includes/marcador_hero_post.include.php"); ?>
+
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-xs-12 col-sm-12 col-lg-9">
+			<!-- Marcador posts -->
+			<div class="marcador-posts-listing-wrapper">
+				<div class="container-fluid">
+					<div class="row">
+			<?php continue; endif; ?>
+
+				<?php include (get_template_directory() . "/includes/marcador_hero_post_list_item.include.php"); ?>
+
+
+		<?php endwhile; ?>
+					</div>
+				</div>
+			</div>
+		<!-- .marcador-posts-listing -->
+		</div>
+	</div>
+</div>
+<?php endif; ?>
+
+
+
+
+
 
 <?php /*<div id="marcador-page-template" class="search">
 	<div class="container-fluid">
