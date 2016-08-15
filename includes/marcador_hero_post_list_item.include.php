@@ -1,5 +1,5 @@
 
-              <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 marcador-post-list" <?php if( $display_type === 2 ) { echo 'style="margin-left:0px;"'; } // TODO: This is a temporary fix ?>>
+              <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 marcador-post-list" style="margin-left:0px;">
                 <div class="container-fluid">
                   <div class="row">
                     <div class="col-xs-4 col-sm-5 marcador-post-list-image-col">
