@@ -78,7 +78,6 @@
 		</div>
 	</div>
 </div>
-<pre><?php print_r($destacadas_ids); ?></pre>
 
 <?php
 	/**
@@ -155,10 +154,10 @@
 	$display_type = 1;  // TODO: Get from options
 	$args = array(
 	//	'category_name'    => '', // TODO: get as option
-		'category__in'     => array( $cat_second_section->cat_ID ),
-		'post__not_in' => $destacadas_ids,
-		'post_type' => 'any',
-		'post_status' => array(
+		'category__in'     	=> array( $cat_second_section->cat_ID ),
+		'post__not_in' 			=> $destacadas_ids,
+		'post_type' 				=> 'any',
+		'post_status' 			=> array(
 			'publish',
 			),
 		'order'               => 'DESC',
