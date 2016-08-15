@@ -163,7 +163,7 @@ function marcador_mail_taxonomy_function() {
 		'hierarchical'               => false,
 		'public'                     => false,
 		'show_ui'                    => false,
-		'show_admin_column'          => false,
+		'show_admin_column'          => true,
 		'show_in_nav_menus'          => false,
 		'show_tagcloud'              => false,
 	);
