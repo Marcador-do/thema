@@ -45,9 +45,11 @@
 		'perm' => 'readable',
 	);
 	$destacadas = new WP_Query( $args );
+	$destacadas_ids = array();
 ?>
 
 <?php while ( $destacadas->have_posts() ): $destacadas->the_post(); ?>
+	<?php $destacadas_ids[] = get_the_ID(); ?>
 	<?php if ( $destacadas->current_post === 0 ):  ?>
 		
 		<?php if ( $destacadas->get_post_type() === "partido" ): ?>
@@ -76,7 +78,7 @@
 		</div>
 	</div>
 </div>
-
+<pre><?php print_r($destacadas_ids); ?></pre>
 
 <?php
 	/**
@@ -87,7 +89,7 @@
 	$args = array(
 	//	'category_name'    => '', // TODO: get as option
 		'category__in'     => array( $cat_first_section->cat_ID ),
-		'category__not_in' => array( $cat_dest->cat_ID, $cat_dests->cat_ID ),
+		'post__not_in' => $destacadas_ids,
 		'post_type' => 'any',
 		'post_status' => array(
 			'publish',
@@ -154,7 +156,7 @@
 	$args = array(
 	//	'category_name'    => '', // TODO: get as option
 		'category__in'     => array( $cat_second_section->cat_ID ),
-		'category__not_in' => array( $cat_dest->cat_ID, $cat_dests->cat_ID ),
+		'post__not_in' => $destacadas_ids,
 		'post_type' => 'any',
 		'post_status' => array(
 			'publish',
@@ -196,7 +198,7 @@
 					<div class="row">
 			<?php continue; endif; ?>
 
-				<?php include (get_template_directory() . "/includes/marcador_hero_post_list_item.include.php"); ?>
+				<?php include (get_template_directory() . "/includes/marcador_hero_post_list_item_one_col.include.php"); ?>
 
 
 		<?php endwhile; ?>
