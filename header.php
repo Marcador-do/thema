@@ -96,7 +96,7 @@ $logo_customizer = get_option( 'marcador_logo_setting_handler', get_template_dir
 						</span>
 						<span class="sidebar-menu-item">Deportes</span>
 					</a> 
-					<ul class="sidebar-nav-submenu">
+					<!-- <ul class="sidebar-nav-submenu">
 						<li><a href="#besibol">Beisbol</a></li>
 						<li><a href="#baloncesto">Baloncesto</a></li>
 						<li><a href="#futbol">Futbol</a></li>
@@ -105,7 +105,8 @@ $logo_customizer = get_option( 'marcador_logo_setting_handler', get_template_dir
 						<li><a href="#nascar">Nascar</a></li>
 						<li><a href="#nfl">NFL</a></li>
 						<li><a href="#tenis">Tenis</a></li>
-					</ul>
+					</ul> -->
+					<?php if ( has_nav_menu( 'primary' ) ) wp_nav_menu( $args = array('theme_location' => 'primary') ); ?>
 				</li>
 				<li>
 					<a href="#">

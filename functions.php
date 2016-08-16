@@ -45,7 +45,10 @@ function marcador_setup() {
 
 	// This theme uses wp_nav_menu() in one location.
 	register_nav_menus( array(
-		'primary' => esc_html__( 'Principal', 'marcadordo' ),
+		'primary' 			=> esc_html__( 'Principal', 'marcadordo' ), // Deportes
+		'primary_mas' 	=> esc_html__( 'Principal-Mas', 'marcadordo' ),
+		'primary_top' 	=> esc_html__( 'Principal-Top', 'marcadordo' ),
+		'deportes_top' 	=> esc_html__( 'Deportes', 'marcadordo' ),
 	) );
 
 	/*
