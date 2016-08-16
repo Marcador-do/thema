@@ -178,7 +178,21 @@ $logo_customizer = get_option( 'marcador_logo_setting_handler', get_template_dir
 						<li><a href="#nfl">NFL</a></li>
 						<li><a href="#tenis">Tenis</a></li>
 					</ul> -->
-					<?php if ( has_nav_menu( 'primary' ) ) wp_nav_menu( $args = array('theme_location' => 'primary') ); ?>
+
+					<?php 
+						if ( has_nav_menu( 'primary' ) ) {
+						 /**
+							* Displays a navigation menu
+							* @param array $args Arguments
+							*/
+							$args = array(
+								'theme_location' => 'primary',
+								'container' => '',
+								'menu_class' => 'sidebar-nav-submenu',
+							);
+							wp_nav_menu( $args );
+						}
+					?>
 				</li>
 				<li>
 					<a href="#">
