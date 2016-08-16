@@ -198,17 +198,20 @@ function banner() {
 						</span>
 						<span class="sidebar-menu-item">Deportes</span>
 					</a> 
-					<!-- <ul class="sidebar-nav-submenu">
-						<li><a href="#besibol">Beisbol</a></li>
-						<li><a href="#baloncesto">Baloncesto</a></li>
-						<li><a href="#futbol">Futbol</a></li>
-						<li><a href="#boxeo">Boxeo</a></li>
-						<li><a href="#voleibol">Voleibol</a></li>
-						<li><a href="#nascar">Nascar</a></li>
-						<li><a href="#nfl">NFL</a></li>
-						<li><a href="#tenis">Tenis</a></li>
-					</ul> -->
-					<?php if ( has_nav_menu( 'primary' ) ) wp_nav_menu( $args = array('theme_location' => 'primary') ); ?>
+					<?php 
+						if ( has_nav_menu( 'primary' ) ) {
+						 /**
+							* Displays a navigation menu
+							* @param array $args Arguments
+							*/
+							$args = array(
+								'theme_location' => 'primary',
+								'container' => '',
+								'menu_class' => 'sidebar-nav-submenu',
+							);
+							wp_nav_menu( $args );
+						}
+					?>
 				</li>
 				<li>
 					<a href="#">
