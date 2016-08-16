@@ -476,7 +476,7 @@ p {
     padding: 10px;
 }
 .navbar-marcador .navbar-header.pull-right ul li.logged-in a img {
-    width: 30px;
+    width: 40px;
     border-radius: 50%;
 }
 .navbar-marcador .navbar-header.pull-right ul li a:hover,
@@ -1148,7 +1148,8 @@ img.aligncenter.size-full {
 }
 .marcador-modal button[type='submit'],
 .btn.google,
-.btn.facebook {
+.btn.facebook,
+.marcador-special {
     border-radius: 0;
     padding: 8px;
     font-size: 13px;
@@ -1159,7 +1160,32 @@ img.aligncenter.size-full {
 	border-color: #3b5998;
 	background-color: #3b5998;
 }
+.marcador-special {
+	border-color: #333;
+	background-color: #333;
+	color: #fff;
+}
 .modal-form-copy {
     color: #868686;
     line-height: 1;
+}
+.marcador-modal-form [name='login-form'] {
+	margin-top: 72px;
+}
+#loginModal .modal-body {
+	padding-top: 10px;
+}
+@media screen and ( min-width : 480px ) {
+	.modal-col {
+	    position: relative;
+	}
+	.modal-col:after {
+	    content: "";
+	    position: absolute;
+	    right: 0;
+	    top: -15px;
+	    height: 100%;
+	    width: 1px;
+	    background-color: #fdf;
+	}
 }

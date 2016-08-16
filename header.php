@@ -48,11 +48,18 @@ function banner() {
 	<?php wp_head(); ?>
 </head>
 <body <?php body_class(); ?>>
+	
+	<?php /* Handler for modals */ ?>
 	<script type="text/javascript">
-	var _________ = jQuery || $;
-	_________(document).ready(function(){
-		_________('#registerModal').modal('show');
-	});
+		var mmm = jQuery || $;
+		mmm(document).ready(function(){
+			mmm('#registerModal').on('show.bs.modal', function(){ 
+				mmm('#loginModal').modal('hide');
+			});
+			mmm('#loginModal').on('show.bs.modal', function(){ 
+				mmm('#registerModal').modal('hide');
+			});
+		});
 	</script>
 	
 	<?php /* <!-- Register Modal --> */ ?>
@@ -83,18 +90,20 @@ function banner() {
 										</div>
 										<div class="form-group">
 											<button class="btn btn-danger btn-block" type="submit">
-												Registrarse
+												<?php echo __( 'Registrarse', 'marcadordo' ) ?>
 											</button>
 										</div>
 										<div class="form-group">
 											<p class="modal-form-copy text-center">
-												Al registrarte aceptas nuestras políticas de privacidad
+												<?php echo __( 'Al registrarte aceptas nuestras políticas de privacidad', 'marcadordo' ); ?>
 											</p>
 										</div>
 										<div class="form-group">
 											<p class="modal-form-copy text-center">
-												<strong>¿Ya tienes una cuenta en Marcador.do?</strong>
-												<a href="#" class="btn btn-link">Entra</a>
+												<strong><?php echo __( '¿Ya tienes una cuenta en Marcador.do?', 'marcadordo' ); ?></strong>
+												<a href="#" class="btn btn-link" data-toggle="modal" data-target="#loginModal">
+													<?php echo __( 'Entra', 'marcadordo' ); ?>
+												</a>
 											</p>
 										</div>
 									</form>
@@ -127,25 +136,74 @@ function banner() {
 		</div>
 	</div>
 	<?php /* <!-- ./Register Modal --> */ ?>
-	
-	<!-- Modal -->
-	<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-		<div class="modal-dialog" role="document">
+
+	<?php /* <!-- Login Modal --> */ ?>
+	<div class="modal fade marcador-modal" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel">
+		<div class="modal-dialog modal-md" role="document">
 			<div class="modal-content">
 				<div class="modal-header">
 					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-					<h4 class="modal-title" id="myModalLabel">Modal title</h4>
+					<h4 class="modal-title" id="myModalLabel"><?php echo __('acceder', 'marcadordo'); ?></h4>
 				</div>
 				<div class="modal-body">
-					...
-				</div>
-				<div class="modal-footer">
-					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-					<button type="button" class="btn btn-primary">Save changes</button>
+					<div class="container-fluid">
+						<div class="row">
+							<div class="col-sm-6 col-md-6 modal-col">
+								<div class="marcador-modal-form">
+									<form name="login-form">
+										<div class="form-group">
+											<input type="email" placeholder="<?php echo __('Nombre de Usuario o Correo Electrónico', 'marcadordo'); ?>" class="form-control modal-input">
+										</div>
+										<div class="form-group">
+											<input type="password" placeholder="<?php echo __('Contraseña', 'marcadordo'); ?>" class="form-control modal-input">
+										</div>
+										<div class="form-group">
+											<button class="btn btn-danger btn-block" type="submit">
+												<?php echo __( 'Acceder', 'marcadordo' ) ?>
+											</button>
+										</div>
+										<div class="form-group">
+											<p class="modal-form-copy text-center">
+												<a href="#">¿Olvidaste tu contraseña?</a>
+											</p>
+										</div>
+									</form>
+								</div> 
+							</div>
+							<div class="col-sm-6 col-md-6">
+								<div class="marcador-modal-form">
+									<div class="form-group">
+										<p class="modal-form-copy text-center">
+											<?php echo __( '¿Aún no tienes una cuenta de Marcador.do?', 'marcadordo' ); ?>
+											<br>
+											<?php echo __( 'Créala aquí completamente gratis.', 'marcadordo' ); ?>
+										</p>
+										<a href="#" class="btn btn-default btn-block marcador-special close-login" data-toggle="modal" data-target="#registerModal">
+											<?php echo __( 'Crear una Cuenta', 'marcadordo' ); ?>
+										</a>
+									</div>
+									<div class="form-group">
+										<hr>
+									</div>
+									<div class="form-group">
+										<a href="#google-handler" class="btn btn-danger btn-block google">
+											<?php echo __( 'Conéctate con Google', 'marcadordo' ); ?>
+										</a>
+									</div>
+									<div class="form-group">
+										<a href="#google-handler" class="btn btn-danger btn-block facebook">
+											<?php echo __( 'Conéctate con Facebook', 'marcadordo' ); ?>
+										</a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>
 	</div>
+	<?php /* <!-- ./Login Modal --> */ ?>
 
 	<?php /* <!-- Wrapper --> */ ?>
 	<div id="wrapper" class="<?php if( is_search()){ echo "toggled"; } ?>">
@@ -284,7 +342,7 @@ function banner() {
 							<?php if ( !is_user_logged_in() ):  ?>
 							 <!-- Not logged user  -->
 							<li>
-								<a href="#">
+								<a href="#" data-toggle="modal" data-target="#loginModal">
 									<i class="material-icons md-light">person</i>
 								</a>
 							</li>
