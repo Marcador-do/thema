@@ -193,22 +193,21 @@ $logo_customizer = get_option( 'marcador_logo_setting_handler', get_template_dir
 					</div>
 					<div class="navbar-header pull-right">
 						<ul class="nav pull-left">
-							<?php /* <!-- Not logged user 
+							<?php if ( !is_user_logged_in() ):  ?>
+							 <!-- Not logged user  -->
 							<li>
 								<a href="#">
 									<i class="material-icons md-light">person</i>
 								</a>
-							</li> 
-							*/ ?>
-							<?php /* --> */ ?>
+							</li>
+							<?php else: /* <!-- Logged user --> */ ?>
 							<?php /* <!-- END OF Not logged user --> */ ?>
-							<?php /* <!-- Logged user --> */ ?>
 							<li class="logged-in">
 								<a href="#userprofile">
-									<img src="http://placehold.it/50x50&text=IMG" alt="USER_NAME">
+									<?php echo get_avatar( get_current_user_id(), $size = 40); ?>
 								</a>
 							</li>
-							<?php /* <!-- END OF Logged user --> */ ?>
+							<?php endif; ?>
 							<li>
 								<a href="#score">Score</a>
 							</li>
