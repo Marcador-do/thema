@@ -40,25 +40,7 @@ $logo_customizer = get_option( 'marcador_logo_setting_handler', get_template_dir
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 	<link rel="profile" href="http://gmpg.org/xfn/11" />
 	<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />
-	<title>
-		<?php if ( is_category() ) {
-			echo 'Category Archive for &quot;'; single_cat_title(); echo '&quot; | '; bloginfo( 'name' );
-		} elseif ( is_tag() ) {
-			echo 'Tag Archive for &quot;'; single_tag_title(); echo '&quot; | '; bloginfo( 'name' );
-		} elseif ( is_archive() ) {
-			wp_title(''); echo ' Archive | '; bloginfo( 'name' );
-		} elseif ( is_search() ) {
-			echo 'Search for &quot;'.esc_html($s).'&quot; | '; bloginfo( 'name' );
-		} elseif ( is_home() || is_front_page() ) {
-			bloginfo( 'name' ); echo ' | '; bloginfo( 'description' );
-		}  elseif ( is_404() ) {
-			echo 'Error 404 Not Found | '; bloginfo( 'name' );
-		} elseif ( is_single() ) {
-			wp_title('');
-		} else {
-			echo wp_title( ' | ', 'false', 'right' ); bloginfo( 'name' );
-		} ?>
-	</title>
+	
 	<?php wp_head(); ?>
 </head>
 <body <?php body_class(); ?>>
