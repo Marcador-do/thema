@@ -31,6 +31,10 @@ AUTHORS;
  */
 $logo_customizer = get_option( 'marcador_logo_setting_handler', get_template_directory_uri() . '/assets/imgs/logo.png' );
 
+function banner() {
+	echo '<div style="background-color: #ccc; width: 100%; height: 210px; background-image: url(\'http://placehold.it/300x210&text=Anunciate+Aqui\'); background-size: cover; background-position: center; background-repeat: no-repeat;""></div>';
+}
+
 ?><!DOCTYPE html>
 <html <?php language_attributes(); ?>>
 <head>
@@ -82,6 +86,17 @@ $logo_customizer = get_option( 'marcador_logo_setting_handler', get_template_dir
 												Registrarse
 											</button>
 										</div>
+										<div class="form-group">
+											<p class="modal-form-copy text-center">
+												Al registrarte aceptas nuestras políticas de privacidad
+											</p>
+										</div>
+										<div class="form-group">
+											<p class="modal-form-copy text-center">
+												<strong>¿Ya tienes una cuenta en Marcador.do?</strong>
+												<a href="#" class="btn btn-link">Entra</a>
+											</p>
+										</div>
 									</form>
 								</div> 
 							</div>
@@ -92,13 +107,21 @@ $logo_customizer = get_option( 'marcador_logo_setting_handler', get_template_dir
 											<?php echo __( 'Conéctate con Google', 'marcadordo' ); ?>
 										</a>
 									</div>
+									<div class="form-group">
+										<a href="#google-handler" class="btn btn-danger btn-block facebook">
+											<?php echo __( 'Conéctate con Facebook', 'marcadordo' ); ?>
+										</a>
+									</div>
+									<div class="form-group">
+										<hr>
+									</div>
+									<div class="form-group">
+										<?php banner(); ?>
+									</div>
 								</div>
 							</div>
 						</div>
 					</div>
-				</div>
-				<div class="modal-footer">
-					footer
 				</div>
 			</div>
 		</div>

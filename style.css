@@ -52,6 +52,9 @@ h3 {
 p {
 	font-family: 'marcador-regular';
 }
+.text-center {
+    text-align: center;
+}
 /* 1. Wrapper */
 #wrapper {
 	padding-left: 0;
@@ -1144,10 +1147,19 @@ img.aligncenter.size-full {
     font-size: 13px;
 }
 .marcador-modal button[type='submit'],
-.btn.google {
+.btn.google,
+.btn.facebook {
     border-radius: 0;
     padding: 8px;
     font-size: 13px;
     border-color: #E80303;
     background-color: #E80303;
+}
+.btn.facebook {
+	border-color: #3b5998;
+	background-color: #3b5998;
+}
+.modal-form-copy {
+    color: #868686;
+    line-height: 1;
 }
