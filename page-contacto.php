@@ -30,7 +30,7 @@
       <div class="col-xs-12 div col-sm-12 col-md-12 col-lg-9">
         <div class="page-content-template">
           <?php echo $response; ?>
-          <?php the_content(); ?>
+          <?php /*the_content();*/ ?>
           <form action="<?php the_permalink(); ?>" method="post" name="contact-form">
             <?php ob_start(); the_ID();
               $ID = ob_get_clean(); ?>
