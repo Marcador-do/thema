@@ -115,9 +115,12 @@ function marcador_scripts() {
 
 	$sidebar_menu = '/assets/js/sidebar-menu.js';
 	$sidebar_nav_submenu = '/assets/js/sidebar-nav-submenu.js';
-	wp_enqueue_script("jquery");
+	$bootstrap_js = '/assets/vendor/bootstrap/js/bootstrap.min.js';
+
+	wp_enqueue_script( 'jquery' );
 	wp_enqueue_script( 'sidebar-menu', get_template_directory_uri() . $sidebar_menu, array(), '1.0.0' );
 	wp_enqueue_script( 'sidebar-nav-menu', get_template_directory_uri() . $sidebar_nav_submenu, array('sidebar-menu'), '1.0.0' );
+	wp_enqueue_script( 'bootstrap-js', get_template_directory_uri() . $bootstrap_js, 'jquery', '3', false );
 	// wp_enqueue_script( 'marcador-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true );
 
 	wp_enqueue_script( 'marcador-skip-link-focus-fix', get_template_directory_uri() . '/assets/js/skip-link-focus-fix.js', array(), '20151215', true );

@@ -37,6 +37,7 @@ Colors:
 12. Marcador Post Listing 
 13. Marcador archive, date, author, search generic title
 14. Marcador content styles
+15. Marcador Modals for Login and Access Purposes
 /*------------------------------*/
 
 /* 0. General Styling */
@@ -758,7 +759,9 @@ p {
 #marcador-navbar-submenu .nav li.active a {
 	background-color: #707070;
 }
-#marcador-navbar-submenu .nav li.active a:after {
+#marcador-navbar-submenu .nav li.active a:after, 
+.current-menu-item a:after, 
+.current_page_item a:after {
 	content: "";
 	position: absolute;
 	bottom: 0;;
@@ -1113,4 +1116,36 @@ img.aligncenter.size-full {
 	.single-post-title-content .single-post-title {
 		font-size: 40px;
 	}
+}
+
+/* 15. Marcador Modals for Login and Access Purposes */
+.marcador-modal {}
+.marcador-modal .modal-dialog {}
+.marcador-modal .modal-content {
+    border: solid 8px #d2cfcf;
+}
+.marcador-modal .modal-header {
+    padding-left: 25px;
+    padding-bottom: 8px;
+    background-color: #f9f9f9;
+    border-bottom: solid 1px #fdfdfd;
+}
+.marcador-modal .modal-header .modal-title {
+    text-transform: uppercase;
+    font-size: 17px;
+}
+.marcador-modal .modal-body {
+    padding: 25px;
+}
+.modal-input {
+    border-radius: 0;
+    box-shadow: none;
+    font-size: 13px;
+}
+.marcador-modal button[type='submit'] {
+    border-radius: 0;
+    padding: 8px;
+    font-size: 13px;
+    border-color: #E80303;
+    background-color: #E80303;
 }

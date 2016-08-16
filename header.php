@@ -45,6 +45,78 @@ $logo_customizer = get_option( 'marcador_logo_setting_handler', get_template_dir
 </head>
 <body <?php body_class(); ?>>
 	
+	<!-- Button trigger modal -->
+	<button id="TESET" type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#register">
+		Launch Register modal
+	</button>
+	
+	<?php /* <!-- Register Modal --> */ ?>
+	<div class="modal fade marcador-modal" id="register" tabindex="-1" role="dialog" aria-labelledby="registerModalLabel">
+		<div class="modal-dialog modal-md" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+					<h4 class="modal-title" id="myModalLabel"><?php echo __('registrarse', 'marcadordo'); ?></h4>
+				</div>
+				<div class="modal-body">
+					<div class="container-fluid">
+						<div class="row">
+							<div class="col-sm-6 col-md-6 modal-col">
+								<div class="marcador-modal-form">
+									<form name="register-form">
+										<div class="form-group">
+											<input type="email" placeholder="<?php echo __('Correo Electrónico', 'marcadordo'); ?>" class="form-control modal-input">
+										</div>
+										<div class="form-group">
+											<input type="text" placeholder="<?php echo __('Usuario', 'marcadordo'); ?>" class="form-control modal-input">
+										</div>
+										<div class="form-group">
+											<input type="password" placeholder="<?php echo __('Contraseña', 'marcadordo'); ?>" class="form-control modal-input">
+										</div>
+										<div class="form-group">
+											<input type="password" placeholder="<?php echo __('Confirmar Contraseña', 'marcadordo'); ?>" class="form-control modal-input">
+										</div>
+										<div class="form-group">
+											<button class="btn btn-danger btn-block" type="submit">
+												Registrarse
+											</button>
+										</div>
+									</form>
+								</div> 
+							</div>
+							<div class="col-sm-6 col-md-6">
+								Social Login Buttons
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="modal-footer">
+					footer
+				</div>
+			</div>
+		</div>
+	</div>
+	<?php /* <!-- ./Register Modal --> */ ?>
+	
+	<!-- Modal -->
+	<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+					<h4 class="modal-title" id="myModalLabel">Modal title</h4>
+				</div>
+				<div class="modal-body">
+					...
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+					<button type="button" class="btn btn-primary">Save changes</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
 	<?php /* <!-- Wrapper --> */ ?>
 	<div id="wrapper" class="<?php if( is_search()){ echo "toggled"; } ?>">
 		
