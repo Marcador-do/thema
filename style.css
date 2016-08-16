@@ -1136,13 +1136,15 @@ img.aligncenter.size-full {
 }
 .marcador-modal .modal-body {
     padding: 25px;
+    padding-top: 45px;
 }
 .modal-input {
     border-radius: 0;
     box-shadow: none;
     font-size: 13px;
 }
-.marcador-modal button[type='submit'] {
+.marcador-modal button[type='submit'],
+.btn.google {
     border-radius: 0;
     padding: 8px;
     font-size: 13px;

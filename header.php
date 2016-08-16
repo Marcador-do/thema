@@ -44,14 +44,15 @@ $logo_customizer = get_option( 'marcador_logo_setting_handler', get_template_dir
 	<?php wp_head(); ?>
 </head>
 <body <?php body_class(); ?>>
-	
-	<!-- Button trigger modal -->
-	<button id="TESET" type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#register">
-		Launch Register modal
-	</button>
+	<script type="text/javascript">
+	var _________ = jQuery || $;
+	_________(document).ready(function(){
+		_________('#registerModal').modal('show');
+	});
+	</script>
 	
 	<?php /* <!-- Register Modal --> */ ?>
-	<div class="modal fade marcador-modal" id="register" tabindex="-1" role="dialog" aria-labelledby="registerModalLabel">
+	<div class="modal fade marcador-modal" id="registerModal" tabindex="-1" role="dialog" aria-labelledby="registerModalLabel">
 		<div class="modal-dialog modal-md" role="document">
 			<div class="modal-content">
 				<div class="modal-header">
@@ -85,7 +86,13 @@ $logo_customizer = get_option( 'marcador_logo_setting_handler', get_template_dir
 								</div> 
 							</div>
 							<div class="col-sm-6 col-md-6">
-								Social Login Buttons
+								<div class="marcador-modal-form">
+									<div class="form-group">
+										<a href="#google-handler" class="btn btn-danger btn-block google">
+											<?php echo __( 'Conéctate con Google', 'marcadordo' ); ?>
+										</a>
+									</div>
+								</div>
 							</div>
 						</div>
 					</div>
