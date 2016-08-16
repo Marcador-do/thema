@@ -115,7 +115,7 @@ function marcador_scripts() {
 
 	$sidebar_menu = '/assets/js/sidebar-menu.js';
 	$sidebar_nav_submenu = '/assets/js/sidebar-nav-submenu.js';
-
+	wp_enqueue_script("jquery");
 	wp_enqueue_script( 'sidebar-menu', get_template_directory_uri() . $sidebar_menu, array(), '1.0.0' );
 	wp_enqueue_script( 'sidebar-nav-menu', get_template_directory_uri() . $sidebar_nav_submenu, array('sidebar-menu'), '1.0.0' );
 	// wp_enqueue_script( 'marcador-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true );

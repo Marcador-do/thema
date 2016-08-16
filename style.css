@@ -1071,10 +1071,7 @@ p {
 .single-post-content p strong {
 	font-family: 'marcador-bold';
 }
-.single-post-content iframe {
-	max-width: 100% !important;
-	height: auto;
-}
+
 .meta-divisor {
     margin: 0 10px -4px 10px;
     display: inline-block;
@@ -1104,6 +1101,9 @@ img.aligncenter.size-full {
 @media screen and (min-width : 480px) {
 	.single-post-content p {
 		font-size: 18px;
+	}
+	.single-post-content iframe {
+		min-width: 100% !important;
 	}
 }
 @media screen and (min-width : 990px) {
