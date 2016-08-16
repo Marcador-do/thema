@@ -11,16 +11,17 @@
 ?>
 <?php get_header(); ?>
 <?php /* <!-- #marcador-navbar-submenu --> */ ?>
-<div id="marcador-navbar-submenu">
-	<ul class="nav nav-pills">
-		<li class="active">
-			<a href="#noticias">Noticias</a>
-		</li>
-		<li>
-			<a href="#virales">Virales</a>
-		</li>
-	</ul>
-</div>
+<?php 
+	if ( has_nav_menu( 'primary_top' ) ) {
+		$args = array(
+			'theme_location' => 'primary_top',
+			'container_id' => 'marcador-navbar-submenu',
+			'menu_class' => 'nav nav-pills',
+			'depth' => 1,
+		);
+		wp_nav_menu( $args );
+	}
+?>
 <?php /* <!-- /#marcador-navbar-submenu --> */ ?>
 
 <?php
