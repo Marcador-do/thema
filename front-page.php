@@ -59,6 +59,8 @@
 			<?php include (get_template_directory() . "/includes/marcador_hero_post.include.php"); ?>
 		<?php endif; ?>
 
+		<?php include_once (get_template_directory() . "/includes/marcador_cintillo_estadisticas.include.php"); ?>
+
 <div class="container-fluid">
 	<div class="row">
 
