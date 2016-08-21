@@ -1199,22 +1199,20 @@ img.aligncenter.size-full {
 .cintillo-container {
 	position: relative;
 }
+#cintillo-selects-container {
+	display: block;
+	border-right: 1px solid #666;
+	position: relative;
+	z-index: 2;
+}
 #cintillo-selects {
-	width: 185px;
+	width: 100%;
     padding: 0 15px;
 	color:#f4f4f4; 
 	background-color: #333; 
 	min-height: 127px;
 	display: flex; 
 	align-items: center;
-}
-#cintillo-selects-container {
-	display: inline-block;
-	float: left;
-	border-right: 1px solid #666;
-	position: absolute;
-	left: 0;
-	z-index: 2;
 }
 #cintillo-selects select.form-control {
     border-radius: 0px;
@@ -1226,9 +1224,9 @@ img.aligncenter.size-full {
 }
 #cintillo-results-wrapper {
 	overflow-y: hidden;
-    width: 30%;
-    position: absolute;
-    left: 186px;
+    width: 100%;
+    position: relative;
+    left: 0;
 }
 #cintillo-results {
     padding: 0;
@@ -1276,10 +1274,10 @@ img.aligncenter.size-full {
     border-right: 1px solid #666;
     min-height: 127px;
     display: inline-block;
-    // float: left;
     line-height: 127px;
     position: absolute;
-    right: 0;
+    top: 127px;
+    right: 1px;
 }
 .cintillo-next-btn a {
 	color: #f4f4f4;
@@ -1304,8 +1302,85 @@ span.cintillo.field.score.away {
     float: right;
 }
 @media screen and ( min-width : 480px ) {
+	#cintillo-selects-container {
+		display: inline-block;
+		float: left;
+		position: absolute;
+		left: 0;
+		z-index: 2;
+	}
+	#cintillo-selects {
+		width: 185px;
+	    padding: 0 15px;
+		color:#f4f4f4; 
+		background-color: #333; 
+		min-height: 127px;
+		display: flex; 
+		align-items: center;
+	}
+	#cintillo-selects select.form-control {
+	    border-radius: 0px;
+	    border: 2px solid #ccc;
+	    margin: 0 4px;
+	    outline: 1px inset black;
+	    outline-offset: -1px;
+	    padding: 6px 8px;
+	}
 	#cintillo-results-wrapper {
+		position: absolute;
+	    left: 186px;
 		width: 70%;
+	}
+	.cintillo-result a {
+		text-decoration: none;
+	    color: #f4f4f4;
+	}
+	.cintillo-result a:before {
+		content: attr(placetext);
+		text-transform: uppercase;
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		left: 0;
+		top: 0;
+		background-color: #585858;
+		text-align: center;
+		line-height: 143px;
+		-webkit-transition: opacity 0.3s ease;
+		-moz-transition: opacity 0.3s ease;
+		-ms-transition: opacity 0.3s ease;
+		-o-transition: opacity 0.3s ease;
+		transition: opacity 0.3s ease;
+		opacity: 0;
+	}
+	.cintillo-result:hover a:before {
+		opacity: 1;
+	}
+	.cintillo-next-btn {
+	    right: 0;
+	    top: 0;
+	}
+	.cintillo-next-btn a {
+		color: #f4f4f4;
+		display: block;
+		padding: 0 15px;
+	}
+	h4.cintillo.field.title {
+	    font-size: 13px;
+	}
+	p.cintillo.field.team {
+	    font-size: 12px;
+	}
+	img.cintillo.field.image.home {}
+	img.cintillo.field.image.away {}
+
+	span.cintillo.field.name.home,
+	span.cintillo.field.name.away {
+	    text-align: left;
+	}
+	span.cintillo.field.score.home,
+	span.cintillo.field.score.away {
+	    float: right;
 	}
 }
 @media screen and ( min-width : 770px ) {

@@ -91,7 +91,7 @@ jQuery("#cintillo").ready(function() {
 			html.find('span.cintillo.field.score.away').text(current.away.runs);
 
 
-			jQuery("#cintillo-results").append(html).css('width', result_width);
+			jQuery("#cintillo-results").append(html).css('width', result_width + 48);
 			
 			// TODO: Remove loading
 			
