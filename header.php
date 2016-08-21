@@ -340,7 +340,7 @@ function banner() {
 					<div class="navbar-header pull-right">
 						<ul class="nav pull-left">
 							<?php if ( !is_user_logged_in() ):  ?>
-							 <!-- Not logged user  -->
+							 <?php /* <!-- Not logged user  --> */ ?>
 							<li>
 								<a href="#" data-toggle="modal" data-target="#loginModal">
 									<i class="material-icons md-light">person</i>

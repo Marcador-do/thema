@@ -9,50 +9,56 @@
  * @package marcadordo
  */
  
-get_header(); ?>
+get_header();
 
-<?php /* <!-- #marcador-navbar-submenu --> */ 
-	if ( has_nav_menu( 'primary_top' ) ) {
-		$args = array(
-			'theme_location' => 'primary_top',
-			'container_id' => 'marcador-navbar-submenu',
-			'menu_class' => 'nav nav-pills',
-			'depth' => 1,
-		);
-		wp_nav_menu( $args );
-	}
-/* <!-- /#marcador-navbar-submenu --> */ ?>
-
-
-<?php
+/**
+ * Asking if the primary_top menu exists
+ */
+if ( has_nav_menu( 'primary_top' ) ) {
 	/**
-	 * Front page: Destacados
-   */
-	$cat_dest = get_category_by_slug( 'destacado' );
-	$cat_dests = get_category_by_slug( 'destacadas' );
-	$display_type = 2;  // TODO: Get from options
+	 * WP_NAV_MENU Args
+	 * @var array
+	 */
 	$args = array(
-	//	'category_name'    => 'destacado,destacadas',
-		'category__in' => array( $cat_dest->cat_ID, $cat_dests->cat_ID ), // TODO: Get from options
-		'post_type' => 'any',
-		
-		'post_status' => array(
-			'publish',
-		),
-		'order'               => 'DESC',
-		'orderby'             => 'date',
-		'ignore_sticky_posts' => false,
-		'posts_per_page'         => 5,
-		'perm' => 'readable',
+		'theme_location' => 'primary_top',
+		'container_id' => 'marcador-navbar-submenu',
+		'menu_class' => 'nav nav-pills',
+		'depth' => 1,
 	);
-	$destacadas = new WP_Query( $args );
-	$destacadas_ids = array();
-?>
+	wp_nav_menu( $args );
+}
+/* /#marcador-navbar-submenu */
+
+/**
+ * Front page: Destacados
+*/
+$cat_dest = get_category_by_slug( 'destacado' );
+$cat_dests = get_category_by_slug( 'destacadas' );
+$display_type = 2;  // TODO: Get from options
+$args = array(
+//	'category_name'    => 'destacado,destacadas',
+	'category__in' => array( $cat_dest->cat_ID, $cat_dests->cat_ID ), // TODO: Get from options
+	'post_type' => 'any',
+	
+	'post_status' => array(
+		'publish',
+	),
+	'order'               => 'DESC',
+	'orderby'             => 'date',
+	'ignore_sticky_posts' => false,
+	'posts_per_page'         => 5,
+	'perm' => 'readable',
+);
+
+$destacadas = new WP_Query( $args );
+$destacadas_ids = array(); ?>
+
 
 <?php while ( $destacadas->have_posts() ): $destacadas->the_post(); ?>
+	
 	<?php $destacadas_ids[] = get_the_ID(); ?>
-	<?php if ( $destacadas->current_post === 0 ):  ?>
-		
+	
+	<?php if ( $destacadas->current_post === 0 ):  ?>	
 		<?php if ( $destacadas->get_post_type() === "partido" ): ?>
 			<?php include (get_template_directory() . "/includes/marcador_hero_post_score.include.php"); ?>
 		<?php else: ?>
@@ -61,14 +67,14 @@ get_header(); ?>
 
 		<?php include_once (get_template_directory() . "/includes/marcador_cintillo_estadisticas.include.php"); ?>
 
-<div class="container-fluid">
-	<div class="row">
+			<div class="container-fluid" richard-richard>
+				<div class="row">
 
-		<div class="col-xs-12 col-sm-12 col-lg-9">
-			<!-- Marcador posts -->
-			<div class="marcador-posts-listing-wrapper">
-				<div class="container-fluid">
-					<div class="row">
+					<div class="col-xs-12 col-sm-12 col-lg-9">
+						<!-- Marcador posts -->
+						<div class="marcador-posts-listing-wrapper">
+							<div class="container-fluid">
+								<div class="row">
 
 		<?php continue; endif; ?>
 			<?php include (get_template_directory() . "/includes/marcador_hero_post_list_item.include.php"); ?>

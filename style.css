@@ -258,7 +258,7 @@ p {
     padding: 15px;
     line-height: 3.5;
     background-color: #E80303;
-    height: 51px;
+    height: 61px;
 }
 @media screen and (min-width: 480px) {
 	.sidebar-nav li .sidebar-bar-close {

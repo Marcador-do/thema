@@ -170,4 +170,3 @@ jQuery("#cintillo").ready(function() {
 	});
 });
 </script>
-</div>
