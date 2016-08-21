@@ -74,7 +74,6 @@ jQuery("#cintillo").ready(function() {
 		var result_width = 0;
 		jQuery("#cintillo-results").empty();
 		var stat_template = '<?php echo preg_replace( "/\r|\n/", "", $stat_template ); ?>';
-		// var stat_template = '<?php ob_start(); include( get_template_directory() . "/includes/marcador_cintillo_estadisticas_single.include.php" ); $string = ob_get_clean(); echo $string; ?>';
 		var lol = jQuery( stat_template );
 		var cintillo = data.cintillo;
 
