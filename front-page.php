@@ -8,10 +8,10 @@
  * @author  Richard Blonder <richardblondet@gmail.com>
  * @package marcadordo
  */
-?>
-<?php get_header(); ?>
-<?php /* <!-- #marcador-navbar-submenu --> */ ?>
-<?php 
+ 
+get_header(); ?>
+
+<?php /* <!-- #marcador-navbar-submenu --> */ 
 	if ( has_nav_menu( 'primary_top' ) ) {
 		$args = array(
 			'theme_location' => 'primary_top',
@@ -21,8 +21,8 @@
 		);
 		wp_nav_menu( $args );
 	}
-?>
-<?php /* <!-- /#marcador-navbar-submenu --> */ ?>
+/* <!-- /#marcador-navbar-submenu --> */ ?>
+
 
 <?php
 	/**
@@ -70,9 +70,9 @@
 				<div class="container-fluid">
 					<div class="row">
 
-	<?php continue; endif; ?>
+		<?php continue; endif; ?>
 			<?php include (get_template_directory() . "/includes/marcador_hero_post_list_item.include.php"); ?>
-<?php endwhile; ?>
+		<?php endwhile; ?>
 					</div>
 				</div>
 			</div>
@@ -120,7 +120,7 @@
 					<div class="row">
 				<?php continue; endif; ?>
 
-					<?php include (get_template_directory() . "/includes/marcador_hero_post_list_item.include.php"); ?>
+					<?php include ( get_template_directory() . "/includes/marcador_hero_post_list_item.include.php" ); ?>
 
 			<?php endwhile; ?>
 					</div>
@@ -154,12 +154,12 @@
 			$second_section = new WP_Query( $args );
 		?>
 		<?php if ( $second_section->have_posts() ): ?>
-		<div class="col-xs-12 col-sm-12 col-lg-9">
-			<header class="page-header-template">
-				<h2 class="page-title"><?php echo $cat_second_section->name; ?></h2>
-			</header>
-			<br>
-		</div>
+				<div class="col-xs-12 col-sm-12 col-lg-9">
+					<header class="page-header-template">
+						<h2 class="page-title"><?php echo $cat_second_section->name; ?></h2>
+					</header>
+					<br>
+				</div>
 
 				<?php while ( $second_section->have_posts() ): $second_section->the_post(); ?>
 					<?php if ( $second_section->current_post === 0 ):  ?>

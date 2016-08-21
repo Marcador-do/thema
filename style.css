@@ -1189,13 +1189,22 @@ img.aligncenter.size-full {
 	    background-color: #fdf;
 	}
 }
-#cintillo {}
+
+
+#cintillo {
+	margin-bottom: 25px;
+	min-height: 127px;
+	width: 100%;
+}
+.cintillo-container {
+	position: relative;
+}
 #cintillo-selects {
 	width: 185px;
     padding: 0 15px;
 	color:#f4f4f4; 
 	background-color: #333; 
-	min-height: 150px;
+	min-height: 127px;
 	display: flex; 
 	align-items: center;
 }
@@ -1203,6 +1212,9 @@ img.aligncenter.size-full {
 	display: inline-block;
 	float: left;
 	border-right: 1px solid #666;
+	position: absolute;
+	left: 0;
+	z-index: 2;
 }
 #cintillo-selects select.form-control {
     border-radius: 0px;
@@ -1215,21 +1227,22 @@ img.aligncenter.size-full {
 #cintillo-results-wrapper {
 	overflow-y: hidden;
     width: 30%;
-    float: left;
+    position: absolute;
+    left: 186px;
 }
 #cintillo-results {
     padding: 0;
-    height: 150px;
+    height: 127px;
     width: 75%; /* <- DINAMIC */
 }
 .cintillo-result {
-    width: 135px;
+    width: 150px;
     float: left;
     display: inline;
     padding: 0 15px;
     background-color: #333;
     border-right: 1px solid #666;
-    min-height: 150px;
+    min-height: 127px;
     position: relative;
 }
 .cintillo-result a {
@@ -1260,18 +1273,43 @@ img.aligncenter.size-full {
 .cintillo-next-btn {
     background-color: #333;
     border-left: 1px solid #666;
-    min-height: 150px;
+    border-right: 1px solid #666;
+    min-height: 127px;
     display: inline-block;
-    float: left;
-    line-height: 150px;
+    // float: left;
+    line-height: 127px;
+    position: absolute;
+    right: 0;
 }
 .cintillo-next-btn a {
 	color: #f4f4f4;
 	display: block;
 	padding: 0 15px;
 }
+h4.cintillo.field.title {
+    font-size: 13px;
+}
+p.cintillo.field.team {
+    font-size: 12px;
+}
+img.cintillo.field.image.home {}
+img.cintillo.field.image.away {}
+
+span.cintillo.field.name.home,
+span.cintillo.field.name.away {
+    text-align: left;
+}
+span.cintillo.field.score.home,
+span.cintillo.field.score.away {
+    float: right;
+}
 @media screen and ( min-width : 480px ) {
 	#cintillo-results-wrapper {
 		width: 70%;
+	}
+}
+@media screen and ( min-width : 770px ) {
+	#cintillo-results-wrapper {
+		width: 78%;
 	}
 }

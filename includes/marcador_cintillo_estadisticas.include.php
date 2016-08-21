@@ -74,14 +74,13 @@ jQuery("#cintillo").ready(function() {
 		var result_width = 0;
 		jQuery("#cintillo-results").empty();
 		var stat_template = '<?php echo preg_replace( "/\r|\n/", "", $stat_template ); ?>';
-		// var stat_template = '<?php ob_start(); include( get_template_directory() . "/includes/marcador_cintillo_estadisticas_single.include.php" ); $string = ob_get_clean(); echo $string; ?>';
 		var lol = jQuery( stat_template );
 		var cintillo = data.cintillo;
 
 		for (var i = 0, len=cintillo.length; i < len; i++) {
 			var current = cintillo[i],
 				html = lol.clone();
-				result_width = result_width + 135;
+				result_width = result_width + 150;
 
 			html.find('h4.cintillo.field.title').text(current.status);
 			//html.find('span.cintillo.field.image.home').text(current.home.abbr);
@@ -149,7 +148,7 @@ jQuery("#cintillo").ready(function() {
 		
 		if( c == 0 ) {
 			jQuery('#cintillo-results-wrapper').animate({
-		        scrollLeft: '+=135'
+		        scrollLeft: '+=150'
 		    },{
 		        duration: 300,
 		        complete: function() {
