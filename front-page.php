@@ -178,7 +178,7 @@ $destacadas_ids = array(); ?>
 							<div class="row">
 					<?php continue; endif; ?>
 
-						<?php include (get_template_directory() . "/includes/marcador_hero_post_list_item_one_col.include.php"); ?>
+						<?php include (get_template_directory() . "/includes/marcador_hero_post_list_item_one_col-card.include.php"); ?>
 
 
 				<?php endwhile; ?>

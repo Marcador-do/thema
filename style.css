@@ -38,6 +38,8 @@ Colors:
 13. Marcador archive, date, author, search generic title
 14. Marcador content styles
 15. Marcador Modals for Login and Access Purposes
+16. Marcador Cintillo
+17. Post listing cards
 /*------------------------------*/
 
 /* 0. General Styling */
@@ -1190,7 +1192,7 @@ img.aligncenter.size-full {
 	}
 }
 
-
+/* 16. Marcador Cintillo */
 #cintillo {
 	margin-bottom: 25px;
 	min-height: 127px;
@@ -1387,4 +1389,24 @@ span.cintillo.field.score.away {
 	#cintillo-results-wrapper {
 		width: 78%;
 	}
+}
+
+/* 17. Post listing cards */
+
+.marcador-post-list.card, 
+.marcador-post-list.card-title {
+	margin-left: 0;
+}
+.marcador-post-list.card .container-fluid {
+    border: solid 1px #d9d9d9;
+}
+.marcador-post-list.card-title {
+    min-height: 80px;
+    padding-top: 15px;
+}
+.marcador-post-list.card .marcador-post-list-content {
+	padding: 15px;
+}
+.marcador-post-list.card .marcador-post-list-image {
+	min-height: 200px;
 }
