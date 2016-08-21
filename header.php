@@ -42,6 +42,7 @@ function banner() {
 	<meta charset="<?php bloginfo( 'charset' ); ?>" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<meta name="google-signin-client_id" content="465680398170-fk6tnqqmhleqffjpp5e58u5r3tgipjk1.apps.googleusercontent.com">
 	<link rel="profile" href="http://gmpg.org/xfn/11" />
 	<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />
 	
@@ -112,7 +113,8 @@ function banner() {
 							<div class="col-sm-6 col-md-6">
 								<div class="marcador-modal-form">
 									<div class="form-group">
-										<a href="#google-handler" class="btn btn-danger btn-block google">
+										<div class="g-signin2" data-onsuccess="onSignIn"></div>
+										<a href="#google-handler" class="btn btn-danger btn-block google ">
 											<?php echo __( 'Conéctate con Google', 'marcadordo' ); ?>
 										</a>
 									</div>

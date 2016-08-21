@@ -14,6 +14,19 @@
 	</div>
 	<!-- /#wrapper -->
 	<?php wp_footer(); ?>
+	<script src="https://apis.google.com/js/platform.js" async defer></script>
+	<script type="text/javascript">
+		function onSignIn(googleUser) {
+		  var profile = googleUser.getBasicProfile();
+		  console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
+		  console.log('Name: ' + profile.getName());
+		  console.log('Image URL: ' + profile.getImageUrl());
+		  console.log('Email: ' + profile.getEmail());
+
+		  var authResponse = googleUser.getAuthResponse();
+		  console.log(authResponse);
+		}
+	</script>
 	<script type="text/javascript">
 		var init;
 		(function(page){
