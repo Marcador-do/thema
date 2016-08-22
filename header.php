@@ -306,10 +306,10 @@ function banner() {
 					<a href="#twitter"><span class="marcador-icon twitter"></span></a>
 				</li>
 				<li>
-					<a href="#rss"><span class="marcador-icon rss"></span></a>
+					<a href="#instagram"><span class="marcador-icon instagram"></span></a>
 				</li>
 				<li>
-					<a href="#linkedin"><span class="marcador-icon linkedin"></span></a>
+					<a href="#rss"><span class="marcador-icon rss"></span></a>
 				</li>
 			</ul>
 			<div id="marcador-ref-links">

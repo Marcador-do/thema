@@ -616,6 +616,9 @@ p {
 .marcador-icon.twitter {
 	background-position: -131px -12px;
 }
+.marcador-icon.instagram {
+	background-position:  -10px -50px; 
+}
 @media screen and ( min-width: 480px ) {
 	#social.sidebar-nav {
 		position: absolute;
