@@ -57,9 +57,9 @@ $destacadas_ids = array(); ?>
 <?php while ( $destacadas->have_posts() ): $destacadas->the_post(); ?>
 	
 	<?php $destacadas_ids[] = get_the_ID(); ?>
-	
-	<?php if ( $destacadas->current_post === 0 ):  ?>	
-		<?php if ( $destacadas->get_post_type() === "partido" ): ?>
+
+	<?php if ( $destacadas->current_post === 0 ): ?>
+		<?php if ( get_post_type() === "marcador_partido" ): ?>
 			<?php include (get_template_directory() . "/includes/marcador_hero_post_score.include.php"); ?>
 		<?php else: ?>
 			<?php include (get_template_directory() . "/includes/marcador_hero_post.include.php"); ?>
