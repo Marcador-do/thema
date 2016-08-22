@@ -50,71 +50,73 @@ function banner() {
 </head>
 <body <?php body_class(); ?>>
 	
-	<?php /* <!-- Register Modal --> */ ?>
-	<div class="modal fade marcador-modal" id="registerModal" tabindex="-1" role="dialog" aria-labelledby="registerModalLabel">
-		<div class="modal-dialog modal-md" role="document">
-			<div class="modal-content">
-				<div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-					<h4 class="modal-title" id="myModalLabel"><?php echo __('registrarse', 'marcadordo'); ?></h4>
-				</div>
-				<div class="modal-body">
-					<div class="container-fluid">
-						<div class="row">
-							<div class="col-sm-6 col-md-6 modal-col">
-								<div class="marcador-modal-form">
-									<form name="register-form">
+	<?php if ( !is_user_logged_in() ):  ?>
+		<?php /* <!-- Register Modal --> */ ?>
+		<div class="modal fade marcador-modal" id="registerModal" tabindex="-1" role="dialog" aria-labelledby="registerModalLabel">
+			<div class="modal-dialog modal-md" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+						<h4 class="modal-title" id="myModalLabel"><?php echo __('registrarse', 'marcadordo'); ?></h4>
+					</div>
+					<div class="modal-body">
+						<div class="container-fluid">
+							<div class="row">
+								<div class="col-sm-6 col-md-6 modal-col">
+									<div class="marcador-modal-form">
+										<form name="register-form">
+											<div class="form-group">
+												<input type="email" placeholder="<?php echo __('Correo Electrónico', 'marcadordo'); ?>" class="form-control modal-input">
+											</div>
+											<div class="form-group">
+												<input type="text" placeholder="<?php echo __('Usuario', 'marcadordo'); ?>" class="form-control modal-input">
+											</div>
+											<div class="form-group">
+												<input type="password" placeholder="<?php echo __('Contraseña', 'marcadordo'); ?>" class="form-control modal-input">
+											</div>
+											<div class="form-group">
+												<input type="password" placeholder="<?php echo __('Confirmar Contraseña', 'marcadordo'); ?>" class="form-control modal-input">
+											</div>
+											<div class="form-group">
+												<button class="btn btn-danger btn-block" type="submit">
+													<?php echo __( 'Registrarse', 'marcadordo' ) ?>
+												</button>
+											</div>
+											<div class="form-group">
+												<p class="modal-form-copy text-center">
+													<?php echo __( 'Al registrarte aceptas nuestras políticas de privacidad', 'marcadordo' ); ?>
+												</p>
+											</div>
+											<div class="form-group">
+												<p class="modal-form-copy text-center">
+													<strong><?php echo __( '¿Ya tienes una cuenta en Marcador.do?', 'marcadordo' ); ?></strong>
+													<a href="#" class="btn btn-link" data-toggle="modal" data-target="#loginModal">
+														<?php echo __( 'Entra', 'marcadordo' ); ?>
+													</a>
+												</p>
+											</div>
+										</form>
+									</div> 
+								</div>
+								<div class="col-sm-6 col-md-6">
+									<div class="marcador-modal-form">
 										<div class="form-group">
-											<input type="email" placeholder="<?php echo __('Correo Electrónico', 'marcadordo'); ?>" class="form-control modal-input">
+											<div class="g-signin2" data-onsuccess="onSignIn"></div>
+											<a href="#google-handler" class="btn btn-danger btn-block google ">
+												<?php echo __( 'Conéctate con Google', 'marcadordo' ); ?>
+											</a>
 										</div>
 										<div class="form-group">
-											<input type="text" placeholder="<?php echo __('Usuario', 'marcadordo'); ?>" class="form-control modal-input">
+											<a href="#google-handler" class="btn btn-danger btn-block facebook">
+												<?php echo __( 'Conéctate con Facebook', 'marcadordo' ); ?>
+											</a>
 										</div>
 										<div class="form-group">
-											<input type="password" placeholder="<?php echo __('Contraseña', 'marcadordo'); ?>" class="form-control modal-input">
+											<hr>
 										</div>
 										<div class="form-group">
-											<input type="password" placeholder="<?php echo __('Confirmar Contraseña', 'marcadordo'); ?>" class="form-control modal-input">
+											<?php banner(); ?>
 										</div>
-										<div class="form-group">
-											<button class="btn btn-danger btn-block" type="submit">
-												<?php echo __( 'Registrarse', 'marcadordo' ) ?>
-											</button>
-										</div>
-										<div class="form-group">
-											<p class="modal-form-copy text-center">
-												<?php echo __( 'Al registrarte aceptas nuestras políticas de privacidad', 'marcadordo' ); ?>
-											</p>
-										</div>
-										<div class="form-group">
-											<p class="modal-form-copy text-center">
-												<strong><?php echo __( '¿Ya tienes una cuenta en Marcador.do?', 'marcadordo' ); ?></strong>
-												<a href="#" class="btn btn-link" data-toggle="modal" data-target="#loginModal">
-													<?php echo __( 'Entra', 'marcadordo' ); ?>
-												</a>
-											</p>
-										</div>
-									</form>
-								</div> 
-							</div>
-							<div class="col-sm-6 col-md-6">
-								<div class="marcador-modal-form">
-									<div class="form-group">
-										<div class="g-signin2" data-onsuccess="onSignIn"></div>
-										<a href="#google-handler" class="btn btn-danger btn-block google ">
-											<?php echo __( 'Conéctate con Google', 'marcadordo' ); ?>
-										</a>
-									</div>
-									<div class="form-group">
-										<a href="#google-handler" class="btn btn-danger btn-block facebook">
-											<?php echo __( 'Conéctate con Facebook', 'marcadordo' ); ?>
-										</a>
-									</div>
-									<div class="form-group">
-										<hr>
-									</div>
-									<div class="form-group">
-										<?php banner(); ?>
 									</div>
 								</div>
 							</div>
@@ -123,66 +125,66 @@ function banner() {
 				</div>
 			</div>
 		</div>
-	</div>
-	<?php /* <!-- ./Register Modal --> */ ?>
+		<?php /* <!-- ./Register Modal --> */ ?>
 
-	<?php /* <!-- Login Modal --> */ ?>
-	<div class="modal fade marcador-modal" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel">
-		<div class="modal-dialog modal-md" role="document">
-			<div class="modal-content">
-				<div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-					<h4 class="modal-title" id="myModalLabel"><?php echo __('acceder', 'marcadordo'); ?></h4>
-				</div>
-				<div class="modal-body">
-					<div class="container-fluid">
-						<div class="row">
-							<div class="col-sm-6 col-md-6 modal-col">
-								<div class="marcador-modal-form">
-									<form name="login-form">
-										<div class="form-group">
-											<input type="email" placeholder="<?php echo __('Nombre de Usuario o Correo Electrónico', 'marcadordo'); ?>" class="form-control modal-input">
-										</div>
-										<div class="form-group">
-											<input type="password" placeholder="<?php echo __('Contraseña', 'marcadordo'); ?>" class="form-control modal-input">
-										</div>
-										<div class="form-group">
-											<button class="btn btn-danger btn-block" type="submit">
-												<?php echo __( 'Acceder', 'marcadordo' ) ?>
-											</button>
-										</div>
+		<?php /* <!-- Login Modal --> */ ?>
+		<div class="modal fade marcador-modal" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel">
+			<div class="modal-dialog modal-md" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+						<h4 class="modal-title" id="myModalLabel"><?php echo __('acceder', 'marcadordo'); ?></h4>
+					</div>
+					<div class="modal-body">
+						<div class="container-fluid">
+							<div class="row">
+								<div class="col-sm-6 col-md-6 modal-col">
+									<div class="marcador-modal-form">
+										<form name="login-form">
+											<div class="form-group">
+												<input type="email" placeholder="<?php echo __('Nombre de Usuario o Correo Electrónico', 'marcadordo'); ?>" class="form-control modal-input">
+											</div>
+											<div class="form-group">
+												<input type="password" placeholder="<?php echo __('Contraseña', 'marcadordo'); ?>" class="form-control modal-input">
+											</div>
+											<div class="form-group">
+												<button class="btn btn-danger btn-block" type="submit">
+													<?php echo __( 'Acceder', 'marcadordo' ) ?>
+												</button>
+											</div>
+											<div class="form-group">
+												<p class="modal-form-copy text-center">
+													<a href="#" data-toggle="modal" data-target="#forgotModal">¿Olvidaste tu contraseña?</a>
+												</p>
+											</div>
+										</form>
+									</div> 
+								</div>
+								<div class="col-sm-6 col-md-6">
+									<div class="marcador-modal-form">
 										<div class="form-group">
 											<p class="modal-form-copy text-center">
-												<a href="#" data-toggle="modal" data-target="#forgotModal">¿Olvidaste tu contraseña?</a>
+												<?php echo __( '¿Aún no tienes una cuenta de Marcador.do?', 'marcadordo' ); ?>
+												<br>
+												<?php echo __( 'Créala aquí completamente gratis.', 'marcadordo' ); ?>
 											</p>
+											<a href="#" class="btn btn-default btn-block marcador-special close-login" data-toggle="modal" data-target="#registerModal">
+												<?php echo __( 'Crear una Cuenta', 'marcadordo' ); ?>
+											</a>
 										</div>
-									</form>
-								</div> 
-							</div>
-							<div class="col-sm-6 col-md-6">
-								<div class="marcador-modal-form">
-									<div class="form-group">
-										<p class="modal-form-copy text-center">
-											<?php echo __( '¿Aún no tienes una cuenta de Marcador.do?', 'marcadordo' ); ?>
-											<br>
-											<?php echo __( 'Créala aquí completamente gratis.', 'marcadordo' ); ?>
-										</p>
-										<a href="#" class="btn btn-default btn-block marcador-special close-login" data-toggle="modal" data-target="#registerModal">
-											<?php echo __( 'Crear una Cuenta', 'marcadordo' ); ?>
-										</a>
-									</div>
-									<div class="form-group">
-										<hr>
-									</div>
-									<div class="form-group">
-										<a href="#google-handler" class="btn btn-danger btn-block google">
-											<?php echo __( 'Conéctate con Google', 'marcadordo' ); ?>
-										</a>
-									</div>
-									<div class="form-group">
-										<a href="#google-handler" class="btn btn-danger btn-block facebook">
-											<?php echo __( 'Conéctate con Facebook', 'marcadordo' ); ?>
-										</a>
+										<div class="form-group">
+											<hr>
+										</div>
+										<div class="form-group">
+											<a href="#google-handler" class="btn btn-danger btn-block google">
+												<?php echo __( 'Conéctate con Google', 'marcadordo' ); ?>
+											</a>
+										</div>
+										<div class="form-group">
+											<a href="#google-handler" class="btn btn-danger btn-block facebook">
+												<?php echo __( 'Conéctate con Facebook', 'marcadordo' ); ?>
+											</a>
+										</div>
 									</div>
 								</div>
 							</div>
@@ -191,46 +193,46 @@ function banner() {
 				</div>
 			</div>
 		</div>
-	</div>
-	<?php /* <!-- ./Login Modal --> */ ?>
+		<?php /* <!-- ./Login Modal --> */ ?>
 
-	<?php /* <!-- Password Forgot Modal */ ?>
-	<div class="modal fade marcador-modal" id="forgotModal" tabindex="-1" role="dialog" aria-labelledby="forgotModalLabel">
-		<div class="modal-dialog modal-md" role="document">
-			<div class="modal-content">
-				<div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-					<h4 class="modal-title" id="myModalLabel"><?php echo __('recuperar contraseña', 'marcadordo'); ?></h4>
-				</div>
-				<div class="modal-body">
-					<div class="container-fluid">
-						<div class="row">
-							<div class="col-xs-12 col-sm-12 col-md-12 modal-col">
-								<div class="marcador-modal-form">
-									<form name="forgot-form">
-										<div class="form-group">
-											<input type="email" placeholder="<?php echo __('Inserta Tu Correo Electrónico', 'marcadordo'); ?>" class="form-control modal-input">
-										</div>
-										<div class="form-group">
-											<button class="btn btn-danger btn-block" type="submit">
-												<?php echo __( 'Recuperar', 'marcadordo' ); ?>
-											</button>
-										</div>
-										<div class="form-group">
-											<p class="modal-form-copy text-center">
-												<a href="#" data-toggle="modal" data-target="#loginModal"><?php echo __( 'Cancelar e Iniciar sesión', 'marcadordo' ); ?></a>
-											</p>
-										</div>
-									</form>
-								</div> 
+		<?php /* <!-- Password Forgot Modal */ ?>
+		<div class="modal fade marcador-modal" id="forgotModal" tabindex="-1" role="dialog" aria-labelledby="forgotModalLabel">
+			<div class="modal-dialog modal-md" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+						<h4 class="modal-title" id="myModalLabel"><?php echo __('recuperar contraseña', 'marcadordo'); ?></h4>
+					</div>
+					<div class="modal-body">
+						<div class="container-fluid">
+							<div class="row">
+								<div class="col-xs-12 col-sm-12 col-md-12 modal-col">
+									<div class="marcador-modal-form">
+										<form name="forgot-form">
+											<div class="form-group">
+												<input type="email" placeholder="<?php echo __('Inserta Tu Correo Electrónico', 'marcadordo'); ?>" class="form-control modal-input">
+											</div>
+											<div class="form-group">
+												<button class="btn btn-danger btn-block" type="submit">
+													<?php echo __( 'Recuperar', 'marcadordo' ); ?>
+												</button>
+											</div>
+											<div class="form-group">
+												<p class="modal-form-copy text-center">
+													<a href="#" data-toggle="modal" data-target="#loginModal"><?php echo __( 'Cancelar e Iniciar sesión', 'marcadordo' ); ?></a>
+												</p>
+											</div>
+										</form>
+									</div> 
+								</div>
 							</div>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
-	</div>
-	<?php /* <!-- ./Password Forgot Modal */ ?>
+		<?php /* <!-- ./Password Forgot Modal */ ?>
+	<?php endif; ?>
 
 	<?php /* <!-- Wrapper --> */ ?>
 	<div id="wrapper" class="<?php if( is_search()){ echo "toggled"; } ?>">

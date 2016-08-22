@@ -100,17 +100,19 @@
 				setSubmenuSidebar();
 				sidebarSearchPatch();
 
-				<?php /* Handler for modals */ ?>
-				jQuery('#registerModal').on('show.bs.modal', function(){ 
-					jQuery('#loginModal').modal('hide');
-				});
-				jQuery('#loginModal').on('show.bs.modal', function(){ 
-					jQuery('#registerModal').modal('hide');
-					jQuery('#forgotModal').modal('hide');
-				});
-				jQuery('#forgotModal').on('show.bs.modal', function(){ 
-					jQuery('#loginModal').modal('hide');
-				});
+				<?php if ( !is_user_logged_in() ):  ?>
+					<?php /* Handler for modals */ ?>
+					jQuery('#registerModal').on('show.bs.modal', function(){ 
+						jQuery('#loginModal').modal('hide');
+					});
+					jQuery('#loginModal').on('show.bs.modal', function(){ 
+						jQuery('#registerModal').modal('hide');
+						jQuery('#forgotModal').modal('hide');
+					});
+					jQuery('#forgotModal').on('show.bs.modal', function(){ 
+						jQuery('#loginModal').modal('hide');
+					});
+				<?php endif; ?>
 			};
 			/** @type {function} triggers on page load */
 			page.onload = init;
