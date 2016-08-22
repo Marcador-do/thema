@@ -207,3 +207,5 @@ add_filter( 'body_class', 'marcador_body_classes' );
  */
 require get_template_directory() . '/customizers/normalize.php';
 require get_template_directory() . '/customizers/logo/logo.php';
+
+date_default_timezone_set ( 'America/Santo_Domingo' );
