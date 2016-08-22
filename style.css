@@ -38,6 +38,8 @@ Colors:
 13. Marcador archive, date, author, search generic title
 14. Marcador content styles
 15. Marcador Modals for Login and Access Purposes
+16. Marcador Cintillo
+17. Post listing cards
 /*------------------------------*/
 
 /* 0. General Styling */
@@ -258,7 +260,7 @@ p {
     padding: 15px;
     line-height: 3.5;
     background-color: #E80303;
-    height: 51px;
+    height: 61px;
 }
 @media screen and (min-width: 480px) {
 	.sidebar-nav li .sidebar-bar-close {
@@ -1189,20 +1191,30 @@ img.aligncenter.size-full {
 	    background-color: #fdf;
 	}
 }
-#cintillo {}
+
+/* 16. Marcador Cintillo */
+#cintillo {
+	margin-bottom: 25px;
+	min-height: 127px;
+	width: 100%;
+}
+.cintillo-container {
+	position: relative;
+}
+#cintillo-selects-container {
+	display: block;
+	border-right: 1px solid #666;
+	position: relative;
+	z-index: 2;
+}
 #cintillo-selects {
-	width: 185px;
+	width: 100%;
     padding: 0 15px;
 	color:#f4f4f4; 
 	background-color: #333; 
-	min-height: 150px;
+	min-height: 127px;
 	display: flex; 
 	align-items: center;
-}
-#cintillo-selects-container {
-	display: inline-block;
-	float: left;
-	border-right: 1px solid #666;
 }
 #cintillo-selects select.form-control {
     border-radius: 0px;
@@ -1214,22 +1226,23 @@ img.aligncenter.size-full {
 }
 #cintillo-results-wrapper {
 	overflow-y: hidden;
-    width: 30%;
-    float: left;
+    width: 100%;
+    position: relative;
+    left: 0;
 }
 #cintillo-results {
     padding: 0;
-    height: 150px;
+    height: 127px;
     width: 75%; /* <- DINAMIC */
 }
 .cintillo-result {
-    width: 135px;
+    width: 150px;
     float: left;
     display: inline;
     padding: 0 15px;
     background-color: #333;
     border-right: 1px solid #666;
-    min-height: 150px;
+    min-height: 127px;
     position: relative;
 }
 .cintillo-result a {
@@ -1260,18 +1273,140 @@ img.aligncenter.size-full {
 .cintillo-next-btn {
     background-color: #333;
     border-left: 1px solid #666;
-    min-height: 150px;
+    border-right: 1px solid #666;
+    min-height: 127px;
     display: inline-block;
-    float: left;
-    line-height: 150px;
+    line-height: 127px;
+    position: absolute;
+    top: 127px;
+    right: 1px;
 }
 .cintillo-next-btn a {
 	color: #f4f4f4;
 	display: block;
 	padding: 0 15px;
 }
+h4.cintillo.field.title {
+    font-size: 13px;
+}
+p.cintillo.field.team {
+    font-size: 12px;
+}
+img.cintillo.field.image.home {}
+img.cintillo.field.image.away {}
+
+span.cintillo.field.name.home,
+span.cintillo.field.name.away {
+    text-align: left;
+}
+span.cintillo.field.score.home,
+span.cintillo.field.score.away {
+    float: right;
+}
 @media screen and ( min-width : 480px ) {
+	#cintillo-selects-container {
+		display: inline-block;
+		float: left;
+		position: absolute;
+		left: 0;
+		z-index: 2;
+	}
+	#cintillo-selects {
+		width: 185px;
+	    padding: 0 15px;
+		color:#f4f4f4; 
+		background-color: #333; 
+		min-height: 127px;
+		display: flex; 
+		align-items: center;
+	}
+	#cintillo-selects select.form-control {
+	    border-radius: 0px;
+	    border: 2px solid #ccc;
+	    margin: 0 4px;
+	    outline: 1px inset black;
+	    outline-offset: -1px;
+	    padding: 6px 8px;
+	}
 	#cintillo-results-wrapper {
+		position: absolute;
+	    left: 186px;
 		width: 70%;
 	}
+	.cintillo-result a {
+		text-decoration: none;
+	    color: #f4f4f4;
+	}
+	.cintillo-result a:before {
+		content: attr(placetext);
+		text-transform: uppercase;
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		left: 0;
+		top: 0;
+		background-color: #585858;
+		text-align: center;
+		line-height: 143px;
+		-webkit-transition: opacity 0.3s ease;
+		-moz-transition: opacity 0.3s ease;
+		-ms-transition: opacity 0.3s ease;
+		-o-transition: opacity 0.3s ease;
+		transition: opacity 0.3s ease;
+		opacity: 0;
+	}
+	.cintillo-result:hover a:before {
+		opacity: 1;
+	}
+	.cintillo-next-btn {
+	    right: 0;
+	    top: 0;
+	}
+	.cintillo-next-btn a {
+		color: #f4f4f4;
+		display: block;
+		padding: 0 15px;
+	}
+	h4.cintillo.field.title {
+	    font-size: 13px;
+	}
+	p.cintillo.field.team {
+	    font-size: 12px;
+	}
+	img.cintillo.field.image.home {}
+	img.cintillo.field.image.away {}
+
+	span.cintillo.field.name.home,
+	span.cintillo.field.name.away {
+	    text-align: left;
+	}
+	span.cintillo.field.score.home,
+	span.cintillo.field.score.away {
+	    float: right;
+	}
+}
+@media screen and ( min-width : 770px ) {
+	#cintillo-results-wrapper {
+		width: 78%;
+	}
+}
+
+/* 17. Post listing cards */
+
+.marcador-post-list.card, 
+.marcador-post-list.card-title {
+	margin-left: 0;
+}
+.marcador-post-list.card .container-fluid {
+    border: solid 1px #d9d9d9;
+}
+.marcador-post-list.card-title {
+    min-height: 80px;
+    padding-top: 15px;
+}
+.marcador-post-list.card .marcador-post-list-content {
+	padding: 15px;
+}
+.marcador-post-list.card .marcador-post-list-image {
+	min-height: 200px;
 }

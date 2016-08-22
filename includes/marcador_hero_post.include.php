@@ -2,12 +2,12 @@
 <div class="marcador-hero-post">
   <div class="container-fluid">
     <div class="row">
-      <div class="col-lg-9 col-md-12 col-sm-12">
+      <div class="col-lg-9 col-md-12 col-sm-12 col-xs-12">
         <a class="marcador-hero-permalink" href="<?php the_permalink(); ?>">
           <header class="marcador-hero-unit" style="background-image: url('<?php echo the_post_thumbnail_url(); ?>');">
             <div class="container-fluid">
               <div class="row">
-                <div class="col-sm-12">
+                <div class="col-sm-12 col-xs-12">
                   <div class="hero-heading">
                     <h1 class="heading">
                       <?php the_title(); ?>

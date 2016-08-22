@@ -80,7 +80,7 @@ jQuery("#cintillo").ready(function() {
 		for (var i = 0, len=cintillo.length; i < len; i++) {
 			var current = cintillo[i],
 				html = lol.clone();
-				result_width = result_width + 135;
+				result_width = result_width + 150;
 
 			html.find('h4.cintillo.field.title').text(current.status);
 			//html.find('span.cintillo.field.image.home').text(current.home.abbr);
@@ -91,7 +91,7 @@ jQuery("#cintillo").ready(function() {
 			html.find('span.cintillo.field.score.away').text(current.away.runs);
 
 
-			jQuery("#cintillo-results").append(html).css('width', result_width);
+			jQuery("#cintillo-results").append(html).css('width', result_width + 35);
 			
 			// TODO: Remove loading
 			
@@ -148,7 +148,7 @@ jQuery("#cintillo").ready(function() {
 		
 		if( c == 0 ) {
 			jQuery('#cintillo-results-wrapper').animate({
-		        scrollLeft: '+=135'
+		        scrollLeft: '+=150'
 		    },{
 		        duration: 300,
 		        complete: function() {
@@ -170,4 +170,3 @@ jQuery("#cintillo").ready(function() {
 	});
 });
 </script>
-</div>
