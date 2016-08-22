@@ -67,12 +67,12 @@ $destacadas_ids = array(); ?>
 
 		<?php include_once (get_template_directory() . "/includes/marcador_cintillo_estadisticas.include.php"); ?>
 
-			<div class="container-fluid" richard-richard>
+			<div class="container-fluid">
 				<div class="row">
 
 					<div class="col-xs-12 col-sm-12 col-lg-9">
 						<!-- Marcador posts -->
-						<div class="marcador-posts-listing-wrapper">
+						<div class="marcador-posts-listing-wrapper cards">
 							<div class="container-fluid">
 								<div class="row">
 
@@ -121,7 +121,7 @@ $destacadas_ids = array(); ?>
 
 		<div class="col-xs-12 col-sm-12 col-lg-9">
 			<!-- Marcador posts -->
-			<div class="marcador-posts-listing-wrapper">
+			<div class="marcador-posts-listing-wrapper cards-wrapper">
 				<div class="container-fluid">
 					<div class="row">
 				<?php continue; endif; ?>

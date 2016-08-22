@@ -1396,14 +1396,13 @@ span.cintillo.field.score.away {
 
 /* 17. Post listing cards */
 
+.marcador-post-list.card .container-fluid {
+	padding-bottom: 0;
+	border-bottom: none;
+}
 .marcador-post-list.card, 
 .marcador-post-list.card-title {
 	margin-left: 0;
-}
-.marcador-post-list.card .container-fluid {
-    border: solid 1px #d9d9d9;
-    -webkit-box-shadow: 0px 3px 3px #b5b5b5;
-    box-shadow: 0px 3px 3px #b5b5b5;
 }
 .marcador-post-list.card-title {
     min-height: 80px;
@@ -1413,5 +1412,34 @@ span.cintillo.field.score.away {
 	padding: 15px;
 }
 .marcador-post-list.card .marcador-post-list-image {
-	min-height: 200px;
+	min-height: 220px;
+}
+.marcador-post-list.card .panel-default {
+	-webkit-box-shadow: 0 4px 5px rgba(0,0,0,0.05);
+	box-shadow: 0 4px 5px rgba(0,0,0,0.05);
+}
+.marcador-post-list.card .panel-heading {
+	background-color: #fff;
+	border-top-right-radius: 0;
+	border-top-left-radius: 0;
+	border-bottom: none;
+}
+.marcador-post-list.card .panel-footer {
+	border-bottom-right-radius: 0;
+	border-bottom-left-radius: 0;
+	border: none;
+    background-color: #fff;
+}
+.marcador-post-list.card .marcador-post-list-date,
+.marcador-post-list.card .marcador-post-list-author {
+	display: block;
+}
+.marcador-post-list.card .marcador-post-list-author a {
+	top: 0;
+}
+.marcador-post-list.card .marcador-post-list-fav {
+	display: block;
+	position: relative;
+	text-align: right;
+	bottom: 0;
 }
