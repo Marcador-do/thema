@@ -928,6 +928,9 @@ p {
 	padding-top: 25px;
     margin-bottom: 25px;
 }
+.marcador-posts-listing-wrapper.cards-wrapper {
+	border-top: none;
+}
 .marcador-post-list-category a {
     text-transform: uppercase;
     font-weight: 700;
