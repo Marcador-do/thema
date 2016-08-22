@@ -1196,6 +1196,9 @@ img.aligncenter.size-full {
 	    width: 1px;
 	    background-color: #fdf;
 	}
+	#forgotModal .modal-col:after {
+		display: none;
+	}
 }
 
 /* 16. Marcador Cintillo */

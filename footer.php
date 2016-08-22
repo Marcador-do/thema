@@ -99,9 +99,22 @@
 				setSidebarMenu();
 				setSubmenuSidebar();
 				sidebarSearchPatch();
+
+				<?php /* Handler for modals */ ?>
+				jQuery('#registerModal').on('show.bs.modal', function(){ 
+					jQuery('#loginModal').modal('hide');
+				});
+				jQuery('#loginModal').on('show.bs.modal', function(){ 
+					jQuery('#registerModal').modal('hide');
+					jQuery('#forgotModal').modal('hide');
+				});
+				jQuery('#forgotModal').on('show.bs.modal', function(){ 
+					jQuery('#loginModal').modal('hide');
+				});
 			};
 			/** @type {function} triggers on page load */
 			page.onload = init;
+		
 		}(window));
 	</script>
 	</body><!-- /body -->

@@ -50,19 +50,6 @@ function banner() {
 </head>
 <body <?php body_class(); ?>>
 	
-	<?php /* Handler for modals */ ?>
-	<script type="text/javascript">
-		var mmm = jQuery || $;
-		mmm(document).ready(function(){
-			mmm('#registerModal').on('show.bs.modal', function(){ 
-				mmm('#loginModal').modal('hide');
-			});
-			mmm('#loginModal').on('show.bs.modal', function(){ 
-				mmm('#registerModal').modal('hide');
-			});
-		});
-	</script>
-	
 	<?php /* <!-- Register Modal --> */ ?>
 	<div class="modal fade marcador-modal" id="registerModal" tabindex="-1" role="dialog" aria-labelledby="registerModalLabel">
 		<div class="modal-dialog modal-md" role="document">
@@ -166,7 +153,7 @@ function banner() {
 										</div>
 										<div class="form-group">
 											<p class="modal-form-copy text-center">
-												<a href="#">¿Olvidaste tu contraseña?</a>
+												<a href="#" data-toggle="modal" data-target="#forgotModal">¿Olvidaste tu contraseña?</a>
 											</p>
 										</div>
 									</form>
@@ -206,6 +193,44 @@ function banner() {
 		</div>
 	</div>
 	<?php /* <!-- ./Login Modal --> */ ?>
+
+	<?php /* <!-- Password Forgot Modal */ ?>
+	<div class="modal fade marcador-modal" id="forgotModal" tabindex="-1" role="dialog" aria-labelledby="forgotModalLabel">
+		<div class="modal-dialog modal-md" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+					<h4 class="modal-title" id="myModalLabel"><?php echo __('recuperar contraseña', 'marcadordo'); ?></h4>
+				</div>
+				<div class="modal-body">
+					<div class="container-fluid">
+						<div class="row">
+							<div class="col-xs-12 col-sm-12 col-md-12 modal-col">
+								<div class="marcador-modal-form">
+									<form name="forgot-form">
+										<div class="form-group">
+											<input type="email" placeholder="<?php echo __('Inserta Tu Correo Electrónico', 'marcadordo'); ?>" class="form-control modal-input">
+										</div>
+										<div class="form-group">
+											<button class="btn btn-danger btn-block" type="submit">
+												<?php echo __( 'Recuperar', 'marcadordo' ); ?>
+											</button>
+										</div>
+										<div class="form-group">
+											<p class="modal-form-copy text-center">
+												<a href="#" data-toggle="modal" data-target="#loginModal"><?php echo __( 'Cancelar e Iniciar sesión', 'marcadordo' ); ?></a>
+											</p>
+										</div>
+									</form>
+								</div> 
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<?php /* <!-- ./Password Forgot Modal */ ?>
 
 	<?php /* <!-- Wrapper --> */ ?>
 	<div id="wrapper" class="<?php if( is_search()){ echo "toggled"; } ?>">
