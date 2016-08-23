@@ -85,11 +85,11 @@ jQuery("#cintillo").ready(function() {
 
 			html.find('h4.cintillo.field.title').text( ( current.status == "closed" ) ? "Final" : current.status );
 			
-			html.find('span.cintillo.field.image.home').append('<img src="<? echo get_template_directory_uri(); ?>/assets/imgs/'+ dir + '/' + current.home.abbr + '-logo-sm.png" width="25" class="cintillo field image home">');
+			html.find('span.cintillo.field.image.home').append('<img src="<?php echo get_template_directory_uri(); ?>/assets/imgs/'+ dir + '/' + current.home.abbr + '-logo-sm.png" width="25" class="cintillo field image home">');
 			html.find('span.cintillo.field.name.home').text( current.home.abbr );
 			html.find('span.cintillo.field.score.home').text( current.home.runs );
 			
-			html.find('span.cintillo.field.image.away').append('<img src="<? echo get_template_directory_uri(); ?>/assets/imgs/'+ dir + '/' + current.away.abbr + '-logo-sm.png" width="25" class="cintillo field image away">');
+			html.find('span.cintillo.field.image.away').append('<img src="<?php echo get_template_directory_uri(); ?>/assets/imgs/'+ dir + '/' + current.away.abbr + '-logo-sm.png" width="25" class="cintillo field image away">');
 			html.find('span.cintillo.field.name.away').text( current.away.abbr );
 			html.find('span.cintillo.field.score.away').text( current.away.runs );
 
