@@ -76,16 +76,19 @@ $destacadas_ids = array(); ?>
 							<div class="container-fluid">
 								<div class="row">
 
-		<?php continue; endif; ?>
-			<?php include (get_template_directory() . "/includes/marcador_hero_post_list_item.include.php"); ?>
-		<?php endwhile; ?>
+									<?php continue; endif; ?>
+										<?php include (get_template_directory() . "/includes/marcador_hero_post_list_item.include.php"); ?>
+									<?php endwhile; ?>
+								</div>
+							</div>
+						</div>
+						<!-- .marcador-posts-listing -->
 					</div>
-				</div>
-			</div>
-			<!-- .marcador-posts-listing -->
-		</div>
+					<div class="col-xs-12 col-sm-12 col-lg-9">
+						Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nostrum culpa incidunt nobis illum vitae quos, quisquam consequatur alias blanditiis praesentium autem earum cupiditate minima aspernatur neque, ipsam esse vel laborum.
+					</div>
 
-		<?php
+			<?php
 			/**
 			 * Front page: First Section
 		   */

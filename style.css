@@ -1254,6 +1254,14 @@ img.aligncenter.size-full {
     min-height: 127px;
     position: relative;
 }
+p.cintillo.field.team.away,
+p.cintillo.field.team.home {
+	opacity: 0.5;
+}
+p.cintillo.field.team.away.winner,
+p.cintillo.field.team.home.winner {
+	opacity: 1;
+}
 .cintillo-result a {
 	text-decoration: none;
     color: #f4f4f4;
@@ -1276,7 +1284,9 @@ img.aligncenter.size-full {
 	transition: opacity 0.3s ease;
 	opacity: 0;
 }
-.cintillo-result:hover a:before {
+.cintillo-result:hover a:before,
+.cintillo-result:hover p.cintillo.field.team.away, 
+.cintillo-result:hover p.cintillo.field.team.home {
 	opacity: 1;
 }
 .cintillo-next-btn {
@@ -1311,14 +1321,6 @@ span.cintillo.field.name.away {
 span.cintillo.field.score.home,
 span.cintillo.field.score.away {
     float: right;
-}
-p.cintillo.field.team.away,
-p.cintillo.field.team.home {
-	opacity: 0.5;
-}
-p.cintillo.field.team.away.winner,
-p.cintillo.field.team.home.winner {
-	opacity: 1;
 }
 @media screen and ( min-width : 480px ) {
 	#cintillo-selects-container {
