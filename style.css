@@ -1243,6 +1243,7 @@ img.aligncenter.size-full {
     padding: 0;
     height: 127px;
     width: 75%; /* <- DINAMIC */
+    background-color: #333;
 }
 .cintillo-result {
     width: 150px;
@@ -1253,6 +1254,14 @@ img.aligncenter.size-full {
     border-right: 1px solid #666;
     min-height: 127px;
     position: relative;
+}
+p.cintillo.field.team.away,
+p.cintillo.field.team.home {
+	opacity: 0.5;
+}
+p.cintillo.field.team.away.winner,
+p.cintillo.field.team.home.winner {
+	opacity: 1;
 }
 .cintillo-result a {
 	text-decoration: none;
@@ -1276,7 +1285,9 @@ img.aligncenter.size-full {
 	transition: opacity 0.3s ease;
 	opacity: 0;
 }
-.cintillo-result:hover a:before {
+.cintillo-result:hover a:before,
+.cintillo-result:hover p.cintillo.field.team.away, 
+.cintillo-result:hover p.cintillo.field.team.home {
 	opacity: 1;
 }
 .cintillo-next-btn {
@@ -1382,8 +1393,10 @@ span.cintillo.field.score.away {
 	p.cintillo.field.team {
 	    font-size: 12px;
 	}
-	img.cintillo.field.image.home {}
-	img.cintillo.field.image.away {}
+	img.cintillo.field.image.home,
+	img.cintillo.field.image.away {
+		width: 25px;
+	}
 
 	span.cintillo.field.name.home,
 	span.cintillo.field.name.away {
@@ -1397,6 +1410,11 @@ span.cintillo.field.score.away {
 @media screen and ( min-width : 770px ) {
 	#cintillo-results-wrapper {
 		width: 78%;
+	}
+}
+@media screen and ( min-width : 1200px ) {
+	#cintillo-results-wrapper {
+		width: 83%;
 	}
 }
 

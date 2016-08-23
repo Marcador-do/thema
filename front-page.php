@@ -76,16 +76,40 @@ $destacadas_ids = array(); ?>
 							<div class="container-fluid">
 								<div class="row">
 
-		<?php continue; endif; ?>
-			<?php include (get_template_directory() . "/includes/marcador_hero_post_list_item.include.php"); ?>
-		<?php endwhile; ?>
+									<?php continue; endif; ?>
+										<?php include (get_template_directory() . "/includes/marcador_hero_post_list_item.include.php"); ?>
+									<?php endwhile; ?>
+								</div>
+							</div>
+						</div>
+						<!-- .marcador-posts-listing -->
 					</div>
-				</div>
-			</div>
-			<!-- .marcador-posts-listing -->
-		</div>
+					
+					<?php  
+					$marcador_equipos = array(
+						array(
+							"nombre" => "Baltimore Orioles",
+							"img"	 => "BAL-logo-sm.png",
+						),
+						array(
+							"nombre" => "Boston Red Sox",
+							"img"	 => "BOS-logo-sm.png",
+						),
+						array(
+							"nombre" => "Chicago White Sox",
+							"img"	 => "CHW-logo-sm.png"
+						)
+					);
+					?>
+					<!-- .marcador-agrega-favoritos -->
+					<div class="col-xs-12 col-sm-12 col-lg-9">
+						<div class="marcador-favoritos-equipos-container">
+							div.marcador-box
+						</div>
+					</div>
+					<!-- /.marcador-agrega-favoritos -->
 
-		<?php
+			<?php
 			/**
 			 * Front page: First Section
 		   */

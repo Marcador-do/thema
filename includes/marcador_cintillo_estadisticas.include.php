@@ -52,15 +52,15 @@ $final_style = 'color:#f4f4f4; background-color: #333; border-right:1px solid #6
 <?php
 $stat_template = <<<STAT_TEMPLATE
 <div class="cintillo-result">
-	<a href="#" placetext="Resumen">
+	<a href="#" placetext="Resumen" class="cintillo anchor">
 		<h4 class="cintillo field title">STATUS</h4>
-		<p class="cintillo field team">
-			<span><img src="http://placehold.it/25" class="cintillo field image home"></span>&nbsp;&nbsp;
+		<p class="cintillo field team home">
+			<span class="cintillo field image home"></span>&nbsp;&nbsp;
 			<span class="cintillo field name home">TEAM_A</span>&nbsp;&nbsp;&nbsp;
 			<span class="cintillo field score home">SCORE_A</span>
 		</p>
-		<p class="cintillo field team">
-			<span><img src="http://placehold.it/25" class="cintillo field image away"></span>&nbsp;&nbsp;
+		<p class="cintillo field team away">
+			<span class="span cintillo field image away"></span>&nbsp;&nbsp;
 			<span class="cintillo field name away">TEAM_B</span>&nbsp;&nbsp;&nbsp;
 			<span class="cintillo field score away">SCORE_B</span>
 		</p>
@@ -70,28 +70,45 @@ STAT_TEMPLATE;
 ?>
 <script type="text/javascript">
 jQuery("#cintillo").ready(function() {
-	var processData = function (data) {
+	var processData = function ( data ) {
 		var result_width = 0;
 		jQuery("#cintillo-results").empty();
 		var stat_template = '<?php echo preg_replace( "/\r|\n/", "", $stat_template ); ?>';
 		var lol = jQuery( stat_template );
 		var cintillo = data.cintillo;
-
-		for (var i = 0, len=cintillo.length; i < len; i++) {
+		var dir = jQuery("#league").val();
+		
+		for (var i = 0, len = cintillo.length; i < len; i++) {
 			var current = cintillo[i],
 				html = lol.clone();
 				result_width = result_width + 150;
 
-			html.find('h4.cintillo.field.title').text(current.status);
-			//html.find('span.cintillo.field.image.home').text(current.home.abbr);
-			html.find('span.cintillo.field.name.home').text(current.home.abbr);
-			html.find('span.cintillo.field.score.home').text(current.home.runs);
-			//html.find('span.cintillo.field.image.away').text(current.home.abbr);
-			html.find('span.cintillo.field.name.away').text(current.away.abbr);
-			html.find('span.cintillo.field.score.away').text(current.away.runs);
+			html.find('h4.cintillo.field.title').text( ( current.status == "closed" ) ? "Final" : current.status );
+			
+			html.find('span.cintillo.field.image.home').append('<img src="<? echo get_template_directory_uri(); ?>/assets/imgs/'+ dir + '/' + current.home.abbr + '-logo-sm.png" width="25" class="cintillo field image home">');
+			html.find('span.cintillo.field.name.home').text( current.home.abbr );
+			html.find('span.cintillo.field.score.home').text( current.home.runs );
+			
+			html.find('span.cintillo.field.image.away').append('<img src="<? echo get_template_directory_uri(); ?>/assets/imgs/'+ dir + '/' + current.away.abbr + '-logo-sm.png" width="25" class="cintillo field image away">');
+			html.find('span.cintillo.field.name.away').text( current.away.abbr );
+			html.find('span.cintillo.field.score.away').text( current.away.runs );
 
+			if( current.home.runs > current.away.runs ) {
+				html.find('p.cintillo.field.team.home').addClass("winner");
+			}
+			else if( current.home.runs == current.away.runs ) {
+				html.find('p.cintillo.field.team.away').addClass("winner");
+				html.find('p.cintillo.field.team.home').addClass("winner");
+			}
+			else {
+				html.find('p.cintillo.field.team.away').addClass("winner"); 
+			}
 
-			jQuery("#cintillo-results").append(html).css('width', result_width + 35);
+			if( current.status != 'closed' ) {
+				html.find("a.cintillo.anchor").attr('placetext', 'Programada');
+			}
+
+			jQuery("#cintillo-results").append( html ).css('width', result_width + 35);
 			
 			// TODO: Remove loading
 			
