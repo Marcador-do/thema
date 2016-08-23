@@ -25,6 +25,20 @@
 
 		  var authResponse = googleUser.getAuthResponse();
 		  console.log(authResponse);
+
+			jQuery.ajax({
+				url: '/wp-admin/admin-ajax.php',
+				type: 'post',
+				dataType: 'json',
+				data: {
+					action: 'marcador_login',
+					name: profile.getName(),
+					email: profile.getEmail(),
+					image_url: profile.getImageUrl()
+				},
+				success: function (data) { console.log(data); },
+				error: function (err) { console.log(err); }
+			});
 		}
 	</script>
 	<script type="text/javascript">
