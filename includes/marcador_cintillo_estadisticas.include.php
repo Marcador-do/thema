@@ -75,7 +75,6 @@ jQuery("#cintillo").ready(function() {
 		jQuery("#cintillo-results").empty();
 		var stat_template = '<?php echo preg_replace( "/\r|\n/", "", $stat_template ); ?>';
 		var lol = jQuery( stat_template );
-		console.log("lol", lol);
 		var cintillo = data.cintillo;
 		var dir = jQuery("#league").val();
 		
