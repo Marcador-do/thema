@@ -1312,6 +1312,14 @@ span.cintillo.field.score.home,
 span.cintillo.field.score.away {
     float: right;
 }
+p.cintillo.field.team.away,
+p.cintillo.field.team.home {
+	opacity: 0.5;
+}
+p.cintillo.field.team.away.winner,
+p.cintillo.field.team.home.winner {
+	opacity: 1;
+}
 @media screen and ( min-width : 480px ) {
 	#cintillo-selects-container {
 		display: inline-block;
@@ -1382,8 +1390,10 @@ span.cintillo.field.score.away {
 	p.cintillo.field.team {
 	    font-size: 12px;
 	}
-	img.cintillo.field.image.home {}
-	img.cintillo.field.image.away {}
+	img.cintillo.field.image.home,
+	img.cintillo.field.image.away {
+		width: 25px;
+	}
 
 	span.cintillo.field.name.home,
 	span.cintillo.field.name.away {
