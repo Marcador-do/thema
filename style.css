@@ -1411,6 +1411,11 @@ span.cintillo.field.score.away {
 		width: 78%;
 	}
 }
+@media screen and ( min-width : 1200px ) {
+	#cintillo-results-wrapper {
+		width: 83%;
+	}
+}
 
 /* 17. Post listing cards */
 

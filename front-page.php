@@ -84,9 +84,30 @@ $destacadas_ids = array(); ?>
 						</div>
 						<!-- .marcador-posts-listing -->
 					</div>
+					
+					<?php  
+					$marcador_equipos = array(
+						array(
+							"nombre" => "Baltimore Orioles",
+							"img"	 => "BAL-logo-sm.png",
+						),
+						array(
+							"nombre" => "Boston Red Sox",
+							"img"	 => "BOS-logo-sm.png",
+						),
+						array(
+							"nombre" => "Chicago White Sox",
+							"img"	 => "CHW-logo-sm.png"
+						)
+					);
+					?>
+					<!-- .marcador-agrega-favoritos -->
 					<div class="col-xs-12 col-sm-12 col-lg-9">
-						Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nostrum culpa incidunt nobis illum vitae quos, quisquam consequatur alias blanditiis praesentium autem earum cupiditate minima aspernatur neque, ipsam esse vel laborum.
+						<div class="marcador-favoritos-equipos-container">
+							div.marcador-box
+						</div>
 					</div>
+					<!-- /.marcador-agrega-favoritos -->
 
 			<?php
 			/**
