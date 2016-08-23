@@ -1243,6 +1243,7 @@ img.aligncenter.size-full {
     padding: 0;
     height: 127px;
     width: 75%; /* <- DINAMIC */
+    background-color: #333;
 }
 .cintillo-result {
     width: 150px;
