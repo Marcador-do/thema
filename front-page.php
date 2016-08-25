@@ -97,14 +97,66 @@ $destacadas_ids = array(); ?>
 						),
 						array(
 							"nombre" => "Chicago White Sox",
-							"img"	 => "CHW-logo-sm.png"
+							"img"	 => "CWS-logo-sm.png"
 						)
 					);
 					?>
 					<!-- .marcador-agrega-favoritos -->
 					<div class="col-xs-12 col-sm-12 col-lg-9">
 						<div class="marcador-favoritos-equipos-container">
-							div.marcador-box
+							<div class="marcador-favoritos-equipos-wrapper">
+								<div class="marcador-box static">
+									<div class="panel panel-default">
+										<div class="panel-body">
+											<p class="text-center">
+												Para ver tus favoritos <br>debes entrar a Marcador o registrarse
+											</p>
+											<p>
+												<a href="#" class="btn btn-default btn-block marcador-special close-login" data-toggle="modal" data-target="#registerModal">
+													<?php echo __( 'Entrar', 'marcadordo' ); ?>
+												</a>
+											</p>
+											<p>
+												<a class="btn btn-danger btn-block google">
+													<?php echo __( 'Registrarse', 'marcadordo' ) ?>
+												</a>
+											</p>
+										</div>
+									</div>
+								</div>
+								<?php $dinamic_width = 220; ?>
+								<?php foreach( $marcador_equipos as $marcador_boxes ): ?>
+									<?php $dinamic_width = $dinamic_width + 220; ?>
+									<div class="marcador-box dinamic">
+										<div class="panel panel-default">
+											<div class="panel-body">
+												<button class="close">&times;</button>
+												<p class="text-center">
+													<img src="<?php echo get_template_directory_uri() . '/assets/imgs/mlb/' . $marcador_boxes['img']; ?>" alt="">
+												</p>
+												<p class="text-center">
+													<?php echo $marcador_boxes['nombre']; ?>
+												</p>
+												<p>
+													<a href="#" class="btn btn-default btn-block favorites">
+														<i class="material-icons">add</i> Favoritos
+													</a>
+												</p>
+											</div>
+										</div>
+									</div>
+								<?php endforeach; ?>
+								<script type="text/javascript">
+								jQuery(document).ready( adjustWidthTemporalFix );
+								
+								/**
+								 * Make the width of the wrapper dinamic for each element
+								 */
+								function adjustWidthTemporalFix() {
+									jQuery('.marcador-favoritos-equipos-wrapper').css('width', '<?php echo $dinamic_width; ?>px');
+								}
+								</script>
+							</div>
 						</div>
 					</div>
 					<!-- /.marcador-agrega-favoritos -->
