@@ -1170,12 +1170,12 @@ img.aligncenter.size-full {
 	border-color: #3b5998;
 	background-color: #3b5998;
 }
-.marcador-special {
+.btn.marcador-special {
 	border-color: #333;
 	background-color: #333;
 	color: #fff;
 }
-.favorites {
+.btn.favorites {
 	background-color: transparent;
 	color: #E80303;
 }
@@ -1496,10 +1496,17 @@ span.cintillo.field.score.away {
     display: inline-block;
     float: left;
 }
+.marcador-box .panel-default {
+	-webkit-box-shadow: 0 4px 5px rgba(0,0,0,0.05);
+	box-shadow: 0 4px 5px rgba(0,0,0,0.05);	
+}
 .marcador-box.static p {
-	margin-bottom: 3.5px;
+	margin-bottom: 3px;
 }
 .marcador-box.dinamic .material-icons {
 	position: relative;
 	top: 6px;
+}
+.marcador-box.dinamic .btn.favorites {
+	padding: 5px;
 }
