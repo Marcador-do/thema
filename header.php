@@ -142,10 +142,10 @@ function banner() {
 									<div class="marcador-modal-form">
 										<form name="login-form">
 											<div class="form-group">
-												<input type="email" placeholder="<?php echo __('Nombre de Usuario o Correo Electrónico', 'marcadordo'); ?>" class="form-control modal-input">
+												<input name="username" type="text" placeholder="<?php echo __('Nombre de Usuario o Correo Electrónico', 'marcadordo'); ?>" class="form-control modal-input">
 											</div>
 											<div class="form-group">
-												<input type="password" placeholder="<?php echo __('Contraseña', 'marcadordo'); ?>" class="form-control modal-input">
+												<input name="password" type="password" placeholder="<?php echo __('Contraseña', 'marcadordo'); ?>" class="form-control modal-input">
 											</div>
 											<div class="form-group">
 												<button class="btn btn-danger btn-block" type="submit">
@@ -157,6 +157,7 @@ function banner() {
 													<a href="#" data-toggle="modal" data-target="#forgotModal">¿Olvidaste tu contraseña?</a>
 												</p>
 											</div>
+											<?php wp_nonce_field( 'marcador_ajax_login' ); ?>
 										</form>
 									</div> 
 								</div>
