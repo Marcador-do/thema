@@ -18,23 +18,24 @@
 	<script type="text/javascript">
 		function onSignIn(googleUser) {
 		  var profile = googleUser.getBasicProfile();
-		  console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
-		  console.log('Name: ' + profile.getName());
-		  console.log('Image URL: ' + profile.getImageUrl());
-		  console.log('Email: ' + profile.getEmail());
+		  //console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
+		  //console.log('Name: ' + profile.getName());
+		  //console.log('Image URL: ' + profile.getImageUrl());
+		  //console.log('Email: ' + profile.getEmail());
 
 		  var authResponse = googleUser.getAuthResponse();
-		  console.log(authResponse);
+		  //console.log(authResponse);
 
 			jQuery.ajax({
 				url: '/wp-admin/admin-ajax.php',
 				type: 'post',
 				dataType: 'json',
 				data: {
-					action: 'marcador_login',
+					action: 'marcador_google_login',
 					name: profile.getName(),
 					email: profile.getEmail(),
-					image_url: profile.getImageUrl()
+					image_url: profile.getImageUrl(),
+					google_auth: authResponse
 				},
 				success: function (data) { console.log(data); },
 				error: function (err) { console.log(err); }
@@ -125,6 +126,36 @@
 					});
 					jQuery('#forgotModal').on('show.bs.modal', function(){ 
 						jQuery('#loginModal').modal('hide');
+					});
+					jQuery('form[name="login-form"]', function(){
+						jQuery(this).submit(function (e) {
+							var $form = jQuery(this);
+							var referer = $form.find("input[name='_wp_http_referer']").val();
+
+							jQuery.ajax({
+								url: '/wp-admin/admin-ajax.php',
+								type: 'post',
+								dataType: 'json',
+								data: {
+									action: 'marcador_login',
+									username: $form.find("input[name='username']").val(),
+									password: $form.find("input[name='password']").val(),
+									_wpnonce: $form.find("input[name='_wpnonce']").val()
+								},
+								success: function (data) {
+									if (data.error) {
+										// TODO: Show error message.
+										console.log(data.error);
+										return;
+									}
+									// TODO: Show message?
+									// TODO: 2 seconds delay
+									document.location.href = referer;
+								},
+								error: function (err) { console.log(err); }
+							});
+							e.preventDefault();
+						});
 					});
 				<?php endif; ?>
 			};
