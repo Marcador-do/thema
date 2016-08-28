@@ -33,7 +33,7 @@
                           if ( is_user_logged_in() ): 
                             // Check user role
                             $user = new WP_User( $user_ID );
-                            $marcador_user_role = 'colaborador';
+                            $marcador_user_role = 'marcador_contributor';
                             $is_colaborator = array_search(
                               $marcador_user_role, 
                               $user->roles, true
