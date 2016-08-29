@@ -14,37 +14,9 @@
 	</div>
 	<!-- /#wrapper -->
 	<?php wp_footer(); ?>
-	<script src="https://apis.google.com/js/platform.js" async defer></script>
 	<script type="text/javascript">
-		function onSignIn(googleUser) {
-		  var profile = googleUser.getBasicProfile();
-		  //console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
-		  //console.log('Name: ' + profile.getName());
-		  //console.log('Image URL: ' + profile.getImageUrl());
-		  //console.log('Email: ' + profile.getEmail());
-
-		  var authResponse = googleUser.getAuthResponse();
-		  //console.log(authResponse);
-
-			jQuery.ajax({
-				url: '/wp-admin/admin-ajax.php',
-				type: 'post',
-				dataType: 'json',
-				data: {
-					action: 'marcador_google_login',
-					name: profile.getName(),
-					email: profile.getEmail(),
-					image_url: profile.getImageUrl(),
-					google_auth: authResponse
-				},
-				success: function (data) { console.log(data); },
-				error: function (err) { console.log(err); }
-			});
-		}
-	</script>
-	<script type="text/javascript">
-		var init;
-		(function(page){
+		//var init;
+		var MARCADOR = (function(APP){
 
 			/**
 			 * Configure the sidebarMenu
@@ -110,7 +82,7 @@
 					});
 			}
 
-			init = function() {
+			APP.init = function() {
 				setSidebarMenu();
 				setSubmenuSidebar();
 				sidebarSearchPatch();
@@ -127,42 +99,231 @@
 					jQuery('#forgotModal').on('show.bs.modal', function(){ 
 						jQuery('#loginModal').modal('hide');
 					});
+					<?php /* Handler for from Login */ ?>
 					jQuery('form[name="login-form"]', function(){
-						jQuery(this).submit(function (e) {
-							var $form = jQuery(this);
-							var referer = $form.find("input[name='_wp_http_referer']").val();
-
-							jQuery.ajax({
-								url: '/wp-admin/admin-ajax.php',
-								type: 'post',
-								dataType: 'json',
-								data: {
-									action: 'marcador_login',
-									username: $form.find("input[name='username']").val(),
-									password: $form.find("input[name='password']").val(),
-									_wpnonce: $form.find("input[name='_wpnonce']").val()
-								},
-								success: function (data) {
-									if (data.error) {
-										// TODO: Show error message.
-										console.log(data.error);
-										return;
-									}
-									// TODO: Show message?
-									// TODO: 2 seconds delay
-									document.location.href = referer;
-								},
-								error: function (err) { console.log(err); }
-							});
-							e.preventDefault();
-						});
+						jQuery('form[name="login-form"]').submit(formLogin);
 					});
+					<?php /* Handler for from Registration */ ?>
+					jQuery('form[name="register-form"]', function(){
+						jQuery('form[name="register-form"]').submit(formRegister);
+					});
+				<?php else: ?>
+					<?php /* Handler for Logout */ ?>
 				<?php endif; ?>
 			};
+
+			var ajax = function (payload, successCallback, errorCallback) {
+				console.log(payload);
+				jQuery.ajax({
+					url: '/wp-admin/admin-ajax.php',
+					type: 'post',
+					dataType: 'json',
+					data: payload,
+					success: successCallback,
+					error: errorCallback
+				});
+			};
+
+			var ajaxAction = function ( $form, payload ) {
+				if ($form) {
+					var referer = $form.find("input[name='_wp_http_referer']").val();
+					payload._wpnonce 	= $form.find("input[name='_wpnonce']").val();
+				}
+
+				ajax(
+					payload,
+					function (data) { // Success Callback
+						if (data.error) { // Checks error from backend
+							// TODO: Show error message.
+							console.log(data);
+							return;
+						}
+						// TODO: Show message?
+						// TODO: 2 seconds delay
+						console.log(data);
+						if (data.valid) {
+							window.setTimeout(function() {
+								document.location.href = referer;
+							}, 2000);
+						}
+					},
+					function (err) { // Error Callback
+						// TODO: Show message
+						console.log(err);
+					}
+				);
+			};
+
+			<?php if ( !is_user_logged_in() ):  ?>
+			var formAction 	= function (e) {
+				var $form 		= jQuery(e.target); // Holds the current form
+
+				var payload 	= formData($form);
+				if (null === payload) return;
+				// TODO: Validate Input on front end
+
+				ajaxAction($form, payload);
+				e.preventDefault();
+			};
+
+			var formData = function ($form) {
+				var payload;
+				if ("login-form" === $form.attr("name")) {
+					payload = {
+						action	: 'marcador_login',
+						username: $form.find("input[name='username']").val(),
+						password: $form.find("input[name='password']").val()
+					};
+				} else if ("register-form" === $form.attr("name")) {
+					payload = {
+						action	: 'marcador_register',
+						email 	: $form.find("input[name='email']").val(),
+						username: $form.find("input[name='username']").val(),
+						password: $form.find("input[name='password']").val()
+					};
+				} else {
+					payload = null;
+				}
+
+				return payload;
+			};
+
+			var formLogin = function (e) { formAction(e); };
+			var formRegister = function (e) { formAction(e); };
+
+			APP.googleLogin 		= function (payload) {
+				$form = jQuery("form[name='login-form']");
+				ajaxAction($form , payload);
+			};
+			APP.googleRegister 	= function (payload) {
+				$form = jQuery("form[name='register-form']");
+				ajaxAction($form, payload);
+			};
+			
+			APP.facebookLogin 		= function (payload) {
+				$form = jQuery("form[name='login-form']");
+				ajaxAction($form , payload);
+			};
+			APP.facebookRegister 	= function (payload) {
+				$form = jQuery("form[name='register-form']");
+				ajaxAction($form, payload);
+			};
+			<?php else: ?>
+			APP.logout = function (e) {
+				e.preventDefault();
+				payload = { action: 'marcador_logout' };
+				APP.ajaxAction( null, payload );
+				document.location.href = "/";
+			};
+			<?php endif; ?>
 			/** @type {function} triggers on page load */
-			page.onload = init;
+			//page.onload = init;
+			return APP;
 		
-		}(window));
+		}(MARCADOR || {}));
+		window.onload = MARCADOR.init
 	</script>
+
+	<?php if ( !is_user_logged_in() ): // Facebook Integration ?>
+	<script type="text/javascript">
+	  function statusChangeCallback(response, cb) {
+	    if (response.status === 'connected') {
+	      // Logged into your app and Facebook.
+	      testAPI(response.authResponse, cb);
+	    } else if (response.status === 'not_authorized') {
+	      // The person is logged into Facebook, but not your app.
+	      console.log( 'Please log into this app.' );
+	      // TODO: Show message to authorize app.
+	    } else {
+	      // The person is not logged into Facebook, so we're not sure if
+	      // they are logged into this app or not.
+	      console.log( 'Please log into Facebook.' );
+	      // TODO: Show message to log into facebook.
+	    }
+	  }
+
+	  function checkLoginState() {
+	    FB.getLoginStatus(function(response) {
+	      statusChangeCallback(response, MARCADOR.facebookLogin);
+	    });
+	  }
+
+	  function checkRegisterState () {
+	    FB.getLoginStatus(function(response) {
+	      statusChangeCallback(response, MARCADOR.facebookRegister);
+	    });
+	  }
+
+	  function testAPI(auth, cb) {
+	    FB.api('/me', {fields: 'name,email,cover'}, function(response) {
+	    	var action = (MARCADOR.facebookLogin === cb)?'login':'register';
+	    	payload = {
+					action: 'marcador_facebook_' + action,
+	    		name: response.name,
+	    		email: response.email,
+	    		// image_url: response.cover,
+	    		auth: auth
+	    	};
+	    	cb(payload);
+	    });
+	  }
+	</script>
+	<?php endif; ?>
+
+	<?php if ( !is_user_logged_in() ): // Google Integration ?>
+	<script type="text/javascript">
+		function onSuccessGoogleLogin ( googleUser ) {
+		  var profile = googleUser.getBasicProfile();
+		  var authResponse = googleUser.getAuthResponse();
+		  var payload = {
+				action: 'marcador_google_login',
+				email: profile.getEmail(),
+				auth: authResponse
+			};
+
+		  MARCADOR.googleLogin(payload);
+		}
+
+    function onFailureGoogle ( error ) {
+      console.log(error);
+    }
+		function onSuccessGoogleRegister ( googleUser ) {
+		  var profile = googleUser.getBasicProfile();
+		  var authResponse = googleUser.getAuthResponse();
+		  var payload = {
+				action: 'marcador_google_register',
+				name: profile.getName(),
+				email: profile.getEmail(),
+				//image_url: profile.getImageUrl(),
+				auth: authResponse
+			};
+
+		  MARCADOR.googleRegister(payload);
+		}
+
+    function renderGoogleButton () {
+      gapi.signin2.render('marcador-g-signin2', {
+        'scope': 'profile email',
+        'width': 237,
+        'height': 36,
+        'longtitle': true,
+        'theme': 'dark',
+        'onsuccess': onSuccessGoogleLogin,
+        'onfailure': onFailureGoogle
+      });
+
+      gapi.signin2.render('marcador-g-signup2', {
+        'scope': 'profile email',
+        'width': 237,
+        'height': 36,
+        'longtitle': true,
+        'theme': 'dark',
+        'onsuccess': onSuccessGoogleRegister,
+        'onfailure': onFailureGoogle
+      });
+    }
+	</script>
+	<script src="https://apis.google.com/js/platform.js?onload=renderGoogleButton" async defer></script>
+	<?php endif; ?>
 	</body><!-- /body -->
 </html><!-- /html -->

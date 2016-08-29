@@ -49,7 +49,26 @@ function banner() {
 	<?php wp_head(); ?>
 </head>
 <body <?php body_class(); ?>>
-	
+	<script>
+	  window.fbAsyncInit = function() {
+		  FB.init({
+		    appId      : '283126788739195',
+		    cookie     : true,
+		    xfbml      : true,
+		    version    : 'v2.5'
+		  });
+	  };
+
+	  // Load the SDK asynchronously
+	  (function(d, s, id) {
+	    var js, fjs = d.getElementsByTagName(s)[0];
+	    if (d.getElementById(id)) return;
+	    js = d.createElement(s); js.id = id;
+	    js.src = "//connect.facebook.net/en_US/sdk.js";
+	    fjs.parentNode.insertBefore(js, fjs);
+	  }(document, 'script', 'facebook-jssdk'));
+	</script>
+
 	<?php if ( !is_user_logged_in() ):  ?>
 		<?php /* <!-- Register Modal --> */ ?>
 		<div class="modal fade marcador-modal" id="registerModal" tabindex="-1" role="dialog" aria-labelledby="registerModalLabel">
@@ -66,22 +85,23 @@ function banner() {
 									<div class="marcador-modal-form">
 										<form name="register-form">
 											<div class="form-group">
-												<input type="email" placeholder="<?php echo __('Correo Electrónico', 'marcadordo'); ?>" class="form-control modal-input">
+												<input name="email" type="email" placeholder="<?php echo __('Correo Electrónico', 'marcadordo'); ?>" class="form-control modal-input">
 											</div>
 											<div class="form-group">
-												<input type="text" placeholder="<?php echo __('Usuario', 'marcadordo'); ?>" class="form-control modal-input">
+												<input name="username" type="text" placeholder="<?php echo __('Usuario', 'marcadordo'); ?>" class="form-control modal-input">
 											</div>
 											<div class="form-group">
-												<input type="password" placeholder="<?php echo __('Contraseña', 'marcadordo'); ?>" class="form-control modal-input">
+												<input name="password" type="password" placeholder="<?php echo __('Contraseña', 'marcadordo'); ?>" class="form-control modal-input">
 											</div>
 											<div class="form-group">
-												<input type="password" placeholder="<?php echo __('Confirmar Contraseña', 'marcadordo'); ?>" class="form-control modal-input">
+												<input name="passwordConf" type="password" placeholder="<?php echo __('Confirmar Contraseña', 'marcadordo'); ?>" class="form-control modal-input">
 											</div>
 											<div class="form-group">
 												<button class="btn btn-danger btn-block" type="submit">
 													<?php echo __( 'Registrarse', 'marcadordo' ) ?>
 												</button>
 											</div>
+											<?php wp_nonce_field( 'marcador_ajax_register' ); ?>
 											<div class="form-group">
 												<p class="modal-form-copy text-center">
 													<?php echo __( 'Al registrarte aceptas nuestras políticas de privacidad', 'marcadordo' ); ?>
@@ -101,15 +121,16 @@ function banner() {
 								<div class="col-sm-6 col-md-6">
 									<div class="marcador-modal-form">
 										<div class="form-group">
-											<div class="g-signin2" data-onsuccess="onSignIn"></div>
-											<a href="#google-handler" class="btn btn-danger btn-block google ">
+											<div id="marcador-g-signup2"></div>
+											<?php /*<a href="#google-handler" class="btn btn-danger btn-block google ">
 												<?php echo __( 'Conéctate con Google', 'marcadordo' ); ?>
-											</a>
+											</a> */ ?>
 										</div>
 										<div class="form-group">
-											<a href="#google-handler" class="btn btn-danger btn-block facebook">
+											<fb:login-button scope="public_profile,email" onlogin="checkRegisterState();"></fb:login-button>
+											<?php /*<a href="#google-handler" class="btn btn-danger btn-block facebook">
 												<?php echo __( 'Conéctate con Facebook', 'marcadordo' ); ?>
-											</a>
+											</a> */ ?>
 										</div>
 										<div class="form-group">
 											<hr>
@@ -177,14 +198,16 @@ function banner() {
 											<hr>
 										</div>
 										<div class="form-group">
-											<a href="#google-handler" class="btn btn-danger btn-block google">
+											<div id="marcador-g-signin2"></div>
+											<?php /*<a href="#google-handler" class="btn btn-danger btn-block google">
 												<?php echo __( 'Conéctate con Google', 'marcadordo' ); ?>
-											</a>
+											</a> */ ?>
 										</div>
 										<div class="form-group">
-											<a href="#google-handler" class="btn btn-danger btn-block facebook">
+											<fb:login-button scope="public_profile,email" onlogin="checkLoginState();"></fb:login-button>
+											<?php /*<a href="#google-handler" class="btn btn-danger btn-block facebook">
 												<?php echo __( 'Conéctate con Facebook', 'marcadordo' ); ?>
-											</a>
+											</a> */?>
 										</div>
 									</div>
 								</div>
