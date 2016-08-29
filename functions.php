@@ -225,4 +225,13 @@ add_filter( 'body_class', 'marcador_body_classes' );
 require get_template_directory() . '/customizers/normalize.php';
 require get_template_directory() . '/customizers/logo/logo.php';
 
+if ( is_user_logged_in() ) {
+	$user = wp_get_current_user();
+
+	$marcador_user_role = 'marcador_contributor';
+  $is_colaborator = array_search( $marcador_user_role, $user->roles, FALSE );
+  if ( $is_colaborator !== FALSE && !is_null($is_colaborator) ) 
+  	show_admin_bar( false );
+}
+
 date_default_timezone_set ( 'America/Santo_Domingo' );
