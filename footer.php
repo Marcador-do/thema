@@ -144,7 +144,7 @@
 						if (data.valid) {
 							window.setTimeout(function() {
 								document.location.href = referer;
-							}, 2000);
+							}, 5000);
 						}
 					},
 					function (err) { // Error Callback
