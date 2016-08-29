@@ -68,6 +68,23 @@ function marcador_setup() {
 		'default-color' => 'ffffff',
 		'default-image' => '',
 	) ) );
+
+	// Add Marcador custom user role
+	$result = add_role(
+		'marcador_contributor',
+		__( 'Marcador Contributor' ),
+		array(
+			'read' 							=> true,
+			'edit_posts' 				=> true,
+			'edit_pages' 				=> true,
+			'create_posts'			=> true,
+			'manage_categories' => true,
+			'edit_themes' 			=> false,
+			'install_plugins' 	=> false,
+			'update_plugin' 		=> false,
+			'update_core' 			=> false
+		)
+	);
 }
 endif;
 add_action( 'after_setup_theme', 'marcador_setup' );
