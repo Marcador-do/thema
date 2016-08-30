@@ -11,6 +11,37 @@
 ?>
 		</div>
 		<!-- /#page-content-wrapper -->
+		<?php /* Right Sidebar */ ?>
+		<div id="right-sidebar-wrapper">
+			<ul class="sidebar-nav right">
+				<li>
+					<a href="#">
+						<img src="http://placehold.it/50x50&text=M" alt="Equipo" class="img-circle">
+					</a>
+				</li>
+				<li>
+					<a href="#">
+						<img src="http://placehold.it/50x50&text=M" alt="Equipo" class="img-circle">
+					</a>
+				</li>
+				<li>
+					<a href="#">
+						<img src="http://placehold.it/50x50&text=M" alt="Equipo" class="img-circle">
+					</a>
+				</li>
+				<li>
+					<a href="#">
+						<img src="http://placehold.it/50x50&text=M" alt="Equipo" class="img-circle">
+					</a>
+				</li>
+				<li>
+					<a href="#">
+						<img src="http://placehold.it/50x50&text=M" alt="Equipo" class="img-circle">
+					</a>
+				</li>
+			</ul>
+		</div>
+		<?php /* End Right Sidebar */ ?>
 	</div>
 	<!-- /#wrapper -->
 	<?php wp_footer(); ?>
@@ -284,9 +315,9 @@
 		  MARCADOR.googleLogin(payload);
 		}
 
-    function onFailureGoogle ( error ) {
-      console.log(error);
-    }
+	    function onFailureGoogle ( error ) {
+	      console.log(error);
+	    }
 		function onSuccessGoogleRegister ( googleUser ) {
 		  var profile = googleUser.getBasicProfile();
 		  var authResponse = googleUser.getAuthResponse();

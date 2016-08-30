@@ -41,6 +41,7 @@ Colors:
 16. Marcador Cintillo
 17. Post listing cards
 18. Marcador favoritos boxes
+19. Right Sidebar Logos
 /*------------------------------*/
 
 /* 0. General Styling */
@@ -496,6 +497,11 @@ p {
 	}
 	.navbar-marcador {
 		min-height: 60px;
+	}
+}
+@media screen and ( min-width : 1270px ) {
+	.navbar-marcador {
+		padding-right: 80px;
 	}
 }
 .navbar-brand {
@@ -1510,3 +1516,29 @@ span.cintillo.field.score.away {
 .marcador-box.dinamic .btn.favorites {
 	padding: 5px;
 }
+
+/* 19. Right Sidebar Logos */
+@media screen and ( min-width : 1270px ) {
+	#right-sidebar-wrapper {
+		z-index: 1000;
+		position: fixed;
+		top: 0;
+		right: 0;
+		width: 70px;
+		height: 100%;
+		margin-left: 0;
+		// overflow-y: auto;
+		background: #3D3D3D;
+		-webkit-transition: all 0.2s ease;
+		-moz-transition: all 0.2s ease;
+		-o-transition: all 0.2s ease;
+		transition: all 0.2s ease;
+	}
+	.sidebar-nav {
+		position: relative;
+		top: 100px;
+	}
+	#right-sidebar-wrapper .sidebar-nav li {
+		border: none;
+	}
+} 
