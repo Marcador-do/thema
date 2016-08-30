@@ -1534,7 +1534,7 @@ span.cintillo.field.score.away {
 		-o-transition: all 0.2s ease;
 		transition: all 0.2s ease;
 	}
-	.sidebar-nav {
+	.sidebar-nav.right {
 		position: relative;
 		top: 100px;
 	}
