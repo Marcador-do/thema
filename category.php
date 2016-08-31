@@ -9,3 +9,19 @@
  * @package marcadordo
  */
 ?>
+<?php get_header(); ?>
+<?php /* <!-- #marcador-navbar-submenu --> */ ?>
+<?php 
+  if ( has_nav_menu( 'deportes_top' ) ) {
+    $args = array(
+      'theme_location' => 'deportes_top',
+      'container_id' => 'marcador-navbar-submenu',
+      'menu_class' => 'nav nav-pills',
+      'depth' => 1,
+    );
+    wp_nav_menu( $args );
+  }
+?>
+<?php /* <!-- /#marcador-navbar-submenu --> */ ?>
+
+<?php get_footer(); ?>
