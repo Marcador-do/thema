@@ -12,7 +12,17 @@
   $key = "";
   // If key not set, ignore and send to home
   if ( ! isset( $_GET['k'] ) ) wp_redirect( home_url( '/' ) );
-  
+
+  $key = $_GET['k'];
+  $args = array(
+    'role'         => 'marcador_contributor',
+    'meta_key'     => 'marcador_key',
+    'meta_value'   => $key,
+    'meta_compare' => '=',
+  );
+  $users = get_users( $args );
+  if (count( $users) < 1) wp_redirect( home_url( '/' ) );
+  $user = $users[0];
   do_action('marcador_activate_user'); // resides on marcador_manager plugin
 ?>
 <?php get_header(); ?>
