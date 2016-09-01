@@ -32,7 +32,6 @@
           <h3>Enhorabuena, <?php echo $user->display_name; ?>!</h3>
           <p>Ya puedes colaborar en Marcador.do. <strong>Tu cuenta esta activada.</strong></p>
           <p><a href="<?php echo home_url( '/' ); ?>"><?php echo home_url( '/' ); ?></a></p>
-          <pre><?php var_dump($is_verified); ?></pre>
         </div>
       </div>
       <?php endwhile; endif; ?>
