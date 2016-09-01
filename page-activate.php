@@ -12,8 +12,8 @@
   $key = "";
   // If key not set, ignore and send to home
   if ( ! isset( $_GET['k'] ) ) wp_redirect( home_url( '/' ) );
-
-  //do_action('marcador_activate_user'); // resides on marcador_manager plugin
+  
+  do_action('marcador_activate_user'); // resides on marcador_manager plugin
 ?>
 <?php get_header(); ?>
 <div id="marcador-page-template" class="search">
