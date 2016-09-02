@@ -1505,6 +1505,7 @@ span.cintillo.field.score.away {
 .marcador-box .panel-default {
 	-webkit-box-shadow: 0 4px 5px rgba(0,0,0,0.05);
 	box-shadow: 0 4px 5px rgba(0,0,0,0.05);	
+	border-radius: 8px;
 }
 .marcador-box.static p {
 	margin-bottom: 3px;
