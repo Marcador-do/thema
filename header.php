@@ -55,7 +55,11 @@ function banner() {
 		    appId      : '283126788739195',
 		    cookie     : true,
 		    xfbml      : true,
-		    version    : 'v2.5'
+		    version    : 'v2.5',
+		    oauth   : true,
+	        status  : true, // check login status
+	        cookie  : true, // enable cookies to allow the server to access the session
+	        xfbml   : true // parse XFBML
 		  });
 	  };
 
@@ -204,10 +208,11 @@ function banner() {
 											</a> */ ?>
 										</div>
 										<div class="form-group">
-											<fb:login-button scope="public_profile,email" onlogin="checkLoginState();"></fb:login-button>
-											<?php /*<a href="#google-handler" class="btn btn-danger btn-block facebook">
+											<?php /* <fb:login-button scope="public_profile,email" onlogin="checkLoginState();"></fb:login-button> */ ?>
+
+											<a href="javascript:checkLoginState()" class="btn btn-danger btn-block facebook">
 												<?php echo __( 'Conéctate con Facebook', 'marcadordo' ); ?>
-											</a> */?>
+											</a>
 										</div>
 									</div>
 								</div>
