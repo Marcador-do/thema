@@ -42,6 +42,7 @@ Colors:
 17. Post listing cards
 18. Marcador favoritos boxes
 19. Right Sidebar Logos
+20. Marcador Toastr Message
 /*------------------------------*/
 
 /* 0. General Styling */
@@ -1542,4 +1543,68 @@ span.cintillo.field.score.away {
 	#right-sidebar-wrapper .sidebar-nav li {
 		border: none;
 	}
-} 
+}
+#toast-container {
+	display: block;
+	position: fixed;
+	z-index: 10000; 
+}
+@media only screen and ( max-width : 600px ) {
+	#toast-container {
+		min-width: 100%;
+		bottom: 0%; 
+	} 
+}
+@media only screen and ( min-width : 601px ) and ( max-width : 992px ) {
+	#toast-container {
+		min-width: 30%;
+		right: 0;
+		top: 7%; 
+	} 
+}
+@media only screen and ( min-width : 993px ) {
+	#toast-container {
+		width: 300px;
+		height: auto;
+		// bottom: 5%;
+		// right: 2%;
+	    top: 7%;
+	    right: 6%;
+	} 
+}
+.toast {
+	border-radius: 2px;
+	right: 0;
+	min-width: 100px;
+	clear: both;
+	margin-top: 10px;
+	position: relative;
+	max-width: 100%;
+	height: auto;
+	min-height: 40px;
+	background-color: #323232;
+	padding: 15px 25px;
+	font-size: 1.4rem;
+	font-weight: 300;
+	color: #fff;
+	display: block;
+}
+.toast.rounded {
+	border-radius: 24px; 
+}
+@media only screen and (max-width : 600px) {
+	.toast {
+		width: 100%;
+		border-radius: 0; 
+	} 
+}
+@media only screen and (min-width : 601px) and (max-width : 992px) {
+	.toast {
+		float: left; 
+	} 
+}
+@media only screen and (min-width : 993px) {
+	.toast {
+		float: right; 
+	} 
+}
