@@ -188,7 +188,7 @@
 						// TODO: Show message?
 						// TODO: 2 seconds delay
 						// console.log( data );
-						if (data.valid) {
+						if ( data.valid ) {
 							window.setTimeout(function() {
 								document.location.href = referer;
 							}, 5000);
@@ -330,7 +330,7 @@
 	    		} 
 	    		else {
 	    			// console.log("USER CANCELLED");
-	    			MARCADOR.notify('Solicitud cancelada... Solicitud cancelada... Solicitud cancelada... Solicitud cancelada... Solicitud cancelada...');
+	    			MARCADOR.notify('Solicitud cancelada...');
 	    		}
 	    	}, { auth_type: 'reauthenticate' });
 	    } else {
