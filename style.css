@@ -1564,7 +1564,8 @@ span.cintillo.field.score.away {
 }
 @media only screen and ( min-width : 993px ) {
 	#toast-container {
-		width: 300px;
+		min-width: 200px;
+		max-width: 300px;
 		height: auto;
 		// bottom: 5%;
 		// right: 2%;

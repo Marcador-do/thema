@@ -330,7 +330,7 @@
 	    		} 
 	    		else {
 	    			// console.log("USER CANCELLED");
-	    			MARCADOR.notify('Solicitud cancelada...');
+	    			MARCADOR.notify('Solicitud cancelada... Solicitud cancelada... Solicitud cancelada... Solicitud cancelada... Solicitud cancelada...');
 	    		}
 	    	}, { auth_type: 'reauthenticate' });
 	    } else {
