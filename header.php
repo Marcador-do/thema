@@ -131,10 +131,10 @@ function banner() {
 											</a> */ ?>
 										</div>
 										<div class="form-group">
-											<fb:login-button scope="public_profile,email" onlogin="checkRegisterState();"></fb:login-button>
-											<?php /*<a href="#google-handler" class="btn btn-danger btn-block facebook">
+											<!-- <fb:login-button scope="public_profile,email" onlogin="checkRegisterState();"></fb:login-button> -->
+											<a href="javascript:checkRegisterState()" class="btn btn-danger btn-block facebook">
 												<?php echo __( 'Conéctate con Facebook', 'marcadordo' ); ?>
-											</a> */ ?>
+											</a>
 										</div>
 										<div class="form-group">
 											<hr>
