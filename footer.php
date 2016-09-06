@@ -361,6 +361,22 @@
 	    });
 	  }
 
+<<<<<<< HEAD
+	  function testAPI(auth, cb) {
+	    FB.api('/me', {fields: 'name,email,cover'}, function(response) {
+	    	var action = (MARCADOR.facebookRegister === cb)?'register':'login';
+	    	payload = {
+					action: 'marcador_facebook_' + action,
+	    		name: response.name,
+	    		email: response.email,
+	    		// image_url: response.cover,
+	    		auth: auth.accessToken,,
+	    		auth_
+	    		auth_type: "facebook"
+	    	};
+	    	cb(payload);
+	    });
+=======
 	  function performFBLoggin( auth, cb ) {
 	    FB.api(
 	    	'/me', {
@@ -378,6 +394,7 @@
 	    		cb( payload );
 	    	}
 	    );
+>>>>>>> 466491b41e2e85cf84e4cc3d953588d8ae615570
 	  }
 	</script>
 	<?php endif; ?>
@@ -390,7 +407,8 @@
 		  var payload = {
 				action: 'marcador_google_login',
 				email: profile.getEmail(),
-				auth: authResponse
+				auth: authResponse.id_token,
+				auth_type: "google"
 			};
 
 		  MARCADOR.googleLogin( payload );
@@ -407,7 +425,8 @@
 				name: profile.getName(),
 				email: profile.getEmail(),
 				//image_url: profile.getImageUrl(),
-				auth: authResponse
+				auth: authResponse.id_token,
+				auth_type: "google"
 			};
 
 		  MARCADOR.googleRegister(payload);
