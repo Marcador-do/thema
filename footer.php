@@ -284,30 +284,30 @@
 	<?php if ( !is_user_logged_in() ): // Facebook Integration ?>
 	<!-- <div id="fb-root"></div> -->
 	<script type="text/javascript">
-		// 
-		function fb_login(){
-		    FB.login(function(response) {
+		
+		// function fb_login(){
+		//     FB.login(function(response) {
 
-		        if (response.authResponse) {
-		            console.log('Welcome!  Fetching your information.... ');
-		            //console.log(response); // dump complete info
-		            access_token = response.authResponse.accessToken; //get access token
-		            user_id = response.authResponse.userID; //get FB UID
+		//         if (response.authResponse) {
+		//             console.log('Welcome!  Fetching your information.... ');
+		//             //console.log(response); // dump complete info
+		//             access_token = response.authResponse.accessToken; //get access token
+		//             user_id = response.authResponse.userID; //get FB UID
 
-		            FB.api('/me', function(response) {
-		                user_email = response.email; //get user email
-		          	// you can store this data into your database             
-		            });
+		//             FB.api('/me', function(response) {
+		//                 user_email = response.email; //get user email
+		//           	// you can store this data into your database             
+		//             });
 
-		        } else {
-		            //user hit cancel button
-		            console.log('User cancelled login or did not fully authorize.');
+		//         } else {
+		//             //user hit cancel button
+		//             console.log('User cancelled login or did not fully authorize.');
 
-		        }
-		    }, {
-		        scope: 'publish_stream,email'
-		    });
-		}
+		//         }
+		//     }, {
+		//         scope: 'publish_stream,email'
+		//     });
+		// }
 		// (function() {
 		//     var e = document.createElement('script');
 		//     e.src = document.location.protocol + '//connect.facebook.net/en_US/all.js';
@@ -316,7 +316,6 @@
 		// }());
 		// 
 	  function statusChangeCallback( response, cb ) {
-	  	
 	    if ( response.status === 'connected' ) {
 	     	// Logged into your app and Facebook.
 	     	performFBLoggin( response.authResponse, cb );
@@ -350,13 +349,15 @@
 
 	  function checkLoginState() {
 	    FB.getLoginStatus(function(response) {
+	  		console.log("Checking log in response", response);
 	      statusChangeCallback( response, MARCADOR.facebookLogin );
 	    });
 	  }
 
 	  function checkRegisterState () {
 	    FB.getLoginStatus(function(response) {
-	      statusChangeCallback( response, MARCADOR.facebookRegister );
+	    	console.log("Checking register response", response);
+	      	statusChangeCallback( response, MARCADOR.facebookRegister );
 	    });
 	  }
 
