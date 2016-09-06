@@ -43,6 +43,7 @@ Colors:
 18. Marcador favoritos boxes
 19. Right Sidebar Logos
 20. Marcador Toastr Message
+21. User Profile
 /*------------------------------*/
 
 /* 0. General Styling */
@@ -1608,4 +1609,9 @@ span.cintillo.field.score.away {
 	.toast {
 		float: right; 
 	} 
+}
+
+/* 21. User Profile */
+#profile-page {
+	margin-left: 25px;
 }

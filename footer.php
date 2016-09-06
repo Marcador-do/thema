@@ -285,37 +285,7 @@
 	<!-- <div id="fb-root"></div> -->
 	<script type="text/javascript">
 		
-		// function fb_login(){
-		//     FB.login(function(response) {
-
-		//         if (response.authResponse) {
-		//             console.log('Welcome!  Fetching your information.... ');
-		//             //console.log(response); // dump complete info
-		//             access_token = response.authResponse.accessToken; //get access token
-		//             user_id = response.authResponse.userID; //get FB UID
-
-		//             FB.api('/me', function(response) {
-		//                 user_email = response.email; //get user email
-		//           	// you can store this data into your database             
-		//             });
-
-		//         } else {
-		//             //user hit cancel button
-		//             console.log('User cancelled login or did not fully authorize.');
-
-		//         }
-		//     }, {
-		//         scope: 'publish_stream,email'
-		//     });
-		// }
-		// (function() {
-		//     var e = document.createElement('script');
-		//     e.src = document.location.protocol + '//connect.facebook.net/en_US/all.js';
-		//     e.async = true;
-		//     document.getElementById('fb-root').appendChild(e);
-		// }());
-		// 
-	  function statusChangeCallback( response, cb ) {
+	function statusChangeCallback( response, cb ) {
 	    if ( response.status === 'connected' ) {
 	     	// Logged into your app and Facebook.
 	     	performFBLoggin( response.authResponse, cb );
@@ -331,7 +301,7 @@
 	    			// console.log("USER CANCELLED");
 	    			MARCADOR.notify('Solicitud cancelada...');
 	    		}
-	    	}, { auth_type: 'reauthenticate' });
+	    	}, { auth_type: 'reauthenticate', scope: 'email' });
 	    } else {
 	    	// The person is not logged into Facebook, so we're not sure if
 	    	// they are logged into this app or not.
@@ -343,32 +313,35 @@
 	    			// console.log("USER CANCELLED");
 	    			MARCADOR.notify('Solicitud cancelada...');
 	    		}
-	    	});
+	    	}, { scope: 'email' });
 	    }
-	  }
+	}
 
-	  function checkLoginState() {
-	    FB.getLoginStatus(function(response) {
-	  		console.log("Checking log in response", response);
-	      statusChangeCallback( response, MARCADOR.facebookLogin );
-	    });
-	  }
+	function checkLoginState() {
+		FB.getLoginStatus(function(response) {
+			console.log("Checking log in response", response);
+			statusChangeCallback( response, MARCADOR.facebookLogin );
+		});
+	}
 
-	  function checkRegisterState () {
-	    FB.getLoginStatus(function(response) {
-	    	console.log("Checking register response", response);
-	      	statusChangeCallback( response, MARCADOR.facebookRegister );
-	    });
-	  }
+	function checkRegisterState () {
+		FB.getLoginStatus(function(response) {
+			console.log("Checking register response", response);
+			statusChangeCallback( response, MARCADOR.facebookRegister );
+		});
+	}
 
-	  function performFBLoggin( auth, cb ) {
+	function performFBLoggin( auth, cb ) {
+	    
 	    FB.api(
 	    	'/me', {
-		    	fields: 'name,email,cover'
+		    	fields: 'name,email,cover',
 		    }, 
 		    function( response ) {
 	    		var action = ( MARCADOR.facebookLogin === cb ) ? 'login' : 'register' ; 
 
+	    		console.log("performFBLoggin response: ", response);
+		    	
 		    	payload = {
 					action: 'marcador_facebook_' + action,
 		    		name: response.name,
@@ -377,10 +350,11 @@
 		    		auth: auth.accessToken,
 		    		auth_type: "facebook"
 		    	};
+		    	
 		    	cb(payload);
 	    	}
 	    );
-	  }
+	}
 	</script>
 	<?php endif; ?>
 
