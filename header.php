@@ -52,14 +52,14 @@ function banner() {
 	<script>
 	  window.fbAsyncInit = function() {
 		  FB.init({
-		    appId      : '283126788739195',
-		    cookie     : true,
-		    xfbml      : true,
-		    version    : 'v2.5',
+		    appId   : '283126788739195',
+		    cookie  : true,
+		    xfbml   : true,
+		    version : 'v2.5',
 		    oauth   : true,
-	        status  : true, // check login status
-	        cookie  : true, // enable cookies to allow the server to access the session
-	        xfbml   : true // parse XFBML
+	        // status  : true,	// check login status
+	        cookie  : true,	// enable cookies to allow the server to access the session
+	        xfbml   : true 	// parse XFBML
 		  });
 	  };
 

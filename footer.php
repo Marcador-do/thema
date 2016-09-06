@@ -10,7 +10,8 @@
  */
 ?>
 		</div>
-		<!-- /#page-content-wrapper -->
+		<?php // <!-- /#page-content-wrapper --> ?>
+
 		<?php /* Right Sidebar */ ?>
 		<div id="right-sidebar-wrapper">
 			<ul class="sidebar-nav right">
@@ -43,23 +44,24 @@
 		</div>
 		<?php /* End Right Sidebar */ ?>
 	</div>
-	<!-- /#wrapper -->
+	<?php // <!-- /#wrapper --> ?>
 	<?php wp_footer(); ?>
 	<script type="text/javascript">
-		//var init;
-		var MARCADOR = (function(APP){
+		var MARCADOR = (function( APP ){
 
+			<?php
 			/**
 			 * Configure the sidebarMenu
 			 * file: [sidebar-menu.js]
 			 */
+			?>
 			function setSidebarMenu() {
 				var sideMenu = SidebarMenu.getInstance();
 				var menuToggleButtons = [
 					document.getElementsByClassName("sidebar-bar-close")[0],
 					document.getElementsByClassName("navbar-menu-btn")[0]
 				];
-				/** Add the event to everyone of the provided buttons */
+				<?php /** Add the event to everyone of the provided buttons */ ?>
 				[].forEach.call( menuToggleButtons, function(btn){
 					btn.onclick = function(e) {
 						e.preventDefault();
@@ -71,7 +73,7 @@
 					}
 				});
 
-				/** Add the close to the `esc` keypress */
+				<?php /** Add the close to the `esc` keypress */ ?>
 				document.onkeyup = function( e ) {
 					var key_number = ( typeof e.which === "number" ) ? e.which : e.keyCode;
 					if( key_number === 27 ) {
@@ -82,20 +84,24 @@
 				}
 			}
 
+			<?php
 			/**
 			 * Initialize sidebarnav submenu
 			 * file: [sidebar-nav-submenu.js]
 			 */
+			?>
 			function setSubmenuSidebar() {
 				var elements = document.querySelectorAll('li[sidebar-nav-submenu]');
 
 				new SidebarNav_SubMenu( elements );
 			}
 
+			<?php
 			/**
 			 * Open the sidebar menu and focus the input when clicked
 			 * @return {Bool} undefined
 			 */
+			?>
 			function sidebarSearchPatch() {
 				var sideMenu = SidebarMenu.getInstance();
 				var searchButton = document.querySelector("#sidebar-search-toggle");
@@ -113,13 +119,19 @@
 					});
 			}
 
+			<?php
+			/**
+			 * Marcador app initialization part.
+			 * @return {obj} Returns the module creation app
+			 */
+			?>
 			APP.init = function() {
 				setSidebarMenu();
 				setSubmenuSidebar();
 				sidebarSearchPatch();
 
+				<?php /* Handler for modals */ ?>
 				<?php if ( !is_user_logged_in() ):  ?>
-					<?php /* Handler for modals */ ?>
 					jQuery('#registerModal').on('show.bs.modal', function(){ 
 						jQuery('#loginModal').modal('hide');
 					});
@@ -132,19 +144,19 @@
 					});
 					<?php /* Handler for from Login */ ?>
 					jQuery('form[name="login-form"]', function(){
-						jQuery('form[name="login-form"]').submit(formLogin);
+						jQuery('form[name="login-form"]').submit( formLogin );
 					});
 					<?php /* Handler for from Registration */ ?>
 					jQuery('form[name="register-form"]', function(){
-						jQuery('form[name="register-form"]').submit(formRegister);
+						jQuery('form[name="register-form"]').submit( formRegister );
 					});
 				<?php else: ?>
 					<?php /* Handler for Logout */ ?>
 				<?php endif; ?>
 			};
 
-			var ajax = function (payload, successCallback, errorCallback) {
-				console.log(payload);
+			var ajax = function ( payload, successCallback, errorCallback ) {
+				
 				jQuery.ajax({
 					url: '/wp-admin/admin-ajax.php',
 					type: 'post',
@@ -156,135 +168,199 @@
 			};
 
 			var ajaxAction = function ( $form, payload ) {
-				if ($form) {
-					var referer = $form.find("input[name='_wp_http_referer']").val();
+				
+				if ( $form ) {
+					var referer 		= $form.find("input[name='_wp_http_referer']").val();
 					payload._wpnonce 	= $form.find("input[name='_wpnonce']").val();
 				}
 
 				ajax(
 					payload,
-					function (data) { // Success Callback
-						if (data.error) { // Checks error from backend
-							// TODO: Show error message.
-							console.log(data);
+					function ( data ) { 
+						// Success Callback
+						if ( data.error ) { 
+							// Checks error from backend
+							// TODO: change copy message as needed
+							MARCADOR.notify('Algo ocurrió, vuelve a intentarlo');
+							console.log( data );
 							return;
 						}
 						// TODO: Show message?
 						// TODO: 2 seconds delay
-						console.log(data);
-						if (data.valid) {
+						// console.log( data );
+						if ( data.valid ) {
 							window.setTimeout(function() {
 								document.location.href = referer;
 							}, 5000);
 						}
 					},
-					function (err) { // Error Callback
+					function (err) { 
+						// Error Callback
 						// TODO: Show message
+						MARCADOR.notify('Algo ocurrió, vuelve a intentarlo');
 						console.log(err);
 					}
 				);
 			};
 
 			<?php if ( !is_user_logged_in() ):  ?>
-			var formAction 	= function (e) {
-				var $form 		= jQuery(e.target); // Holds the current form
+				var formAction 	= function (e) {
+					var $form 	= jQuery(e.target); // Holds the current form
+					var payload = formData( $form );
 
-				var payload 	= formData($form);
-				if (null === payload) return;
-				// TODO: Validate Input on front end
+					if ( null === payload ) return;
+					// TODO: Validate Input on front end
 
-				ajaxAction($form, payload);
-				e.preventDefault();
-			};
+					ajaxAction( $form, payload );
+					e.preventDefault();
+				};
 
-			var formData = function ($form) {
-				var payload;
-				if ("login-form" === $form.attr("name")) {
-					payload = {
-						action	: 'marcador_login',
-						username: $form.find("input[name='username']").val(),
-						password: $form.find("input[name='password']").val()
-					};
-				} else if ("register-form" === $form.attr("name")) {
-					payload = {
-						action	: 'marcador_register',
-						email 	: $form.find("input[name='email']").val(),
-						username: $form.find("input[name='username']").val(),
-						password: $form.find("input[name='password']").val()
-					};
-				} else {
-					payload = null;
-				}
+				var formData = function ( $form ) {
+					var payload;
+					if ( "login-form" === $form.attr("name") ) {
+						payload = {
+							action	: 'marcador_login',
+							username: $form.find("input[name='username']").val(),
+							password: $form.find("input[name='password']").val()
+						};
+					} else if ( "register-form" === $form.attr("name") ) {
+						payload = {
+							action	: 'marcador_register',
+							email 	: $form.find("input[name='email']").val(),
+							username: $form.find("input[name='username']").val(),
+							password: $form.find("input[name='password']").val()
+						};
+					} else {
+						payload = null;
+					}
 
-				return payload;
-			};
+					return payload;
+				};
 
-			var formLogin = function (e) { formAction(e); };
-			var formRegister = function (e) { formAction(e); };
+				var formLogin 	 = function (e) { formAction(e); };
+				var formRegister = function (e) { formAction(e); };
 
-			APP.googleLogin 		= function (payload) {
-				$form = jQuery("form[name='login-form']");
-				ajaxAction($form , payload);
-			};
-			APP.googleRegister 	= function (payload) {
-				$form = jQuery("form[name='register-form']");
-				ajaxAction($form, payload);
-			};
-			
-			APP.facebookLogin 		= function (payload) {
-				$form = jQuery("form[name='login-form']");
-				ajaxAction($form , payload);
-			};
-			APP.facebookRegister 	= function (payload) {
-				$form = jQuery("form[name='register-form']");
-				ajaxAction($form, payload);
-			};
+				APP.googleLogin  = function ( payload ) {
+					$form = jQuery("form[name='login-form']");
+					ajaxAction($form , payload);
+				};
+				APP.googleRegister 	= function ( payload ) {
+					$form = jQuery("form[name='register-form']");
+					ajaxAction($form, payload);
+				};
+				
+				APP.facebookLogin 	= function ( payload ) {
+					$form = jQuery("form[name='login-form']");
+					ajaxAction($form , payload);
+				};
+				APP.facebookRegister = function ( payload ) {
+					$form = jQuery("form[name='register-form']");
+					ajaxAction($form, payload);
+				};
 			<?php else: ?>
-			APP.logout = function (e) {
-				e.preventDefault();
-				payload = { action: 'marcador_logout' };
-				APP.ajaxAction( null, payload );
-				document.location.href = "/";
-			};
+				APP.logout = function (e) {
+					e.preventDefault();
+					payload = { action: 'marcador_logout' };
+					APP.ajaxAction( null, payload );
+					document.location.href = "/";
+				};
 			<?php endif; ?>
-			/** @type {function} triggers on page load */
-			//page.onload = init;
+			APP.notify = function( message, displayLength, className, completeCallback ) {
+				marcadorToastr( message, displayLength, className, completeCallback )
+			}
+
 			return APP;
 		
-		}(MARCADOR || {}));
-		window.onload = MARCADOR.init
+		}( MARCADOR || {} ));
+		
+		<?php
+		/**
+		 * On document ready
+		 */
+		?>
+		jQuery( document ).ready( MARCADOR.init );
 	</script>
 
 	<?php if ( !is_user_logged_in() ): // Facebook Integration ?>
+	<!-- <div id="fb-root"></div> -->
 	<script type="text/javascript">
-	  function statusChangeCallback(response, cb) {
-	    if (response.status === 'connected') {
-	      // Logged into your app and Facebook.
-	      testAPI(response.authResponse, cb);
-	    } else if (response.status === 'not_authorized') {
-	      // The person is logged into Facebook, but not your app.
-	      console.log( 'Please log into this app.' );
-	      // TODO: Show message to authorize app.
+		// 
+		function fb_login(){
+		    FB.login(function(response) {
+
+		        if (response.authResponse) {
+		            console.log('Welcome!  Fetching your information.... ');
+		            //console.log(response); // dump complete info
+		            access_token = response.authResponse.accessToken; //get access token
+		            user_id = response.authResponse.userID; //get FB UID
+
+		            FB.api('/me', function(response) {
+		                user_email = response.email; //get user email
+		          	// you can store this data into your database             
+		            });
+
+		        } else {
+		            //user hit cancel button
+		            console.log('User cancelled login or did not fully authorize.');
+
+		        }
+		    }, {
+		        scope: 'publish_stream,email'
+		    });
+		}
+		// (function() {
+		//     var e = document.createElement('script');
+		//     e.src = document.location.protocol + '//connect.facebook.net/en_US/all.js';
+		//     e.async = true;
+		//     document.getElementById('fb-root').appendChild(e);
+		// }());
+		// 
+	  function statusChangeCallback( response, cb ) {
+	  	
+	    if ( response.status === 'connected' ) {
+	     	// Logged into your app and Facebook.
+	     	performFBLoggin( response.authResponse, cb );
+	    
+	    } else if ( response.status === 'not_authorized' ) {
+	     	// The person is logged into Facebook, but not your app.
+	     	// console.log( 'Please log into this app.' );
+	      	FB.login(function( response ) {
+	    		if( response.authResponse ) {
+	    			performFBLoggin( response.authResponse, MARCADOR.facebookLogin );
+	    		} 
+	    		else {
+	    			// console.log("USER CANCELLED");
+	    			MARCADOR.notify('Solicitud cancelada...');
+	    		}
+	    	}, { auth_type: 'reauthenticate' });
 	    } else {
-	      // The person is not logged into Facebook, so we're not sure if
-	      // they are logged into this app or not.
-	      console.log( 'Please log into Facebook.' );
-	      // TODO: Show message to log into facebook.
+	    	// The person is not logged into Facebook, so we're not sure if
+	    	// they are logged into this app or not.
+	    	FB.login(function( response ) {
+	    		if( response.authResponse ) {
+	    			performFBLoggin( response.authResponse, MARCADOR.facebookLogin );
+	    		} 
+	    		else {
+	    			// console.log("USER CANCELLED");
+	    			MARCADOR.notify('Solicitud cancelada...');
+	    		}
+	    	});
 	    }
 	  }
 
 	  function checkLoginState() {
 	    FB.getLoginStatus(function(response) {
-	      statusChangeCallback(response, MARCADOR.facebookLogin);
+	      statusChangeCallback( response, MARCADOR.facebookLogin );
 	    });
 	  }
 
 	  function checkRegisterState () {
 	    FB.getLoginStatus(function(response) {
-	      statusChangeCallback(response, MARCADOR.facebookRegister);
+	      statusChangeCallback( response, MARCADOR.facebookRegister );
 	    });
 	  }
 
+<<<<<<< HEAD
 	  function testAPI(auth, cb) {
 	    FB.api('/me', {fields: 'name,email,cover'}, function(response) {
 	    	var action = (MARCADOR.facebookRegister === cb)?'register':'login';
@@ -299,6 +375,25 @@
 	    	};
 	    	cb(payload);
 	    });
+=======
+	  function performFBLoggin( auth, cb ) {
+	    FB.api(
+	    	'/me', {
+		    	fields: 'name,email,cover'
+		    }, 
+		    function( response ) {
+	    		var action = ( MARCADOR.facebookLogin === cb ) ? 'login' : 'register' ;
+		    	payload = {
+					action: 'marcador_facebook_' + action,
+		    		name: response.name,
+		    		email: response.email,
+		    		// image_url: response.cover,
+		    		auth: auth
+		    	};
+	    		cb( payload );
+	    	}
+	    );
+>>>>>>> 466491b41e2e85cf84e4cc3d953588d8ae615570
 	  }
 	</script>
 	<?php endif; ?>
@@ -315,7 +410,7 @@
 				auth_type: "google"
 			};
 
-		  MARCADOR.googleLogin(payload);
+		  MARCADOR.googleLogin( payload );
 		}
 
 	    function onFailureGoogle ( error ) {
