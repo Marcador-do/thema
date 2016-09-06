@@ -287,13 +287,15 @@
 
 	  function testAPI(auth, cb) {
 	    FB.api('/me', {fields: 'name,email,cover'}, function(response) {
-	    	var action = (MARCADOR.facebookLogin === cb)?'login':'register';
+	    	var action = (MARCADOR.facebookRegister === cb)?'register':'login';
 	    	payload = {
 					action: 'marcador_facebook_' + action,
 	    		name: response.name,
 	    		email: response.email,
 	    		// image_url: response.cover,
-	    		auth: auth
+	    		auth: auth.accessToken,,
+	    		auth_
+	    		auth_type: "facebook"
 	    	};
 	    	cb(payload);
 	    });
@@ -309,7 +311,8 @@
 		  var payload = {
 				action: 'marcador_google_login',
 				email: profile.getEmail(),
-				auth: authResponse
+				auth: authResponse.id_token,
+				auth_type: "google"
 			};
 
 		  MARCADOR.googleLogin(payload);
@@ -326,7 +329,8 @@
 				name: profile.getName(),
 				email: profile.getEmail(),
 				//image_url: profile.getImageUrl(),
-				auth: authResponse
+				auth: authResponse.id_token,
+				auth_type: "google"
 			};
 
 		  MARCADOR.googleRegister(payload);
