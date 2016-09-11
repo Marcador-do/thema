@@ -64,8 +64,6 @@ $args = array(
 );
 $principal = new WP_Query( $args ); ?>
 
-<pre><?php print_r($test); ?></pre>
-
 <?php while ( $principal->have_posts() ): $principal->the_post(); ?>
 
   <?php if ( $principal->current_post === 0 ): ?>
