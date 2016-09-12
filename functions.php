@@ -154,6 +154,12 @@ function marcador_scripts() {
 	if ( is_page('trabaja-con-nosotros') || is_page('contacto') ) {
 		wp_enqueue_script( 'google-recapcha', 'https://www.google.com/recaptcha/api.js', array() );
 	}
+
+	if ( is_404() ) {
+		wp_enqueue_style( 'bebasneue-font', get_template_directory_uri()."/assets/fonts/bebasneue.ttf", array() );
+		wp_enqueue_style( 'animate-css', get_template_directory_uri()."/assets/css/animate.css", array() );
+		wp_enqueue_style( 'style-404', get_template_directory_uri()."/assets/css/style404.css", array() );
+	}
 }
 add_action( 'wp_enqueue_scripts', 'marcador_scripts' );
 

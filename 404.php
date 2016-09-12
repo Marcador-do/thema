@@ -9,9 +9,24 @@
  */
 ?>
 <?php get_header(); ?>
+      
+        <div class="container">
+          <div class="grupo1">
+            <img class="sim bounceInLeft" src="<?php echo get_template_directory_uri(); ?>/assets/imgs/404/emr_simbolo.png" />
+            <div class="titulo bounceInDown">
+              <img src="<?php echo get_template_directory_uri(); ?>/assets/imgs/404/emr_titulo.png" />
+            </div>
+            <p class="texto fadeIn">Lo sentimos, pero esta pagina no se encuentra en nuestro directorio, favor verificar el enlace.</p>
+          </div>
 
-<h1>
-	404
-</h1>	
+          <div class="container-redes slideInUp">
+            <ul>
+              <li><img src="<?php echo get_template_directory_uri(); ?>/assets/imgs/404/emr_texto.png" /></li>
+              <li><a href="https://www.facebook.com/Marcador.do/"><img src="<?php echo get_template_directory_uri(); ?>/assets/imgs/404/emr_facebook.png" /></a>
+              <li><a href="https://twitter.com/marcador_do"><img src="<?php echo get_template_directory_uri(); ?>/assets/imgs/404/emr_twitter.png" /></a>
+              <li><a href="https://www.instagram.com/marcador.do/"><img src="<?php echo get_template_directory_uri(); ?>/assets/imgs/404/emr_instagram.png" /></a>
+            </ul>
+        </div>
+      </div>
 
 <?php get_footer(); ?>
