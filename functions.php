@@ -154,6 +154,12 @@ function marcador_scripts() {
 	if ( is_page('trabaja-con-nosotros') || is_page('contacto') ) {
 		wp_enqueue_script( 'google-recapcha', 'https://www.google.com/recaptcha/api.js', array() );
 	}
+
+	if ( is_404() ) {
+		wp_enqueue_style( 'bebasneue-font', get_template_directory_uri()."/assets/fonts/bebasneue.ttf", array() );
+		wp_enqueue_style( 'animate-css', get_template_directory_uri()."/assets/css/animate.css", array() );
+		wp_enqueue_style( 'style-404', get_template_directory_uri()."/assets/css/style404.css", array() );
+	}
 }
 add_action( 'wp_enqueue_scripts', 'marcador_scripts' );
 
@@ -237,3 +243,18 @@ if ( is_user_logged_in() ) {
 }
 
 date_default_timezone_set ( 'America/Santo_Domingo' );
+
+/**
+ * Adds Selector to Deportes Menu
+ * @param string $items WP managed menu items.
+ * @param object $args WP menu arguments.
+ * @return string
+ */
+add_filter( 'wp_nav_menu_items', 'selector_deportes_top_menu', 10, 2 );
+function selector_deportes_top_menu ( $items, $args ) {
+    if ($args->theme_location == 'deportes_top') {
+        $li = "<li id=\"liga-select\"></li>";
+        $items = $li . $items;
+    }
+    return $items;
+}

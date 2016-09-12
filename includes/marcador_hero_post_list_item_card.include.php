@@ -1,4 +1,5 @@
-<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 marcador-post-list card">
+<?php if (!isset($width)) $width = 6; ?>
+<div class="col-xs-12 col-sm-<?php echo $width; ?> col-md-<?php echo $width; ?> col-lg-<?php echo $width; ?> marcador-post-list card">
     <div class="container-fluid">
         <div class="row">
           <div class="panel panel-default">
