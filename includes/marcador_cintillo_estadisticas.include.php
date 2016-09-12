@@ -52,7 +52,7 @@ $final_style = 'color:#f4f4f4; background-color: #333; border-right:1px solid #6
 <?php
 $stat_template = <<<STAT_TEMPLATE
 <div class="cintillo-result">
-	<a href="#" placetext="Resumen" class="cintillo anchor">
+	<a href="#" class="cintillo anchor">
 		<h4 class="cintillo field title">STATUS</h4>
 		<p class="cintillo field team home">
 			<span class="cintillo field image home"></span>&nbsp;&nbsp;
@@ -82,6 +82,10 @@ jQuery("#cintillo").ready(function() {
 			var current = cintillo[i],
 				html = lol.clone();
 				result_width = result_width + 150;
+			if (current.link.indexOf("post_type=") === -1){
+				html.find("a.cintillo.anchor").attr("href", current.link);
+				html.find("a.cintillo.anchor").attr("placetext", "Resumen");
+			}
 
 			html.find('h4.cintillo.field.title').text( ( current.status == "closed" ) ? "Final" : current.status );
 			
@@ -105,7 +109,7 @@ jQuery("#cintillo").ready(function() {
 			}
 
 			if( current.status != 'closed' ) {
-				html.find("a.cintillo.anchor").attr('placetext', 'Programada');
+				//html.find("a.cintillo.anchor").attr('placetext', 'Programada');
 			}
 
 			jQuery("#cintillo-results").append( html ).css('width', result_width + 35);
