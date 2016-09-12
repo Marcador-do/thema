@@ -23,7 +23,10 @@ get_header(); ?>
 				<div class="user-profile-picture">
 					<img src="http://placehold.it/<?php echo $dimension; ?>&text=Marcador+User" alt="USER PROFILE" class="img-responsive">
 				</div>
-				div.user-profile-info
+				<div class="user-profile-info">
+					<button class="btn btn-default marcador-special edit-profile">Editar</button>
+					<!--  -->
+				</div>
 			</div>
 		</div>
 		<div class="col-xs-12 col-sm-12 col-md-8 col-lg-8">

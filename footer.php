@@ -202,7 +202,6 @@
 					}
 				);
 			};
-
 			<?php if ( !is_user_logged_in() ):  ?>
 				var formAction 	= function (e) {
 					var $form 	= jQuery(e.target); // Holds the current form
