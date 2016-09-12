@@ -116,10 +116,10 @@
 													the_post_thumbnail('thumbnail');
 													$thumb = ob_get_clean(); ?>
 												<?php if ( strlen($thumb) > 0 ): ?>
-                				<?php echo $thumb;  ?>
-                				<?php else: ?>
-                				<div class="marcador-post-list-image"></div>
-                				<?php endif; ?>
+                									<?php echo $thumb;  ?>
+                								<?php else: ?>
+                									<div class="marcador-post-list-image"></div>
+                								<?php endif; ?>
 											</a> 
 										</div>
 										<div class="col-xs-8 col-sm-7">
@@ -150,7 +150,7 @@
 									</div>
 								</div>
 							</div>
-            <?php endwhile; ?>
+            			<?php endwhile; ?>
 					</div>
 				</div>
 			</div>

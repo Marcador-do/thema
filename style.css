@@ -1613,10 +1613,38 @@ span.cintillo.field.score.away {
 
 /* 21. User Profile */
 #profile-page {
+	margin-top: 25px;
 	margin-left: 25px;
 }
 .edit-profile {
 	margin: 5px 0;
 	padding: 6px 35px;
 	border-radius: 2px;
+}
+#profile-page .marcador-posts-listing-wrapper {
+	padding-top: 15px;
+	border-top: none;
+}
+#profile-page .marcador-post-list {
+	margin-left: 0;
+}
+#profile-page .user-profile-picture {
+	margin-bottom: 15px;
+}
+.user-profile-info {
+    position: relative;
+}
+.user-field-group {
+    margin-bottom: 15px;
+}
+.user-field {
+    font-size: 16px;
+    color: #000;
+}
+.user-field-name {
+    font-size: 14px;
+    color: #777;
+}
+.justified {
+	text-align: justify;
 }
