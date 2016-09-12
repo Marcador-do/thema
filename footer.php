@@ -268,6 +268,7 @@
 			APP.notify = function( message, displayLength, className, completeCallback ) {
 				marcadorToastr( message, displayLength, className, completeCallback )
 			}
+			APP.ajax = ajax;
 
 			return APP;
 		

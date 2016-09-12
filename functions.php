@@ -237,3 +237,18 @@ if ( is_user_logged_in() ) {
 }
 
 date_default_timezone_set ( 'America/Santo_Domingo' );
+
+/**
+ * Adds Selector to Deportes Menu
+ * @param string $items WP managed menu items.
+ * @param object $args WP menu arguments.
+ * @return string
+ */
+add_filter( 'wp_nav_menu_items', 'selector_deportes_top_menu', 10, 2 );
+function selector_deportes_top_menu ( $items, $args ) {
+    if ($args->theme_location == 'deportes_top') {
+        $li = "<li id=\"liga-select\"></li>";
+        $items = $li . $items;
+    }
+    return $items;
+}
