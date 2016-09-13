@@ -258,3 +258,13 @@ function selector_deportes_top_menu ( $items, $args ) {
     }
     return $items;
 }
+
+/**
+ * Filter that controls the number of words of the excerpt. 
+ * @param int $length excerpt length.
+ * @return int
+ */
+function custom_excerpt_length( $length ) {
+	return 50;
+}
+add_filter( 'excerpt_length', 'custom_excerpt_length', 999 );
