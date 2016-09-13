@@ -246,21 +246,20 @@ STAT_TEMPLATE;
               APP.ajax(
                 payload,
                 function (data) {
-                  console.log( data );
-                  var games = data.league.games;
+                  var games = data.resultados;
                   var $template = jQuery('<?php echo preg_replace( "/\r|\n/", "", $res_template ); ?>');
 
                   $target.html("");
-                  jQuery.each(games, function(i, el) {
+                  jQuery.each(games, function(i, game) {
                     var $el = $template.clone();
-                    $el.find(".status").text(el.game.status);
-                    $el.find(".team.home .name").text(el.game.home.market + " " + el.game.home.name);
-                    $el.find(".team.home .runs").text(el.game.home.runs);
-                    $el.find(".team.home .logo img").attr("src", "/wp-content/themes/marcadordo/assets/imgs/mlb/"+el.game.home.abbr + "-logo-sm.png");
+                    $el.find(".status").text(game.status);
+                    $el.find(".team.home .name").text(game.home.market + " " + game.home.name);
+                    $el.find(".team.home .runs").text(game.home.runs);
+                    $el.find(".team.home .logo img").attr("src", "/wp-content/themes/marcadordo/assets/imgs/mlb/"+game.home.abbr + "-logo-sm.png");
 
-                    $el.find(".team.away .name").text(el.game.away.market + " " + el.game.away.name);
-                    $el.find(".team.away .runs").text(el.game.home.runs);
-                    $el.find(".team.away .logo img").attr("src", "/wp-content/themes/marcadordo/assets/imgs/mlb/"+el.game.away.abbr + "-logo-sm.png");
+                    $el.find(".team.away .name").text(game.away.market + " " + game.away.name);
+                    $el.find(".team.away .runs").text(game.home.runs);
+                    $el.find(".team.away .logo img").attr("src", "/wp-content/themes/marcadordo/assets/imgs/mlb/"+game.away.abbr + "-logo-sm.png");
 
                     $target.append($el);
                   });
