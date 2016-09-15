@@ -1648,3 +1648,9 @@ span.cintillo.field.score.away {
 .justified {
 	text-align: justify;
 }
+#liga-drpdwn {
+	margin: 5px 0 3px 0;
+	background-color: transparent;
+	border-color: transparent;
+	color: #fdfdfd;
+}
