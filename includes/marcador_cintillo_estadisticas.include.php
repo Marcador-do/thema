@@ -20,7 +20,7 @@ $final_style = 'color:#f4f4f4; background-color: #333; border-right:1px solid #6
 									</select>
 									<select id="league_day" class="form-control">
 										<?php for ($i=0; $i < 3; $i++): $now = date('Y.m.d');  ?>
-											<option value="<?php echo date('Y.m.d', strtotime("-$i day")); ?>"<?php if( 0 == $i ) echo 'selected'; ?>>
+											<option value="<?php echo date('Y-m-d', strtotime("-$i day")); ?>"<?php if( 0 == $i ) echo 'selected'; ?>>
 												<?php echo date('j M', strtotime( "-$i day" )); ?>
 											</option>
 										<?php endfor; ?>

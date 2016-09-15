@@ -253,8 +253,44 @@ date_default_timezone_set ( 'America/Santo_Domingo' );
 add_filter( 'wp_nav_menu_items', 'selector_deportes_top_menu', 10, 2 );
 function selector_deportes_top_menu ( $items, $args ) {
     if ($args->theme_location == 'deportes_top') {
-        $li = "<li id=\"liga-select\"></li>";
-        $items = $li . $items;
+    	global $parents;
+    	if (!in_array($parents[0], array('beisbol'))) {
+    		$tmp = explode("\n", trim($items));
+	  		$items = $tmp[0];
+    	}
+    	$disciplina_id = get_cat_id($parents[0]);
+    	if ($disciplina_id > 0) {
+	    	$all_ligas = get_categories( $args = array(
+		      'taxonomy' => 'category',
+		      'child_of' =>$disciplina_id)
+		    );
+    	}
+
+    	$options = "<option value=''>Seleccione</option>";
+    	if (count($all_ligas) > 0){
+	      foreach ($all_ligas as $liga) {
+	      	$selected = ($parents[1] === $liga->slug) ? "selected" : "";
+	      	$option ="<option value=\"" . $liga->slug . "\" ".$selected.">".$liga->name."</option>";
+	      	$options .= $option;
+	      }
+	    }
+
+      $li  =  "<li id=\"liga-select\">";
+      $li .=		"<select name='liga-select' id='liga-drpdwn' class='form-control'>";
+      $li .=			$options; 
+      $li .= 		"</select>";
+      $li .= 	"</li>";
+      $items = $li . $items;
     }
     return $items;
 }
+
+/**
+ * Filter that controls the number of words of the excerpt. 
+ * @param int $length excerpt length.
+ * @return int
+ */
+function custom_excerpt_length( $length ) {
+	return 50;
+}
+add_filter( 'excerpt_length', 'custom_excerpt_length', 999 );
