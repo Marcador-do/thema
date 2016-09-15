@@ -62,7 +62,7 @@ if (!isset($liga)) { // No liga selected
   if ($category !== false) array_push($cat_ids, $liga_id);
 }
 
-if (count($cat_ids) > 0) {
+if (count( $cat_ids ) > 0) {
   $paged = get_query_var( 'paged', 1 );
   $args = array(
     'category__in' => $cat_ids,
@@ -82,7 +82,8 @@ if (count($cat_ids) > 0) {
   $max_pages = $principal->max_num_pages;
 } ?>
 
-<?php if ($principal): while ( $principal->have_posts() ): $principal->the_post(); ?>
+<?php if ( $principal ): 
+  while ( $principal->have_posts() ): $principal->the_post(); ?>
   <?php if ( $principal->current_post === 0 ): ?>
     <?php if ( get_post_type() === "marcador_partido" ): ?>
       <?php include (get_template_directory() . "/includes/marcador_hero_post_score.include.php"); ?>
@@ -101,10 +102,17 @@ if (count($cat_ids) > 0) {
                   <?php include (get_template_directory() . "/includes/marcador_hero_post_list_item.include.php"); ?>
 <?php endwhile; ?>
                 </div>
-              <?php if ($paged < $max_pages): ?>
-                <div class="nav-previous alignleft"><?php next_posts_link( 'Older posts' ); ?></div>
-              <?php endif; ?>
-                <div class="nav-next alignright"><?php previous_posts_link( 'Newer posts' ); ?></div>
+                    
+                    
+                <nav aria-label="...">
+                  <ul class="pager">
+                    <?php if ($paged < $max_pages): ?>
+                      <li class="previous"><?php next_posts_link( '<span aria-hidden="true">&larr;</span> Entradas Anteriores' ); ?></li>
+                    <?php endif; ?>
+                      <li class="next"><?php previous_posts_link( 'Entradas Recientes <span aria-hidden="true">&rarr;</span>' ); ?></li>
+                  </ul>
+                </nav>
+
               </div>
             </div>
             <!-- .marcador-posts-listing -->
@@ -346,7 +354,7 @@ STAT_TEMPLATE;
         <div class="marcador-posts-listing-wrapper cards">
           <div class="container-fluid">
             <div class="row">
-              <h1>Nothing found</h1>
+              <h1>Sin resultados</h1>
             </div>
           </div>
         </div>
