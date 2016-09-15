@@ -104,7 +104,7 @@ if (count( $cat_ids ) > 0) {
                 </div>
                     
                     
-                <nav aria-label="...">
+                <nav aria-label="..." class="col-lg-offset-1 col-md-offset-1 col-lg-9 col-md-9">
                   <ul class="pager">
                     <?php if ($paged < $max_pages): ?>
                       <li class="previous"><?php next_posts_link( '<span aria-hidden="true">&larr;</span> Entradas Anteriores' ); ?></li>

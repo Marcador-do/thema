@@ -97,6 +97,12 @@
 							</div>
 						</div> 
 					<?php endwhile; ?>
+					<nav aria-label="..." class="col-lg-offset-1 col-md-offset-1 col-lg-9 col-md-9">
+	                  <ul class="pager">
+	                      <li class="previous"><?php next_posts_link( '<span aria-hidden="true">&larr;</span> Entradas Anteriores' ); ?></li>
+	                      <li class="next"><?php previous_posts_link( 'Entradas Recientes <span aria-hidden="true">&rarr;</span>' ); ?></li>
+	                  </ul>
+	                </nav>
 				</div>
 			</div>
 		</div>
