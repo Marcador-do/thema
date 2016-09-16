@@ -16,7 +16,7 @@
   $parents = strtolower(get_category_parents( $disciplina_id, false ));
   $parents = explode("/", trim($parents, "/"));
   if (count($parents) > 1) $liga = $parents[1];
-  //echo "<pre>";print_r( );echo "</pre>";
+  //echo "<pre>";print_r(  );echo "</pre>";
 ?>
 <?php get_header(); ?>
 
@@ -227,7 +227,7 @@ STAT_TEMPLATE;
             if (selected.length < 1) return; 
 
             var toLiga = window.location.pathname + selected;
-            //window.location = toLiga;
+            window.location = selected;
             console.log(toLiga);
             console.log(<?php echo json_encode($parents); ?>);
           }
