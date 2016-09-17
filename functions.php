@@ -254,7 +254,7 @@ add_filter( 'wp_nav_menu_items', 'selector_deportes_top_menu', 10, 2 );
 function selector_deportes_top_menu ( $items, $args ) {
     if ($args->theme_location == 'deportes_top') {
     	global $parents;
-    	if (!in_array($parents[0], array('beisbol'))) {
+    	if (!in_array($parents[count($parents)-1], array('lidom', 'mlb'))) {
     		$tmp = explode("\n", trim($items));
 	  		$items = $tmp[0];
     	}
@@ -270,7 +270,7 @@ function selector_deportes_top_menu ( $items, $args ) {
     	if (count($all_ligas) > 0){
 	      foreach ($all_ligas as $liga) {
 	      	$selected = ($parents[1] === $liga->slug) ? "selected" : "";
-	      	$option ="<option value=\"" . $liga->slug . "\" ".$selected.">".$liga->name."</option>";
+	      	$option ="<option value=\"" . get_category_link( $liga->cat_ID ) . "\" ".$selected.">".$liga->name."</option>";
 	      	$options .= $option;
 	      }
 	    }
