@@ -19,8 +19,9 @@ img{
 .container{
 	max-width:900px;
 	height: 400px;
-	margin:0px 0px;
-	background-color:#f8f8f8;
+	margin:0px auto;
+	/*background-color:#f8f8f8;*/
+	background-color: white;
 	padding:20px;
 	position:relative;
 	overflow:hidden;

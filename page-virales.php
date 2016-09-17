@@ -38,7 +38,7 @@ $cat_dest = get_category_by_slug( 'virales' );
 $display_type = 1;  // TODO: Get from options
 $args = array(
 //  'category_name'    => 'destacado,destacadas',
-  'category__in' => array( $cat_dest->cat_ID, $cat_dests->cat_ID ), // TODO: Get from options
+  'category__in' => array( $cat_dest->cat_ID, $cat_dest->cat_ID ), // TODO: Get from options
   'post_type' => 'any',
   
   'post_status' => array(
