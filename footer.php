@@ -365,7 +365,7 @@
 		  var authResponse = googleUser.getAuthResponse();
 		  var payload = {
 				action: 'marcador_google_login',
-				email: profile.getEmail(),
+				username: profile.getEmail(),
 				auth: authResponse.id_token,
 				auth_type: "google"
 			};
