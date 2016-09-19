@@ -1751,3 +1751,38 @@ span.cintillo.field.score.away {
 .marcador-table>tbody>tr>td>img {
 	margin: 4px;
 }
+.calendario-marcador.input-group.date {
+    margin-bottom: 15px;
+}
+.calendario-marcador.date .form-control {
+    font-weight: 700;
+    font-size: 18px;
+    height: 39px;
+    border: none;
+    box-shadow: none;
+}
+.calendario-marcador.date .input-group-addon {
+    background-color: transparent;
+    border: none;
+    border-left: solid 2px #b1adad;
+    cursor: pointer;
+}
+.datepicker.datepicker-dropdown.dropdown-menu {
+	padding: 0;
+	border-radius: 0;
+	border: none;
+	-webkit-box-shadow: 0 2px 7px rgba(0,0,0,0.175);
+	box-shadow: 0 2px 7px rgba(0,0,0,0.175);
+}
+.datepicker.datepicker-dropdown.dropdown-menu .datepicker-days .table-condensed thead tr:nth-child(2) {
+	background-color: #e2e2e2;
+}
+.datepicker td, .datepicker th {
+	border-radius: 0;
+}
+.datepicker .datepicker-switch {
+	width: 240px;
+}
+.datepicker.datepicker-dropdown.dropdown-menu .datepicker-days .table-condensed tbody {
+	padding: 10px;
+}

@@ -178,6 +178,13 @@ STAT_TEMPLATE;
               <h1>Calendario</h1>
             </div>
           </div>
+          <div class="row">
+            <div class="col-xs-12 col-sm-4">
+              <div class="calendario-marcador input-group date">
+                <input type="text" class="form-control"><span class="input-group-addon"><i class="material-icons">today</i><i class="material-icons">expand_more</i></span>
+              </div>
+            </div>
+          </div>
           <!-- Calendar --> 
           <?php for ($i=2; $i <= 4; $i++): ?> 
           <div class="row calendar-row">
@@ -398,6 +405,13 @@ STAT_TEMPLATE;
       }( MARCADOR || {} ));
 
       jQuery( "#menu-deportes" ).ready( MARCADOR.Estadisticas.init );
+      jQuery('.calendario-marcador.input-group.date').datepicker({
+        format: "mm/dd/yyyy",
+        weekStart: 0,
+        language: "es",
+        orientation: "bottom left",
+        todayHighlight: true,
+      });
       <?php //endif; ?>
     </script>
 

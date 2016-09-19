@@ -131,7 +131,7 @@ function marcador_scripts() {
 	wp_enqueue_style( 'google-roboto-font', $google_roboto_font, array() );
 	wp_enqueue_style( 'benton-marcador-font', get_template_directory_uri() . $benton_marcador_font, array() );
 	wp_enqueue_style( 'twitter-bootstrap', get_template_directory_uri() . $twitter_bootstrap, array() );
-	wp_enqueue_style( 'marcador-style', get_stylesheet_uri() );
+	
 
 	$sidebar_menu = '/assets/js/sidebar-menu.js';
 	$sidebar_nav_submenu = '/assets/js/sidebar-nav-submenu.js';
@@ -178,6 +178,7 @@ function marcador_scripts() {
 			$media = 'all' 
 		);
 	}
+	wp_enqueue_style( 'marcador-style', get_stylesheet_uri() );
 }
 add_action( 'wp_enqueue_scripts', 'marcador_scripts' );
 
