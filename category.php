@@ -126,7 +126,7 @@ if (count( $cat_ids ) > 0) {
   <div id="resultados-tab" class="container-fluid tabs hidden">
     <div class="row">
       <div class="col-xs-12 col-sm-12 col-lg-9">
-        <h2>Partidos</h2>
+        <h3>&nbsp;&nbsp;Partidos</h3>
       </div>
       <div class="col-xs-12 col-sm-12 col-lg-9">
         <!-- Marcador posts -->
@@ -136,8 +136,7 @@ if (count( $cat_ids ) > 0) {
 
               <div class="col-xs-12">
                 <div class="container-fluid game-list">
-<?php
-$res_template = <<<STAT_TEMPLATE
+<?php $res_template = <<<STAT_TEMPLATE
                   <div class="row game">
                     <div class="col-xs-10 col-sm-10 col-lg-10 game col">
                       <span class="team home">
@@ -152,7 +151,7 @@ $res_template = <<<STAT_TEMPLATE
                         <span class="name"></span>
                       </span>
                     </div>
-                    <div class="col-xs-2 col-sm-2 col-lg-2" style="height: 100%; color: #d3d3d3; background-color: #3d3d3d; border-bottom-right-radius: 5px; border-top-right-radius: 5px;">DETALLES</div>
+                    <div class="details-col">DETALLES</div>
                   </div>\n
 STAT_TEMPLATE;
 ?>
@@ -171,11 +170,62 @@ STAT_TEMPLATE;
   <div id="calendario-tab" class="container-fluid tabs hidden">
     <div class="row">
       <div class="col-xs-12 col-sm-12 col-lg-9">
+        
         <!-- Marcador posts -->
-        <div class="marcador-posts-listing-wrapper cards">
-          <div class="container-fluid">
-            <div class="row">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-xs-12">
               <h1>Calendario</h1>
+            </div>
+          </div>
+          <!-- Calendar --> 
+          <?php for ($i=2; $i <= 4; $i++): ?> 
+          <div class="row calendar-row">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+              <div class="calendar-day">
+                13 de Julio, 2016
+              </div>
+              <div class="calendar-content">No juegos agendados para este día</div>
+            </div>
+          </div>
+          <?php endfor; ?>
+          <div class="row calendar-row">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+              <div class="calendar-day">
+                14 de Julio, 2016
+              </div>
+              <div class="calendar-content">
+                <table class="table table-striped marcador-table">
+                  <thead>
+                    <tr>
+                      <th>Partido</th>
+                      <th>Local</th>
+                      <th>Hora(ET)</th>
+                      <th>Lanzador Visitante</th>
+                      <th>Lanzador Local</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <?php $tpl=get_template_directory_uri() . '/'; ?>
+                    <?php for ($tr=0; $tr < 4; $tr++): ?>
+                    <tr>
+                      <td><img src="<?php echo $tpl; ?>assets/imgs/mlb/BAL-logo-sm.png" height="16" width="16">Baltimore</td>
+                      <td>Cubs</td>
+                      <td>2:00 PM</td>
+                      <td>Martin Perez</td>
+                      <td>Kyle Hendricks</td>
+                    </tr>
+                    <tr>
+                      <td><img src="<?php echo $tpl; ?>assets/imgs/mlb/BOS-logo-sm.png" height="16" width="16">Minesota</td>
+                      <td>Yankess</td>
+                      <td>7:00 PM</td>
+                      <td>Eduardo Rodriguez</td>
+                      <td>Michael Pineda</td>
+                    </tr>
+                    <?php endfor; ?>
+                  </tbody>
+                </table>
+              </div>
             </div>
           </div>
         </div>
