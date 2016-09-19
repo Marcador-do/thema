@@ -344,12 +344,17 @@
 		    	
 		    	payload = {
 					action: 'marcador_facebook_' + action,
-		    		name: response.name,
-		    		email: response.email,
 		    		// image_url: response.cover,
-		    		auth: auth.accessToken,
+		    		auth: auth.signedRequest,
 		    		auth_type: "facebook"
 		    	};
+
+		    	if (action === 'login') payload.username = response.email;
+				else {
+					payload.name = response.name;
+					payload.email = response.email;
+					payload.username = response.email;
+				}
 		    	
 		    	cb(payload);
 	    	}
