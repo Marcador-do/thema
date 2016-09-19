@@ -160,6 +160,24 @@ function marcador_scripts() {
 		wp_enqueue_style( 'animate-css', get_template_directory_uri()."/assets/css/animate.css", array() );
 		wp_enqueue_style( 'style-404', get_template_directory_uri()."/assets/css/style404.css", array() );
 	}
+	if( is_category() ) {
+		$src = get_template_directory_uri() . '/';
+
+		wp_enqueue_script( 
+			$handle = 'marcador-datepicker', 
+			$src . 'assets/vendor/datepicker/bootstrap-datepicker.min.js', 
+			$deps = array('jquery'), 
+			$ver = '1', 
+			$in_footer = false 
+		);
+		wp_enqueue_style( 
+			$handle = 'marcador-datepicker',
+			$src . 'assets/vendor/datepicker/bootstrap-datepicker.min.css', 
+			$deps = null, 
+			$ver = '1', 
+			$media = 'all' 
+		);
+	}
 }
 add_action( 'wp_enqueue_scripts', 'marcador_scripts' );
 

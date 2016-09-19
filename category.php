@@ -9,6 +9,7 @@
  * @package marcadordo
  */
 
+
   // /category/[baloncesto]/[nba]/
   $disciplina = get_query_var( 'category_name' ); // Ex: baloncesto
   $disciplina_id = get_category_by_slug( $disciplina )->cat_ID;
@@ -62,6 +63,7 @@ if (!isset($liga)) { // No liga selected
   if ($category !== false) array_push($cat_ids, $liga_id);
 }
 
+$principal;
 if (count( $cat_ids ) > 0) {
   $paged = get_query_var( 'paged', 1 );
   $args = array(
@@ -124,6 +126,9 @@ if (count( $cat_ids ) > 0) {
   <div id="resultados-tab" class="container-fluid tabs hidden">
     <div class="row">
       <div class="col-xs-12 col-sm-12 col-lg-9">
+        <h2>Partidos</h2>
+      </div>
+      <div class="col-xs-12 col-sm-12 col-lg-9">
         <!-- Marcador posts -->
         <div class="marcador-posts-listing-wrapper cards">
           <div class="container-fluid">
@@ -133,22 +138,22 @@ if (count( $cat_ids ) > 0) {
                 <div class="container-fluid game-list">
 <?php
 $res_template = <<<STAT_TEMPLATE
-<div class="row game" style="height: 100px; box-shadow: 0 0 5px #3d3d3d; border-radius: 5px; margin-bottom: 20px;">
-  <div class="col-xs-10 col-sm-10 col-lg-10" style="height: 100%; background-color: #fff;border-bottom-left-radius: 5px; border-top-left-radius: 5px;">
-    <span class="team home">
-      <span class="name"></span>
-      <span class="logo"><img src=""></span>
-      <span class="runs"></span>
-    </span>
-    <span class="status"></span>
-    <span class="team away">
-      <span class="runs"></span>
-      <span class="logo"><img src=""></span>
-      <span class="name"></span>
-    </span>
-  </div>
-  <div class="col-xs-2 col-sm-2 col-lg-2" style="height: 100%; color: #d3d3d3; background-color: #3d3d3d; border-bottom-right-radius: 5px; border-top-right-radius: 5px;">DETALLES</div>
-</div>\n
+                  <div class="row game">
+                    <div class="col-xs-10 col-sm-10 col-lg-10 game col">
+                      <span class="team home">
+                        <span class="name"></span>
+                        <span class="logo"><img src=""></span>
+                        <span class="runs"></span>
+                      </span>
+                      <span class="status"></span>
+                      <span class="team away">
+                        <span class="runs"></span>
+                        <span class="logo"><img src=""></span>
+                        <span class="name"></span>
+                      </span>
+                    </div>
+                    <div class="col-xs-2 col-sm-2 col-lg-2" style="height: 100%; color: #d3d3d3; background-color: #3d3d3d; border-bottom-right-radius: 5px; border-top-right-radius: 5px;">DETALLES</div>
+                  </div>\n
 STAT_TEMPLATE;
 ?>
                 </div>
@@ -260,12 +265,12 @@ STAT_TEMPLATE;
                     var $el = $template.clone();
                     $el.find(".status").text(game.status);
                     $el.find(".team.home .name").text(game.home.market + " " + game.home.name);
-                    $el.find(".team.home .runs").text(game.home.runs);
-                    $el.find(".team.home .logo img").attr("src", "/wp-content/themes/marcadordo/assets/imgs/mlb/"+game.home.abbr + "-logo-sm.png");
+                    $el.find(".team.home .runs").text(game.home.runs + ' /');
+                    $el.find(".team.home .logo img").attr("src", "<?php echo get_template_directory_uri(); ?>/assets/imgs/mlb/"+ game.home.abbr + "-logo-sm.png");
 
                     $el.find(".team.away .name").text(game.away.market + " " + game.away.name);
                     $el.find(".team.away .runs").text(game.home.runs);
-                    $el.find(".team.away .logo img").attr("src", "/wp-content/themes/marcadordo/assets/imgs/mlb/"+game.away.abbr + "-logo-sm.png");
+                    $el.find(".team.away .logo img").attr("src", "<?php echo get_template_directory_uri(); ?>/assets/imgs/mlb/"+ game.away.abbr + "-logo-sm.png");
 
                     $target.append($el);
                   });

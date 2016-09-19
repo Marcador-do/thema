@@ -1655,3 +1655,56 @@ span.cintillo.field.score.away {
 	color: #fdfdfd;
 	text-transform: uppercase;
 }
+#resultados-tab .marcador-posts-listing-wrapper {
+	padding-top: 0;
+	border: none;
+}
+.row.game {
+    height: 100px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.4);
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+.row.game .game.col {
+    height: 100%;
+    background-color: #fff;
+    border-bottom-left-radius: 5px;
+    border-top-left-radius: 5px;
+    position: relative;
+    text-align: center;
+}
+.row.game .game.col .team {
+	margin: 15px 0;
+    position: absolute;
+    top: 10px;
+    width: 50%;
+}
+.row.game .game.col .team.home {
+	left: 0;
+	text-align: right;
+	padding-right: 0;
+}
+.row.game .game.col .team.away {
+	text-align: left;
+	right: 0;
+	padding-left: 10px;
+}
+.row.game .game.col .team .name {
+    font-size: 18px;
+    font-family: 'marcador-bold';
+    position: relative;
+}
+.row.game .game.col .logo {
+	margin: 0 20px;
+}
+.game.col .status {
+    position: absolute;
+    text-align: center;
+    top: 67px;
+    left: 50%;
+    margin-left: -32px;
+}
+.game.col .runs {
+    font-size: 30px;
+    font-family: 'marcador-bold';
+}
