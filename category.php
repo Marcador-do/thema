@@ -172,7 +172,7 @@ STAT_TEMPLATE;
       <div class="col-xs-12 col-sm-12 col-lg-9">
         
         <!-- Marcador posts -->
-        <div class="container-fluid">
+        <div class="container-fluid calendar-list">
           <div class="row">
             <div class="col-xs-12">
               <h1>Calendario</h1>
@@ -185,8 +185,47 @@ STAT_TEMPLATE;
               </div>
             </div>
           </div>
-          <!-- Calendar --> 
-          <?php for ($i=2; $i <= 4; $i++): ?> 
+          <!-- Calendar -->
+<?php $cal_template = <<<STAT_TEMPLATE
+<div class="row calendar-row">
+  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+    <div class="calendar-day">
+      13 de Julio, 2016
+    </div>
+    <div class="calendar-content"></div>
+  </div>
+</div>\n
+STAT_TEMPLATE;
+ ?>
+
+ <?php $cal_table_template = <<<STAT_TEMPLATE
+<table class="table table-striped marcador-table">
+  <thead>
+    <tr>
+      <th>Partido</th>
+      <th>Local</th>
+      <th>Hora(ET)</th>
+      <th>Lanzador Visitante</th>
+      <th>Lanzador Local</th>
+    </tr>
+  </thead>
+  <tbody>
+  </tbody>
+</table>\n
+STAT_TEMPLATE;
+?>
+<?php $tpl=get_template_directory_uri() . '/'; ?>
+<?php $cal_row_table_template = <<<STAT_TEMPLATE
+<tr class="calendar-row">
+  <td class="away"><img src="<?php echo $tpl; ?>assets/imgs/mlb/BAL-logo-sm.png" height="16" width="16"><span>Baltimore</span></td>
+  <td class="home">Cubs</td>
+  <td class="time">2:00 PM</td>
+  <td class="away-pitcher">Martin Perez</td>
+  <td class="home-pitcher">Kyle Hendricks</td>
+</tr>\n
+STAT_TEMPLATE;
+          ?>
+          <?php /*for ($i=2; $i <= 4; $i++): ?>
           <div class="row calendar-row">
             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
               <div class="calendar-day">
@@ -213,7 +252,6 @@ STAT_TEMPLATE;
                     </tr>
                   </thead>
                   <tbody>
-                    <?php $tpl=get_template_directory_uri() . '/'; ?>
                     <?php for ($tr=0; $tr < 4; $tr++): ?>
                     <tr>
                       <td><img src="<?php echo $tpl; ?>assets/imgs/mlb/BAL-logo-sm.png" height="16" width="16">Baltimore</td>
@@ -234,7 +272,7 @@ STAT_TEMPLATE;
                 </table>
               </div>
             </div>
-          </div>
+          </div> */ ?>
         </div>
         <!-- .marcador-posts-listing -->
       </div> 
@@ -485,7 +523,7 @@ STAT_TEMPLATE;
                     </tr>
                   </thead>
                   <tbody>
-                    <?php $tpl=get_template_directory_uri() . '/'; ?>
+                  <?php $tpl=get_template_directory_uri() . '/'; ?>
                     <?php for ($tr=0; $tr < 4; $tr++): ?>
                     <tr>
                       <td><img src="<?php echo $tpl; ?>assets/imgs/mlb/BAL-logo-sm.png" height="16" width="16">Baltimore</td>
@@ -690,7 +728,72 @@ STAT_TEMPLATE;
                 function (err) { console.log( err ); }
               );
             }
-          }  
+          }
+
+          function getCalendario (target) {
+            if (APP.ajax) {
+              $target = jQuery(target + "-tab").find(".calendar-list");
+              var payload = { action: "calendario", league: "mlb", date: "2016-09-19" };
+              APP.ajax(
+                  payload,
+                  function (data) {
+                    var calendario = data.calendario;
+                    var $cal_day = jQuery('<?php echo preg_replace( "/\r|\n/", "", $cal_template ); ?>');
+                    var $el = null;
+
+                    if (calendario.length === 0) {
+                      $el = $cal_day.clone();
+                      $el.find(".calendar-day").text(dateFormat(payload.date));
+                      $el.find(".calendar-content").text("No juegos agendados para este día");
+                      $target.append($el);
+                      return;
+                    }
+
+                    var $cal_table = jQuery('<?php echo preg_replace( "/\r|\n/", "", $cal_table_template ); ?>');
+                    var $cal_row = jQuery('<?php echo preg_replace( "/\r|\n/", "", $cal_row_table_template ); ?>');
+                    jQuery(".calendar-row").remove();
+                    $el = $cal_day.clone();
+                    $el.find(".calendar-day").text(dateFormat(payload.date));
+                    var $tbl = $cal_table.clone();
+                    jQuery.each(calendario, function(i, day) {
+                      var $row_el = $cal_row.clone();
+                      <?php $tpl=get_template_directory_uri() . '/'; ?>
+                      $row_el.find(".away img").attr("src", "<?php echo $tpl; ?>assets/imgs/mlb/"+day.away.abbr+"-logo-sm.png");
+                      $row_el.find(".away span").html(day.away.name);
+                      $row_el.find(".home").text(day.home.name);
+                      $row_el.find(".time").text(getDateTime(day.scheduled));
+                      $row_el.find(".away-pitcher").text(day.away.pitcher);
+                      $row_el.find(".home-pitcher").text(day.home.pitcher);
+
+                      $tbl.append($row_el);
+                    });
+                    $el.find(".calendar-content").append($tbl);
+                    $target.append($el);
+                  },
+                  function (err) { console.log( err ); }
+              );
+            }
+          }
+
+          function dateFormat(stringDate) {
+            var monthNames = [
+              "Enero", "Febrero", "Marzo",
+              "Abril", "Mayo", "Junio", "Julio",
+              "Agosto", "Septiembre", "Octubre",
+              "Noviembre", "Diciembre"
+            ];console.log(stringDate);
+            var date = new Date(stringDate+"T04:00");console.log(date);
+            var day = date.getDate();console.log(day);
+            var monthIndex = date.getMonth();
+            var year = date.getFullYear();
+            return day + " de " + monthNames[monthIndex] + ", " + year;
+          }
+
+          function getDateTime(stringDate) {
+            var date = new Date(stringDate);
+            var time = date.toTimeString();
+            return "" + time;
+          }
 
           function processTab (selectedTab) {
             switch ( selectedTab ) {
@@ -698,7 +801,7 @@ STAT_TEMPLATE;
                   getResultados( selectedTab );
                   break;
               case "#calendario":
-                  //getCalendario(selectedTab);
+                  getCalendario(selectedTab);
                   break;
               case "#posiciones":
                   //getPosiciones(selectedTab);
