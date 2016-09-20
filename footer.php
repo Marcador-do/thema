@@ -129,6 +129,7 @@
 				setSidebarMenu();
 				setSubmenuSidebar();
 				sidebarSearchPatch();
+				
 				jQuery('li.dropdown.dropdown-lg a').on('click', function (event) {
 				    jQuery(this).parent().toggleClass('open');
 				});

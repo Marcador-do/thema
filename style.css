@@ -1983,3 +1983,58 @@ p.dropdown.status {
 select#score-liga-selector {
 	border: 2px solid #ccc;
 }
+.marcador-nav.nav>li>a {
+    border: solid 1px #ad0404;
+    margin: 0;
+    color: #3d3d3d;
+    border-radius: 0;
+}
+.marcador-nav.nav>li:first-child>a {
+	border-top-left-radius: 3px;
+	border-bottom-left-radius: 3px;
+}
+.marcador-nav.nav>li:last-child>a {
+	border-top-right-radius: 3px;
+	border-bottom-right-radius: 3px;
+}
+.marcador-nav.nav-pills>li.active>a, 
+.marcador-nav.nav-pills>li.active>a:hover, 
+.marcador-nav.nav-pills>li.active>a:focus {
+    background-color: #e80303;
+    color: #fff;
+}
+.marcador-nav.nav-pills>li+li {
+	margin: 0;
+}
+.marcador-tabs.tab-content {
+    margin: 25px 0;
+}
+.marcador-nav.marcador-sub {
+	margin-bottom: 25px;
+}
+.marcador-nav.marcador-sub.nav>li>a {
+    border: none;
+    font-weight: 700;
+    font-size: 18px;
+    background-color: transparent;
+    color: #7d7d7d;
+}
+.marcador-nav.marcador-sub.nav>li:first-child>a {
+	border-right: solid 1px #ccc;
+}
+.marcador-nav.marcador-sub.nav-pills>li.active>a, 
+.marcador-nav.marcador-sub.nav-pills>li.active>a:hover, 
+.marcador-nav.marcador-sub.nav-pills>li.active>a:focus {
+    color: #e80303;
+    background-color: transparent;
+}
+.fav-logo {
+    margin: 5px 0;
+    display: block;
+}
+.fav-logo.selected {
+    opacity: 0.2;
+}
+.logo-col {
+	padding: 0 5px;
+}
