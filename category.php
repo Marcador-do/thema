@@ -217,7 +217,7 @@ STAT_TEMPLATE;
 <?php $tpl=get_template_directory_uri() . '/'; ?>
 <?php $cal_row_table_template = <<<STAT_TEMPLATE
 <tr class="calendar-row">
-  <td class="away"><img src="<?php echo $tpl; ?>assets/imgs/mlb/BAL-logo-sm.png" height="16" width="16"><span>Baltimore</span></td>
+  <td class="away"><img src="" height="16" width="16"><span>Baltimore</span></td>
   <td class="home">Cubs</td>
   <td class="time">2:00 PM</td>
   <td class="away-pitcher">Martin Perez</td>
@@ -683,8 +683,8 @@ STAT_TEMPLATE;
 
             var toLiga = window.location.pathname + selected;
             window.location = selected;
-            console.log(toLiga);
-            console.log(<?php echo json_encode($parents); ?>);
+            // console.log(toLiga);
+            // console.log(<?php echo json_encode($parents); ?>);
           }
 
           function getDropDownList(name, id, optionList) {
@@ -781,9 +781,9 @@ STAT_TEMPLATE;
               "Abril", "Mayo", "Junio", "Julio",
               "Agosto", "Septiembre", "Octubre",
               "Noviembre", "Diciembre"
-            ];console.log(stringDate);
-            var date = new Date(stringDate+"T04:00");console.log(date);
-            var day = date.getDate();console.log(day);
+            ];//console.log(stringDate);
+            var date = new Date(stringDate+"T04:00");//console.log(date);
+            var day = date.getDate();//console.log(day);
             var monthIndex = date.getMonth();
             var year = date.getFullYear();
             return day + " de " + monthNames[monthIndex] + ", " + year;
