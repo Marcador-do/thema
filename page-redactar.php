@@ -56,6 +56,17 @@ get_header(); ?>
 							</div>
 						</div>
 					</div>
+					<div class="form-group">
+						<div class="container-fluid">
+							<div class="row">
+								<div class="col-xs-12 col-sm-3 col-sm-push-9">
+									<button class="btn btn-primary btn-block">
+										Enviar
+									</button>
+								</div>
+							</div>
+						</div>
+					</div>
 				</form>
 			</div>
 		</div>
