@@ -412,8 +412,93 @@ function banner() {
 								</a>
 							</li>
 							<?php endif; ?>
-							<li>
-								<a href="#score">Score</a>
+							<li class="dropdown dropdown-lg">
+								<a href="#score" class="dropdown-toggle">Score</a>
+
+								<ul class="dropdown-menu dropdown-menu-lg row">
+									<li class="col-xs-12">
+										<select name="liga" id="score-liga-selector" class="form-control">
+											<option>— SELECCIONA —</option>
+										</select>
+									</li>
+									<li class="col-xs-12">
+										<div class="row row-game text-center">
+											<div class="col-xs-4">
+												<p class="dropdown field team home">
+													<span class="dropdown field image home"><img src="<?php echo get_template_directory_uri(); ?>/assets/imgs/mlb/TEX-logo-sm.png" height="20" width="20" alt=""></span>&nbsp;&nbsp;
+													<span class="dropdown field name home">TEAM_A</span>&nbsp;&nbsp;&nbsp;
+												</p>
+												<p class="dropdown field team away">
+													<span class="span dropdown field image away"><img src="<?php echo get_template_directory_uri(); ?>/assets/imgs/mlb/TEX-logo-sm.png" height="20" width="20" alt=""></span>&nbsp;&nbsp;
+													<span class="dropdown field name away">TEAM_B</span>&nbsp;&nbsp;&nbsp;
+												</p>
+											</div>
+											<div class="col-xs-4">
+												<p class="dropdown field team home">
+													<span class="dropdown field score home">SCORE_A</span>
+												</p>
+												<p class="dropdown field team away">
+													<span class="dropdown field score away">SCORE_B</span>
+												</p>
+											</div>
+											<div class="col-xs-4">
+												<p class="dropdown status">
+													Final
+												</p>
+											</div>
+										</div>
+										<div class="row row-game text-center">
+											<div class="col-xs-4">
+												<p class="dropdown field team home">
+													<span class="dropdown field image home"><img src="<?php echo get_template_directory_uri(); ?>/assets/imgs/mlb/TEX-logo-sm.png" height="20" width="20" alt=""></span>&nbsp;&nbsp;
+													<span class="dropdown field name home">TEAM_A</span>&nbsp;&nbsp;&nbsp;
+												</p>
+												<p class="dropdown field team away">
+													<span class="span dropdown field image away"><img src="<?php echo get_template_directory_uri(); ?>/assets/imgs/mlb/TEX-logo-sm.png" height="20" width="20" alt=""></span>&nbsp;&nbsp;
+													<span class="dropdown field name away">TEAM_B</span>&nbsp;&nbsp;&nbsp;
+												</p>
+											</div>
+											<div class="col-xs-4">
+												<p class="dropdown field team home">
+													<span class="dropdown field score home">SCORE_A</span>
+												</p>
+												<p class="dropdown field team away">
+													<span class="dropdown field score away">SCORE_B</span>
+												</p>
+											</div>
+											<div class="col-xs-4">
+												<p class="dropdown status">
+													Final
+												</p>
+											</div>
+										</div>
+										<div class="row row-game text-center">
+											<div class="col-xs-4">
+												<p class="dropdown field team home">
+													<span class="dropdown field image home"><img src="<?php echo get_template_directory_uri(); ?>/assets/imgs/mlb/TEX-logo-sm.png" height="20" width="20" alt=""></span>&nbsp;&nbsp;
+													<span class="dropdown field name home">TEAM_A</span>&nbsp;&nbsp;&nbsp;
+												</p>
+												<p class="dropdown field team away">
+													<span class="span dropdown field image away"><img src="<?php echo get_template_directory_uri(); ?>/assets/imgs/mlb/TEX-logo-sm.png" height="20" width="20" alt=""></span>&nbsp;&nbsp;
+													<span class="dropdown field name away">TEAM_B</span>&nbsp;&nbsp;&nbsp;
+												</p>
+											</div>
+											<div class="col-xs-4">
+												<p class="dropdown field team home">
+													<span class="dropdown field score home">SCORE_A</span>
+												</p>
+												<p class="dropdown field team away">
+													<span class="dropdown field score away">SCORE_B</span>
+												</p>
+											</div>
+											<div class="col-xs-4">
+												<p class="dropdown status">
+													Final
+												</p>
+											</div>
+										</div>
+									</li>
+								</ul>
 							</li>
 						</ul>
 					</div>

@@ -163,6 +163,8 @@ function marcador_scripts() {
 	if( is_category() ) {
 		$src = get_template_directory_uri() . '/';
 
+		// https://bootstrap-datepicker.readthedocs.io/en/latest/index.html
+		// https://eternicode.github.io/bootstrap-datepicker/?markup=range&format=mm%2Fdd%2Fyyyy&weekStart=0&startDate=&endDate=&startView=0&minViewMode=0&maxViewMode=4&todayBtn=false&clearBtn=false&language=es&orientation=bottom+right&multidate=&multidateSeparator=&todayHighlight=on&keyboardNavigation=on&forceParse=on#sandbox
 		wp_enqueue_script( 
 			$handle = 'marcador-datepicker', 
 			$src . 'assets/vendor/datepicker/bootstrap-datepicker.min.js', 
