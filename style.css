@@ -2038,3 +2038,108 @@ select#score-liga-selector {
 .logo-col {
 	padding: 0 5px;
 }
+.panel-body.lead-player {
+    padding: 0;
+    border: none;
+}
+.players-col {
+    padding: 0;
+}
+.panel-footer.expand-more {
+    padding: 0;
+}
+.panel-footer.expand-more button.btn {
+    padding: 0 0 7px 0;
+    border: none;
+    background-color: #555;
+    color: #e6e6e6;
+    border-radius: 0;
+}
+.panel-footer.expand-more button.btn i.material-icons {
+    position: relative;
+    top: 7px;
+}
+.panel-body.other-players {
+    padding: 0;
+    margin: 0;
+}
+.panel-body.other-players .table.marcador-table {
+    margin: 0;
+}
+.player-image-col {
+    background-color: #ccc;
+    background-size: cover;
+    min-height: 245px;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+.panel-heading.players-section {
+    background-color: #e80303;
+    border: none;
+    position: relative;
+    text-align: right;
+    padding: 4px 10px;
+    z-index: 2;
+    color: #fff;
+}
+.panel-heading.players-section:before {
+    content: "";
+    position: absolute;
+    top: -1px;
+    left: 0;
+    width: 50%;
+    height: 31px;
+    display: block;
+    background-color: #fff;
+    z-index: 1;
+}
+.panel-heading.players-section:after {
+    content: "";
+    position: absolute;
+    top: 0px;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-left: 30px solid transparent;
+    border-right: 0px solid transparent;
+    border-top: 29px solid #e80303;
+    display: block;
+    background-color: transparent;
+    z-index: 1;
+    margin-left: -30px;
+}
+.panel-body.lead-player .table tr:first-child td {
+    padding: 0 8px;
+    font-size: 17px;
+    padding-top: 15px;
+}
+.panel-body.lead-player .table tr:first-child td:first-child {
+    font-size: 17px;
+    width: 53%;
+    padding-top: 0;
+}
+.panel-body.lead-player .table tr:first-child td:nth-child(2) {
+    font-family: 'marcador-regular';
+    font-size: 19px;
+    color: #ccc;
+}
+.panel-body.lead-player .table tr:first-child td:nth-child(3) {
+    font-family: 'marcador-bold';
+    font-size: 19px;
+    color: #444;
+}
+.panel-body.other-players .marcador-table>tbody>tr:nth-of-type(odd) {
+    background-color: #555;
+    color: #fff;
+}
+.panel.panel-players {
+    margin: 0;
+    border: none;
+}
+.row.row-table-static {
+    margin-top: 25px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.3);
+}
+.row.row-table-static:last-child {
+    margin-bottom: 30px;
+}
