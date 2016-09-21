@@ -184,6 +184,44 @@ function marcador_scripts() {
 }
 add_action( 'wp_enqueue_scripts', 'marcador_scripts' );
 
+function enqueue_drop_zone_callback() {
+	wp_enqueue_script( 
+		$handle = 'dropzone-script', 
+		$src = get_template_directory_uri() . '/assets/vendor/dropzone.js/dropzone.js' , 
+		$deps = array('jquery'), 
+		$ver = '1', 
+		$in_footer = false 
+	);
+}
+add_action( 
+	$tag = 'enqueue_drop_zone', 
+	$function_to_add = 'enqueue_drop_zone_callback', 
+	$priority = 10, 
+	$accepted_args = 0 
+);
+
+function enqueue_summertexteditor_callback() {
+	wp_enqueue_script( 
+		$handle = 'summerzone-script', 
+		$src = get_template_directory_uri() . '/assets/vendor/summernote-texteditor/summernote.min.js' , 
+		$deps = array('jquery'), 
+		$ver = '1', 
+		$in_footer = false 
+	);
+	wp_enqueue_style( 
+		$handle = 'summerzone-style', 
+		$src = get_template_directory_uri() . '/assets/vendor/summernote-texteditor/summernote.css' , 
+		$deps = null, 
+		$ver = '1', 
+		$media = 'all' 
+	);
+}
+add_action( 
+	$tag = 'enqueue_summernotetext', 
+	$function_to_add = 'enqueue_summertexteditor_callback', 
+	$priority = 10, 
+	$accepted_args = 0 
+);
 
 // Register Custom Taxonomy
 function marcador_mail_taxonomy_function() {

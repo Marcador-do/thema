@@ -2143,3 +2143,43 @@ select#score-liga-selector {
 .row.row-table-static:last-child {
     margin-bottom: 30px;
 }
+
+#my-awesome-dropzone {
+    position: relative;
+    width: 100%;
+    background-color: #e2e0e0;
+    border-radius: 11px;
+    border: dashed 5px #c0c0c0;
+    text-align: center;
+    font-size: 3em;
+    padding-top: 60px;
+    margin-top: 15px;
+    padding-bottom: 60px;
+    cursor: pointer;
+}
+#my-awesome-dropzone i {
+    font-size: 3em;
+}
+#my-awesome-dropzone p {
+    margin: 5px 0;
+    color: #c1c1c1;
+}
+#my-awesome-dropzone.dz-started p {
+    display: none
+}
+#my-awesome-dropzone .dz-image-preview .dz-details {
+    font-size: 14px;
+    margin: 15px 0;
+}
+#my-awesome-dropzone .dz-image-preview .dz-error-message {
+    display: none;
+}
+#my-awesome-dropzone .dz-image-preview .dz-success-mark {
+    display: none;
+}
+#my-awesome-dropzone .dz-image-preview .dz-error-mark {
+    display: none;
+}
+#form-redactar .form-group {
+	margin: 15px 0;
+}
