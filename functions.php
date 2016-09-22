@@ -208,6 +208,7 @@ function enqueue_summertexteditor_callback() {
 		$ver = '1', 
 		$in_footer = false 
 	);
+	// http://summernote.org/getting-started/
 	wp_enqueue_style( 
 		$handle = 'summerzone-style', 
 		$src = get_template_directory_uri() . '/assets/vendor/summernote-texteditor/summernote.css' , 
