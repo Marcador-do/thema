@@ -10,28 +10,28 @@
  */
 
 
-  // /category/[baloncesto]/[nba]/
-  $disciplina = get_query_var( 'category_name' ); // Ex: baloncesto
-  $disciplina_id = get_category_by_slug( $disciplina )->cat_ID;
-  if ($disciplina_id === 0) $wp_query->set_404();
-  $parents = strtolower(get_category_parents( $disciplina_id, false ));
-  $parents = explode("/", trim($parents, "/"));
-  if (count($parents) > 1) $liga = $parents[1];
-  //echo "<pre>";print_r(  );echo "</pre>";
+	// /category/[baloncesto]/[nba]/
+	$disciplina = get_query_var( 'category_name' ); // Ex: baloncesto
+	$disciplina_id = get_category_by_slug( $disciplina )->cat_ID;
+	if ($disciplina_id === 0) $wp_query->set_404();
+	$parents = strtolower(get_category_parents( $disciplina_id, false ));
+	$parents = explode("/", trim($parents, "/"));
+	if (count($parents) > 1) $liga = $parents[1];
+	//echo "<pre>";print_r(  );echo "</pre>";
 ?>
 <?php get_header(); ?>
 
 <?php /* <!-- #marcador-navbar-submenu --> */ ?>
 <?php 
-  if ( has_nav_menu( 'deportes_top' ) ) {
-    $args = array(
-      'theme_location' => 'deportes_top',
-      'container_id' => 'marcador-navbar-submenu',
-      'menu_class' => 'nav nav-pills',
-      'depth' => 2,
-    );
-    wp_nav_menu( $args );
-  }
+	if ( has_nav_menu( 'deportes_top' ) ) {
+		$args = array(
+			'theme_location' => 'deportes_top',
+			'container_id' => 'marcador-navbar-submenu',
+			'menu_class' => 'nav nav-pills',
+			'depth' => 2,
+		);
+		wp_nav_menu( $args );
+	}
 ?>
 <?php /* <!-- /#marcador-navbar-submenu --> */ ?>
 
@@ -40,192 +40,191 @@ $cat_ids = array();
 $cat_objs = array();
 if (!isset($liga)) { // No liga selected
 
-    $all_ligas = get_categories( $args = array(
-      'taxonomy' => 'category',
-      'child_of' =>$disciplina_id)
-    );
+		$all_ligas = get_categories( $args = array(
+			'taxonomy' => 'category',
+			'child_of' =>$disciplina_id)
+		);
 
-    if (count($all_ligas) > 0) {
-      $liga_id = $all_ligas[0]->cat_ID;
+		if (count($all_ligas) > 0) {
+			$liga_id = $all_ligas[0]->cat_ID;
 
-      for ($i=0,$e=count($all_ligas); $i<$e; $i++) {
-        $obj = new stdClass;
-        $obj->id = $all_ligas[$i]->cat_ID;
-        $obj->name = $all_ligas[$i]->name;
-        $obj->slug = $all_ligas[$i]->slug;
-        array_push($cat_ids, $all_ligas[$i]->cat_ID);
-        array_push($cat_objs, $obj);
-      }
-    }
+			for ($i=0,$e=count($all_ligas); $i<$e; $i++) {
+				$obj = new stdClass;
+				$obj->id = $all_ligas[$i]->cat_ID;
+				$obj->name = $all_ligas[$i]->name;
+				$obj->slug = $all_ligas[$i]->slug;
+				array_push($cat_ids, $all_ligas[$i]->cat_ID);
+				array_push($cat_objs, $obj);
+			}
+		}
 
 } else {
-  $liga_id = get_category_by_slug( $liga )->cat_ID;
-  if ($category !== false) array_push($cat_ids, $liga_id);
+	$liga_id = get_category_by_slug( $liga )->cat_ID;
+	if ($category !== false) array_push($cat_ids, $liga_id);
 }
 
 $principal;
 if (count( $cat_ids ) > 0) {
-  $paged = get_query_var( 'paged', 1 );
-  $args = array(
-    'category__in' => $cat_ids,
-    'post_type' => 'any',
-    
-    'post_status' => array(
-      'publish',
-    ),
-    'order'               => 'DESC',
-    'orderby'             => 'date',
-    'ignore_sticky_posts' => false,
-    'posts_per_page'         => 21,
-    'perm' => 'readable',
-    'paged' => $paged,
-  );
-  $principal = new WP_Query( $args );
-  $max_pages = $principal->max_num_pages;
+	$paged = get_query_var( 'paged', 1 );
+	$args = array(
+		'category__in' => $cat_ids,
+		'post_type' => 'any',
+		
+		'post_status' => array(
+			'publish',
+		),
+		'order'               => 'DESC',
+		'orderby'             => 'date',
+		'ignore_sticky_posts' => false,
+		'posts_per_page'         => 21,
+		'perm' => 'readable',
+		'paged' => $paged,
+	);
+	$principal = new WP_Query( $args );
+	$max_pages = $principal->max_num_pages;
 } ?>
 
 <?php if ( $principal ): 
-  while ( $principal->have_posts() ): $principal->the_post(); ?>
-  <?php if ( $principal->current_post === 0 ): ?>
-    <?php if ( get_post_type() === "marcador_partido" ): ?>
-      <?php include (get_template_directory() . "/includes/marcador_hero_post_score.include.php"); ?>
-    <?php else: ?>
-      <?php include (get_template_directory() . "/includes/marcador_hero_post.include.php"); ?>
-    <?php endif; ?>
-    <div id="principal-tab" class="container-fluid tabs">
-        <div class="row">
+	while ( $principal->have_posts() ): $principal->the_post(); ?>
+	<?php if ( $principal->current_post === 0 ): ?>
+		<?php if ( get_post_type() === "marcador_partido" ): ?>
+			<?php include (get_template_directory() . "/includes/marcador_hero_post_score.include.php"); ?>
+		<?php else: ?>
+			<?php include (get_template_directory() . "/includes/marcador_hero_post.include.php"); ?>
+		<?php endif; ?>
+		<div id="principal-tab" class="container-fluid tabs">
+				<div class="row">
 
-          <div class="col-xs-12 col-sm-12 col-lg-9">
-            <!-- Marcador posts -->
-            <div class="marcador-posts-listing-wrapper cards">
-              <div class="container-fluid">
-                <div class="row">
-  <?php continue; endif; ?>
-                  <?php include (get_template_directory() . "/includes/marcador_hero_post_list_item.include.php"); ?>
+					<div class="col-xs-12 col-sm-12 col-lg-9">
+						<!-- Marcador posts -->
+						<div class="marcador-posts-listing-wrapper cards">
+							<div class="container-fluid">
+								<div class="row">
+	<?php continue; endif; ?>
+									<?php include (get_template_directory() . "/includes/marcador_hero_post_list_item.include.php"); ?>
 <?php endwhile; ?>
-                </div>
-                    
-                    
-                <nav aria-label="..." class="col-lg-offset-1 col-md-offset-1 col-lg-9 col-md-9">
-                  <ul class="pager">
-                    <?php if ($paged < $max_pages): ?>
-                      <li class="previous"><?php next_posts_link( '<span aria-hidden="true">&larr;</span> Entradas Anteriores' ); ?></li>
-                    <?php endif; ?>
-                      <li class="next"><?php previous_posts_link( 'Entradas Recientes <span aria-hidden="true">&rarr;</span>' ); ?></li>
-                  </ul>
-                </nav>
+								</div>
+										
+										
+								<nav aria-label="..." class="col-lg-offset-1 col-md-offset-1 col-lg-9 col-md-9">
+									<ul class="pager">
+										<?php if ($paged < $max_pages): ?>
+											<li class="previous"><?php next_posts_link( '<span aria-hidden="true">&larr;</span> Entradas Anteriores' ); ?></li>
+										<?php endif; ?>
+											<li class="next"><?php previous_posts_link( 'Entradas Recientes <span aria-hidden="true">&rarr;</span>' ); ?></li>
+									</ul>
+								</nav>
 
-              </div>
-            </div>
-            <!-- .marcador-posts-listing -->
-          </div> 
-      </div>
-    </div>
+							</div>
+						</div>
+						<!-- .marcador-posts-listing -->
+					</div> 
+			</div>
+		</div>
 
 
-  <div id="resultados-tab" class="container-fluid tabs hidden">
-    <div class="row">
-      <div class="col-xs-12 col-sm-12 col-lg-9">
-        <h3>&nbsp;&nbsp;Partidos</h3>
-      </div>
-      <div class="col-xs-12 col-sm-12 col-lg-9">
-        <!-- Marcador posts -->
-        <div class="marcador-posts-listing-wrapper cards">
-          <div class="container-fluid">
-            <div class="row">
+	<div id="resultados-tab" class="container-fluid tabs hidden">
+		<div class="row">
+			<div class="col-xs-12 col-sm-12 col-lg-9">
+				<h3>&nbsp;&nbsp;Partidos</h3>
+			</div>
+			<div class="col-xs-12 col-sm-12 col-lg-9">
+				<!-- Marcador posts -->
+				<div class="marcador-posts-listing-wrapper cards">
+					<div class="container-fluid">
+						<div class="row">
 
-              <div class="col-xs-12">
-                <div class="container-fluid game-list">
-                  <?php do_action("marcador_add_spinner_action"); ?>
+							<div class="col-xs-12">
+								<div class="container-fluid game-list">
 <?php $res_template = <<<STAT_TEMPLATE
-                  <div class="row game">
-                    <div class="col-xs-10 col-sm-10 col-lg-10 game col">
-                      <span class="team home">
-                        <span class="name"></span>
-                        <span class="logo"><img src=""></span>
-                        <span class="runs"></span>
-                      </span>
-                      <span class="status"></span>
-                      <span class="team away">
-                        <span class="runs"></span>
-                        <span class="logo"><img src=""></span>
-                        <span class="name"></span>
-                      </span>
-                    </div>
-                    <div class="details-col">DETALLES</div>
-                  </div>\n
+									<div class="row game">
+										<div class="col-xs-10 col-sm-10 col-lg-10 game col">
+											<span class="team home">
+												<span class="name"></span>
+												<span class="logo"><img src=""></span>
+												<span class="runs"></span>
+											</span>
+											<span class="status"></span>
+											<span class="team away">
+												<span class="runs"></span>
+												<span class="logo"><img src=""></span>
+												<span class="name"></span>
+											</span>
+										</div>
+										<div class="details-col">DETALLES</div>
+									</div>\n
 STAT_TEMPLATE;
 ?>
-                </div>
-              </div>
+								</div>
+							</div>
 
-            </div>
-          </div>
-        </div>
-        <!-- .marcador-posts-listing -->
-      </div> 
-    </div>
-  </div>
+						</div>
+					</div>
+				</div>
+				<!-- .marcador-posts-listing -->
+			</div> 
+		</div>
+	</div>
 
 
-  <div id="calendario-tab" class="container-fluid tabs hidden">
-    <div class="row">
-      <div class="col-xs-12 col-sm-12 col-lg-9">
-        
-        <!-- Marcador posts -->
-        <div class="container-fluid calendar-list">
-          <div class="row">
-            <div class="col-xs-12">
-              <h1>Calendario</h1>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-xs-12 col-sm-4">
-              <div class="calendario-marcador input-group date">
-                <input type="text" class="form-control"><span class="input-group-addon"><i class="material-icons">today</i><i class="material-icons">expand_more</i></span>
-              </div>
-            </div>
-          </div>
-          <!-- Calendar -->
+	<div id="calendario-tab" class="container-fluid tabs hidden">
+		<div class="row">
+			<div class="col-xs-12 col-sm-12 col-lg-9">
+				
+				<!-- Marcador posts -->
+				<div class="container-fluid calendar-list">
+					<div class="row">
+						<div class="col-xs-12">
+							<h1>Calendario</h1>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-xs-12 col-sm-4">
+							<div class="calendario-marcador input-group date">
+								<input type="text" class="form-control"><span class="input-group-addon"><i class="material-icons">today</i><i class="material-icons">expand_more</i></span>
+							</div>
+						</div>
+					</div>
+					<!-- Calendar -->
 <?php $cal_template = <<<STAT_TEMPLATE
 <div class="row calendar-row">
-  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-    <div class="calendar-day">
-      13 de Julio, 2016
-    </div>
-    <div class="calendar-content"></div>
-  </div>
+	<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+		<div class="calendar-day">
+			13 de Julio, 2016
+		</div>
+		<div class="calendar-content"></div>
+	</div>
 </div>\n
 STAT_TEMPLATE;
  ?>
 
- <?php $cal_table_template = <<<STAT_TEMPLATE
+<?php $cal_table_template = <<<STAT_TEMPLATE
 <table class="table table-striped marcador-table">
-  <thead>
-    <tr>
-      <th>Partido</th>
-      <th>Local</th>
-      <th>Hora(ET)</th>
-      <th>Lanzador Visitante</th>
-      <th>Lanzador Local</th>
-    </tr>
-  </thead>
-  <tbody>
-  </tbody>
+	<thead>
+		<tr>
+			<th>Partido</th>
+			<th>Local</th>
+			<th>Hora(ET)</th>
+			<th>Lanzador Visitante</th>
+			<th>Lanzador Local</th>
+		</tr>
+	</thead>
+	<tbody>
+	</tbody>
 </table>\n
 STAT_TEMPLATE;
 ?>
 <?php $tpl=get_template_directory_uri() . '/'; ?>
 <?php $cal_row_table_template = <<<STAT_TEMPLATE
 <tr class="calendar-row">
-  <td class="away"><img src="" height="16" width="16"><span>Baltimore</span></td>
-  <td class="home">Cubs</td>
-  <td class="time">2:00 PM</td>
-  <td class="away-pitcher">Martin Perez</td>
-  <td class="home-pitcher">Kyle Hendricks</td>
+	<td class="away"><img src="" height="16" width="16"><span>Baltimore</span></td>
+	<td class="home">Cubs</td>
+	<td class="time">2:00 PM</td>
+	<td class="away-pitcher">Martin Perez</td>
+	<td class="home-pitcher">Kyle Hendricks</td>
 </tr>\n
 STAT_TEMPLATE;
-          ?>
+?>
           <?php /*for ($i=2; $i <= 4; $i++): ?>
           <div class="row calendar-row">
             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
@@ -653,21 +652,218 @@ STAT_TEMPLATE;
   </div>
 
 
-  <div id="estadisticas-tab" class="container-fluid tabs hidden">
-    <div class="row">
-      <div class="col-xs-12 col-sm-12 col-lg-9">
-        <!-- Marcador posts -->
-        <div class="marcador-posts-listing-wrapper cards">
-          <div class="container-fluid">
-            <div class="row">
-              <h1>Estadisticas</h1>
-            </div>
-          </div>
-        </div>
-        <!-- .marcador-posts-listing -->
-      </div> 
-    </div>
-  </div>
+		<div id="estadisticas-tab" class="container-fluid tabs hidden">
+			<div class="row">
+				<div class="col-xs-12 col-sm-12 col-lg-9">
+					<div class="estadisticas-heading container-fluid">
+						<div class="heading row">
+							<div class="col-xs-2">
+								<h3>
+									<select name="year-estadistica" id="year-stadistica" class="form-control">
+										<option>2016</option>
+									</select>
+								</h3>
+							</div>
+							<div class="col-xs-2">
+								<h3 class="temporada">Lísderes en</h3>
+							</div>
+							<div class="col-xs-6">
+								<table>
+									<tbody>
+									<tr>
+										<td><h3 class="temporada regular">Bateo</h3></td>
+										<td>
+											<div class="switch-contaier">
+												<div class="switch">
+													<input id="cmn-toggle-3" class="cmn-toggle cmn-toggle-round" type="checkbox">
+													<label for="cmn-toggle-3"></label>
+												</div>
+											</div><!-- /.switch -->
+										</td>
+										<td><h3 class="temporada post">Pitcheo</h3></td>
+									</tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</div>
+					<div class="estadisticas-content container-fluid">
+						<div class="row content">
+							<div class="col-lg-6">
+								<div class="liga americana">
+									Liga Americana
+								</div>
+								<div class="container-fluid">
+									<?php for ( $table=1; $table < 5; $table++ ): ?>
+										<div class="row row-table-static">
+											<div class="col-xs-4 player-image-col" style="background-image: url('http://placehold.it/500x700&text=Marcador+Player');"></div>
+											<div class="col-xs-8 players-col">
+												<div class="panel panel-default panel-players">
+													<div class="panel-heading players-section">
+														Players section
+													</div>
+													<div class="panel-body lead-player">
+														<table class="table">
+															<tbody>
+															<tr>
+																<td>
+																	Robinson Saltalamacchia
+																</td>
+																<td>
+																	AL
+																</td>
+																<td>
+																	.360
+																</td>
+															</tr>
+															</tbody>
+														</table>
+													</div>
+													<div class="panel-body other-players">
+														<table class="table marcador-table">
+															<tbody>
+															<?php for ($row=2; $row < 5; $row++): ?>
+																<tr>
+																	<td>
+																		<?php echo $row; ?>.
+																	</td>
+																	<td>
+																		Murphy
+																	</td>
+																	<td>
+																		BOS
+																	</td>
+																	<td>
+																		.356
+																	</td>
+																</tr>
+															<?php endfor; ?>
+															</tbody>
+														</table>
+													</div>
+													<div class="panel-body other-players collapse" id="collapsabletable<?php echo $table; ?>">
+														<table class="table marcador-table">
+															<tbody>
+															<?php for ($row=5; $row < 11; $row++): ?>
+																<tr>
+																	<td>
+																		<?php echo $row; ?>.
+																	</td>
+																	<td>
+																		Murphy
+																	</td>
+																	<td>
+																		BOS
+																	</td>
+																	<td>
+																		.356
+																	</td>
+																</tr>
+															<?php endfor; ?>
+															</tbody>
+														</table>
+													</div>
+													<div class="panel-footer expand-more">
+														<button class="btn btn-default btn-block" type="button" data-toggle="collapse" data-target="#collapsabletable<?php echo $table; ?>" aria-expanded="false" aria-controls="collapsabletable<?php echo $table; ?>">
+															Ver más <i class="material-icons">expand_more</i>
+														</button>
+													</div>
+												</div>
+											</div>
+										</div>
+									<?php endfor; ?>
+								</div>
+							</div>
+							<div class="col-lg-6">
+								<div class="liga nacional">
+									Liga Nacional
+								</div>
+								<div class="container-fluid">
+									<?php for ( $table=1; $table < 5; $table++ ): ?>
+										<div class="row row-table-static">
+											<div class="col-xs-4 player-image-col" style="background-image: url('http://placehold.it/500x700&text=Marcador+Player');"></div>
+											<div class="col-xs-8 players-col">
+												<div class="panel panel-default panel-players">
+													<div class="panel-heading players-section">
+														Players section
+													</div>
+													<div class="panel-body lead-player">
+														<table class="table">
+															<tbody>
+															<tr>
+																<td>
+																	Robinson Saltalamacchia
+																</td>
+																<td>
+																	AL
+																</td>
+																<td>
+																	.360
+																</td>
+															</tr>
+															</tbody>
+														</table>
+													</div>
+													<div class="panel-body other-players">
+														<table class="table marcador-table">
+															<tbody>
+															<?php for ($row=2; $row < 5; $row++): ?>
+																<tr>
+																	<td>
+																		<?php echo $row; ?>.
+																	</td>
+																	<td>
+																		Murphy
+																	</td>
+																	<td>
+																		BOS
+																	</td>
+																	<td>
+																		.356
+																	</td>
+																</tr>
+															<?php endfor; ?>
+															</tbody>
+														</table>
+													</div>
+													<div class="panel-body other-players collapse" id="collapsabletablenacional<?php echo $table; ?>">
+														<table class="table marcador-table">
+															<tbody>
+															<?php for ($row=5; $row < 11; $row++): ?>
+																<tr>
+																	<td>
+																		<?php echo $row; ?>.
+																	</td>
+																	<td>
+																		Murphy
+																	</td>
+																	<td>
+																		BOS
+																	</td>
+																	<td>
+																		.356
+																	</td>
+																</tr>
+															<?php endfor; ?>
+															</tbody>
+														</table>
+													</div>
+													<div class="panel-footer expand-more">
+														<button class="btn btn-default btn-block" type="button" data-toggle="collapse" data-target="#collapsabletablenacional<?php echo $table; ?>" aria-expanded="false" aria-controls="collapsabletablenacional<?php echo $table; ?>">
+															Ver más <i class="material-icons">expand_more</i>
+														</button>
+													</div>
+												</div>
+											</div>
+										</div>
+									<?php endfor; ?>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
 
     <script type="text/javascript">
     <?php //if (isset($cat_objs)): ?>
@@ -897,20 +1093,20 @@ STAT_TEMPLATE;
     </script>
 
 <?php else: ?>
-  <div class="container-fluid">
-    <div class="row">
-      <div class="col-xs-12 col-sm-12 col-lg-9">
-        <!-- Marcador posts -->
-        <div class="marcador-posts-listing-wrapper cards">
-          <div class="container-fluid">
-            <div class="row">
-              <h1>Sin resultados</h1>
-            </div>
-          </div>
-        </div>
-        <!-- .marcador-posts-listing -->
-      </div> 
-    </div>
-  </div>
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-xs-12 col-sm-12 col-lg-9">
+				<!-- Marcador posts -->
+				<div class="marcador-posts-listing-wrapper cards">
+					<div class="container-fluid">
+						<div class="row">
+							<h1>Sin resultados</h1>
+						</div>
+					</div>
+				</div>
+				<!-- .marcador-posts-listing -->
+			</div> 
+		</div>
+	</div>
 <?php endif; ?>
 <?php get_footer(); ?>
