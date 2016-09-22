@@ -678,6 +678,8 @@ STAT_TEMPLATE;
          */
         APP.Estadisticas = (function () {
 
+          var resultados = {};
+
           function onOptionSelected(event) {
             var selected = jQuery(this).val();
             if (selected.length < 1) return; 
@@ -731,48 +733,59 @@ STAT_TEMPLATE;
             }
           }
 
+          function calendarioBuilder (data) {
+            var dateProcesed = this.data.split('='); dateProcesed = dateProcesed[dateProcesed.length-1];
+            var calendario = data.calendario;
+            var $cal_day = jQuery('<?php echo preg_replace( "/\r|\n/", "", $cal_template ); ?>');
+            var $el = null;
+
+            if (calendario.length === 0) {
+              $el = $cal_day.clone();
+              $el.find(".calendar-day").text(dateFormat(dateProcesed));
+              $el.find(".calendar-content").text("No juegos agendados para este día");
+              $target.append($el);
+              return;
+            }
+
+            var $cal_table = jQuery('<?php echo preg_replace( "/\r|\n/", "", $cal_table_template ); ?>');
+            var $cal_row = jQuery('<?php echo preg_replace( "/\r|\n/", "", $cal_row_table_template ); ?>');
+            //jQuery(".calendar-row").remove();
+            $el = $cal_day.clone();
+            $el.find(".calendar-day").text(dateFormat(dateProcesed));
+            var $tbl = $cal_table.clone();
+            jQuery.each(calendario, function(i, day) {
+              var $row_el = $cal_row.clone();
+              <?php $tpl=get_template_directory_uri() . '/'; ?>
+              $row_el.find(".away img").attr("src", "<?php echo $tpl; ?>assets/imgs/mlb/"+day.away.abbr+"-logo-sm.png");
+              $row_el.find(".away span").html(day.away.name);
+              $row_el.find(".home").text(day.home.name);
+              $row_el.find(".time").text(getDateTime(day.scheduled));
+              $row_el.find(".away-pitcher").text(day.away.pitcher);
+              $row_el.find(".home-pitcher").text(day.home.pitcher);
+
+              $tbl.append($row_el);
+            });
+            $el.find(".calendar-content").append($tbl);
+            $target.append($el);
+          }
+
+          function calendarioAjaxError (error) {
+            console.log(error);
+          }
+
           function getCalendario (target) {
             if (APP.ajax) {
+              var now = Date.now();
+              resultados.selectedDays = { max: now, mid: now - (3600*24*1*1000), min: now - (3600*24*2*1000)};
+
               $target = jQuery(target + "-tab").find(".calendar-list");
-              var payload = { action: "calendario", league: "mlb", date: "2016-09-19" };
-              APP.ajax(
-                  payload,
-                  function (data) {
-                    var calendario = data.calendario;
-                    var $cal_day = jQuery('<?php echo preg_replace( "/\r|\n/", "", $cal_template ); ?>');
-                    var $el = null;
+              var max = { action: "calendario", league: "mlb", date: buildDateString( resultados.selectedDays.max ) };
+              var mid = { action: "calendario", league: "mlb", date: buildDateString( resultados.selectedDays.mid ) };
+              var min = { action: "calendario", league: "mlb", date: buildDateString( resultados.selectedDays.min ) };
 
-                    if (calendario.length === 0) {
-                      $el = $cal_day.clone();
-                      $el.find(".calendar-day").text(dateFormat(payload.date));
-                      $el.find(".calendar-content").text("No juegos agendados para este día");
-                      $target.append($el);
-                      return;
-                    }
-
-                    var $cal_table = jQuery('<?php echo preg_replace( "/\r|\n/", "", $cal_table_template ); ?>');
-                    var $cal_row = jQuery('<?php echo preg_replace( "/\r|\n/", "", $cal_row_table_template ); ?>');
-                    jQuery(".calendar-row").remove();
-                    $el = $cal_day.clone();
-                    $el.find(".calendar-day").text(dateFormat(payload.date));
-                    var $tbl = $cal_table.clone();
-                    jQuery.each(calendario, function(i, day) {
-                      var $row_el = $cal_row.clone();
-                      <?php $tpl=get_template_directory_uri() . '/'; ?>
-                      $row_el.find(".away img").attr("src", "<?php echo $tpl; ?>assets/imgs/mlb/"+day.away.abbr+"-logo-sm.png");
-                      $row_el.find(".away span").html(day.away.name);
-                      $row_el.find(".home").text(day.home.name);
-                      $row_el.find(".time").text(getDateTime(day.scheduled));
-                      $row_el.find(".away-pitcher").text(day.away.pitcher);
-                      $row_el.find(".home-pitcher").text(day.home.pitcher);
-
-                      $tbl.append($row_el);
-                    });
-                    $el.find(".calendar-content").append($tbl);
-                    $target.append($el);
-                  },
-                  function (err) { console.log( err ); }
-              );
+              APP.ajax( min, calendarioBuilder, calendarioAjaxError )
+                 .done( function() { APP.ajax(mid, calendarioBuilder, calendarioAjaxError)} )
+                 .done( function() { APP.ajax(max, calendarioBuilder, calendarioAjaxError)} );
             }
           }
 
@@ -794,6 +807,15 @@ STAT_TEMPLATE;
             var date = new Date(stringDate);
             var time = date.toTimeString();
             return "" + time;
+          }
+
+          function buildDateString(timestamp) {
+            var today = new Date(timestamp);
+            var year = today.getFullYear();
+            var monthRaw = today.getMonth()+1
+            var month = (monthRaw < 10) ? "0" + monthRaw : monthRaw;
+            var day = today.getDate();
+            return year + "-" + month + "-" + day;
           }
 
           function processTab (selectedTab) {

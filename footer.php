@@ -160,15 +160,16 @@
 			};
 
 			var ajax = function ( payload, successCallback, errorCallback ) {
-				
-				jQuery.ajax({
+				var options = {
 					url: '/wp-admin/admin-ajax.php',
 					type: 'post',
 					dataType: 'json',
-					data: payload,
-					success: successCallback,
-					error: errorCallback
-				});
+					data: payload
+				};
+				if (successCallback !== null && successCallback !== undefined) options.success = successCallback;
+				if (errorCallback !== null && errorCallback !== undefined) options.error = errorCallback;
+				// Returns the deferred object, needed for chaining requests
+				return jQuery.ajax(options);
 			};
 
 			var ajaxAction = function ( $form, payload ) {
