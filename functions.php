@@ -315,3 +315,22 @@ function custom_excerpt_length( $length ) {
 	return 50;
 }
 add_filter( 'excerpt_length', 'custom_excerpt_length', 999 );
+
+function insert_loading_spinner() {
+    ?>
+
+    <div class="preloader-wrapper big active">
+        <div class="spinner-layer spinner-red-only">
+            <div class="circle-clipper left">
+                <div class="circle"></div>
+            </div><div class="gap-patch">
+                <div class="circle"></div>
+            </div><div class="circle-clipper right">
+                <div class="circle"></div>
+            </div>
+        </div>
+    </div>
+
+    <?php
+}
+add_action('marcador_add_spinner_action', 'insert_loading_spinner');

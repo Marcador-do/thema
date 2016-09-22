@@ -136,6 +136,7 @@ if (count( $cat_ids ) > 0) {
 
               <div class="col-xs-12">
                 <div class="container-fluid game-list">
+                  <?php do_action("marcador_add_spinner_action"); ?>
 <?php $res_template = <<<STAT_TEMPLATE
                   <div class="row game">
                     <div class="col-xs-10 col-sm-10 col-lg-10 game col">
