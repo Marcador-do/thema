@@ -141,6 +141,7 @@ function marcador_scripts() {
 	$sidebar_nav_submenu = 'assets/js/sidebar-nav-submenu.js';
 	$bootstrap_js = 'assets/vendor/bootstrap/js/bootstrap.min.js';
 	$marcador_toastr = 'assets/js/toastr-notify.js';
+	// More details at: http://jquery.malsup.com/block/
 	$blockUI = 'assets/js/jquery.blockUI.js';
 
 	wp_enqueue_script( 'jquery' );
@@ -148,6 +149,7 @@ function marcador_scripts() {
 	wp_enqueue_script( 'sidebar-nav-menu', $src . $sidebar_nav_submenu, array('sidebar-menu'), '1.0.0' );
 	wp_enqueue_script( 'marcador-toastr', $src . $marcador_toastr, array('jquery'), '1.1', false );
 	wp_enqueue_script( 'bootstrap-js', $src . $bootstrap_js, 'jquery', '3', false );
+	// More details at: http://jquery.malsup.com/block/
 	wp_enqueue_script( 'blockUI', $src . $blockUI, array('jquery'), '3', false );
 	// wp_enqueue_script( 'marcador-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true );
 

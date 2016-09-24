@@ -134,6 +134,7 @@
 				    jQuery(this).parent().toggleClass('open');
 				});
 
+				// More details at: http://jquery.malsup.com/block/
 				jQuery(document).ajaxStart(jQuery.blockUI).ajaxStop(jQuery.unblockUI);
 
 				<?php /* Handler for modals */ ?>
