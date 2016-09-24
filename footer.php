@@ -134,6 +134,8 @@
 				    jQuery(this).parent().toggleClass('open');
 				});
 
+				jQuery(document).ajaxStart(jQuery.blockUI).ajaxStop(jQuery.unblockUI);
+
 				<?php /* Handler for modals */ ?>
 				<?php if ( !is_user_logged_in() ):  ?>
 					jQuery('#registerModal').on('show.bs.modal', function(){ 
