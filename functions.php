@@ -124,28 +124,34 @@ add_action( 'widgets_init', 'marcador_widgets_init' );
  * Enqueue scripts and styles.
  */
 function marcador_scripts() {
+	$src = get_template_directory_uri() . '/';
+
 	$google_roboto_font = 'https://fonts.googleapis.com/css?family=Material+Icons|Roboto:300,400,700';
-	$benton_marcador_font = '/assets/fonts/benton-marcador/font.css';
-	$twitter_bootstrap  = '/assets/vendor/bootstrap/css/bootstrap.min.css?id=5d472e23c7e390b505e8dd6606f3a9ce';
+	$benton_marcador_font = 'assets/fonts/benton-marcador/font.css';
+	$twitter_bootstrap  = 'assets/vendor/bootstrap/css/bootstrap.min.css?id=5d472e23c7e390b505e8dd6606f3a9ce';
+	$materialize_spinner = 'assets/css/materialize.spinner.css';
 
 	wp_enqueue_style( 'google-roboto-font', $google_roboto_font, array() );
-	wp_enqueue_style( 'benton-marcador-font', get_template_directory_uri() . $benton_marcador_font, array() );
-	wp_enqueue_style( 'twitter-bootstrap', get_template_directory_uri() . $twitter_bootstrap, array() );
+	wp_enqueue_style( 'benton-marcador-font', $src . $benton_marcador_font, array() );
+	wp_enqueue_style( 'twitter-bootstrap', $src . $twitter_bootstrap, array() );
+	wp_enqueue_style( 'materialize-spinner', $src . $materialize_spinner, array() );
 	
 
-	$sidebar_menu = '/assets/js/sidebar-menu.js';
-	$sidebar_nav_submenu = '/assets/js/sidebar-nav-submenu.js';
-	$bootstrap_js = '/assets/vendor/bootstrap/js/bootstrap.min.js';
-	$marcador_toastr = '/assets/js/toastr-notify.js';
+	$sidebar_menu = 'assets/js/sidebar-menu.js';
+	$sidebar_nav_submenu = 'assets/js/sidebar-nav-submenu.js';
+	$bootstrap_js = 'assets/vendor/bootstrap/js/bootstrap.min.js';
+	$marcador_toastr = 'assets/js/toastr-notify.js';
+	$blockUI = 'assets/js/jquery.blockUI.js';
 
 	wp_enqueue_script( 'jquery' );
-	wp_enqueue_script( 'sidebar-menu', get_template_directory_uri() . $sidebar_menu, array(), '1.0.0' );
-	wp_enqueue_script( 'sidebar-nav-menu', get_template_directory_uri() . $sidebar_nav_submenu, array('sidebar-menu'), '1.0.0' );
-	wp_enqueue_script( 'marcador-toastr', get_template_directory_uri() . $marcador_toastr, array('jquery'), '1.1', false );
-	wp_enqueue_script( 'bootstrap-js', get_template_directory_uri() . $bootstrap_js, 'jquery', '3', false );
+	wp_enqueue_script( 'sidebar-menu', $src . $sidebar_menu, array(), '1.0.0' );
+	wp_enqueue_script( 'sidebar-nav-menu', $src . $sidebar_nav_submenu, array('sidebar-menu'), '1.0.0' );
+	wp_enqueue_script( 'marcador-toastr', $src . $marcador_toastr, array('jquery'), '1.1', false );
+	wp_enqueue_script( 'bootstrap-js', $src . $bootstrap_js, 'jquery', '3', false );
+	wp_enqueue_script( 'blockUI', $src . $blockUI, array('jquery'), '3', false );
 	// wp_enqueue_script( 'marcador-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true );
 
-	wp_enqueue_script( 'marcador-skip-link-focus-fix', get_template_directory_uri() . '/assets/js/skip-link-focus-fix.js', array(), '20151215', true );
+	wp_enqueue_script( 'marcador-skip-link-focus-fix', $src . 'assets/js/skip-link-focus-fix.js', array(), '20151215', true );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
@@ -156,13 +162,11 @@ function marcador_scripts() {
 	}
 
 	if ( is_404() ) {
-		wp_enqueue_style( 'bebasneue-font', get_template_directory_uri()."/assets/fonts/bebasneue.ttf", array() );
-		wp_enqueue_style( 'animate-css', get_template_directory_uri()."/assets/css/animate.css", array() );
-		wp_enqueue_style( 'style-404', get_template_directory_uri()."/assets/css/style404.css", array() );
+		wp_enqueue_style( 'bebasneue-font', $src . "assets/fonts/bebasneue.ttf", array() );
+		wp_enqueue_style( 'animate-css', $src . "assets/css/animate.css", array() );
+		wp_enqueue_style( 'style-404', $src . "assets/css/style404.css", array() );
 	}
 	if( is_category() ) {
-		$src = get_template_directory_uri() . '/';
-
 		// https://bootstrap-datepicker.readthedocs.io/en/latest/index.html
 		// https://eternicode.github.io/bootstrap-datepicker/?markup=range&format=mm%2Fdd%2Fyyyy&weekStart=0&startDate=&endDate=&startView=0&minViewMode=0&maxViewMode=4&todayBtn=false&clearBtn=false&language=es&orientation=bottom+right&multidate=&multidateSeparator=&todayHighlight=on&keyboardNavigation=on&forceParse=on#sandbox
 		wp_enqueue_script( 
