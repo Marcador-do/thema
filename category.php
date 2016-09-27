@@ -187,92 +187,44 @@ STAT_TEMPLATE;
 					</div>
 					<!-- Calendar -->
 <?php $cal_template = <<<STAT_TEMPLATE
-<div class="row calendar-row">
-	<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-		<div class="calendar-day">
-			13 de Julio, 2016
-		</div>
-		<div class="calendar-content"></div>
-	</div>
-</div>\n
+                    <div class="row calendar-row">
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                            <div class="calendar-day">
+                                13 de Julio, 2016
+                            </div>
+                            <div class="calendar-content"></div>
+                        </div>
+                    </div>\n
 STAT_TEMPLATE;
  ?>
 
 <?php $cal_table_template = <<<STAT_TEMPLATE
-<table class="table table-striped marcador-table">
-	<thead>
-		<tr>
-			<th>Partido</th>
-			<th>Local</th>
-			<th>Hora(ET)</th>
-			<th>Lanzador Visitante</th>
-			<th>Lanzador Local</th>
-		</tr>
-	</thead>
-	<tbody>
-	</tbody>
-</table>\n
+                                <table class="table table-striped marcador-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Partido</th>
+                                            <th>Local</th>
+                                            <th>Hora(ET)</th>
+                                            <th>Lanzador Visitante</th>
+                                            <th>Lanzador Local</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                    </tbody>
+                                </table>\n
 STAT_TEMPLATE;
 ?>
 <?php $tpl=get_template_directory_uri() . '/'; ?>
 <?php $cal_row_table_template = <<<STAT_TEMPLATE
-<tr class="calendar-row">
-	<td class="away"><img src="" height="16" width="16"><span>Baltimore</span></td>
-	<td class="home">Cubs</td>
-	<td class="time">2:00 PM</td>
-	<td class="away-pitcher">Martin Perez</td>
-	<td class="home-pitcher">Kyle Hendricks</td>
-</tr>\n
+                                        <tr class="calendar-row">
+                                            <td class="away"><img src="" height="16" width="16"><span>Baltimore</span></td>
+                                            <td class="home">Cubs</td>
+                                            <td class="time">2:00 PM</td>
+                                            <td class="away-pitcher">Martin Perez</td>
+                                            <td class="home-pitcher">Kyle Hendricks</td>
+                                        </tr>\n
 STAT_TEMPLATE;
 ?>
-          <?php /*for ($i=2; $i <= 4; $i++): ?>
-          <div class="row calendar-row">
-            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-              <div class="calendar-day">
-                13 de Julio, 2016
-              </div>
-              <div class="calendar-content">No juegos agendados para este día</div>
-            </div>
-          </div>
-          <?php endfor; ?>
-          <div class="row calendar-row">
-            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-              <div class="calendar-day">
-                14 de Julio, 2016
-              </div>
-              <div class="calendar-content">
-                <table class="table table-striped marcador-table">
-                  <thead>
-                    <tr>
-                      <th>Partido</th>
-                      <th>Local</th>
-                      <th>Hora(ET)</th>
-                      <th>Lanzador Visitante</th>
-                      <th>Lanzador Local</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <?php for ($tr=0; $tr < 4; $tr++): ?>
-                    <tr>
-                      <td><img src="<?php echo $tpl; ?>assets/imgs/mlb/BAL-logo-sm.png" height="16" width="16">Baltimore</td>
-                      <td>Cubs</td>
-                      <td>2:00 PM</td>
-                      <td>Martin Perez</td>
-                      <td>Kyle Hendricks</td>
-                    </tr>
-                    <tr>
-                      <td><img src="<?php echo $tpl; ?>assets/imgs/mlb/BOS-logo-sm.png" height="16" width="16">Minesota</td>
-                      <td>Yankess</td>
-                      <td>7:00 PM</td>
-                      <td>Eduardo Rodriguez</td>
-                      <td>Michael Pineda</td>
-                    </tr>
-                    <?php endfor; ?>
-                  </tbody>
-                </table>
-              </div>
-            </div>
-          </div> */ ?>
         </div>
         <!-- .marcador-posts-listing -->
       </div> 
@@ -345,9 +297,9 @@ STAT_TEMPLATE;
                   <tr>
                     <td><h3 class="temporada regular">Regular</h3></td>
                     <td>
-                      <div class="switch-contaier">
+                      <div class="switch-container">
                         <div class="switch">
-                          <input id="cmn-toggle-2" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                          <input id="cmn-toggle-2" class="cmn-toggle cmn-toggle-round" type="checkbox" selected>
                           <label for="cmn-toggle-2"></label>
                         </div>
                       </div><!-- /.switch -->
@@ -358,16 +310,23 @@ STAT_TEMPLATE;
               </table>
             </div>
 
-            <div class="col-xs-12">
-              <!-- liga americana -->
-              <div class="liga americana">
-                Liga Americana
-              </div>
-              <div class="liga-content">
-                <table class="table table-striped marcador-table">
+            <div class="col-xs-12 ligas">
+<?php
+$liga_table_title = <<<LIGA_TABLE_TITLE
+                <div class="liga-title liga">Liga Americana</div>\n
+LIGA_TABLE_TITLE;
+
+$liga_table = <<<LIGA_TABLE
+                <div class="liga-content">
+                  <table class="table table-striped marcador-table">
+                  </table>
+                </div>\n
+LIGA_TABLE;
+
+$liga_table_head = <<<LIGA_TABLE_HEAD
                   <thead>
                     <tr>
-                      <th>East</th>
+                      <th class="liga-division">East</th>
                       <th>W</th>
                       <th>L</th>
                       <th>PCT</th>
@@ -379,270 +338,29 @@ STAT_TEMPLATE;
                       <th>U10</th>
                       <th>EL</th>
                     </tr>
-                  </thead>
-                  <tbody>
-                    <?php $tpl=get_template_directory_uri() . '/'; ?>
-                    <?php for ($tr=0; $tr < 4; $tr++): ?>
+                  </thead>\n
+LIGA_TABLE_HEAD;
+
+$liga_table_body = <<<LIGA_TABLE_BODY
+                  <tbody></tbody>\n
+LIGA_TABLE_BODY;
+
+$liga_table_row = <<<LIGA_TABLE_ROW
                     <tr>
-                      <td><img src="<?php echo $tpl; ?>assets/imgs/mlb/BAL-logo-sm.png" height="16" width="16">Baltimore</td>
-                      <td>54</td>
-                      <td>36</td>
-                      <td>.600</td>
-                      <td>25-28</td>
-                      <td>18-34</td>
-                      <td>W2</td>
-                      <td>427</td>
-                      <td>+16</td>
-                      <td>3-7</td>
-                      <td>44</td>
+                      <td class="liga-image"><img src="" height="16" width="16"><span>Baltimore</span></td>
+                      <td class="liga-won">54</td>
+                      <td class="liga-lost">36</td>
+                      <td class="liga-pct">.600</td>
+                      <td class="liga-home">25-28</td>
+                      <td class="liga-visit">18-34</td>
+                      <td class="liga-strk">W2</td>
+                      <td class="liga-gb">427</td>
+                      <td class="liga-wcb">+16</td>
+                      <td class="liga-u10">3-7</td>
+                      <td class="liga-el">44</td>
                     </tr>
-                    <tr>
-                      <td><img src="<?php echo $tpl; ?>assets/imgs/mlb/BOS-logo-sm.png" height="16" width="16">Minesota</td>
-                      <td>52</td>
-                      <td>36</td>
-                      <td>.591</td>
-                      <td>32-20</td>
-                      <td>20-32</td>
-                      <td>L3</td>
-                      <td>355</td>
-                      <td>+81</td>
-                      <td>4-6</td>
-                      <td>49</td>
-                    </tr>
-                    <?php endfor; ?>
-                  </tbody>
-                  <thead>
-                    <tr>
-                      <th>Central</th>
-                      <th>W</th>
-                      <th>L</th>
-                      <th>PCT</th>
-                      <th>HOME</th>
-                      <th>VISIT</th>
-                      <th>STRK</th>
-                      <th>GB</th>
-                      <th>WCB</th>
-                      <th>U10</th>
-                      <th>EL</th>
-                    </tr>
-                  </thead>
-                  <?php for ($tr=0; $tr < 4; $tr++): ?>
-                    <tr>
-                      <td><img src="<?php echo $tpl; ?>assets/imgs/mlb/BAL-logo-sm.png" height="16" width="16">Baltimore</td>
-                      <td>54</td>
-                      <td>36</td>
-                      <td>.600</td>
-                      <td>25-28</td>
-                      <td>18-34</td>
-                      <td>W2</td>
-                      <td>427</td>
-                      <td>+16</td>
-                      <td>3-7</td>
-                      <td>44</td>
-                    </tr>
-                    <tr>
-                      <td><img src="<?php echo $tpl; ?>assets/imgs/mlb/BOS-logo-sm.png" height="16" width="16">Minesota</td>
-                      <td>52</td>
-                      <td>36</td>
-                      <td>.591</td>
-                      <td>32-20</td>
-                      <td>20-32</td>
-                      <td>L3</td>
-                      <td>355</td>
-                      <td>+81</td>
-                      <td>4-6</td>
-                      <td>49</td>
-                    </tr>
-                    <?php endfor; ?>
-                  </tbody>
-                  <thead>
-                    <tr>
-                      <th>West</th>
-                      <th>W</th>
-                      <th>L</th>
-                      <th>PCT</th>
-                      <th>HOME</th>
-                      <th>VISIT</th>
-                      <th>STRK</th>
-                      <th>GB</th>
-                      <th>WCB</th>
-                      <th>U10</th>
-                      <th>EL</th>
-                    </tr>
-                  </thead>
-                  <?php for ($tr=0; $tr < 4; $tr++): ?>
-                    <tr>
-                      <td><img src="<?php echo $tpl; ?>assets/imgs/mlb/BAL-logo-sm.png" height="16" width="16">Baltimore</td>
-                      <td>54</td>
-                      <td>36</td>
-                      <td>.600</td>
-                      <td>25-28</td>
-                      <td>18-34</td>
-                      <td>W2</td>
-                      <td>427</td>
-                      <td>+16</td>
-                      <td>3-7</td>
-                      <td>44</td>
-                    </tr>
-                    <tr>
-                      <td><img src="<?php echo $tpl; ?>assets/imgs/mlb/BOS-logo-sm.png" height="16" width="16">Minesota</td>
-                      <td>52</td>
-                      <td>36</td>
-                      <td>.591</td>
-                      <td>32-20</td>
-                      <td>20-32</td>
-                      <td>L3</td>
-                      <td>355</td>
-                      <td>+81</td>
-                      <td>4-6</td>
-                      <td>49</td>
-                    </tr>
-                    <?php endfor; ?>
-                  </tbody>
-                </table>
-              </div>
-              <!-- liga nacional -->
-              <div class="liga nacional">
-                Liga Nacional
-              </div>
-              <div class="liga-content">
-                <table class="table table-striped marcador-table">
-                  <thead>
-                    <tr>
-                      <th>East</th>
-                      <th>W</th>
-                      <th>L</th>
-                      <th>PCT</th>
-                      <th>HOME</th>
-                      <th>VISIT</th>
-                      <th>STRK</th>
-                      <th>GB</th>
-                      <th>WCB</th>
-                      <th>U10</th>
-                      <th>EL</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                  <?php $tpl=get_template_directory_uri() . '/'; ?>
-                    <?php for ($tr=0; $tr < 4; $tr++): ?>
-                    <tr>
-                      <td><img src="<?php echo $tpl; ?>assets/imgs/mlb/BAL-logo-sm.png" height="16" width="16">Baltimore</td>
-                      <td>54</td>
-                      <td>36</td>
-                      <td>.600</td>
-                      <td>25-28</td>
-                      <td>18-34</td>
-                      <td>W2</td>
-                      <td>427</td>
-                      <td>+16</td>
-                      <td>3-7</td>
-                      <td>44</td>
-                    </tr>
-                    <tr>
-                      <td><img src="<?php echo $tpl; ?>assets/imgs/mlb/BOS-logo-sm.png" height="16" width="16">Minesota</td>
-                      <td>52</td>
-                      <td>36</td>
-                      <td>.591</td>
-                      <td>32-20</td>
-                      <td>20-32</td>
-                      <td>L3</td>
-                      <td>355</td>
-                      <td>+81</td>
-                      <td>4-6</td>
-                      <td>49</td>
-                    </tr>
-                    <?php endfor; ?>
-                  </tbody>
-                  <thead>
-                    <tr>
-                      <th>Central</th>
-                      <th>W</th>
-                      <th>L</th>
-                      <th>PCT</th>
-                      <th>HOME</th>
-                      <th>VISIT</th>
-                      <th>STRK</th>
-                      <th>GB</th>
-                      <th>WCB</th>
-                      <th>U10</th>
-                      <th>EL</th>
-                    </tr>
-                  </thead>
-                  <?php for ($tr=0; $tr < 4; $tr++): ?>
-                    <tr>
-                      <td><img src="<?php echo $tpl; ?>assets/imgs/mlb/BAL-logo-sm.png" height="16" width="16">Baltimore</td>
-                      <td>54</td>
-                      <td>36</td>
-                      <td>.600</td>
-                      <td>25-28</td>
-                      <td>18-34</td>
-                      <td>W2</td>
-                      <td>427</td>
-                      <td>+16</td>
-                      <td>3-7</td>
-                      <td>44</td>
-                    </tr>
-                    <tr>
-                      <td><img src="<?php echo $tpl; ?>assets/imgs/mlb/BOS-logo-sm.png" height="16" width="16">Minesota</td>
-                      <td>52</td>
-                      <td>36</td>
-                      <td>.591</td>
-                      <td>32-20</td>
-                      <td>20-32</td>
-                      <td>L3</td>
-                      <td>355</td>
-                      <td>+81</td>
-                      <td>4-6</td>
-                      <td>49</td>
-                    </tr>
-                    <?php endfor; ?>
-                  </tbody>
-                  <thead>
-                    <tr>
-                      <th>West</th>
-                      <th>W</th>
-                      <th>L</th>
-                      <th>PCT</th>
-                      <th>HOME</th>
-                      <th>VISIT</th>
-                      <th>STRK</th>
-                      <th>GB</th>
-                      <th>WCB</th>
-                      <th>U10</th>
-                      <th>EL</th>
-                    </tr>
-                  </thead>
-                  <?php for ($tr=0; $tr < 4; $tr++): ?>
-                    <tr>
-                      <td><img src="<?php echo $tpl; ?>assets/imgs/mlb/BAL-logo-sm.png" height="16" width="16">Baltimore</td>
-                      <td>54</td>
-                      <td>36</td>
-                      <td>.600</td>
-                      <td>25-28</td>
-                      <td>18-34</td>
-                      <td>W2</td>
-                      <td>427</td>
-                      <td>+16</td>
-                      <td>3-7</td>
-                      <td>44</td>
-                    </tr>
-                    <tr>
-                      <td><img src="<?php echo $tpl; ?>assets/imgs/mlb/BOS-logo-sm.png" height="16" width="16">Minesota</td>
-                      <td>52</td>
-                      <td>36</td>
-                      <td>.591</td>
-                      <td>32-20</td>
-                      <td>20-32</td>
-                      <td>L3</td>
-                      <td>355</td>
-                      <td>+81</td>
-                      <td>4-6</td>
-                      <td>49</td>
-                    </tr>
-                    <?php endfor; ?>
-                  </tbody>
-                </table>
-              </div>
+LIGA_TABLE_ROW;
+?>
             </div>
           </div>
         </div>
@@ -673,7 +391,7 @@ STAT_TEMPLATE;
 									<tr>
 										<td><h3 class="temporada regular">Bateo</h3></td>
 										<td>
-											<div class="switch-contaier">
+											<div class="switch-container">
 												<div class="switch">
 													<input id="cmn-toggle-3" class="cmn-toggle cmn-toggle-round" type="checkbox">
 													<label for="cmn-toggle-3"></label>
@@ -899,6 +617,11 @@ STAT_TEMPLATE;
             return $combo;
           }
 
+            /**
+             * Resultados Tab
+             *
+             * @param target
+             */
           function getResultados (target) {
             $target = jQuery(target + "-tab").find(".game-list");
             if (APP.ajax) {
@@ -929,6 +652,11 @@ STAT_TEMPLATE;
             }
           }
 
+            /**
+             * Calendario Tab
+             *
+             * @param target
+             */
           function calendarioBuilder (data) {
             var dateProcesed = this.data.split('='); dateProcesed = dateProcesed[dateProcesed.length-1];
             var calendario = data.calendario;
@@ -945,7 +673,6 @@ STAT_TEMPLATE;
 
             var $cal_table = jQuery('<?php echo preg_replace( "/\r|\n/", "", $cal_table_template ); ?>');
             var $cal_row = jQuery('<?php echo preg_replace( "/\r|\n/", "", $cal_row_table_template ); ?>');
-            //jQuery(".calendar-row").remove();
             $el = $cal_day.clone();
             $el.find(".calendar-day").text(dateFormat(dateProcesed));
             var $tbl = $cal_table.clone();
@@ -975,6 +702,7 @@ STAT_TEMPLATE;
               resultados.selectedDays = { max: now, mid: now - (3600*24*1*1000), min: now - (3600*24*2*1000)};
 
               $target = jQuery(target + "-tab").find(".calendar-list");
+              jQuery("#calendario-tab .calendar-row").remove();
               var max = { action: "calendario", league: "mlb", date: buildDateString( resultados.selectedDays.max ) };
               var mid = { action: "calendario", league: "mlb", date: buildDateString( resultados.selectedDays.mid ) };
               var min = { action: "calendario", league: "mlb", date: buildDateString( resultados.selectedDays.min ) };
@@ -1014,6 +742,90 @@ STAT_TEMPLATE;
             return year + "-" + month + "-" + day;
           }
 
+            /**
+             * Posiciones Tab
+             *
+             * @param target
+             */
+          function getPosiciones(target) {
+                if (APP.ajax) {
+                    var $target = jQuery(target + "-tab").find(".ligas");
+                    var options = {
+                        action: "posiciones",
+                        league: "mlb",
+                        season: (jQuery('#cmn-toggle-2')[0].checked) ? "PST" : 'REG',
+                        date: buildDateString( Date.now() )
+                    };
+
+                    APP.ajax(
+                        options,
+                        function (data) {console.log(data); buildPosicionesTable($target, data.league.season)},
+                        function (error) {console.log(error);}
+                    );
+                }
+          }
+
+          function buildPosicionesTable ($target, season) {
+              var $liga_table = jQuery('<?php echo preg_replace( "/\r|\n/", "", $liga_table ); ?>');
+              var $liga_table_title = jQuery('<?php echo preg_replace( "/\r|\n/", "", $liga_table_title ); ?>');
+              var $liga_table_head = jQuery('<?php echo preg_replace( "/\r|\n/", "", $liga_table_head ); ?>');
+              var $liga_table_body = jQuery('<?php echo preg_replace( "/\r|\n/", "", $liga_table_body ); ?>');
+              var $liga_table_row = jQuery('<?php echo preg_replace( "/\r|\n/", "", $liga_table_row ); ?>');
+
+              $target.html('');
+              if (!season.leagues) {
+                  $target.append($liga_table.html('No informacion disponible para esta temporada.'))
+              }
+
+              jQuery.each(season.leagues, function (i, league) {
+                  var $table_title_instance = $liga_table_title.clone();
+                  $table_title_instance.text(league.name);
+                  if('NL' === league.alias) $table_title_instance.addClass("nacional");
+                  if('AL' === league.alias) $table_title_instance.addClass("americana");
+
+                  var $table_instance = $liga_table.clone();
+                  var $table_head_instance = null;
+                  var $table_body_instance = null;
+                  var $table_row_instance = null;
+                  jQuery.each(league.divisions, function(j, division) { //console.log(division);
+                      $table_head_instance = $liga_table_head.clone();
+                      $table_head_instance.find(".liga-division").text(division.name);
+
+                      $table_body_instance = $liga_table_body.clone();
+                      jQuery.each(division.teams, function (k, team) {
+                          $table_row_instance = $liga_table_row.clone();
+
+                          $table_row_instance.find(".liga-image img").attr('src', "<?php echo $tpl; ?>assets/imgs/mlb/"+team.abbr+"-logo-sm.png");
+                          $table_row_instance.find(".liga-image span").text(team.name);
+                          $table_row_instance.find(".liga-won").text(team.win);
+                          $table_row_instance.find(".liga-lost").text(team.loss);
+                          $table_row_instance.find(".liga-pct").text(team.win_p);
+                          $table_row_instance.find(".liga-home").text(team.home_win +"-"+ team.home_loss);
+                          $table_row_instance.find(".liga-visit").text(team.away_win +"-"+ team.away_loss);
+                          $table_row_instance.find(".liga-strk").text(team.streak);
+                          $table_row_instance.find(".liga-gb").text(team.games_back);
+                          $table_row_instance.find(".liga-wcb").text(team.wild_card_back);
+                          $table_row_instance.find(".liga-u10").text(team.last_10_won +"-"+ team.last_10_lost);
+                          $table_row_instance.find(".liga-el").text(team.elimination_number);
+
+                          $table_body_instance.append($table_row_instance);
+                      });
+
+                      var $current = $table_instance.find("table.marcador-table");
+                      $current.append($table_head_instance);
+                      $current.append($table_body_instance);
+                  });
+
+                  $target.append($table_title_instance);
+                  $target.append($table_instance);
+              });
+          }
+
+          function onPosicionesTemporadaSelected (e) {
+            console.log(e);
+            getPosiciones('#posiciones');
+          }
+
           function processTab (selectedTab) {
             switch ( selectedTab ) {
               case "#resultados":
@@ -1023,7 +835,7 @@ STAT_TEMPLATE;
                   getCalendario(selectedTab);
                   break;
               case "#posiciones":
-                  //getPosiciones(selectedTab);
+                  getPosiciones(selectedTab);
                   break;
               case "#estadisticas":
                   //getEstadisticas(selectedTab);
@@ -1064,6 +876,7 @@ STAT_TEMPLATE;
             //jQuery( "#liga-drpdwn" ).hide();
             <?php //else: ?>
             jQuery( "#liga-drpdwn" ).change(onOptionSelected);
+            jQuery( "#cmn-toggle-2" ).change(onPosicionesTemporadaSelected);
             //var ligas = <?php echo json_encode($cat_objs); ?>;
             //jQuery( "#liga-select" ).append(
             //  getDropDownList("liga-select", "liga-drpdwn", ligas)
