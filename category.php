@@ -407,7 +407,68 @@ LIGA_TABLE_ROW;
 					</div>
 					<div class="estadisticas-content container-fluid">
 						<div class="row content">
-							<div class="col-lg-6">
+<?php
+$est_column = <<<EST_COLUMN
+<div class="col-lg-6"></div>\n
+EST_COLUMN;
+
+$est_column_title = <<<EST_COLUMN_TITLE
+<div class="liga"></div>\n
+EST_COLUMN_TITLE;
+
+$est_column_body = <<<EST_COLUMN_BODY
+<div class="container-fluid"></div>\n
+EST_COLUMN_BODY;
+
+$est_column_body_section = <<<EST_COLUMN_BODY_SECTION
+<div class="row row-table-static">
+    <div class="col-xs-4 player-image-col" style="background-image: url(\"http://placehold.it/500x700&text=Marcador+Player\");"></div>
+    <div class="col-xs-8 players-col">
+        <div class="panel panel-default panel-players">
+            <div class="panel-heading players-section">Players section</div>
+            <div class="panel-body lead-player">
+                <table class="table">
+                    <tbody>
+                    <tr>
+                        <td class="name">Robinson Saltalamacchia</td>
+                        <td class="abbr">AL</td>
+                        <td class="pct">.360</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="panel-body other-players no-collapse">
+                <table class="table marcador-table">
+                    <tbody>
+                    </tbody>
+                </table>
+            </div>
+            <div class="panel-body other-players collapse" id="collapsabletable1">
+                <table class="table marcador-table">
+                    <tbody>
+                    </tbody>
+                </table>
+            </div>
+            <div class="panel-footer expand-more">
+                <button class="btn btn-default btn-block" type="button" data-toggle="collapse" data-target="#collapsabletable<?php echo $table; ?>" aria-expanded="false" aria-controls="collapsabletable<?php echo $table; ?>">
+                    Ver más <i class="material-icons">expand_more</i>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>\n
+EST_COLUMN_BODY_SECTION;
+
+$est_column_body_section_row = <<<EST_COLUMN_BODY_SECTION_ROW
+<tr>
+    <td class="rank">1.</td>
+    <td class="name">Murphy</td>
+    <td class="abbr">BOS</td>
+    <td class="pct">.356</td>
+</tr>
+EST_COLUMN_BODY_SECTION_ROW;
+?>
+							<?php /*<div class="col-lg-6">
 								<div class="liga americana">
 									Liga Americana
 								</div>
@@ -575,7 +636,7 @@ LIGA_TABLE_ROW;
 											</div>
 										</div>
 									<?php endfor; ?>
-								</div>
+								</div>*/ ?>
 							</div>
 						</div>
 					</div>
@@ -826,6 +887,101 @@ LIGA_TABLE_ROW;
             getPosiciones('#posiciones');
           }
 
+            /**
+             * Estadisticas Tab
+             *
+             * @param target
+             */
+            function getEstadisticas(target) {
+                if (APP.ajax) {
+                    var $target = jQuery(target + "-tab").find(".estadisticas-content.container-fluid .row.content");
+                    var options = {
+                        action: "estadisticas",
+                        league: "mlb",
+                        season: 'REG',
+                        date: buildDateString( Date.now() )
+                    };
+
+                    APP.ajax(
+                        options,
+                        function (data) { console.log(data); buildEstadisticasTable($target, data.estadisticas); },
+                        function (error) {console.log(error);}
+                    );
+                }
+            }
+
+            function buildEstadisticasTable ($target, estadisticas) {
+                var $est_column = jQuery('<?php echo preg_replace( "/\r|\n/", "", $est_column ); ?>');
+                var $est_column_title = jQuery('<?php echo preg_replace( "/\r|\n/", "", $est_column_title ); ?>');
+                var $est_column_body = jQuery('<?php echo preg_replace( "/\r|\n/", "", $est_column_body ); ?>');
+                var $est_column_body_section = jQuery('<?php echo preg_replace( "/\r|\n/", "", $est_column_body_section ); ?>');
+                var $est_column_body_section_row = jQuery('<?php echo preg_replace( "/\r|\n/", "", $est_column_body_section_row ); ?>');
+
+                $target.html('');
+                var $column = null;
+                var count =1;
+                var checked = jQuery("#cmn-toggle-3")[0].checked;
+                jQuery.each(estadisticas, function (i, estadistica) {
+                    $column = $est_column.clone();
+
+                    $column_title = $est_column_title.clone();
+                    $column_title.text(estadistica.name);
+                    $column_title.addClass( (estadistica.alias === 'AL')?'americana':'nacional' );
+                    $column.append($column_title);
+
+                    $column_body = $est_column_body.clone();
+                    var currentSelected = (!checked)?estadistica.hitting : estadistica.pitching;
+                    var currentKeys = Object.keys(currentSelected);
+                    jQuery.each(currentKeys, function (j, section) {
+                        $column_body_section = $est_column_body_section.clone();
+                        $column_body_section.find('.panel-heading.players-section').text(section.replace(/_/g,' ',true).toUpperCase());
+
+                        var collapsableId = 'collapsabletable'+(count);
+                        $column_body_section.find('.panel-body.other-players.collapse').attr('id', collapsableId);
+                        $column_body_section.find('.btn.btn-default.btn-block').attr('data-target', '#'+collapsableId);
+                        $column_body_section.find('.btn.btn-default.btn-block').attr('aria-controls', collapsableId);
+
+                        jQuery.each(currentSelected[section], function (k, player) {
+                            var name = player.first_name + ' ' + player.last_name;
+                            var pct = "" + (player.avg || player.hr || player.rbi || player.h || player.sb || player.era || player[section]);
+                            var abbr = (player.team) ? player.team.abbr : " - ";
+
+                            if (k === 0) {
+                                $column_body_section.find('.panel-body.lead-player table tbody .name').text(name);
+                                $column_body_section.find('.panel-body.lead-player table tbody .pct').text(pct);
+                                $column_body_section.find('.panel-body.lead-player table tbody .abbr').text(abbr);
+                                return;
+                            }
+
+                            $column_body_section_row = $est_column_body_section_row.clone();
+
+                            $column_body_section_row.find('.rank').text(player.rank + '.');
+                            $column_body_section_row.find('.name').text(name);
+                            $column_body_section_row.find('.pct').text(pct);
+                            $column_body_section_row.find('.abbr').text(abbr);
+                            if (k < 4) {
+                                $column_body_section.find('.panel-body.other-players.no-collapse table tbody')
+                                                    .append($column_body_section_row);
+                            } else if(k >= 4) {
+                                $column_body_section.find('.panel-body.other-players.collapse table tbody')
+                                                    .append($column_body_section_row);
+                            }
+                        });
+                        count++;
+
+                        $column_body.append($column_body_section);
+                    });
+                    $column.append($column_body);
+
+                    $target.append($column);
+                });
+            }
+
+            function onEstadisticasLiderEnSelected (e) {
+                console.log(e);
+                getEstadisticas('#estadisticas');
+            }
+
           function processTab (selectedTab) {
             switch ( selectedTab ) {
               case "#resultados":
@@ -838,7 +994,7 @@ LIGA_TABLE_ROW;
                   getPosiciones(selectedTab);
                   break;
               case "#estadisticas":
-                  //getEstadisticas(selectedTab);
+                  getEstadisticas(selectedTab);
                   break;
               case "#principal":
               default:
@@ -877,6 +1033,7 @@ LIGA_TABLE_ROW;
             <?php //else: ?>
             jQuery( "#liga-drpdwn" ).change(onOptionSelected);
             jQuery( "#cmn-toggle-2" ).change(onPosicionesTemporadaSelected);
+            jQuery( "#cmn-toggle-3" ).change(onEstadisticasLiderEnSelected);
             //var ligas = <?php echo json_encode($cat_objs); ?>;
             //jQuery( "#liga-select" ).append(
             //  getDropDownList("liga-select", "liga-drpdwn", ligas)
