@@ -719,7 +719,8 @@ EST_COLUMN_BODY_SECTION_ROW;
              * @param target
              */
           function calendarioBuilder (data) {
-            var dateProcesed = this.data.split('='); dateProcesed = dateProcesed[dateProcesed.length-1];
+            var dateProcesed = this.data.split('=');
+                dateProcesed = dateProcesed[dateProcesed.length-1];
             var calendario = data.calendario;
             var $cal_day = jQuery('<?php echo preg_replace( "/\r|\n/", "", $cal_template ); ?>');
             var $el = null;
@@ -757,20 +758,20 @@ EST_COLUMN_BODY_SECTION_ROW;
             console.log(error);
           }
 
-          function getCalendario (target) {
+          function getCalendario (target, pickedDate) {
             if (APP.ajax) {
-              var now = Date.now();
+              var now = pickedDate || Date.now();
               resultados.selectedDays = { max: now, mid: now - (3600*24*1*1000), min: now - (3600*24*2*1000)};
-
+console.log('NOW: '+new Date(resultados.selectedDays.max), 'NOW(-1): '+new Date(resultados.selectedDays.mid),  'NOW(-1): '+new Date(resultados.selectedDays.min));
               $target = jQuery(target + "-tab").find(".calendar-list");
               jQuery("#calendario-tab .calendar-row").remove();
               var max = { action: "calendario", league: "mlb", date: buildDateString( resultados.selectedDays.max ) };
               var mid = { action: "calendario", league: "mlb", date: buildDateString( resultados.selectedDays.mid ) };
               var min = { action: "calendario", league: "mlb", date: buildDateString( resultados.selectedDays.min ) };
 
-              APP.ajax( min, calendarioBuilder, calendarioAjaxError )
+              APP.ajax( max, calendarioBuilder, calendarioAjaxError )
                  .done( function() { APP.ajax(mid, calendarioBuilder, calendarioAjaxError)} )
-                 .done( function() { APP.ajax(max, calendarioBuilder, calendarioAjaxError)} );
+                 .done( function() { APP.ajax(min, calendarioBuilder, calendarioAjaxError)} );
             }
           }
 
@@ -780,9 +781,17 @@ EST_COLUMN_BODY_SECTION_ROW;
               "Abril", "Mayo", "Junio", "Julio",
               "Agosto", "Septiembre", "Octubre",
               "Noviembre", "Diciembre"
-            ];//console.log(stringDate);
-            var date = new Date(stringDate+"T04:00");//console.log(date);
-            var day = date.getDate();//console.log(day);
+            ];
+            stringDate = stringDate.split('-');
+            var date = new Date(
+                Date.UTC(
+                    parseInt(stringDate[0]),    // Año
+                    parseInt(stringDate[1])-1,  // Mes [0 - 11]
+                    parseInt(stringDate[2]),    // Dia
+                    4                           // Uso Horario
+                )
+            );
+            var day = date.getDate();
             var monthIndex = date.getMonth();
             var year = date.getFullYear();
             return day + " de " + monthNames[monthIndex] + ", " + year;
@@ -1005,6 +1014,8 @@ EST_COLUMN_BODY_SECTION_ROW;
           var initLigasMenu = function () {
             var $allMenuItems = jQuery("#menu-deportes").find("li.menu-item");
             var $allTabs = jQuery(".container-fluid.tabs");
+            var $datepicker = jQuery('.calendario-marcador.input-group.date');
+
             $allMenuItems.click(function(e) {
               var $currentMenuItem = jQuery(e.currentTarget);
               var link = $currentMenuItem.find("a").attr("href");
@@ -1023,6 +1034,20 @@ EST_COLUMN_BODY_SECTION_ROW;
 
               processTab(link);
             });
+
+              $datepicker.datepicker({
+                  format: "dd/mm/yyyy",
+                  weekStart: 0,
+                  language: "es",
+                  orientation: "bottom left",
+                  todayHighlight: true,
+              });
+              $datepicker.find('input').change(function () {
+                  var pickedDate = jQuery(this).val().split('/')
+                  pickedDate = Date.UTC(pickedDate[2], parseInt(pickedDate[1])-1, pickedDate[0], 4);
+                  console.log(new Date(pickedDate));
+                  getCalendario("#calendario", pickedDate);
+              });
 
             loadLigas();
           };
@@ -1050,15 +1075,7 @@ EST_COLUMN_BODY_SECTION_ROW;
 
         return APP;
       }( MARCADOR || {} ));
-
       jQuery( "#menu-deportes" ).ready( MARCADOR.Estadisticas.init );
-      jQuery('.calendario-marcador.input-group.date').datepicker({
-        format: "mm/dd/yyyy",
-        weekStart: 0,
-        language: "es",
-        orientation: "bottom left",
-        todayHighlight: true,
-      });
       <?php //endif; ?>
     </script>
 
