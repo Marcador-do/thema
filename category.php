@@ -770,8 +770,9 @@ console.log('NOW: '+new Date(resultados.selectedDays.max), 'NOW(-1): '+new Date(
               var min = { action: "calendario", league: "mlb", date: buildDateString( resultados.selectedDays.min ) };
 
               APP.ajax( max, calendarioBuilder, calendarioAjaxError )
-                 .done( function() { APP.ajax(mid, calendarioBuilder, calendarioAjaxError)} )
-                 .done( function() { APP.ajax(min, calendarioBuilder, calendarioAjaxError)} );
+                 .done( function() { APP.ajax(mid, calendarioBuilder, calendarioAjaxError)
+                     .done( function() { APP.ajax(min, calendarioBuilder, calendarioAjaxError)} )
+                 } );
             }
           }
 
@@ -806,7 +807,7 @@ console.log('NOW: '+new Date(resultados.selectedDays.max), 'NOW(-1): '+new Date(
           function buildDateString(timestamp) {
             var today = new Date(timestamp);
             var year = today.getFullYear();
-            var monthRaw = today.getMonth()+1
+            var monthRaw = today.getMonth()+1;
             var month = (monthRaw < 10) ? "0" + monthRaw : monthRaw;
             var day = today.getDate();
             return year + "-" + month + "-" + day;
