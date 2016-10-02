@@ -1752,17 +1752,17 @@ span.cintillo.field.score.away {
 .marcador-table>tbody>tr>td>img {
 	margin: 4px;
 }
-.calendario-marcador.input-group.date {
+.calendario-marcador.input-group.date,.resultados-marcador.input-group.date {
     margin-bottom: 15px;
 }
-.calendario-marcador.date .form-control {
+.calendario-marcador.date .form-control, .resultados-marcador.date .form-control {
     font-weight: 700;
     font-size: 18px;
     height: 39px;
     border: none;
     box-shadow: none;
 }
-.calendario-marcador.date .input-group-addon {
+.calendario-marcador.date .input-group-addon, .resultados-marcador.date .input-group-addon {
     background-color: transparent;
     border: none;
     border-left: solid 2px #b1adad;

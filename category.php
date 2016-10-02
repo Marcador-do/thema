@@ -132,6 +132,17 @@ if (count( $cat_ids ) > 0) {
 				<!-- Marcador posts -->
 				<div class="marcador-posts-listing-wrapper cards">
 					<div class="container-fluid">
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-4">
+                                <div class="resultados-marcador input-group date">
+                                    <input type="text" class="form-control">
+                                    <span class="input-group-addon">
+                                        <i class="material-icons">today</i>
+                                        <i class="material-icons">expand_more</i>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
 						<div class="row">
 
 							<div class="col-xs-12">
@@ -683,10 +694,11 @@ EST_COLUMN_BODY_SECTION_ROW;
              *
              * @param target
              */
-          function getResultados (target) {
+          function getResultados (target, pickedDate) {
             $target = jQuery(target + "-tab").find(".game-list");
             if (APP.ajax) {
-              var payload = { action: "resultados", league: "mlb" };
+              var now = pickedDate || Date.now();
+              var payload = { action: "resultados", league: "mlb", date: buildDateString( now ) };
               APP.ajax(
                 payload,
                 function (data) {
@@ -702,7 +714,7 @@ EST_COLUMN_BODY_SECTION_ROW;
                     $el.find(".team.home .logo img").attr("src", "<?php echo get_template_directory_uri(); ?>/assets/imgs/mlb/"+ game.home.abbr + "-logo-sm.png");
 
                     $el.find(".team.away .name").text(game.away.market + " " + game.away.name);
-                    $el.find(".team.away .runs").text(game.home.runs);
+                    $el.find(".team.away .runs").text(game.away.runs);
                     $el.find(".team.away .logo img").attr("src", "<?php echo get_template_directory_uri(); ?>/assets/imgs/mlb/"+ game.away.abbr + "-logo-sm.png");
 
                     $target.append($el);
@@ -809,7 +821,8 @@ console.log('NOW: '+new Date(resultados.selectedDays.max), 'NOW(-1): '+new Date(
             var year = today.getFullYear();
             var monthRaw = today.getMonth()+1;
             var month = (monthRaw < 10) ? "0" + monthRaw : monthRaw;
-            var day = today.getDate();
+            var day = (today.getDate() < 10) ? "0"+today.getDate() : today.getDate();
+              console.log(year + "-" + month + "-" + day);
             return year + "-" + month + "-" + day;
           }
 
@@ -1015,7 +1028,15 @@ console.log('NOW: '+new Date(resultados.selectedDays.max), 'NOW(-1): '+new Date(
           var initLigasMenu = function () {
             var $allMenuItems = jQuery("#menu-deportes").find("li.menu-item");
             var $allTabs = jQuery(".container-fluid.tabs");
-            var $datepicker = jQuery('.calendario-marcador.input-group.date');
+            var $calendarioDatepicker = jQuery('.calendario-marcador.input-group.date');
+            var $resultadosDatepicker = jQuery('.resultados-marcador.input-group.date');
+            var datepickerOptions = {
+                format: "dd/mm/yyyy",
+                weekStart: 0,
+                language: "es",
+                orientation: "bottom left",
+                todayHighlight: true,
+            };
 
             $allMenuItems.click(function(e) {
               var $currentMenuItem = jQuery(e.currentTarget);
@@ -1036,18 +1057,20 @@ console.log('NOW: '+new Date(resultados.selectedDays.max), 'NOW(-1): '+new Date(
               processTab(link);
             });
 
-              $datepicker.datepicker({
-                  format: "dd/mm/yyyy",
-                  weekStart: 0,
-                  language: "es",
-                  orientation: "bottom left",
-                  todayHighlight: true,
-              });
-              $datepicker.find('input').change(function () {
-                  var pickedDate = jQuery(this).val().split('/')
+              $calendarioDatepicker.datepicker(datepickerOptions);
+              $resultadosDatepicker.datepicker(datepickerOptions);
+              $calendarioDatepicker.find('input').change(function () {
+                  var pickedDate = jQuery(this).val().split('/');
                   pickedDate = Date.UTC(pickedDate[2], parseInt(pickedDate[1])-1, pickedDate[0], 4);
                   console.log(new Date(pickedDate));
                   getCalendario("#calendario", pickedDate);
+              });
+
+              $resultadosDatepicker.find('input').change(function () {
+                  var pickedDate = jQuery(this).val().split('/');
+                  pickedDate = Date.UTC(pickedDate[2], parseInt(pickedDate[1])-1, pickedDate[0], 4);
+                  console.log(new Date(pickedDate));
+                  getResultados("#resultados", pickedDate);
               });
 
             loadLigas();
