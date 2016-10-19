@@ -128,6 +128,9 @@ if (count( $cat_ids ) > 0) {
 			<div class="col-xs-12 col-sm-12 col-lg-9">
 				<h3>&nbsp;&nbsp;Partidos</h3>
 			</div>
+            
+            <?php get_sidebar(); ?>
+            
 			<div class="col-xs-12 col-sm-12 col-lg-9">
 				<!-- Marcador posts -->
 				<div class="marcador-posts-listing-wrapper cards">

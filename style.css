@@ -990,7 +990,6 @@ p {
 }
 .marcador-post-list-meta a {
     position: relative;
-    top: 17px;
     font-size: 12px;
     color: #aab0b5;
     font-weight: 700;
@@ -1016,8 +1015,8 @@ p {
 .marcador-post-list-fav {
 	display: inline-block;
     position: absolute;
-    bottom: -25px;
-    right: 0;
+    
+    right: 25px;
 }
 .marcador-post-list-fav .material-icons {
 	color: #E80303;
@@ -1056,7 +1055,7 @@ p {
     letter-spacing: 0.5px;
 }
 
-h1.page-title,h2.page-title{position: relative; padding: 20px; box-shadow: 0 2px 2px #ccc; min-height: 45px; margin: 0 0 20px 0; border-left: 10px #E80303 solid;}
+h1.page-title,h2.page-title{position: relative; padding: 20px; box-shadow: 0 2px 2px #ccc; min-height: 20px; margin: 0 0 20px 0; border-left: 10px #E80303 solid;}
 
 @media screen and ( min-width: 480px ) {
 	.page-header-template {

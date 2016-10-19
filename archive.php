@@ -21,6 +21,8 @@
 						</h2>
 					</header>
 				</div>
+                <!--SIDEBAR -->
+                <?php get_sidebar(); ?>
 			</div>
 		</div>
 	</div> 
