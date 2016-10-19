@@ -56,29 +56,163 @@ $virales = new WP_Query( $args ); ?>
   <div class="container-fluid">
     <div class="row">
           <div class="col-xs-12 col-sm-12 col-lg-9">
-            <!-- Marcador posts -->
-            <div class="marcador-posts-listing-wrapper cards">
-              <div class="container-fluid">
-                <div class="row">
-
-        <?php $sizes = array(4,6,8,12);
-        while ( $virales->have_posts() ): $virales->the_post(); ?>
-          <?php if(isset($last)){
-            $width = $last;
-            unset($last);
-          } else {$width = $sizes[rand ( 0, 3 )];} ?>
-          <?php include ( get_template_directory() . "/includes/marcador_hero_post_list_item_card.include.php" ); ?>
-          <?php 
-            if($width == 12) unset($last);
-            else $last = 12 - $width;
-          ?>
-        <?php endwhile; ?>
-
+           
+              <!--VIRALES -->
+              
+              <div id="virales" class="row">
+    
+        <div class="col-xs-12 col-md-8">
+            <div class="panel panel-default">
+            <h4 class="page-title">Baloncesto</h4>
+                <div class="panel-body marcador-post-list-image" style="background-image: url('http://dev.marcador.do/wp-content/uploads/2016/09/NBA-Sindicato.jpg')"></div>
+                
+                <div class="marcador-post-list-title">
+                <a href="#">Temporada perfecta para Warriors arruinada: Lebron e Irving dan titulo. Lorem ipsum dolor sit amet.</a>
                 </div>
+                
+                <div class="marcador-post-list-excerpt">
+                La NBA y Asociación Nacional de Jugadores de Baloncesto han trabajado juntos durante los últimos días para crear un plan para el manejo de posibles protestas de los jugadores durante la entonación del himno nacional, según fuentes de ESPN.com. Adan Silver, el comisionado de la NBA, y Michele […]
+                </div>
+                
+                <div class="panel-footer">
+                    <div class="marcador-post-list-fav">
+                <i class="material-icons">star</i>
               </div>
+                <div class="marcador-post-list-meta container-fluid">
+                  <div class="row">
+                       <div class="col-xs-6 col-sm-4 marcador-post-list-date pull-right"><a href="#">Sep 21, 2016</a></div>
+                      
+                    <div class="col-xs-6 col-sm-4 marcador-post-list-author pull-right">
+                        <a href="#">Cesar Marchena</a>
+                    </div>
+                                        
+                   
+                  </div>
+                    
+              </div>
+                    
+                
+                </div>
+                
             </div>
-            <!-- .marcador-posts-listing -->
+        </div>
+        <div class="col-xs-12 col-md-4">
+        <div class="panel panel-default">
+            <h4 class="page-title">Baloncesto</h4>
+                <div class="panel-body marcador-post-list-image" style="background-image: url('http://dev.marcador.do/wp-content/uploads/2016/09/NBA-Sindicato.jpg')"></div>
+                
+                <div class="marcador-post-list-title">
+                <a href="#">Temporada perfecta para Warriors arruinada: Lebron e Irving dan titulo. Lorem ipsum dolor sit amet.</a>
+                </div>
+                
+                <div class="marcador-post-list-excerpt">
+                La NBA y Asociación Nacional de Jugadores de Baloncesto han trabajado juntos durante los últimos días para crear un plan para el manejo de posibles protestas de los jugadores durante la entonación del himno nacional, según fuentes de ESPN.com. Adan Silver, el comisionado de la NBA, y Michele […]
+                </div>
+                
+                <div class="panel-footer">
+                    <div class="marcador-post-list-fav">
+                <i class="material-icons">star</i>
+              </div>
+                <div class="marcador-post-list-meta container-fluid">
+                  <div class="row">
+                       <div class="col-xs-6 col-sm-4 marcador-post-list-date pull-right"><a href="#">Sep 21, 2016</a></div>
+                      
+                    <div class="col-xs-6 col-sm-4 marcador-post-list-author pull-right">
+                        <a href="#">Cesar Marchena</a>
+                    </div>
+                     </div>
+                    
+              </div>
+                    
+                
+                </div>
+                
+            </div>
+            </div>
+        <div class="col-xs-12">
+                          <div class="panel panel-default">
+                          <h4 class="page-title">VIDEO</h4>
+                              <div class="panel-body panel-video">
+                               <iframe id="live" src="https://www.youtube.com/embed/1UdirOGTjOg" frameborder="0" allowfullscreen></iframe>
+                              </div>
+                          </div>
+                      </div>
+        <div class="col-sm-12 col-md-6">
+        <div class="panel panel-default">
+            <h4 class="page-title">Baloncesto</h4>
+                <div class="panel-body marcador-post-list-image" style="background-image: url('http://dev.marcador.do/wp-content/uploads/2016/09/NBA-Sindicato.jpg')"></div>
+                
+                <div class="marcador-post-list-title">
+                <a href="#">Temporada perfecta para Warriors arruinada: Lebron e Irving dan titulo. Lorem ipsum dolor sit amet.</a>
+                </div>
+                
+                <div class="marcador-post-list-excerpt">
+                La NBA y Asociación Nacional de Jugadores de Baloncesto han trabajado juntos durante los últimos días para crear un plan para el manejo de posibles protestas de los jugadores durante la entonación del himno nacional, según fuentes de ESPN.com. Adan Silver, el comisionado de la NBA, y Michele […]
+                </div>
+                
+                <div class="panel-footer">
+                    <div class="marcador-post-list-fav">
+                <i class="material-icons">star</i>
+              </div>
+                <div class="marcador-post-list-meta container-fluid">
+                  <div class="row">
+                       <div class="col-xs-6 col-sm-4 marcador-post-list-date pull-right"><a href="#">Sep 21, 2016</a></div>
+                      
+                    <div class="col-xs-6 col-sm-4 marcador-post-list-author pull-right">
+                        <a href="#">Cesar Marchena</a>
+                    </div>
+                     </div>
+                    
+              </div>
+                    
+                
+                </div>
+                
+            </div>
+    </div>
+        <div class="col-sm-12 col-md-6">
+        <div class="panel panel-default">
+            <h4 class="page-title">Baloncesto</h4>
+                <div class="panel-body marcador-post-list-image" style="background-image: url('http://dev.marcador.do/wp-content/uploads/2016/09/NBA-Sindicato.jpg')"></div>
+                
+                <div class="marcador-post-list-title">
+                <a href="#">Temporada perfecta para Warriors arruinada: Lebron e Irving dan titulo. Lorem ipsum dolor sit amet.</a>
+                </div>
+                
+                <div class="marcador-post-list-excerpt">
+                La NBA y Asociación Nacional de Jugadores de Baloncesto han trabajado juntos durante los últimos días para crear un plan para el manejo de posibles protestas de los jugadores durante la entonación del himno nacional, según fuentes de ESPN.com. Adan Silver, el comisionado de la NBA, y Michele […]
+                </div>
+                
+                <div class="panel-footer">
+                    <div class="marcador-post-list-fav">
+                <i class="material-icons">star</i>
+              </div>
+                <div class="marcador-post-list-meta container-fluid">
+                  <div class="row">
+                       <div class="col-xs-6 col-sm-4 marcador-post-list-date pull-right"><a href="#">Sep 21, 2016</a></div>
+                      
+                    <div class="col-xs-6 col-sm-4 marcador-post-list-author pull-right">
+                        <a href="#">Cesar Marchena</a>
+                    </div>
+                     </div>
+                    
+              </div>
+                    
+                
+                </div>
+                
+            </div>
+    </div>
+    </div>
+              
+              <!-- .VIRALES -->
+              
+              
           </div>
+        <!-- SIDEBAR -->
+        
+        <?php get_sidebar(); ?>
+        
     </div>
   </div>
 
