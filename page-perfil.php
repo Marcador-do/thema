@@ -8,10 +8,15 @@
  * @author  Richard Blondet <mail@richardblondet.com>
  * @package marcadordo
  */
+do_action('is_marcador_user_session');
 
 $dimension = '300x225';
-get_header(); ?>
+get_header();
+do_action('add_menu_marcador_user_section');
 
+$user 		= wp_get_current_user();
+$user_meta 	= get_user_meta ( $user->ID );
+?>
 <style>
 	.well { background-color: #cdcdcd; padding: 15px; }
 </style>
@@ -24,28 +29,64 @@ get_header(); ?>
 					<img src="http://placehold.it/<?php echo $dimension; ?>&text=Marcador+User" alt="USER PROFILE" class="img-responsive">
 				</div>
 				<p>
-					<button class="btn btn-default marcador-special edit-profile">Editar</button>
+					<button class="btn btn-default marcador-special edit-profile" data-action="edit">Editar</button>
+					<button class="btn btn-default marcador-special edit-profile hide" data-action="save">Guardar</button>
 				</p>
 				<div class="user-profile-info">
 					<div class="user-field-group">
-						<div class="user-field">
-							Edwin Marte
+						<div class="user-field value">
+							<span class="name"><?php echo esc_html($user->first_name); ?></span>&nbsp;
+							<span class="lastname"><?php echo esc_html($user->last_name); ?></span>
+						</div>
+						<div class="user-field form-inline hide">
+							<div class="form-group">
+								<input type="text" placeholder="Nombre"
+									   value="<?php echo esc_attr($user->first_name); ?>"
+									   class="form-control">
+							</div>
+							<div class="form-group">
+								<input type="text" placeholder="Apellido"
+									   value="<?php echo esc_attr($user->last_name); ?>"
+									   class="form-control">
+							</div>
 						</div>
 						<div class="user-field-name">
-							nombre
+							Nombre
 						</div>
 					</div>
 					<div class="user-field-group">
-						<div class="user-field">
-							(020)-013-8000
+						<div class="user-field value">
+							<?php
+							if ($user_meta->marcador_moreinfo) {
+								$more = maybe_unserialize($user_meta->marcador_moreinfo);
+								// TODO: print phone number if available
+								var_dump($more);
+							} else {
+								echo '(809) 234-4321';
+							}
+							?>
+						</div>
+						<div class="user-field form-inline hide">
+							<div class="form-group">
+								<input type="tel" placeholder="Móvil"
+									   value="<?php echo __('(809) 234-4321', 'marcadordo'); ?>"
+									   class="form-control">
+							</div>
 						</div>
 						<div class="user-field-name">
-							Mobile
+							Móvil
 						</div>
 					</div>
 					<div class="user-field-group">
-						<div class="user-field">
-							contact@gmail.com
+						<div class="user-field value">
+							<?php echo __($user->user_email, 'marcadordo'); ?>
+						</div>
+						<div class="user-field form-inline hide">
+							<div class="form-group">
+								<input type="email" placeholder="Email"
+									   value="<?php echo __($user->user_email, 'marcadordo'); ?>"
+									   class="form-control">
+							</div>
 						</div>
 						<div class="user-field-name">
 							Email
@@ -58,8 +99,13 @@ get_header(); ?>
 						<div class="user-field-name">
 							Sobre mi
 						</div><br>
-						<div class="user-field justified">
-							Secondary line text Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam massa quam. Secondary line text Lorem ipsum dolor sit ametectetur adipiscing elit. Nam massa quam. Secondary line text Lorem ipsum dolor sit amet.
+						<div class="user-field value justified">
+							<?php echo __($user->description, 'marcadordo'); ?>
+						</div>
+						<div class="user-field form-inline hide">
+							<div class="form-group">
+								<textarea class="form-control" placeholder="Sobre mi"><?php echo __($user->description, 'marcadordo'); ?></textarea>
+							</div>
 						</div>
 					</div>
 					<div class="user-field-group">

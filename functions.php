@@ -45,10 +45,11 @@ function marcador_setup() {
 
 	// This theme uses wp_nav_menu() in one location.
 	register_nav_menus( array(
-		'primary' 			=> esc_html__( 'Principal', 'marcadordo' ), // Deportes
+		'primary' 		=> esc_html__( 'Principal', 'marcadordo' ), // Deportes
 		'primary_mas' 	=> esc_html__( 'Principal-Mas', 'marcadordo' ),
 		'primary_top' 	=> esc_html__( 'Principal-Top', 'marcadordo' ),
 		'deportes_top' 	=> esc_html__( 'Deportes', 'marcadordo' ),
+		'perfil_top' 	=> esc_html__( 'Perfil', 'marcadordo' ),
 	) );
 
 	/*
@@ -379,3 +380,26 @@ function insert_loading_spinner() {
     <?php
 }
 add_action('marcador_add_spinner_action', 'insert_loading_spinner');
+
+
+/**
+ * Action that controls access to user marcador user sections.
+ */
+function marcador_user_session_needed() {
+	$user = wp_get_current_user();
+	if ( is_marcador_user($user, $check_active = TRUE) === FALSE) wp_redirect( "/" );
+}
+add_action('is_marcador_user_session', 'marcador_user_session_needed');
+
+function insert_marcador_user_section_menu () {
+	if ( has_nav_menu( 'perfil_top' ) ) {
+		$args = array(
+			'theme_location' => 'perfil_top',
+			'container_id' => 'marcador-navbar-submenu',
+			'menu_class' => 'nav nav-pills',
+			'depth' => 1,
+		);
+		wp_nav_menu( $args );
+	}
+}
+add_action('add_menu_marcador_user_section', 'insert_marcador_user_section_menu');

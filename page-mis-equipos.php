@@ -9,6 +9,7 @@
  * @package marcadordo
  */
 
+do_action('is_marcador_user_session');
 $americanleague_mlb = array(
 	'Baltimore-Orioles'	=>	'Baltimore-Orioles.jpg',
 	'Chicago-White-Sox'	=>	'Chicago-White-Sox.jpg',
@@ -42,7 +43,9 @@ $nationalleague_mlb = array(
 	'St.-Louis-Cardinals'	=>	 'St.-Louis-Cardinals.jpg',
 	'Washington-Nationals'	=>	 'Washington-Nationals.jpg'
 );
-get_header(); ?>
+get_header();
+do_action('add_menu_marcador_user_section');
+?>
 
 <div id="marcador-page-template" class="search">
 	<div class="container-fluid">

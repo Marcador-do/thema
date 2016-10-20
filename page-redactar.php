@@ -10,10 +10,13 @@
  */
 
 
+do_action('is_marcador_user_session');
 do_action( $tag = 'enqueue_drop_zone' );
 do_action( $tag = 'enqueue_summernotetext' );
 
-get_header(); ?>
+get_header();
+do_action('add_menu_marcador_user_section');
+?>
 
 <div class="container-fluid">
 	<div class="row">
