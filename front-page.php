@@ -53,40 +53,8 @@ $args = array(
 $destacadas = new WP_Query( $args );
 $destacadas_ids = array(); ?>
 
-
-<?php while ( $destacadas->have_posts() ): $destacadas->the_post(); ?>
-	
-	<?php $destacadas_ids[] = get_the_ID(); ?>
-
-	<?php if ( $destacadas->current_post === 0 ): ?>
-		<?php if ( get_post_type() === "marcador_partido" ): ?>
-			<?php include (get_template_directory() . "/includes/marcador_hero_post_score.include.php"); ?>
-		<?php else: ?>
-			<?php include (get_template_directory() . "/includes/marcador_hero_post.include.php"); ?>
-		<?php endif; ?>
-
-		<?php include_once (get_template_directory() . "/includes/marcador_cintillo_estadisticas.include.php"); ?>
-
-			<div class="container-fluid">
-				<div class="row">
-
-					<div class="col-xs-12 col-sm-12 col-lg-9">
-						<!-- Marcador posts -->
-						<div class="marcador-posts-listing-wrapper cards">
-							<div class="container-fluid">
-								<div class="row">
-
-									<?php continue; endif; ?>
-										<?php include (get_template_directory() . "/includes/marcador_hero_post_list_item.include.php"); ?>
-									<?php endwhile; ?>
-								</div>
-							</div>
-						</div>
-						<!-- .marcador-posts-listing -->
-					</div>
-					
-					<?php  
-					$marcador_equipos = array(
+<?php  
+$marcador_equipos = array(
 						array(
 							"nombre" => "Baltimore Orioles",
 							"img"	 => "BAL-logo-sm.png",
@@ -101,10 +69,37 @@ $destacadas_ids = array(); ?>
 						)
 					);
 					?>
-					<!-- .marcador-agrega-favoritos -->
-					<div class="col-xs-12 col-sm-12 col-lg-9">
-						<div class="marcador-favoritos-equipos-container">
-							<div class="marcador-favoritos-equipos-wrapper">
+
+<?php while ( $destacadas->have_posts() ): $destacadas->the_post(); ?>
+	
+	<?php $destacadas_ids[] = get_the_ID(); ?>
+
+<div class="container-fluid">
+                    <div class="row"><div class="col-lg-9 col-md-9 col-xs-12">
+                        
+	<?php if ( $destacadas->current_post === 0 ): ?>
+		<?php if ( get_post_type() === "marcador_partido" ): ?>
+			<?php include (get_template_directory() . "/includes/marcador_hero_post_score.include.php"); ?>
+		<?php else: ?>
+			<?php include (get_template_directory() . "/includes/marcador_hero_post.include.php"); ?>
+		<?php endif; ?>
+
+		<?php include_once (get_template_directory() . "/includes/marcador_cintillo_estadisticas.include.php"); ?>
+                        
+						<!-- Marcador posts -->
+<div class="row marcador-posts-listing-wrapper cards">
+                            <div class="col-xs-12">
+									<?php continue; endif; ?>
+										<?php include (get_template_directory() . "/includes/marcador_hero_post_list_item.include.php"); ?>
+									<?php endwhile; ?>
+                        </div>
+</div>
+						<!-- .Marcador-posts-listing -->
+                        
+                        
+					<!-- Marcador-Agrega-Favoritos -->
+<div class="row marcador-favoritos-equipos-container">
+							<div class="col-xs-12 marcador-favoritos-equipos-wrapper">
 								<div class="marcador-box static">
 									<div class="panel panel-default">
 										<div class="panel-body">
@@ -158,10 +153,11 @@ $destacadas_ids = array(); ?>
 								</script>
 							</div>
 						</div>
-					</div>
-					<!-- /.marcador-agrega-favoritos -->
-
-			<?php
+					<!-- / Marcador-agrega-favoritos -->
+                        
+    
+<div class="row">
+    <?php
 			/**
 			 * Front page: First Section
 		   */
@@ -211,8 +207,10 @@ $destacadas_ids = array(); ?>
 		<!-- .marcador-posts-listing -->
 		</div>
 		<?php endif; ?>
-
-
+    </div>
+    
+<div class="row">
+    
 		<?php
 			/**
 			 * Front page: Second Section
@@ -265,8 +263,11 @@ $destacadas_ids = array(); ?>
 				</div>
 
 		<?php endif; ?>
-
-
+    </div>
+    
+					</div><!-- END OF MAIN COLUMN -->
+                    <!-- SIDEBAR -->
+                    <?php get_sidebar('front-page'); ?>
 	</div>
 </div>
 

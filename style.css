@@ -33,7 +33,7 @@ Colors:
 8. Sidebar footer copy
 9. Navbar submenu marcador
 10. Hero unit
-11. 11. Marcador Hero Post Scoreore
+11. 11. Marcador Hero Post Scoreboard
 12. Marcador Post Listing 
 13. Marcador archive, date, author, search generic title
 14. Marcador content styles
@@ -44,6 +44,9 @@ Colors:
 19. Right Sidebar Logos
 20. Marcador Toastr Message
 21. User Profile
+22. Marcador En Vivo
+23. Marcador Favoritos
+24. Marcador Perfil Redactor
 /*------------------------------*/
 
 /* 0. General Styling */
@@ -756,7 +759,7 @@ p {
 
 /* 9. Navbar submenu marcador */
 #marcador-navbar-submenu {
-	margin-bottom: 15px;
+	margin-bottom: 10px;
 }
 #marcador-navbar-submenu .nav {
 	margin-top: 0;
@@ -819,6 +822,7 @@ p {
     margin-bottom: 25px;
     color: #fff;
     text-decoration: none;
+    text-shadow: 0 3px 3px #000;
 }
 .marcador-hero-unit:hover .hero-heading h1,
 .marcador-hero-unit .hero-heading,
@@ -856,7 +860,18 @@ p {
 	color: #777;
 	margin-top: 10px;
 }
+
+.scoreboard{position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); width: auto; color: #FFF; font-size: 18px;}
+.scoreboard h6{margin: 0; padding: 0; background: #666; text-align: center; font-weight: bold;}
+.scoreboard .board{display: inline-block;width: 100px; height: auto; background: #CCC; border: 5px #fff solid; box-sizing: border-box; border-radius: 3px; vertical-align: middle; margin: 0 10px;}
+.scoreboard span:first-child,.scoreboard span:last-child{vertical-align: middle; line-height: 50px;}
+.scoreboard .board span{display: inline-block; width: 50%; font: 48px/48px bold sans-serif; text-align: center; box-sizing: border-box;}
+.scoreboard .board span:last-child{border-left: 1px #fff solid;}
+    
+    header{position: relative; width: 100%; max-width: 960px; margin: 0 auto; height: 400px; background: url(messi.jpg) no-repeat; background-size: cover;}
+
 .hero-score {
+    display: none;
     position: absolute;
     bottom: -30px;
     width: 100%;
@@ -975,12 +990,14 @@ p {
 }
 .marcador-post-list-meta a {
     position: relative;
-    top: 17px;
     font-size: 12px;
     color: #aab0b5;
     font-weight: 700;
     text-align: right;
     font-style: italic;
+    border-left: 1px solid #ccc;
+    padding-left: 5px;
+    margin-left: 5px;
 }
 .marcador-post-list-author,
 .marcador-post-list-date {
@@ -998,8 +1015,8 @@ p {
 .marcador-post-list-fav {
 	display: inline-block;
     position: absolute;
-    bottom: -25px;
-    right: 0;
+    
+    right: 25px;
 }
 .marcador-post-list-fav .material-icons {
 	color: #E80303;
@@ -1037,6 +1054,9 @@ p {
     margin: 10px 0;
     letter-spacing: 0.5px;
 }
+
+h1.page-title,h2.page-title{position: relative; padding: 20px; box-shadow: 0 2px 2px #ccc; min-height: 20px; margin: 0 0 20px 0; border-left: 10px #E80303 solid;}
+
 @media screen and ( min-width: 480px ) {
 	.page-header-template {
 		padding: 10px 25px;
@@ -2184,3 +2204,79 @@ select#score-liga-selector {
 #form-redactar .form-group {
 	margin: 15px 0;
 }
+
+/*2.2 Marcador En-Vivo*/
+
+#broadcasting{min-height: 30px; background: #E80303; border-radius: 2px; padding: 10px;}
+#broadcasting span{font-size: 18px; line-height: 20px; vertical-align: middle; display: inline-block; min-width: 50px; color: #fff; text-align: center; padding: 0 10px; height: 20px;}
+#broadcasting .icon{margin-top: -4px;}
+#broadcasting .tag{border-left: 1px solid #fff;}
+#broadcasting .time{border-left: 1px solid #fff;}
+#broadcasting .cta{float: right;}
+
+#en-vivo {}
+#en-vivo .stream{padding-left: 35px; box-sizing: border-box;}
+#en-vivo iframe{margin-bottom: 20px;  width: 100%; min-height: 400px;}
+#en-vivo .banner{margin-bottom: 20px;  min-height: 100px; background: #ccc;}
+#en-vivo .encuesta{margin-bottom: 20px;  min-height: 400px; font-family: 'Roboto' sans-serif;}
+#en-vivo .encuesta header{position: absolute; width: 100%; height: 40px; top: 0; left: 0; background: #3D3D3D; color: #fff; font-family: 'Roboto' sans-serif; font-size: 18px; line-height: 40px; vertical-align: middle; padding: 0 20px; box-sizing: border-box;}
+
+#en-vivo .encuesta header span:first-child{font-size: 20px; line-height: 20px;}
+
+#en-vivo .encuesta header .participantes i{vertical-align: middle;}
+#en-vivo .encuesta header .participantes, #en-vivo .encuesta header .cta{float: right; margin-left: 20px;}
+
+#en-vivo .encuesta .pregunta{
+    margin: 60px 0 20px 0;
+    font-size: 24px;
+}
+
+#en-vivo .encuesta p{position: relative;height: 30px; line-height: 30px; vertical-align: middle; margin: 0;}
+#en-vivo .encuesta p:nth-child(odd){background: #eee;}
+#en-vivo .encuesta input[type=radio]{display: none;}
+#en-vivo .encuesta label::before{font-family: 'Material Icons'; content: "check_box_outline_blank"; font-size: 20px; display: block; position: absolute; top: 5px; left: 10%; width: 20px; height: 20px; line-height: 20px;}
+#en-vivo .encuesta input[type=radio]:checked + label::before{content: "check_box"; color: teal;}
+#en-vivo .encuesta label{position: relative;width: 30%; vertical-align: top; text-align: left; height: 100%; padding-left: 8%; cursor: pointer; box-sizing: border-box;}
+#en-vivo .encuesta .barra{display: inline-block;height: 100%; width: 40%; border-left: 1px solid #666; border-right: 1px solid #666;text-align: center; box-sizing: border-box;}
+#en-vivo .encuesta .barra b{width: 100%; max-width: 90%; height: 20px;margin-top: 5px; background: #ccc; display: inline-block; text-align: left;}
+#en-vivo .encuesta .barra i{display: inline-block; width: 100%; max-width: 60%; height: 100%; background: teal;}
+#en-vivo .encuesta .valor{display: inline-block; width: 30%; height: 100%; text-align: center;}
+
+#chat{margin-bottom: 20px;  min-height: 400px; background: #ccc;}
+
+/*2.3 Marcador - Favoritos*/
+#favoritos{padding-left: 35px;}
+#favoritos article{position: relative; padding:0 10px; margin-bottom:20px;}
+#favoritos article .post{position: relative; width: 100%; height: 250px; background: url(assets/messi.jpg) no-repeat; background-size: cover; }
+#favoritos article footer{display:block; position: absolute; bottom: 0px; left: 0px; width:100%; background: rgba(0,0,0,.25);}
+#favoritos article footer h4.title{color: #fff; padding: 0 0 0 10px; margin: 10px 0; font-family: 'Roboto' sans-serif; font-weight: 400; font-size: 15px;}
+
+#favoritos article footer .tags{text-align: right;}
+#favoritos article footer .tags .badge{display: inline-block; position: relative; width: 40px; height: 40px; background-position: center; background-size: cover; background-color: transparent; margin: 0;}
+.badge.real-madrid{background-image: url(assets/imgs/soccer-badges/real-madrid.png);}
+.badge.fcb{background-image: url(assets/imgs/soccer-badges/fcb.png);}
+
+@media screen and (max-width: 768px){
+    #favoritos{padding-left: 0;}
+    #favoritos article{padding: 0;}
+    #favoritos article footer h4.title{font-size: 13px; margin: 5px 0;}
+}
+
+/*2.4 Marcador - Perfil del Redactor*/
+#redactor{font: 16px/22px 'Roboto', sans-serif; font-weight: 400;}
+#redactor .name{margin-top: 0; font-size: 24px; font-weight: 400;}
+#redactor .name + p{font-size: 16px; text-align: justify;}
+#redactor #user-image{min-height: 250px; background:url(assets/messi.jpg) no-repeat; background-size: cover; width: 100%; height: 100%;}
+#redactor .especialidades{width: auto;border-top: 1px #ccc solid;}
+#redactor .especialidades .title{padding: 10px 0;}
+#redactor .especialidades .icon{display: inline-block; height: 30px; width: 30px; margin-right: 10px; background: #ccc; border-radius: 50%;}
+#redactor .social{padding: 10px 0; text-align: center;}
+#redactor .social a{display: inline-block; width: 40px; height: 40px; background: #ccc; border-radius: 50%;}
+/*DESTACADOS REDACTOR*/
+#redactor header{font-size: 24px; font-weight: 400; padding: 30px 0; border-top:1px solid #ccc;}
+#redactor article{width: 100%; min-height: 150px; margin-left: -15px; border-bottom: 1px solid #ccc;}
+#redactor .image{background: url(assets/messi.jpg); padding-bottom: 30%;}
+#redactor #destacados .category{font-style: italic;}
+#redactor #destacados .date{text-align: right; color: #aab0b5; font-style: italic;}
+
+#sidebar .chat{background: #ccc; height: 100%;}

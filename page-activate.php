@@ -36,6 +36,7 @@
           </h2>
         </header> 
       </div>
+        <?php get_sidebar(); ?>
       <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
       <div class="col-xs-12 div col-sm-12 col-md-12 col-lg-9">
         <div class="page-content-template">

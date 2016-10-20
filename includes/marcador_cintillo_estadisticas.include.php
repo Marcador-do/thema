@@ -4,9 +4,8 @@
 //
 $final_style = 'color:#f4f4f4; background-color: #333; border-right:1px solid #666; min-height: 150px;'; 
 ?>
-<div id="template-cintillo-layout-marcador" class="container-fluid">
-	<div class="row">
-		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-9">
+<div id="template-cintillo-layout-marcador" class="row">
+		<div class="col-xs-12">
 			<!-- #cintillo -->
 			<div id="cintillo">
 				<div class="cintillo-row">
@@ -48,7 +47,6 @@ $final_style = 'color:#f4f4f4; background-color: #333; border-right:1px solid #6
 			<!-- /#cintillo -->
 		</div>
 	</div>
-</div>
 <?php
 $stat_template = <<<STAT_TEMPLATE
 <div class="cintillo-result">
