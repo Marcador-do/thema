@@ -407,7 +407,7 @@ function banner() {
 							<?php else: /* <!-- Logged user --> */ ?>
 							<?php /* <!-- END OF Not logged user --> */ ?>
 							<li class="logged-in">
-								<a href="#userprofile">
+								<a href="/perfil/">
 									<?php echo get_avatar( get_current_user_id(), $size = 40); ?>
 								</a>
 							</li>
