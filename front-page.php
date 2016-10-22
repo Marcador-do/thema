@@ -75,10 +75,12 @@ $marcador_equipos = array(
 	<?php $destacadas_ids[] = get_the_ID(); ?>
 
 <div class="container-fluid">
-                    <div class="row"><div class="col-lg-9 col-md-9 col-xs-12">
+    <div class="row">
+        <!-- MAIN COLUMN -->
+        <div class="col-lg-9 col-md-9 col-xs-12">
                         
 	<?php if ( $destacadas->current_post === 0 ): ?>
-		<?php if ( get_post_type() === "marcador_partido" ): ?>
+            <?php if ( get_post_type() === "marcador_partido" ): ?>
 			<?php include (get_template_directory() . "/includes/marcador_hero_post_score.include.php"); ?>
 		<?php else: ?>
 			<?php include (get_template_directory() . "/includes/marcador_hero_post.include.php"); ?>
@@ -88,18 +90,17 @@ $marcador_equipos = array(
                         
 						<!-- Marcador posts -->
 <div class="row marcador-posts-listing-wrapper cards">
-                            <div class="col-xs-12">
 									<?php continue; endif; ?>
 										<?php include (get_template_directory() . "/includes/marcador_hero_post_list_item.include.php"); ?>
 									<?php endwhile; ?>
-                        </div>
 </div>
 						<!-- .Marcador-posts-listing -->
                         
                         
 					<!-- Marcador-Agrega-Favoritos -->
-<div class="row marcador-favoritos-equipos-container">
-							<div class="col-xs-12 marcador-favoritos-equipos-wrapper">
+<div class="col-xs-12">
+    <div class="marcador-favoritos-equipos-container">
+							<div class="marcador-favoritos-equipos-wrapper">
 								<div class="marcador-box static">
 									<div class="panel panel-default">
 										<div class="panel-body">
@@ -119,6 +120,7 @@ $marcador_equipos = array(
 										</div>
 									</div>
 								</div>
+                                
 								<?php $dinamic_width = 220; ?>
 								<?php foreach( $marcador_equipos as $marcador_boxes ): ?>
 									<?php $dinamic_width = $dinamic_width + 220; ?>
@@ -153,9 +155,9 @@ $marcador_equipos = array(
 								</script>
 							</div>
 						</div>
+            </div>
 					<!-- / Marcador-agrega-favoritos -->
                         
-    
 <div class="row">
     <?php
 			/**
@@ -180,37 +182,35 @@ $marcador_equipos = array(
 			$first_section = new WP_Query( $args );
 		?>
 		<?php if ( $first_section->have_posts() ): ?>
-		<div class="col-xs-12 col-sm-12 col-lg-9">
+		<!-- PRINT FIRST SECTION -->
+    <div class="col-xs-12">
 			<header class="page-header-template">
 				<h2 class="page-title"><?php echo $cat_first_section->name; ?></h2>
 			</header>
-			<br>
 		</div>
 
 			<?php while ( $first_section->have_posts() ): $first_section->the_post(); ?>
 				<?php if ( $first_section->current_post === 0 ):  ?>
 					<?php include (get_template_directory() . "/includes/marcador_hero_post.include.php"); ?>
-
-		<div class="col-xs-12 col-sm-12 col-lg-9">
+            </div>
+            
+<div class="row">
+		<div class="col-xs-12">
 			<!-- Marcador posts -->
 			<div class="marcador-posts-listing-wrapper cards-wrapper">
-				<div class="container-fluid">
 					<div class="row">
 				<?php continue; endif; ?>
-
 					<?php include ( get_template_directory() . "/includes/marcador_hero_post_list_item_card.include.php" ); ?>
 
 			<?php endwhile; ?>
 					</div>
-				</div>
 			</div>
 		<!-- .marcador-posts-listing -->
 		</div>
+</div>
 		<?php endif; ?>
-    </div>
-    
+
 <div class="row">
-    
 		<?php
 			/**
 			 * Front page: Second Section
@@ -233,8 +233,8 @@ $marcador_equipos = array(
 			);
 			$second_section = new WP_Query( $args );
 		?>
-		<?php if ( $second_section->have_posts() ): ?>
-				<div class="col-xs-12 col-sm-12 col-lg-9">
+		  <?php if ( $second_section->have_posts() ): ?>
+				<div class="col-xs-12">
 					<header class="page-header-template">
 						<h2 class="page-title"><?php echo $cat_second_section->name; ?></h2>
 					</header>
@@ -245,7 +245,7 @@ $marcador_equipos = array(
 					<?php if ( $second_section->current_post === 0 ):  ?>
 						<?php include (get_template_directory() . "/includes/marcador_hero_post.include.php"); ?>
 
-				<div class="col-xs-12 col-sm-12 col-lg-9">
+				<div class="col-xs-12 col-sm-12">
 					<!-- Marcador posts -->
 					<div class="marcador-posts-listing-wrapper">
 						<div class="container-fluid">
@@ -264,25 +264,10 @@ $marcador_equipos = array(
 
 		<?php endif; ?>
     </div>
-    
-					</div><!-- END OF MAIN COLUMN -->
-                    <!-- SIDEBAR -->
-                    <?php get_sidebar('front-page'); ?>
-	</div>
-</div>
-
-<?php /*<div id="marcador-page-template" class="search">
-	<div class="container-fluid">
-		<div class="row">
-			<div class="col-xs-12 div col-sm-12 col-md-12 col-lg-12">
-				<header class="page-header-template">
-					<h2 class="page-title">
-						Baloncesto
-					</h2>
-				</header>
-			</div>
-		</div>
-	</div>
-</div> */ ?>
+    </div><!-- END OF MAIN COLUMN -->
+        <!-- SIDEBAR -->
+        <?php get_sidebar('front-page'); ?>
+    </div><!-- / ROW -->
+	</div><!-- / CONTAINER FLUID -->
 
 <?php get_footer(); ?>
