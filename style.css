@@ -1,4 +1,5 @@
 /*
+
 Theme Name: Marcador.do Official
 Theme URI: http://marcador.do/
 Author: Richard Blondet
@@ -27,13 +28,13 @@ Colors:
 2. Sidebar Styles
 3. Navbar
 4. Material Icons Rules
-5. Sidebar search form
+5. Sidebar search Form
 6. Sidebar Social Icons
-7. Sidebar footer links
+7. Sidebar footer Links
 8. Sidebar footer copy
 9. Navbar submenu marcador
 10. Hero unit
-11. 11. Marcador Hero Post Scoreboard
+11. Marcador Hero Post Scoreboard
 12. Marcador Post Listing 
 13. Marcador archive, date, author, search generic title
 14. Marcador content styles
@@ -47,6 +48,9 @@ Colors:
 22. Marcador En Vivo
 23. Marcador Favoritos
 24. Marcador Perfil Redactor
+25. Marcador Concursos
+26. Marcador Virales
+27. Marcador Resumen/Estadisticas/Puntuacion
 /*------------------------------*/
 
 /* 0. General Styling */
@@ -460,6 +464,12 @@ p {
 	background-color: grey;
 	color: white;
 }
+
+@media screen and (max-width:768px){
+    .sidebar-nav li{display:inline-block;}
+    .sidebar-nav ul{text-align: center;}
+}
+
 /* 3. Navbar */
 .navbar-marcador {
 	background-color: #E80303;
@@ -868,7 +878,7 @@ p {
 .scoreboard .board span{display: inline-block; width: 50%; font: 48px/48px bold sans-serif; text-align: center; box-sizing: border-box;}
 .scoreboard .board span:last-child{border-left: 1px #fff solid;}
     
-    header{position: relative; width: 100%; max-width: 960px; margin: 0 auto; height: 400px; background: url(messi.jpg) no-repeat; background-size: cover;}
+.scoreboard  header{position: relative; width: 100%; max-width: 960px; margin: 0 auto; height: 400px; background: url(messi.jpg) no-repeat; background-size: cover;}
 
 .hero-score {
     display: none;
@@ -995,7 +1005,6 @@ p {
     font-weight: 700;
     text-align: right;
     font-style: italic;
-    border-left: 1px solid #ccc;
     padding-left: 5px;
     margin-left: 5px;
 }
@@ -1015,11 +1024,11 @@ p {
 .marcador-post-list-fav {
 	display: inline-block;
     position: absolute;
-    
-    right: 25px;
+    color: #E80303;
+    right: 10px;
 }
 .marcador-post-list-fav .material-icons {
-	color: #E80303;
+	
 }
 @media screen and ( min-width: 480px ) {
 	.marcador-post-list-author a {
@@ -1055,7 +1064,11 @@ p {
     letter-spacing: 0.5px;
 }
 
-h1.page-title,h2.page-title{position: relative; padding: 20px; box-shadow: 0 2px 2px #ccc; min-height: 20px; margin: 0 0 20px 0; border-left: 10px #E80303 solid;}
+.page-title{position: relative; padding: 20px; box-shadow: 0 2px 2px #ccc; min-height: 20px; margin: 0 0 20px 0; border-left: 10px #E80303 solid;}
+
+.home .page-title{margin: 20px 0; text-transform: uppercase;}
+.home .marcador-posts-listing-wrapper, .home .marcador-post-list{margin-bottom: 0;}
+ 
 
 @media screen and ( min-width: 480px ) {
 	.page-header-template {
@@ -1099,9 +1112,7 @@ h1.page-title,h2.page-title{position: relative; padding: 20px; box-shadow: 0 2px
     display: inline-block;
     color: #aab0b5;
 }
-.single-post-list-author a {
-	text-transform: uppercase;
-}
+
 @media screen and (min-width : 480px) {
 	.single-post-featured-image {
 		min-height: 400px;
@@ -1152,10 +1163,10 @@ img.aligncenter.size-full {
 }
 @media screen and (min-width : 990px) {
 	.single-post-content p {
-		font-size: 23px;
+		font-size: 18px;
 	}
 	.single-post-title-content .single-post-title {
-		font-size: 40px;
+		font-size: 36px;
 	}
 }
 
@@ -1238,9 +1249,10 @@ img.aligncenter.size-full {
 
 /* 16. Marcador Cintillo */
 #cintillo {
-	margin-bottom: 25px;
+	margin-bottom: 20px;
 	min-height: 127px;
 	width: 100%;
+    overflow: hidden;
 }
 .cintillo-container {
 	position: relative;
@@ -1497,10 +1509,7 @@ span.cintillo.field.score.away {
 	top: 0;
 }
 .marcador-post-list.card .marcador-post-list-fav {
-	display: block;
-	position: relative;
-	text-align: right;
-	bottom: 0;
+	
 }
 
 /* 18. Marcador favoritos boxes */
@@ -1752,7 +1761,7 @@ span.cintillo.field.score.away {
 }
 .calendar-row {
     position: relative;
-    padding: 25px;
+    padding: 15px;
     background-color: #f7f7f7;
     border-radius: 4px;
     margin-bottom: 15px;
@@ -2280,3 +2289,117 @@ select#score-liga-selector {
 #redactor #destacados .date{text-align: right; color: #aab0b5; font-style: italic;}
 
 #sidebar .chat{background: #ccc; height: 100%;}
+
+/*2.5 Marcador - Concursos */
+
+#concursos .panel-footer .cerrado{color:firebrick; text-align: right; }
+#concursos .panel-footer{background: inherit; border: inherit;}
+#concursos .concurso-wrapper{max-width: 90%; margin: 0 auto;}
+@media screen and (max-width:768px){#concursos  .concurso-wrapper{max-width: 100%;}}
+
+/*2.6 Marcador - Resumen */
+
+#resumen h4{color: #4a4a4a; padding-bottom: 15px; margin: 0 0 25px 0; border-bottom: 1px solid #ccc;}
+
+/*2.6.1 Header Score */
+.header_score{font: bold 18px/18px 'Roboto',sans-serif;}
+.header_score .panel{line-height: 45px;}
+.header_score .panel .panel-body{height: 100px;}
+.header_score .panel .panel-body .row{height: 100%;}
+.header_score .panel .panel-body .row div{height: 100%; line-height: 70px;}
+.header_score .panel .panel-body .row .logos{line-height: 100px;}
+.header_score .score{font-size: 24px; text-align: center;}
+.header_score .panel-header{text-align: center; border-bottom: 1px solid #ccc; font-size: 14px;}
+.header_score .game-type, .header_score .team-score{position: absolute; font:400 16px/16px 'Roboto',sans-serif;}
+.header_score .game-type{top: 0px; left: 50%; transform: translateX(-50%);}
+.header_score .team:first-child{text-align: right;}
+.header_score .team div{display: inline-block; position: relative;}
+.header_score .team-score{bottom: 0px; left: 50%; transform: translateX(-50%);}
+
+@media screen and (max-width:768px){
+    .header_score .panel .panel-body .row div{line-height: 18px; top: 50%; transform: translateY(-50%);}
+    .header_score .team{font: bold 14px/14px 'Roboto',sans-serif; text-align: center;}
+    .header_score .team:first-child{text-align: center;}
+    .header_score .team-score, .header_score .game-type{display: none;}
+}
+
+/*TEAM LOGOS*/
+.logo{display: inline-block; min-width: 45px; min-height: 45px; background-repeat: no-repeat; background-size: contain;}
+
+.mlb-min{background-image: url(assets/imgs/mlb/MIN-logo-sm.png)}
+.mlb-oak{background-image: url(assets/imgs/mlb/OAK-logo-sm.png)}
+
+#estadisticas .panel{padding: 25px; background-color:#fafafa; box-shadow: 0 2px 2px rgba(0,0,0,.1);}
+table.stats{width: 100%;}
+.stats tr{}
+
+.stats tr:nth-child(odd){background:#ebebeb;}
+.stats tr:first-child{background:none;}
+.stats th,  .stats td{text-align: center; font:14px/25px 'Roboto',sans-serif ; height: 25px; vertical-align: middle; min-width: 25px;}
+.stats td{font-weight: bold;}
+.stats td:first-child{font-weight: normal;}
+.stats th{background: #7e7e7e; color: #fff; }
+#resumen .stats th:first-child{background:transparent;}
+#resumen .stats td:first-child{text-align:left; padding-left: 10px;}
+.stats tr:first-child th{left: 0;}
+
+/*COLLAPSED*/
+#imagenes-slider{position: relative; width: 100%; height: 150px; overflow: hidden; transition: height .5s ease-out;}
+#imagenes-slider .button{width: 30px; height: 100%; position: absolute; background: #ccc; cursor: pointer; text-align: center;}
+#imagenes-slider .button.left{left: 0;}
+#imagenes-slider .button.right{right: 0;}
+#imagenes-slider .thumbnails{height: 100%; width: 2200px;}
+#imagenes-slider .thumbnails img{height: 100%;}
+#imagenes-slider .display{width: 100%; height: 0px; background: url(assets/messi.jpg) no-repeat; background-size: cover; transition: height 1s ease-out;}
+
+/*EXPANDED*/
+
+#imagenes-slider.expanded{height: auto; background: #666;}
+#imagenes-slider.expanded .button{width: 80px; background: #666; color: #ccc;}
+#imagenes-slider.expanded .display{display: block; height: 600px}
+#imagenes-slider.expanded .thumbnails{height: 60px; margin: 10px 0;}
+
+
+/*CONVERSACION*/
+.comments-header{margin: 10px 0; padding: 10px 0; border-bottom: 1px solid #ccc;}
+.comments-header select{margin-left: 25px;}
+
+.user-image{width: 100%; padding-bottom: 100%; box-sizing: border-box; background: url(assets/messi.jpg) no-repeat; background-size: cover;}
+.comments-list textarea{width: 100%; padding: 15px; min-height: 70px; font-size: 18px; color: #ccc;}
+
+.comments-order{text-align: right;}
+.comments-number{}
+
+#related .title{padding: 15px 0; border-top: 1px solid #ccc; font-size: 16px;}
+#related article{position: relative; background: url(assets/messi.jpg) no-repeat; background-size: cover; min-height: 250px;}
+#related article header{position: absolute;bottom: 0; padding: 15px; color: #fff; font: 18px/22px 'Roboto',sans-serif; background:linear-gradient(0deg ,rgba(0,0,0,1), rgba(0,0,0,0)); }
+
+#resumen #imagenes, #resumen #estadisticas, #resumen #comments, #resumen #related{margin: 20px 0;}
+
+
+#estadisticas_resumen{}
+
+#cintillo_estadisticas{border-top: 10px solid red;}
+
+#stats{border: 1px solid #ccc; border-top: 0; padding-top: 20px; box-shadow: 0 2px 2px rgba(0,0,0,.1); margin-bottom: 20px;}
+#estadisticas_resumen .stats{border: 1px solid #ccc; border-bottom: 0;}
+
+.pitcher{height: 120px; border: 1px solid #ccc; margin-bottom: 15px; overflow: hidden;}
+.pitcher h4{margin: 0; background: #7e7e7e; padding: 0 0 0 15px; color: #fff; font-weight: 400;}
+.pitcher .detail{border-left: 12px solid red; height: 100px;}
+.pitcher .detail span{display: inline-block;}
+.pitcher .player-image{height: 100%; background-image: url(assets/messi.jpg); }
+.pitcher .player-name{font-size: 18px; font-weight: bold; top: 50%; transform: translateY(-50%c);}
+.pitcher .player-stats{}
+
+.status.key{font-weight: 700;}
+
+table.players{width: 100%; padding: 15px; margin-bottom: 20px; color: #707070;}
+.players th{background: #E80303; color: #fff;  font-weight: 400;}
+.players tr{min-height: 25px; padding: 5px 0;}
+.players td, .players th{text-align: center; padding: 5px 0;}
+.players tr:nth-child(odd){background: #ccc;}
+.players tr td:first-child{text-align: left; padding-left: 15px; border-right: 1px solid #707070;}
+.players tr th:first-child{border-right: 1px solid #707070;}
+.players tr:last-child{background: #707070; color: #fff; font-weight: 600;}
+.players tr:last-child td:first-child{border: 0;}

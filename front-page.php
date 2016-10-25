@@ -70,15 +70,15 @@ $marcador_equipos = array(
 					);
 					?>
 
-<?php while ( $destacadas->have_posts() ): $destacadas->the_post(); ?>
-	
-	<?php $destacadas_ids[] = get_the_ID(); ?>
+
 
 <div class="container-fluid">
     <div class="row">
         <!-- MAIN COLUMN -->
         <div class="col-lg-9 col-md-9 col-xs-12">
-                        
+              <?php while ( $destacadas->have_posts() ): $destacadas->the_post(); ?>
+	
+	<?php $destacadas_ids[] = get_the_ID(); ?>          
 	<?php if ( $destacadas->current_post === 0 ): ?>
             <?php if ( get_post_type() === "marcador_partido" ): ?>
 			<?php include (get_template_directory() . "/includes/marcador_hero_post_score.include.php"); ?>
@@ -98,6 +98,7 @@ $marcador_equipos = array(
                         
                         
 					<!-- Marcador-Agrega-Favoritos -->
+            <div class="row">
 <div class="col-xs-12">
     <div class="marcador-favoritos-equipos-container">
 							<div class="marcador-favoritos-equipos-wrapper">
@@ -156,6 +157,7 @@ $marcador_equipos = array(
 							</div>
 						</div>
             </div>
+                </div>
 					<!-- / Marcador-agrega-favoritos -->
                         
 <div class="row">
@@ -182,20 +184,19 @@ $marcador_equipos = array(
 			$first_section = new WP_Query( $args );
 		?>
 		<?php if ( $first_section->have_posts() ): ?>
+    
 		<!-- PRINT FIRST SECTION -->
     <div class="col-xs-12">
-			<header class="page-header-template">
+			
 				<h2 class="page-title"><?php echo $cat_first_section->name; ?></h2>
-			</header>
-		</div>
 
 			<?php while ( $first_section->have_posts() ): $first_section->the_post(); ?>
 				<?php if ( $first_section->current_post === 0 ):  ?>
 					<?php include (get_template_directory() . "/includes/marcador_hero_post.include.php"); ?>
             </div>
             
-<div class="row">
-		<div class="col-xs-12">
+<div class="col-xs-12">
+		
 			<!-- Marcador posts -->
 			<div class="marcador-posts-listing-wrapper cards-wrapper">
 					<div class="row">
@@ -206,9 +207,10 @@ $marcador_equipos = array(
 					</div>
 			</div>
 		<!-- .marcador-posts-listing -->
-		</div>
+		
 </div>
 		<?php endif; ?>
+            </div>
 
 <div class="row">
 		<?php
@@ -235,29 +237,25 @@ $marcador_equipos = array(
 		?>
 		  <?php if ( $second_section->have_posts() ): ?>
 				<div class="col-xs-12">
-					<header class="page-header-template">
 						<h2 class="page-title"><?php echo $cat_second_section->name; ?></h2>
-					</header>
-					<br>
 				</div>
-
+                <div class="col-xs-12">
 				<?php while ( $second_section->have_posts() ): $second_section->the_post(); ?>
 					<?php if ( $second_section->current_post === 0 ):  ?>
 						<?php include (get_template_directory() . "/includes/marcador_hero_post.include.php"); ?>
-
-				<div class="col-xs-12 col-sm-12">
+                    </div>
+    
+				<div class="col-xs-12">
 					<!-- Marcador posts -->
 					<div class="marcador-posts-listing-wrapper">
-						<div class="container-fluid">
 							<div class="row">
 					<?php continue; endif; ?>
 
 						<?php include (get_template_directory() . "/includes/marcador_hero_post_list_item_one_col.include.php"); ?>
 
-
 				<?php endwhile; ?>
 							</div>
-						</div>
+						
 					</div>
 				<!-- .marcador-posts-listing -->
 				</div>
