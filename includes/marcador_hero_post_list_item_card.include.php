@@ -1,7 +1,5 @@
 <?php if (!isset($width)) $width = 6; ?>
 <div class="col-xs-12 col-sm-<?php echo $width; ?> col-md-<?php echo $width; ?> col-lg-<?php echo $width; ?> marcador-post-list card">
-    <div class="container-fluid">
-        <div class="row">
           <div class="panel panel-default">
             <div class="panel-heading">
               <div class="marcador-post-list-title">
@@ -44,40 +42,33 @@
             </div>
             <div class="panel-footer">
               <div class="marcador-post-list-meta">
-                <div class="container-fluid">
                   <div class="row">
                     
-                    <div class="col-xs-4">
+                    <div class="col-md-4 col-md-push-4 col-xs-4">
                       <div class="marcador-post-list-author">
                         <a href="<?php echo get_author_posts_url( get_the_author_meta( 'ID' ), get_the_author_meta( 'user_nicename' ) ); ?>">
                           <?php echo get_the_author_meta( 'user_nicename' ); ?>
                         </a>
                       </div>
                     </div>
-                    
+                      <div class="col-md-4 col-md-push-4 col-xs-4">
                     <?php 
-                    $before = '<div class="col-xs-8"><div class="marcador-post-list-date">'; 
+                    $before = '<div class="marcador-post-list-date">'; 
                     $before .= '<a href="' . esc_url( get_day_link( $year = get_the_date('Y') , $month = get_the_date('m'), $day = get_the_date('d') ) ) . '">';
-                    $before .= '<div class="meta-divisor"></div>';
-                    $after = '</a></div></div>';
+                    $after = '</a></div>';
                     ?>
                     
                     <?php the_date( $d = 'M d, Y', $before, $after, $echo = true ); ?>
-
+                          <i class="material-icons marcador-post-list-fav">star</i></div>
                   </div>
-                </div>
               </div>
               
               <!-- Conditional if favorite -->
-              <div class="marcador-post-list-fav">
-                <i class="material-icons">star</i>
-              </div>
+                
               <!-- end conditional -->
 
             </div>
 
-          </div>
-        </div>
     </div>
 </div> 
 
