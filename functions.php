@@ -106,12 +106,30 @@ add_action( 'after_setup_theme', 'marcador_content_width', 0 );
  * Register widget area.
  *
  * @link https://developer.wordpress.org/themes/functionality/sidebars/#registering-a-sidebar
- 
+*/
 function marcador_widgets_init() {
 	register_sidebar( array(
-		'name'          => esc_html__( 'Sidebar', 'marcadordo' ),
-		'id'            => 'sidebar-1',
-		'description'   => esc_html__( 'Add widgets here.', 'marcadordo' ),
+		'name'          => esc_html__( 'Estandar', 'marcadordo' ),
+		'id'            => 'sidebar-estandar',
+		'description'   => esc_html__( 'Sidebar estandar.', 'marcadordo' ),
+		'before_widget' => '<section id="%1$s" class="widget %2$s">',
+		'after_widget'  => '</section>',
+		'before_title'  => '<h2 class="widget-title">',
+		'after_title'   => '</h2>',
+	) );
+	register_sidebar( array(
+		'name'          => esc_html__( 'Front Page', 'marcadordo' ),
+		'id'            => 'front-page',
+		'description'   => esc_html__( 'Sidebar para el front-page.', 'marcadordo' ),
+		'before_widget' => '<section id="%1$s" class="widget %2$s">',
+		'after_widget'  => '</section>',
+		'before_title'  => '<h2 class="widget-title">',
+		'after_title'   => '</h2>',
+	) );
+	register_sidebar( array(
+		'name'          => esc_html__( 'Usuarios Marcador', 'marcadordo' ),
+		'id'            => 'marcador-user',
+		'description'   => esc_html__( 'Sidebar para la seccion de usuarios marcador.', 'marcadordo' ),
 		'before_widget' => '<section id="%1$s" class="widget %2$s">',
 		'after_widget'  => '</section>',
 		'before_title'  => '<h2 class="widget-title">',
@@ -119,7 +137,6 @@ function marcador_widgets_init() {
 	) );
 }
 add_action( 'widgets_init', 'marcador_widgets_init' );
-*/
 
 /**
  * Enqueue scripts and styles.
