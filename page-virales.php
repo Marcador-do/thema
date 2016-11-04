@@ -102,11 +102,11 @@ $virales = new WP_Query( $args ); ?>
                 <div class="panel-body marcador-post-list-image" style="background-image: url('http://dev.marcador.do/wp-content/uploads/2016/09/NBA-Sindicato.jpg')"></div>
                 
                 <div class="marcador-post-list-title">
-                <a href="#">Temporada perfecta para Warriors arruinada: Lebron e Irving dan titulo. Lorem ipsum dolor sit amet.</a>
+                <a href="#">Temporada perfecta para Warriors arruinada: Lebron e Irving dan titulo.</a>
                 </div>
                 
                 <div class="marcador-post-list-excerpt">
-                La NBA y Asociación Nacional de Jugadores de Baloncesto han trabajado juntos durante los últimos días para crear un plan para el manejo de posibles protestas de los jugadores durante la entonación del himno nacional, según fuentes de ESPN.com. Adan Silver, el comisionado de la NBA, y Michele […]
+                La NBA y Asociación Nacional de Jugadores de Baloncesto han trabajado juntos durante los últimos días […]
                 </div>
                 
                 <div class="panel-footer">
@@ -115,11 +115,11 @@ $virales = new WP_Query( $args ); ?>
               </div>
                 <div class="marcador-post-list-meta container-fluid">
                   <div class="row">
-                       <div class="col-xs-6 col-sm-4 marcador-post-list-date pull-right"><a href="#">Sep 21, 2016</a></div>
-                      
-                    <div class="col-xs-6 col-sm-4 marcador-post-list-author pull-right">
+                       
+                    <div class="col-xs-6 marcador-post-list-author ">
                         <a href="#">Cesar Marchena</a>
                     </div>
+                      <div class="col-xs-6 marcador-post-list-date"><a href="#">Sep 21, 2016</a></div>
                      </div>
                     
               </div>
