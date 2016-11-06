@@ -470,11 +470,32 @@ p {
     .sidebar-nav ul{text-align: center;}
 }
 
-/* 3. Navbar */
+.menu-secundario{
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 100px;
+    list-style: none;
+    width: 100px;
+    padding: 0;
+    text-align: center;
+}
+
+li[sidebar-nav-submenu].toggled .menu-secundario{
+    position: relative;
+    left: 0;
+    width: 100%;
+}
+
+/*Temporary Tennis Ball Icon*/
+.tennis-ball img{width: 45%; margin-top: -12px;}
+
+/* 3. Navigation Bar */
 .navbar-marcador {
 	background-color: #E80303;
 	border-color: #E80303;
 	margin-bottom: 0;
+    box-sizing: border-box;
 }
 .navbar-marcador .navbar-header.pull-right ul {
 	margin: 0;
@@ -770,6 +791,9 @@ p {
 /* 9. Navbar submenu marcador */
 #marcador-navbar-submenu {
 	margin-bottom: 10px;
+    /*height: 60px;
+    overflow: auto;*/
+    
 }
 #marcador-navbar-submenu .nav {
 	margin-top: 0;
@@ -805,6 +829,8 @@ p {
 #marcador-navbar-submenu .nav li a:hover {
 	background-color: #888;
 }
+
+#menu-deportes{/*width: 800px;*/}
 
 /* 10. Hero unit */
 .marcador-hero-post {
@@ -1027,7 +1053,7 @@ p {
     position: absolute;
     color: #E80303;
     right: 10px;
-	bottom:0;
+	bottom:auto;
 }
 .marcador-post-list-fav .material-icons {
 	
@@ -1055,9 +1081,7 @@ p {
     margin-top: 15px;
 }
 .page-header-template {
-    padding: 5px 25px;
-    border-left: solid 10px #e80303;
-    box-shadow: 0 2px 4px #dadada;
+   
 }
 .page-header-template .page-title {
     font-style: italic;
@@ -1490,6 +1514,7 @@ span.cintillo.field.score.away {
 .marcador-post-list.card .panel-default {
 	-webkit-box-shadow: 0 4px 5px rgba(0,0,0,0.05);
 	box-shadow: 0 4px 5px rgba(0,0,0,0.05);
+    overflow: hidden;
 }
 .marcador-post-list.card .panel-heading {
 	background-color: #fff;
@@ -1688,6 +1713,8 @@ span.cintillo.field.score.away {
 	color: #fdfdfd;
 	text-transform: uppercase;
 }
+#liga-drpdwn option{background: #666;}
+
 #resultados-tab .marcador-posts-listing-wrapper {
 	padding-top: 0;
 	border: none;
@@ -2389,7 +2416,7 @@ table.stats{width: 100%;}
 .comments-number{}
 
 #related .title{padding: 15px 0; border-top: 1px solid #ccc; font-size: 16px;}
-#related article{position: relative; background: url(assets/messi.jpg) no-repeat; background-size: cover; min-height: 250px;}
+#related article{position: relative; margin-bottom: 15px; background: url(assets/messi.jpg) no-repeat; background-size: cover; min-height: 250px;}
 #related article header{position: absolute;bottom: 0; padding: 15px; color: #fff; font: 18px/22px 'Roboto',sans-serif; background:linear-gradient(0deg ,rgba(0,0,0,1), rgba(0,0,0,0)); }
 
 #resumen #imagenes, #resumen #estadisticas, #resumen #comments, #resumen #related{margin: 20px 0;}
