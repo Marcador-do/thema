@@ -13,7 +13,7 @@
 <div id="marcador-page-template" class="search">
   <div class="container-fluid">
     <div class="row">
-      <div class="col-xs-12 div col-sm-12 col-md-12 col-lg-9">
+      <div class="col-md-12 col-lg-9">
         <header class="page-header-template">
           <h2 class="page-title">
             <?php the_title(); ?>
@@ -26,9 +26,7 @@
           </div>
         <?php endwhile; endif; ?>
       </div>
-      <div class="col-xs-12 div col-sm-12 col-md-12 col-lg-3">
       <?php get_sidebar(); ?>
-      </div>
     </div>
   </div>
 </div> 
