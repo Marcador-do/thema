@@ -470,7 +470,7 @@ p {
     .sidebar-nav ul{text-align: center;}
 }
 
-.menu-secundario{
+#menu-principal .sub-menu{
     display: none;
     position: absolute;
     top: 0;
@@ -481,11 +481,15 @@ p {
     text-align: center;
 }
 
-li[sidebar-nav-submenu].toggled .menu-secundario{
+li[sidebar-nav-submenu].toggled #menu-principal .sub-menu{
     position: relative;
     left: 0;
     width: 100%;
 }
+
+#sidebar{padding-right: 70px;}
+#sidebar .chat{background: #ccc; height: 100%;}
+@media screen and (max-width:768px){#sidebar{padding-right:0;}}
 
 /*Temporary Tennis Ball Icon*/
 .tennis-ball img{width: 45%; margin-top: -12px;}
@@ -875,8 +879,7 @@ li[sidebar-nav-submenu].toggled .menu-secundario{
 		margin-right: 0;
 		min-height: 290px;
 	}
-	.marcador-hero-unit .hero-heading h1 {
-		margin-top: 200px;
+	.marcador-hero-unit h1.heading {
 		font-size: 35px;
 		line-height: 1.2;
 		letter-spacing: 0.5px;
@@ -1578,6 +1581,13 @@ span.cintillo.field.score.away {
 }
 
 /* 19. Right Sidebar Logos */
+#right-sidebar-wrapper{
+    background: #3D3D3D;
+}
+
+@media screen and (min-width:960px){
+    .sidebar-nav.right li{display: inline-block;}
+}
 @media screen and ( min-width : 1270px ) {
 	#right-sidebar-wrapper {
 		z-index: 1000;
@@ -1588,7 +1598,6 @@ span.cintillo.field.score.away {
 		height: 100%;
 		margin-left: 0;
 		// overflow-y: auto;
-		background: #3D3D3D;
 		-webkit-transition: all 0.2s ease;
 		-moz-transition: all 0.2s ease;
 		-o-transition: all 0.2s ease;
@@ -1598,6 +1607,7 @@ span.cintillo.field.score.away {
 		position: relative;
 		top: 50%;
 		transform: translateY(-50%);
+        text-align: center;
 	}
 	#right-sidebar-wrapper .sidebar-nav li {
 		border: none;
@@ -2318,7 +2328,6 @@ select#score-liga-selector {
 #redactor #destacados .category{font-style: italic;}
 #redactor #destacados .date{text-align: right; color: #aab0b5; font-style: italic;}
 
-#sidebar .chat{background: #ccc; height: 100%;}
 
 /*2.5 Marcador - Concursos */
 
