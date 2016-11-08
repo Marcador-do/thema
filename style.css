@@ -335,6 +335,7 @@ p {
 .sidebar-nav li .sidebar-nav-submenu li a { 
 	// background-color: #3d3d3d;
 	background-color: #fff;
+    position: relative;
 }
 .sidebar-nav li[sidebar-nav-submenu] {
 	position: relative;
@@ -348,8 +349,9 @@ p {
 	padding-left: 10px;
 	height: 0;
 	opacity: 0;
-	overflow: hidden;
+	overflow: visible;
 }
+
 #wrapper.toggled .sidebar-nav li[sidebar-nav-submenu].toggled span i,
 #wrapper.toggled .sidebar-nav li[sidebar-nav-submenu].toggled span {
 	color: #fff;

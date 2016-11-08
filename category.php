@@ -22,6 +22,7 @@
 <?php get_header(); ?>
 
 <?php /* <!-- #marcador-navbar-submenu --> */ ?>
+<div class="scrolling-menu">
 <?php 
 	if ( has_nav_menu( 'deportes_top' ) ) {
 		$args = array(
@@ -34,7 +35,8 @@
 	}
 ?>
 <?php /* <!-- /#marcador-navbar-submenu --> */ ?>
-
+<div class="fadeOut left"></div><div class="fadeOut right"></div>
+</div>
 <?php 
 $cat_ids = array();
 $cat_objs = array();
@@ -1075,7 +1077,39 @@ console.log('NOW: '+new Date(resultados.selectedDays.max), 'NOW(-1): '+new Date(
       jQuery( "#menu-deportes" ).ready( MARCADOR.Estadisticas.init );
       <?php //endif; ?>
     </script>
-        
+        <script src="<?php get_template_directory();?>/assets/js/jquery.kinetic.min.js"></script>
+                    <script>
+                    jQuery(document).ready(function(){
+                       //Add up al elements width and assign it to the UL container
+                        menuW = 0;
+                        
+                        jQuery("#menu-principal-top li").each(function(){
+                          menuW +=  parseInt(jQuery(this).css('width'));
+                        });
+                        jQuery("#menu-principal-top").css('width',menuW+50);
+                        
+                         //Display fadeOuts if there are hidden elements to the right
+                                               
+                        if(jQuery("#marcador-navbar-submenu").width() < jQuery("#menu-principal-top").width()){
+                            jQuery(".fadeOut.right").fadeIn(150);
+                        }
+                        
+                        //Hide or Show fadeOuts on scroll min/max positions
+                        jQuery("#marcador-navbar-submenu").scroll(function(){
+                           scrollOffset = jQuery("#marcador-navbar-submenu").scrollLeft();
+                            if(scrollOffset <= 15){
+                            jQuery(".fadeOut.left").fadeOut(150);
+                        }else{jQuery(".fadeOut.left").fadeIn(150);}
+                            
+                             if(scrollOffset >= menuW-jQuery("#marcador-navbar-submenu").width()){
+                            jQuery(".fadeOut.right").fadeOut(150);
+                        }else{jQuery(".fadeOut.right").fadeIn(150);}
+                        });
+                                                
+                        //Make the menu scrollable/draggable
+                       jQuery("#marcador-navbar-submenu").kinetic();
+                    });
+                    </script>
         <?php else: ?>
 					<!-- Marcador posts -->
 				<div class="marcador-posts-listing-wrapper cards">
