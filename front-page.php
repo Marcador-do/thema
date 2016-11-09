@@ -264,7 +264,7 @@ $marcador_equipos = array(
     </div>
     </div><!-- END OF MAIN COLUMN -->
         <!-- SIDEBAR -->
-        <?php //get_sidebar('front-page'); ?>
+        <?php get_sidebar('front-page'); ?>
     </div><!-- / ROW -->
 	</div><!-- / CONTAINER FLUID -->
 
