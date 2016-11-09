@@ -310,7 +310,7 @@ function banner() {
 				<li sidebar-nav-submenu class>
 					<a href="#" class="">
 						<span class="sidebar-icon">
-							<i class="tennis-ball" ><img src="<?php get_template_directory_uri(); ?>/assets/imgs/tennis-ball.svg"/></i>
+							<i class="tennis-ball" ><img src="<?php get_stylesheet_directory() ?>/assets/imgs/tennis-ball.svg"/></i>
 						</span>
 						<span class="sidebar-menu-item">Deportes</span>
 					</a> 
