@@ -1077,7 +1077,7 @@ console.log('NOW: '+new Date(resultados.selectedDays.max), 'NOW(-1): '+new Date(
       jQuery( "#menu-deportes" ).ready( MARCADOR.Estadisticas.init );
       <?php //endif; ?>
     </script>
-        <script src="<?php get_template_directory();?>/assets/js/jquery.kinetic.min.js"></script>
+        <script src="<?php get_template_directory_uri();?>/assets/js/jquery.kinetic.min.js"></script>
                     <script>
                     jQuery(document).ready(function(){
                        //Add up al elements width and assign it to the UL container

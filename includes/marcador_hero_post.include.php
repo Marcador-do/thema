@@ -7,7 +7,7 @@
                       <?php the_title(); ?>
                     </h1>
           </header>
-          <p><span class="col-xs-12 col-lg-2">Por <?php the_author_posts_link(); ?></span> <span class="col-xs-12 col-lg-2"><?php the_date('M d, Y'); ?></span></p>
+          <p><span class="author">Por <?php the_author_posts_link(); ?></span> <span class="date"><?php the_date('M d, Y'); ?></span></p>
           <p class="excerpt"><?php the_excerpt(); ?></p>
         </a> 
       </div>

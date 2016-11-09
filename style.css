@@ -472,6 +472,8 @@ p {
     .sidebar-nav ul{text-align: center;}
 }
 
+#menu-principal .menu-item:hover ul.sub-menu{display: block;}
+
 #menu-principal .sub-menu{
     display: none;
     position: absolute;
@@ -489,7 +491,7 @@ li[sidebar-nav-submenu].toggled #menu-principal .sub-menu{
     width: 100%;
 }
 
-#sidebar{padding-right: 70px;}
+#sidebar{padding-right: 85px;}
 #sidebar .chat{background: #ccc; height: 100%;}
 @media screen and (max-width:768px){#sidebar{padding-right:0;}}
 
@@ -866,6 +868,7 @@ li[sidebar-nav-submenu].toggled #menu-principal .sub-menu{
     color: #fff;
     padding: 0 15px 15px 20px;
     background: linear-gradient(0deg ,rgba(0,0,0,1), rgba(0,0,0,0));
+    font-size: 24px;
 }
 .marcador-hero-unit:hover .hero-heading h1,
 .marcador-hero-unit .hero-heading,
@@ -1046,8 +1049,8 @@ li[sidebar-nav-submenu].toggled #menu-principal .sub-menu{
 }
 .marcador-post-list-author {min-height:25px;}
 .marcador-post-list-date {min-height:25px;}
-.marcador-post-list .container-fluid {
-    padding-bottom: 25px;
+.marcador-post-list .row:first-child {
+    padding-bottom: 15px;
     border-bottom: solid 1px #ececec;
 }
 .marcador-post-list {
@@ -1058,7 +1061,7 @@ li[sidebar-nav-submenu].toggled #menu-principal .sub-menu{
     position: absolute;
     color: #E80303;
     right: 10px;
-	bottom:auto;
+	bottom:0;
 }
 .marcador-post-list-fav .material-icons {
 	
