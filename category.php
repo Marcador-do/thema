@@ -1083,14 +1083,14 @@ console.log('NOW: '+new Date(resultados.selectedDays.max), 'NOW(-1): '+new Date(
                        //Add up al elements width and assign it to the UL container
                         menuW = 0;
                         
-                        jQuery("#menu-principal-top li").each(function(){
+                        jQuery("#menu-deportes li").each(function(){
                           menuW +=  parseInt(jQuery(this).css('width'));
                         });
-                        jQuery("#menu-principal-top").css('width',menuW+50);
+                        jQuery("menu-deportes").css('width',menuW+50);
                         
                          //Display fadeOuts if there are hidden elements to the right
                                                
-                        if(jQuery("#marcador-navbar-submenu").width() < jQuery("#menu-principal-top").width()){
+                        if(jQuery("#marcador-navbar-submenu").width() < jQuery("#menu-deportes").width()){
                             jQuery(".fadeOut.right").fadeIn(150);
                         }
                         
