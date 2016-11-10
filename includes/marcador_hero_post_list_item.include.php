@@ -26,6 +26,11 @@
                               <?php the_date('M d, Y'); ?>
                             </a> 
                           </div>
+                            <div class="marcador-post-list-excerpt">
+                            <p>
+                              <?php the_excerpt(); ?>
+                            </p> 
+                          </div>
                         <?php 
                           // Check user session
                           if ( is_user_logged_in() ): 

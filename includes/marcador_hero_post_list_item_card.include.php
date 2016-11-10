@@ -44,18 +44,18 @@
               <div class="marcador-post-list-meta">
                   <div class="row">
                     
-                    <div class="col-md-4 col-md-push-4 col-xs-4">
-                      <div class="marcador-post-list-author">
+                    <div class="col-md-4 col-md-push-4 col-xs-4 marcador-post-list-author">
+                      
                         <a href="<?php echo get_author_posts_url( get_the_author_meta( 'ID' ), get_the_author_meta( 'user_nicename' ) ); ?>">
                           <?php echo get_the_author_meta( 'user_nicename' ); ?>
                         </a>
-                      </div>
+                      
                     </div>
-                      <div class="col-md-4 col-md-push-4 col-xs-4">
+                      <div class="col-md-4 col-md-push-4 col-xs-4 marcador-post-list-date">
                     <?php 
-                    $before = '<div class="marcador-post-list-date">'; 
+                    $before = ''; 
                     $before .= '<a href="' . esc_url( get_day_link( $year = get_the_date('Y') , $month = get_the_date('m'), $day = get_the_date('d') ) ) . '">';
-                    $after = '</a></div>';
+                    $after = '</a>';
                     ?>
                     
                     <?php the_date( $d = 'M d, Y', $before, $after, $echo = true ); ?>

@@ -1019,7 +1019,6 @@ li[sidebar-nav-submenu].toggled #menu-principal .sub-menu{
     background-position: center;
 }
 .marcador-post-list .marcador-post-list-image-col {
-    padding: 0;
 }
 .marcador-post-list-title {
     margin-top: 2px;
@@ -1040,8 +1039,6 @@ li[sidebar-nav-submenu].toggled #menu-principal .sub-menu{
     font-weight: 700;
     text-align: right;
     font-style: italic;
-    padding-left: 5px;
-    margin-left: 5px;
 }
 .marcador-post-list-author,
 .marcador-post-list-date {
@@ -1050,7 +1047,7 @@ li[sidebar-nav-submenu].toggled #menu-principal .sub-menu{
 .marcador-post-list-author {min-height:25px;}
 .marcador-post-list-date {min-height:25px;}
 .marcador-post-list .row:first-child {
-    padding-bottom: 15px;
+    padding: 15px 0;
     border-bottom: solid 1px #ececec;
 }
 .marcador-post-list {
@@ -1077,7 +1074,6 @@ li[sidebar-nav-submenu].toggled #menu-principal .sub-menu{
 }
 @media screen and ( min-width: 768px ) {
 	.marcador-post-list {
-		margin-left: 50px;	
 	}
 	.marcador-post-list-image {
 		min-height: 165px;
@@ -1539,6 +1535,8 @@ span.cintillo.field.score.away {
 .marcador-post-list.card .marcador-post-list-date,
 .marcador-post-list.card .marcador-post-list-author {
 	display: block;
+    position: relative;
+    min-height: 25px;
 }
 .marcador-post-list.card .marcador-post-list-author a {
 	top: 0;
@@ -2354,7 +2352,6 @@ select#score-liga-selector {
 #virales .panel-footer{background: none; border: 0;}
 #virales .panel-video iframe{min-height: 400px; width: 100%;}
 #virales .panel-default{overflow: hidden; min-height: 400px;}
-#virales .marcador-post-list-meta a{padding: 0; margin: 0;}
 
 /*2.6 Marcador - Resumen */
 
