@@ -803,15 +803,14 @@ li[sidebar-nav-submenu].toggled #menu-principal .sub-menu{
 	margin-bottom: 10px;
     /*height: 60px;
     overflow: auto;*/
-    
+    background-color: #707070;
+	-webkit-box-shadow: 0 2px 4px #a0a0a0;
+	box-shadow: 0 2px 4px #a0a0a0;
 }
 #marcador-navbar-submenu .nav {
 	margin-top: 0;
 	padding-left: 15px;
 	padding-right: 15px;
-	background-color: #707070;
-	-webkit-box-shadow: 0 2px 4px #a0a0a0;
-	box-shadow: 0 2px 4px #a0a0a0;
 }
 #marcador-navbar-submenu .nav li a {
 	border-radius: 0;
@@ -840,7 +839,10 @@ li[sidebar-nav-submenu].toggled #menu-principal .sub-menu{
 	background-color: #888;
 }
 
-#menu-deportes{/*width: 800px;*/}
+ .scrolling-menu{position: relative;}
+                   
+.fadeOut{position: absolute; top: 0; left: 0; width: 15px; height: 100%; background: linear-gradient(90deg, rgba(0,0,0,.5), rgba(0,0,0,0)); display: none;}
+.fadeOut.right{right: 0; left: auto; background: linear-gradient(90deg, rgba(0,0,0,0), rgba(0,0,0,.5));}
 
 /* 10. Hero unit */
 .marcador-hero-post {
