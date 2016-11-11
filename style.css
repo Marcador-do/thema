@@ -1020,10 +1020,10 @@ li[sidebar-nav-submenu].toggled #menu-principal .sub-menu{
 }
 .marcador-post-list .marcador-post-list-image-col {
 }
-.marcador-post-list-title {
-    margin-top: 2px;
+.marcador-post-list-title { 
     font-family: 'marcador-bold';
-    margin-bottom: 2px;
+    min-height: 40px;
+   
 }
 .marcador-post-list-excerpt {
 	font-family: 'marcador-regular';
@@ -1035,11 +1035,8 @@ li[sidebar-nav-submenu].toggled #menu-principal .sub-menu{
 }
 .marcador-post-list-meta a {
     position: relative;
-    font-size: 12px;
     color: #aab0b5;
     font-weight: 700;
-    text-align: right;
-    font-style: italic;
 }
 .marcador-post-list-author,
 .marcador-post-list-date {
@@ -1076,6 +1073,8 @@ li[sidebar-nav-submenu].toggled #menu-principal .sub-menu{
 @media screen and ( min-width: 768px ) {
 	.marcador-post-list {
 	}
+    .marcador-posts-listing-wrapper{padding: 0 20px;}
+    
 	.marcador-post-list-image {
 		min-height: 165px;
 	}
