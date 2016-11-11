@@ -497,7 +497,7 @@ li[sidebar-nav-submenu].toggled #menu-principal .sub-menu{
 @media screen and (max-width:768px){#sidebar{padding-right:0;}}
 
 /*Temporary Tennis Ball Icon*/
-.tennis-ball{display: inline-block; background: url("http://dev.marcador.do/wp-content/themes/marcadordo/assets/imgs/tennis-ball.svg") no-repeat center; background-size: 85% 85%;}
+.tennis-ball{display: inline-block; width: 100%; height: 100%; background: url("http://dev.marcador.do/wp-content/themes/marcadordo/assets/imgs/tennis-ball.svg") no-repeat center; background-size: 85% 85%;}
 
 /* 3. Navigation Bar */
 .navbar-marcador {
@@ -642,9 +642,10 @@ li[sidebar-nav-submenu].toggled #menu-principal .sub-menu{
     width: 100%;
     padding: 0;
     margin: 0;
-    bottom: 10px;
+    bottom: 0;
     left: 0;
     text-align: center;
+    top: auto;
 }
 #social.sidebar-nav li {
 	border: none;
@@ -659,6 +660,7 @@ li[sidebar-nav-submenu].toggled #menu-principal .sub-menu{
 	width: 29px;
 	height: 29px;
 	display:inline-block;
+    vertical-align: middle;
 }
 .marcador-icon.facebook {
 	background-position:  -10px -12px;
@@ -677,8 +679,6 @@ li[sidebar-nav-submenu].toggled #menu-principal .sub-menu{
 }
 @media screen and ( min-width: 480px ) {
 	#social.sidebar-nav {
-		position: absolute;
-		left: 10px;
 		-webkit-transition: width 1s linear, left 0.5s ease;
 		-moz-transition: width 1s linear, left 0.5s ease;
 		-ms-transition: width 1s linear, left 0.5s ease;
@@ -801,11 +801,11 @@ li[sidebar-nav-submenu].toggled #menu-principal .sub-menu{
 /* 9. Navbar submenu marcador */
 #marcador-navbar-submenu {
 	margin-bottom: 10px;
-    /*height: 60px;
-    overflow: auto;*/
+    height: 42px;
     background-color: #707070;
 	-webkit-box-shadow: 0 2px 4px #a0a0a0;
 	box-shadow: 0 2px 4px #a0a0a0;
+    overflow: hidden;
 }
 #marcador-navbar-submenu .nav {
 	margin-top: 0;
@@ -1590,11 +1590,12 @@ span.cintillo.field.score.away {
 /* 19. Right Sidebar Logos */
 #right-sidebar-wrapper{
     background: #3D3D3D;
+    text-align: center;
 }
 @media screen and (max-width:480px){
    #right-sidebar-wrapper{display: none;}
 }
-@media screen and (min-width:960px){
+@media screen and (max-width:960px){
     .sidebar-nav.right li{display: inline-block;}
 }
 @media screen and ( min-width : 1270px ) {

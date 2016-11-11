@@ -93,6 +93,7 @@ if (count( $cat_ids ) > 0) {
     <div class="col-md-12 col-lg-9">
         
         <div id="principal-tab" class="row tabs">
+            <div class="col-lg-12">
              <!-- DISPLAY HERO POST -->
         <?php if ( $principal ): 
 	while ( $principal->have_posts() ): $principal->the_post(); ?>
@@ -103,6 +104,7 @@ if (count( $cat_ids ) > 0) {
 			<?php include (get_template_directory() . "/includes/marcador_hero_post.include.php"); ?>
 		<?php endif; ?>
          <!--/ DISPLAY HERO POST -->
+                </div>
 						<!-- Marcador posts -->
 						<div class="marcador-posts-listing-wrapper cards">
 	<?php continue; endif; ?>
@@ -124,9 +126,9 @@ if (count( $cat_ids ) > 0) {
 		</div>
         
         <div id="resultados-tab" class="row tabs hidden">
-		
+		<div class="col-lg-12">
 				<h3>Partidos</h3>
-			
+			</div>
 				<!-- Marcador posts -->
 				<div class="marcador-posts-listing-wrapper cards">
                             <div class="col-xs-12 col-sm-4">
@@ -229,7 +231,7 @@ STAT_TEMPLATE;
         <div id="posiciones-tab" class="row tabs hidden">
     <div class="col-xs-12">
               <h1>STANDING</h1>
-            </div>
+            
         <!-- Marcador posts -->
        
           <div class="row calendar-row">
@@ -355,6 +357,7 @@ LIGA_TABLE_ROW;
           </div>
        
         <!-- .marcador-posts-listing -->
+            </div>
   </div>
         
         <div id="estadisticas-tab" class="row tabs hidden">

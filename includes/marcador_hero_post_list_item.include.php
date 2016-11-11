@@ -50,7 +50,7 @@
                         </div>
                           <div class="marcador-post-list-excerpt">
                             
-                              <?php the_excerpt(20); ?>
+                              <?php echo excerpt(20); ?>
                             
                           </div>
                       </div>
