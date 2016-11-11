@@ -234,7 +234,7 @@ p {
     height: 26px;
 }
 .sidebar-nav li a .sidebar-menu-item {
-    line-height: 1;
+    line-height: 26px;
     font-weight: 300;
     font-size: 11px;
 }
@@ -271,7 +271,7 @@ p {
     padding: 15px;
     line-height: 3.5;
     background-color: #E80303;
-    height: 61px;
+    height: 57px;
 }
 @media screen and (min-width: 480px) {
 	.sidebar-nav li .sidebar-bar-close {
@@ -468,8 +468,8 @@ p {
 }
 
 @media screen and (max-width:768px){
-    .sidebar-nav li{display:inline-block;}
-    .sidebar-nav ul{text-align: center;}
+    .sidebar-nav.right li{display:inline-block;}
+    .sidebar-nav.right ul{text-align: center;}
 }
 
 #menu-principal .menu-item:hover ul.sub-menu{display: block;}
@@ -483,6 +483,7 @@ p {
     width: 100px;
     padding: 0;
     text-align: center;
+    background-color: #888;
 }
 
 li[sidebar-nav-submenu].toggled #menu-principal .sub-menu{
@@ -496,7 +497,7 @@ li[sidebar-nav-submenu].toggled #menu-principal .sub-menu{
 @media screen and (max-width:768px){#sidebar{padding-right:0;}}
 
 /*Temporary Tennis Ball Icon*/
-.tennis-ball img{width: 45%; margin-top: -12px;}
+.tennis-ball{display: inline-block; background: url("http://dev.marcador.do/wp-content/themes/marcadordo/assets/imgs/tennis-ball.svg") no-repeat center; background-size: 85% 85%;}
 
 /* 3. Navigation Bar */
 .navbar-marcador {
@@ -637,10 +638,13 @@ li[sidebar-nav-submenu].toggled #menu-principal .sub-menu{
 
 /* 6. Sidebar Social Icons */
 #social.sidebar-nav {
-	position: fixed;
-    top: auto;	
+	position: absolute;
+    width: 100%;
+    padding: 0;
+    margin: 0;
     bottom: 10px;
-    left: 15px;
+    left: 0;
+    text-align: center;
 }
 #social.sidebar-nav li {
 	border: none;
@@ -654,7 +658,7 @@ li[sidebar-nav-submenu].toggled #menu-principal .sub-menu{
 	background-repeat:  no-repeat;
 	width: 29px;
 	height: 29px;
-	display: block;
+	display:inline-block;
 }
 .marcador-icon.facebook {
 	background-position:  -10px -12px;
@@ -689,8 +693,6 @@ li[sidebar-nav-submenu].toggled #menu-principal .sub-menu{
 		padding: 10px;
 	}
 	#wrapper.toggled #social {
-		width: 215px;
-		left: 20px;
 		bottom: 75px;
 	}
 	#wrapper.toggled #social li {
@@ -1587,7 +1589,9 @@ span.cintillo.field.score.away {
 #right-sidebar-wrapper{
     background: #3D3D3D;
 }
-
+@media screen and (max-width:480px){
+   #right-sidebar-wrapper{display: none;}
+}
 @media screen and (min-width:960px){
     .sidebar-nav.right li{display: inline-block;}
 }
