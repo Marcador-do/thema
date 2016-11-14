@@ -106,7 +106,7 @@ if (count( $cat_ids ) > 0) {
          <!--/ DISPLAY HERO POST -->
                 </div>
 						<!-- Marcador posts -->
-						<div class="marcador-posts-listing-wrapper cards">
+						<div class="marcador-posts-listing-wrapper cards row">
 	<?php continue; endif; ?>
 									<?php include (get_template_directory() . "/includes/marcador_hero_post_list_item.include.php"); ?>
 <?php endwhile; ?>
@@ -128,7 +128,7 @@ if (count( $cat_ids ) > 0) {
         <div id="resultados-tab" class="row tabs hidden">
 		<div class="col-lg-12">
 				<h3>Partidos</h3>
-			</div>
+			
 				<!-- Marcador posts -->
 				<div class="marcador-posts-listing-wrapper cards">
                             <div class="col-xs-12 col-sm-4">
@@ -168,7 +168,7 @@ STAT_TEMPLATE;
 				
 				<!-- .marcador-posts-listing -->
 			
-		
+        </div>
 	</div>
         
         <div id="calendario-tab" class="row tabs hidden">
@@ -280,10 +280,10 @@ STAT_TEMPLATE;
           </div>
           <!-- Table -->
           <div class="row calendar-row">
-            <div class="col-xs-2">
+            <div class="col-xs-4 col-sm-2">
               <h3 class="temporada color-red">Temporada</h3>
             </div>
-            <div class="col-xs-10">
+            <div class="col-xs-8 col-sm-10">
               <table>
                 <tbody>
                   <tr>
@@ -636,15 +636,22 @@ EST_COLUMN_BODY_SECTION_ROW;
                     jQuery("#menu-deportes").ready(function(){
                        //Add up al elements width and assign it to the UL container
                         menuW = 0;
+                        scrolling = false;
                         
                         jQuery("#menu-deportes li").each(function(){
                           menuW +=  parseInt(jQuery(this).css('width'));
                         });
                         jQuery("#menu-deportes").css('width',menuW+50);
                         
-                         //Display fadeOuts if there are hidden elements to the right
+                         
+                        //Activate scrolling menu if window is smaller than menu
                                                
                         if(jQuery("#marcador-navbar-submenu").width() < jQuery("#menu-deportes").width()){
+                            
+                             //Make the menu scrollable/draggable
+                             jQuery('#marcador-navbar-submenu').kinetic({filterTarget: function(target, e){
+if (!/down|start/.test(e.type)){return !(/area|a|input/i.test(target.tagName));}}});
+                            
                             jQuery(".fadeOut.right").fadeIn(150);
                         }
                         
@@ -659,9 +666,14 @@ EST_COLUMN_BODY_SECTION_ROW;
                             jQuery(".fadeOut.right").fadeOut(150);
                         }else{jQuery(".fadeOut.right").fadeIn(150);}
                         });
-                                                
-                        //Make the menu scrollable/draggable
-                       jQuery("#marcador-navbar-submenu").kinetic();
+                            
+                    jQuery.("#marcador-navbar-submenu").mouseleave{
+                         jQuery("#marcador-navbar-submenu").kinetic('detach');
+                         jQuery("#marcador-navbar-submenu").kinetic('attach');
+                    }
+                    
+                        
+                       
                     });
                     </script>
         

@@ -162,6 +162,7 @@ p {
 }
 #wrapper.toggled .sidebar-nav li a {
 	left: 0;
+    background-color: #3D3D3D;
 }
 @media screen and (min-width: 480px) {
 	.sidebar-nav li a {
@@ -705,9 +706,9 @@ li[sidebar-nav-submenu].toggled #menu-principal .sub-menu{
 		left: -500px;
 	}
 	#wrapper.toggled #social {
-		width: 150px;
+		
 		bottom: 5px;
-    	left: 76px;
+    	
 	}
 	#wrapper.toggled #social li {
 		display: inline-block;
@@ -844,10 +845,17 @@ li[sidebar-nav-submenu].toggled #menu-principal .sub-menu{
 .fadeOut{position: absolute; top: 0; left: 0; width: 15px; height: 100%; background: linear-gradient(90deg, rgba(0,0,0,.5), rgba(0,0,0,0)); display: none;}
 .fadeOut.right{right: 0; left: auto; background: linear-gradient(90deg, rgba(0,0,0,0), rgba(0,0,0,.5));}
 
+#marcador-navbar-submenu.kinetic-moving-left ul,#marcador-navbar-submenu.kinetic-moving-right ul{pointer-events: none;}
+
 /* 10. Hero unit */
 .marcador-hero-post {
 	margin-bottom: 15px;
 }
+
+.marcador-hero-post .author{text-transform: uppercase; color: #666;}
+.marcador-hero-post .date{text-transform: uppercase;
+    font-weight: bold;
+    color: #333;}
 
 .marcador-hero-unit {
 	position: relative;
@@ -874,11 +882,10 @@ li[sidebar-nav-submenu].toggled #menu-principal .sub-menu{
     background: linear-gradient(0deg ,rgba(0,0,0,1), rgba(0,0,0,0));
     font-size: 24px;
 }
-.marcador-hero-unit:hover .hero-heading h1,
-.marcador-hero-unit .hero-heading,
+.marcador-hero-unit:hover h1.heading,
 .marcador-hero-permalink:hover,
 .marcador-hero-permalink:hover h1,
-.marcador-hero-unit .hero-heading h1:hover {
+.marcador-hero-unit h1.heading:hover {
 	text-decoration: none;
 	outline: none;
 }
@@ -1014,6 +1021,7 @@ li[sidebar-nav-submenu].toggled #menu-principal .sub-menu{
     color: #6d6c6c;
     font-style: italic;
 }
+
 .marcador-post-list-image {
     height: 120px;
     width: 100%;
@@ -1023,6 +1031,9 @@ li[sidebar-nav-submenu].toggled #menu-principal .sub-menu{
     background-position: center;
 }
 .marcador-post-list .marcador-post-list-image-col {
+}
+.marcador-post-list-content{
+min-height: 200px;
 }
 .marcador-post-list-title { 
     font-family: 'marcador-bold';
@@ -1048,9 +1059,11 @@ li[sidebar-nav-submenu].toggled #menu-principal .sub-menu{
 }
 .marcador-post-list-author {min-height:25px;}
 .marcador-post-list-date {min-height:25px;}
+
 .marcador-post-list .row:first-child {
-    padding: 15px 0;
     border-bottom: solid 1px #ececec;
+    padding-top: 15px;
+    padding-bottom: 15px;
 }
 .marcador-post-list {
     margin-bottom: 25px;
@@ -1971,6 +1984,7 @@ input.cmn-toggle-round:checked + label:after {
 .liga.nacional {
 	background-color: #004684;
 }
+.liga-content{overflow: auto;}
 /*Dropdown Score*/
 .dropdown-menu {
 	left: initial;

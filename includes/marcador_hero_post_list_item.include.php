@@ -12,7 +12,7 @@
                     <div class="col-xs-8 col-sm-7">
                       <div class="marcador-post-list-content">
                         <div class="marcador-post-list-category">
-                            <?php the_category(', '); ?>
+                            <?php the_category(', ','single'); ?>
                         </div>
                         <div class="marcador-post-list-title">
                           <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
@@ -50,7 +50,7 @@
                         </div>
                           <div class="marcador-post-list-excerpt">
                             
-                              <?php echo excerpt(20); ?>
+                              <?php echo excerpt(12); ?>
                             
                           </div>
                       </div>
