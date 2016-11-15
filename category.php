@@ -93,7 +93,7 @@ if (count( $cat_ids ) > 0) {
     <div class="col-md-12 col-lg-9">
         
         <div id="principal-tab" class="row tabs">
-            <div class="col-lg-12">
+            <div class="col-lg-12"> 
              <!-- DISPLAY HERO POST -->
         <?php if ( $principal ): 
 	while ( $principal->have_posts() ): $principal->the_post(); ?>
@@ -104,8 +104,9 @@ if (count( $cat_ids ) > 0) {
 			<?php include (get_template_directory() . "/includes/marcador_hero_post.include.php"); ?>
 		<?php endif; ?>
          <!--/ DISPLAY HERO POST -->
-                </div>
+               
 						<!-- Marcador posts -->
+                <div class="col-lg-12">
 						<div class="marcador-posts-listing-wrapper cards row">
 	<?php continue; endif; ?>
 									<?php include (get_template_directory() . "/includes/marcador_hero_post_list_item.include.php"); ?>
@@ -122,7 +123,9 @@ if (count( $cat_ids ) > 0) {
 
 							
 						</div>
+                </div>
 						<!-- .marcador-posts-listing -->
+        </div>
 		</div>
         
         <div id="resultados-tab" class="row tabs hidden">
@@ -174,24 +177,26 @@ STAT_TEMPLATE;
         <div id="calendario-tab" class="row tabs hidden">
 						<div class="col-xs-12">
 							<h1>Calendario</h1>
-						</div>
+						
 				<!-- Marcador posts -->
 				<div class="calendar-list">
-						<div class="col-xs-12 col-sm-4">
-							<div class="calendario-marcador input-group date">
+						
+							<div class="calendario-marcador input-group date col-xs-12 col-sm-4">
 								<input type="text" class="form-control"><span class="input-group-addon"><i class="material-icons">today</i><i class="material-icons">expand_more</i></span>
 							</div>
-						</div>
+						
                     
 					<!-- Calendar -->
 <?php $cal_template = <<<STAT_TEMPLATE
-                    <div class="calendar-row">
+                    <div class="row">
                         <div class="col-lg-12">
+                        <div class="calendar-row">
                             <div class="calendar-day">
                                 13 de Julio, 2016
                             </div>
                             <div class="calendar-content"></div>
                         </div>
+                       </div>
                     </div>\n
 STAT_TEMPLATE;
  ?>
@@ -225,16 +230,16 @@ STAT_TEMPLATE;
 ?>
         </div>
         <!-- .marcador-posts-listing -->
-    
-  </div>
+        </div>
+  </div> <!-- END OF CALENDARIO TAB -->
         
         <div id="posiciones-tab" class="row tabs hidden">
     <div class="col-xs-12">
               <h1>STANDING</h1>
             
         <!-- Marcador posts -->
-       
-          <div class="row calendar-row">
+       <div class="calendar-row">
+          <div class="row">
             <!-- Col 1 -->
             <div class="col-xs-12 col-sm-6 col-md-3 col-lg-2">
               <div class="glosary">
@@ -278,8 +283,11 @@ STAT_TEMPLATE;
               </div>
             </div>
           </div>
+            </div>
+        
           <!-- Table -->
-          <div class="row calendar-row">
+        <div class="calendar-row">
+          <div class="row">
             <div class="col-xs-4 col-sm-2">
               <h3 class="temporada color-red">Temporada</h3>
             </div>
@@ -355,7 +363,7 @@ LIGA_TABLE_ROW;
 ?>
             </div>
           </div>
-       
+       </div>
         <!-- .marcador-posts-listing -->
             </div>
   </div>
@@ -667,7 +675,7 @@ if (!/down|start/.test(e.type)){return !(/area|a|input/i.test(target.tagName));}
                         }else{jQuery(".fadeOut.right").fadeIn(150);}
                         });
                             
-                    jQuery.("#marcador-navbar-submenu").mouseleave(function(){
+                    jQuery("#marcador-navbar-submenu").mouseleave(function(){
                          jQuery("#marcador-navbar-submenu").kinetic('detach');
                          jQuery("#marcador-navbar-submenu").kinetic('attach');
                     });

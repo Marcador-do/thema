@@ -852,7 +852,7 @@ li[sidebar-nav-submenu].toggled #menu-principal .sub-menu{
 	margin-bottom: 15px;
 }
 
-.marcador-hero-post .author{text-transform: uppercase; color: #666;}
+.marcador-hero-post .author{text-transform: uppercase; color: #666; text-decoration: none;}
 .marcador-hero-post .date{text-transform: uppercase;
     font-weight: bold;
     color: #333;}
