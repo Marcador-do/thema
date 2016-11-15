@@ -667,10 +667,10 @@ if (!/down|start/.test(e.type)){return !(/area|a|input/i.test(target.tagName));}
                         }else{jQuery(".fadeOut.right").fadeIn(150);}
                         });
                             
-                    jQuery.("#marcador-navbar-submenu").mouseleave{
+                    jQuery.("#marcador-navbar-submenu").mouseleave(function(){
                          jQuery("#marcador-navbar-submenu").kinetic('detach');
                          jQuery("#marcador-navbar-submenu").kinetic('attach');
-                    }
+                    });
                     
                         
                        
