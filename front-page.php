@@ -72,10 +72,10 @@ $marcador_equipos = array(
 
 
 
-<div class="container-fluid">
+<div id="main-content" class="container-fluid">
     <div class="row">
         <!-- MAIN COLUMN -->
-        <div class="col-lg-9 col-md-9 col-xs-12">
+        <div class="col-lg-12">
               <?php while ( $destacadas->have_posts() ): $destacadas->the_post(); ?>
 	
 	<?php $destacadas_ids[] = get_the_ID(); ?>          
