@@ -86,7 +86,7 @@ if (count( $cat_ids ) > 0) {
 	$max_pages = $principal->max_num_pages;
 } ?>
 <div id="marcador-page-template">
-<div class="container-fluid">
+<div id="main-content" class="container-fluid">
     
     <div class="row">
         <!-- MAIN CONTENT SECTION STARTS HERE-->
