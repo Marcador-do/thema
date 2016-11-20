@@ -1,0 +1,185 @@
+/** Raylin Codes **/
+.trans-3{
+	transition:all .3s ease;
+	-webkit-transition:all .3s ease;
+	-moz-transition:all .3s ease;
+	-o-transition:all .3s ease;
+	-ms-transition:all .3s ease;
+	
+	
+}
+.showHidePass{
+	position: absolute;
+	right: 10px;
+	top:50%;
+	margin-top:-11px;
+	font-size:20px;
+	z-index:2;
+	opacity:.4;
+	cursor:pointer;
+}
+.showHidePass:hover{
+	opacity:1;
+}
+.showHidePass.active{
+	opacity:1 !Important;
+	color: #4285f4;
+}
+.marcador-modal-form .form-group{
+	position:relative;
+}
+.marcador-modal-form .form-control[type=password]{
+	padding-right:40px;
+}
+
+.form-edit{
+	padding: .5em 1rem;	
+	outline:none !important;
+	border: 1px solid #ccc;
+	background:none;
+	box-shadow:none !important;
+	width:100% !important;
+}
+.form-edit:focus{
+	border-color:#000;
+	background:#fff;
+	outline:none !important;
+}
+.user-field-name.label{
+	text-transform:uppercase;
+	font-size:1.5rem;
+	padding:0;
+	margin-bottom: 1em;
+	display: block;
+	text-align: left;
+}
+.user-field.user-bio{
+	max-height:300px;
+	overflow:auto;
+}
+.generate-password{
+	width:100%;
+}
+.full-width{
+	width:100%;
+	display: block;
+}
+.user-field .form-group{
+	position: relative;
+}
+.user-field .form-group span.errorField{
+	background: #fff2ce;
+	padding: .5em 1em;
+	display: block !important;
+	font-size: 72%;
+	color: #564822;
+	width: 100%;
+}
+.user-field .form-group .valid + span.errorField{
+	display:none !important;
+
+}
+
+.navbar-marcador .navbar-header.pull-right ul li.logged-in ul.drop-user-profile{
+	width:20rem;
+	padding:0;
+	margin:0;
+	position:absolute;
+	display:none;
+}
+
+.navbar-marcador .navbar-header.pull-right ul li.logged-in ul.drop-user-profile li{
+	display:block;
+}
+.navbar-marcador .navbar-header.pull-right ul li.logged-in ul.drop-user-profile li a{
+	display:block;
+	background: #3d3d3d;
+	text-decoration:none;
+}
+.navbar-marcador .navbar-header.pull-right ul li.logged-in ul.drop-user-profile li a:hover{
+	background: #000000;
+}
+
+
+.navbar-marcador .navbar-header.pull-right ul li.logged-in:hover  ul.drop-user-profile{
+	display:block;
+}
+.pagination-favoritos{
+	margin: 2em 0 4em 0;
+	text-align:center;
+	display: block;
+}
+.pagination-favoritos .page-numbers{
+	background:#3d3d3d;
+	color:#ccc;
+	padding:.8em 1em;
+	text-decoration:none;
+	transition:all .2s ease;
+	-webkit-transition:all .2s ease;
+	display:inline-block;
+	vertical-align:top;
+	float:none;
+	margin:0 0 .25em 0; 
+	
+}
+.pagination-favoritos a.page-numbers:hover,
+.pagination-favoritos .page-numbers.current{
+	background:#c04343;
+	color:#ffffff;
+}
+
+.text-capitalize{
+	text-transform:capitalize;
+}
+
+.edit-post .post-edit-link{
+	display: inline-block;
+	background: #27789e;
+	color: #fff;
+	padding: .2em 1em;
+	margin-bottom: 1em;
+}
+
+.edit-post .post-edit-link:hover{
+	background: #184c64;
+}
+
+.my-team-section .info-help{
+    background: #f0f0f0;
+    padding: 1em;
+    margin: 0 0 1.7em 0;
+    max-width: 80em;
+}
+.my-team-section .team-desc{
+    font-size:1.3em !important;
+}
+
+
+.marcador-tabs .fav-logo {
+    margin: 5px 0;
+    display: inline-block;
+    position:relative;
+    transition:all .3s ease;
+    -webkit-transition:all .3s ease;
+    
+}
+.marcador-tabs .input-checkbox{
+    display:none;
+}
+.marcador-tabs .fav-logo:before{
+    position:absolute;
+    background:url("../imgs/tick-inside-circle.png") center center no-repeat  rgba(0, 99, 0, 0.63);
+    display:block;
+    content: '';
+    color:#fff;
+    width:100%;
+    height:100%;
+    opacity:0;
+      transition:all .3s ease;
+    -webkit-transition:all .3s ease;
+    
+}
+.marcador-tabs .fav-logo:hover:before, 
+.marcador-tabs  .input-checkbox:checked + .fav-logo:before  {
+   opacity:1;
+}

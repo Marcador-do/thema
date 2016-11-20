@@ -1020,6 +1020,32 @@ li[sidebar-nav-submenu].toggled #menu-principal .sub-menu{
 .marcador-posts-listing-wrapper.cards-wrapper {
 	border-top: none;
 }
+.marcador-post-list-category{
+	margin: 1em 0 0 0;
+	text-transform: uppercase;
+	font-weight: 700;
+	color: #6d6c6c;
+	font-style: italic;
+}
+.marcador-post-list-category small{
+	font-weight:400;
+	font-style:normal;
+	font-size:70%;
+}
+.marcador-post-list-category .post-categories{
+	margin:0;
+	padding:0;
+	list-style:none;
+}
+.marcador-post-list-category li {
+	display:inline-block;
+	vertical-align:top;
+	margin-right:1em;
+}
+.marcador-post-list-category li:last-child {
+	margin-right:0;
+}
+
 .marcador-post-list-category a {
     text-transform: uppercase;
     font-weight: 700;
@@ -1042,8 +1068,12 @@ min-height: 200px;
 }
 .marcador-post-list-title { 
     font-family: 'marcador-bold';
+<<<<<<< HEAD
+    margin-bottom: 1em;
+=======
     min-height: 40px;
    
+>>>>>>> fc1c7064bc42d95ce557ac9ed7af8a8164fd37e7
 }
 .marcador-post-list-excerpt {
 	font-family: 'marcador-regular';
@@ -1052,6 +1082,7 @@ min-height: 200px;
 
 .marcador-post-list-title a {
 	color: #333;
+	font-size: 1.3em;
 }
 .marcador-post-list-meta a {
     position: relative;
@@ -1729,6 +1760,7 @@ span.cintillo.field.score.away {
 }
 .user-profile-info {
     position: relative;
+    margin-top: 3em;
 }
 .user-field-group {
     margin-bottom: 15px;

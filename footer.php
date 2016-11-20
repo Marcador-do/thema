@@ -47,6 +47,9 @@
 	<?php // <!-- /#wrapper --> ?>
 	<?php wp_footer(); ?>
 	<script type="text/javascript">
+
+	var baseUrl = jQuery('body').attr('data-url');
+
 		var MARCADOR = (function( APP ){
 
 			<?php
@@ -164,7 +167,7 @@
 
 			var ajax = function ( payload, successCallback, errorCallback ) {
 				var options = {
-					url: '/wp-admin/admin-ajax.php',
+					url: baseUrl+'/wp-admin/admin-ajax.php',
 					type: 'post',
 					dataType: 'json',
 					data: payload
@@ -198,8 +201,8 @@
 						// console.log( data );
 						if ( data.valid ) {
 							window.setTimeout(function() {
-								document.location.href = referer;
-							}, 5000);
+								document.location.href = baseUrl+"/perfil/";
+							}, 2000);
 						}
 					},
 					function (err) { 
@@ -327,6 +330,7 @@
 
 	function checkLoginState() {
 		FB.getLoginStatus(function(response) {
+			
 			console.log("Checking log in response", response);
 			statusChangeCallback( response, MARCADOR.facebookLogin );
 		});
@@ -334,6 +338,7 @@
 
 	function checkRegisterState () {
 		FB.getLoginStatus(function(response) {
+
 			console.log("Checking register response", response);
 			statusChangeCallback( response, MARCADOR.facebookRegister );
 		});

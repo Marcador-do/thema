@@ -7,7 +7,7 @@
  * @package marcadordo
  * 
  */
-
+global $user_admin_name;
 $authors = <<<AUTHORS
 <!--
 *|==============================
@@ -23,7 +23,7 @@ $authors = <<<AUTHORS
 *|  Ronnie Baez
 *|  ronnie.baez@gmail.com
 *|==============================
--->\n
+-->
 AUTHORS;
 
 /**
@@ -48,7 +48,7 @@ function banner() {
 	
 	<?php wp_head(); ?>
 </head>
-<body <?php body_class(); ?>>
+<body <?php body_class(); ?> data-url='<?php echo get_site_url(); ?>'>
 	<script>
 	  window.fbAsyncInit = function() {
 		  FB.init({
@@ -95,10 +95,14 @@ function banner() {
 												<input name="username" type="text" placeholder="<?php echo __('Usuario', 'marcadordo'); ?>" class="form-control modal-input">
 											</div>
 											<div class="form-group">
-												<input name="password" type="password" placeholder="<?php echo __('Contraseña', 'marcadordo'); ?>" class="form-control modal-input">
+											<i class="fa fa-eye showHidePass trans-3" data-passID = 'passRegisterOne' aria-hidden="true"></i>				
+
+												<input name="password" type="password" id="passRegisterOne" placeholder="<?php echo __('Contraseña', 'marcadordo'); ?>" class="form-control modal-input">
 											</div>
 											<div class="form-group">
-												<input name="passwordConf" type="password" placeholder="<?php echo __('Confirmar Contraseña', 'marcadordo'); ?>" class="form-control modal-input">
+											<i class="fa fa-eye showHidePass trans-3" data-passID = 'passRegisterTwo' aria-hidden="true"></i>				
+
+												<input name="passwordConf" type="password" id="passRegisterTwo" placeholder="<?php echo __('Confirmar Contraseña', 'marcadordo'); ?>" class="form-control modal-input">
 											</div>
 											<div class="form-group">
 												<button class="btn btn-danger btn-block" type="submit">
@@ -170,7 +174,9 @@ function banner() {
 												<input name="username" type="text" placeholder="<?php echo __('Nombre de Usuario o Correo Electrónico', 'marcadordo'); ?>" class="form-control modal-input">
 											</div>
 											<div class="form-group">
-												<input name="password" type="password" placeholder="<?php echo __('Contraseña', 'marcadordo'); ?>" class="form-control modal-input">
+												<i class="fa fa-eye showHidePass trans-3" data-passID = 'passLogin' aria-hidden="true"></i>				
+
+												<input name="password" id='passLogin' type="password" placeholder="<?php echo __('Contraseña', 'marcadordo'); ?>" class="form-control modal-input">
 											</div>
 											<div class="form-group">
 												<button class="btn btn-danger btn-block" type="submit">
@@ -337,14 +343,16 @@ function banner() {
 						<span class="sidebar-menu-item">Videos</span>
 					</a> 
 				</li>
+				<?php if(is_user_logged_in() === true): ?>
 				<li>
-					<a href="#">
+					<a href="<?php echo get_site_url(); ?>/favoritos">
 						<span class="sidebar-icon">
 							<i class="material-icons md-light md-24">star</i>
 						</span>
-						<span class="sidebar-menu-item">Favoritos</span>
+						<span class="sidebar-menu-item"><?php _e('Favoritos'); ?></span>
 					</a> 
 				</li>
+			<?php endif; ?>
 				<li>
 					<a href="#" class="sidebar-show-more">
 						<span class="sidebar-icon">
@@ -407,9 +415,15 @@ function banner() {
 							<?php else: /* <!-- Logged user --> */ ?>
 							<?php /* <!-- END OF Not logged user --> */ ?>
 							<li class="logged-in">
-								<a href="/perfil/">
+								<a href="javascript:;">
 									<?php echo get_avatar( get_current_user_id(), $size = 40); ?>
 								</a>
+								<ul class="drop-user-profile">
+									<li><a class="trans-3" href="<?php echo get_site_url()."/perfil"?>"><?php _e("Mi Perfil", $common_domain); ?></a></li>
+									<li><a class="trans-3" href="<?php echo get_site_url()."/mis-equipos"?>"><?php _e("Mis Equipos", $common_domain); ?></a></li>
+									<li><a class="trans-3" href="<?php echo get_admin_url(); ?>/post-new.php"><?php _e("Redactar un post", $common_domain); ?></a></li>									
+									<li><a class="trans-3" href="<?php echo wp_logout_url(home_url()); ?>"><?php _e("Cerrar Sesión", $common_domain); ?></a></li>
+								</ul>
 							</li>
 							<?php endif; ?>
 							<li class="dropdown dropdown-lg">

@@ -1,0 +1,180 @@
+/** 
+ * Author:; Raylin Aquino <raylinaquino@gmail.com>
+ * Description: STyleSheet only for User admin 
+ * Date: 13-11-2016
+ */
+* {
+    font-family: 'Roboto', sans-serif;
+}
+.wp-list-table .status-pending{
+    background: #fffcf1 !important;
+}
+
+#marcador-page-template {
+    margin-top: 15px;
+    background:none
+}
+
+.marcador-nav.nav>li>a {
+    margin: 0;
+    color: #3d3d3d;
+    border-radius: 0;
+}
+.marcador-nav.nav>li:first-child>a {
+    border-top-left-radius: 3px;
+    border-bottom-left-radius: 3px;
+}
+.marcador-nav.nav>li:last-child>a {
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px;
+}
+.marcador-nav.nav-pills>li.active>a, 
+.marcador-nav.nav-pills>li.active>a:hover, 
+.marcador-nav.nav-pills>li.active>a:focus {
+    background-color: #e14d43;
+    color: #fff;
+}
+.marcador-nav.nav-pills>li+li {
+    margin: 0;
+}
+.marcador-tabs.tab-content {
+    margin: 25px 0;
+}
+.marcador-nav.marcador-sub {
+    margin-bottom: 25px;
+}
+.marcador-nav.marcador-sub.nav>li>a {
+    border: none;
+    font-weight: 700;
+    font-size: 18px;
+    background-color: transparent;
+    color: #7d7d7d;
+}
+.marcador-nav.marcador-sub.nav>li:first-child>a {
+    border-right: solid 1px #ccc;
+}
+.marcador-nav.marcador-sub.nav-pills>li.active>a, 
+.marcador-nav.marcador-sub.nav-pills>li.active>a:hover, 
+.marcador-nav.marcador-sub.nav-pills>li.active>a:focus {
+    color: #e14d43;
+    background-color: transparent;
+}
+
+.marcador-tabs .fav-logo {
+    margin: 5px 0;
+    display: inline-block;
+    position:relative;
+    transition:all .3s ease;
+    -webkit-transition:all .3s ease;
+    
+}
+.marcador-tabs .input-checkbox{
+    display:none;
+}
+.marcador-tabs .fav-logo:before{
+    position:absolute;
+    background:url("../imgs/tick-inside-circle.png") center center no-repeat  rgba(0, 99, 0, 0.63);
+    display:block;
+    content: '';
+    color:#fff;
+    width:100%;
+    height:100%;
+    opacity:0;
+      transition:all .3s ease;
+    -webkit-transition:all .3s ease;
+    
+}
+.marcador-tabs .fav-logo:hover:before, 
+.marcador-tabs  .input-checkbox:checked + .fav-logo:before  {
+   opacity:1;
+}
+
+
+#marcador-myteam-tabs{
+    background:none;
+
+}
+#marcador-myteam-tabs .marcador-nav li a{
+    background: #363b3f;
+    padding:2em 2.5em;
+    font-size:1em;
+    color:#fff;
+    box-shadow:none;
+    -webkit-box-shadow:none;
+    outline:none;
+}
+#marcador-myteam-tabs .marcador-nav li a:hover,
+#marcador-myteam-tabs .marcador-nav li.ui-state-active a{
+    background:#e14d43;
+}
+
+#marcador-myteam-tabs .marcador-sub li a{
+    padding:1em 2.5em;
+    outline:none !important;
+}
+#marcador-myteam-tabs  .league-wrap h3{
+    text-transform:uppercase;
+    font-size:1.5em;
+    position:relative;
+}
+
+#marcador-myteam-tabs  .league-wrap h3:after{
+    content:'';
+    display:block;
+    position:absolute;
+    height:.3em;
+    bottom:-.8em;
+    background:red;
+    width:4em;
+}
+
+#marcador-myteam-tabs .team-logos{
+    margin-top:4em !important;
+}
+.marcador-tabs .cat-items{
+    outline:none;
+    box-shadow:none;
+    -webkit-box-shadow:none;
+    
+}
+.marcador-nav.top{
+    margin-top:2em;
+}
+.my-team-section .info-help{
+    background: #f0f0f0;
+    padding: 1em;
+    margin: 0 0 1.7em 0;
+    max-width: 80em;
+}
+.my-team-section .team-desc{
+    font-size:1.3em !important;
+}
+.wp-admin #wpadminbar #wp-admin-bar-site-name>.ab-item:before {
+    background: url("../imgs/logo.png") 0 0 no-repeat !important;
+    content: "";
+    width: 100px;
+    height: 20px;
+    display: block;
+    position: relative;
+    background-size: contain !important;
+    -webkit-background-size: contain !important;
+    top: 7px;
+    
+}
+.wp-admin #wpadminbar #wp-admin-bar-site-name>.ab-item{
+    text-indent:-99em;
+}
+@media (max-width:782px){
+    #marcador-myteam-tabs .marcador-nav li{
+        float:none;
+        margin:0;
+    }
+    #marcador-myteam-tabs .marcador-nav li a{
+        padding:1em 2em;
+    }
+     #wpadminbar #wp-admin-bar-site-name a.ab-item{
+         width:150px;
+         top:8px;
+     }
+}
+
