@@ -37,9 +37,9 @@ $query_fav = new WP_Query($args);
 
 ?>
 <div id="marcador-page-template" class="search">
-  <div class="container-fluid">
+  <div id="main-content" class="container-fluid">
     <div class="row">
-      <div class="col-xs-12 div col-sm-12 col-md-12 col-lg-9">
+      <div class="col-lg-12">
        <div id="favoritos" class="row">
        <h1><?php _e('Favoritos'); ?></h1>
        <h2><?php _e('Esta sección filtra los contenidos de las categorías que has elegido en la sección de') ?> <a href="<?php echo get_site_url(); ?>/mis-equipos"><strong>Mis Equipos</strong></a></h2>

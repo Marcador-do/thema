@@ -18,9 +18,9 @@ get_header();
 do_action('add_menu_marcador_user_section');
 ?>
 
-<div class="container-fluid">
+<div id="main-content" class="container-fluid">
 	<div class="row">
-		<div class="col-xs-12 col-lg-9">
+		<div class="col-lg-12">
 			<div id="redactar-form">
 				<form action="" id="form-redactar">
 					<div id="my-awesome-dropzone">
@@ -73,6 +73,7 @@ do_action('add_menu_marcador_user_section');
 				</form>
 			</div>
 		</div>
+        <?php get_sidebar();?>
 		<script type="text/javascript">
 			jQuery(document).ready(function() {
 				var myDropzone = new Dropzone("#my-awesome-dropzone", { 

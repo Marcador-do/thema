@@ -11,9 +11,9 @@
 
 <?php get_header(); ?>
 <div id="single-post-template-file">
-	<div class="container-fluid">
+	<div id="main-content" class="container-fluid">
 		<div class="row">
-			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-9">
+			<div class="col-lg-12">
 				<div class="row">
 					<?php if( have_posts() ): ?>
 					<div class="container-fluid">

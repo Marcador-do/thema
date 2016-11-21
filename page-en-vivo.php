@@ -11,12 +11,14 @@
 ?>
 <?php get_header(); ?>
 <div id="marcador-page-template" class="search">
-  <div class="container-fluid">
+  <div id="main-content" class="container-fluid">
     <div class="row">
-      <div class="col-xs-12 div col-sm-12 col-md-12 col-lg-9">
+      <div class="col-lg-12">
          <!--MARCADOR EN VIVO -->
           <div id="en-vivo" class="row">
         <h1 class="page-title"><?php the_title(); ?></h1>
+              <div id="broadcasting" class="row">
+            <span class="icon"><i class="material-icons">&#xE31D;</i></span><span class="tag">Estamos en vivo</span><span class="time">4:15</span><span class="cta">ENTRAR</span></div>
         <div class="stream">
     <iframe id="live" src="https://www.youtube.com/embed/1UdirOGTjOg" frameborder="0" allowfullscreen></iframe>
             

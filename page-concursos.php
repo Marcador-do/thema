@@ -11,9 +11,9 @@
 ?>
 <?php get_header(); ?>
 <div id="marcador-page-template">
-  <div class="container-fluid">
+  <div id="main-content" class="container-fluid">
     <div class="row">
-      <div class="col-xs-12 div col-sm-12 col-md-12 col-lg-9">
+      <div class="col-lg-12">
           <h1 class="page-title">Concursos</h1>
        <div class="concurso-wrapper">
         <div class="row">

@@ -90,7 +90,7 @@ if (count( $cat_ids ) > 0) {
     
     <div class="row">
         <!-- MAIN CONTENT SECTION STARTS HERE-->
-    <div class="col-md-12 col-lg-9">
+    <div class="col-lg-12">
         
         <div id="principal-tab" class="row tabs">
             <div class="col-lg-12"> 

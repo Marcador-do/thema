@@ -78,9 +78,9 @@ if(!empty($user_cat_options)){
 <div id="marcador-page-template" class="wrap my-team-section">
 	<form action="" method="post">
 						
-	<div class="container-fluid">
+	<div id="main-content" class="container-fluid">
 		<div class="row">
-			<div class="col-md-12">
+			<div class="col-lg-12">
 				
 				<h1><?php _e("Mis Equipos"); ?></h1>
 				<p class="team-desc"><?php _e("Selecciona tus categorías favoritas.") ?></p>
@@ -90,10 +90,11 @@ if(!empty($user_cat_options)){
 				<input type='submit' class='btn btn-primary' value='Guardar Favoritos' />
 				<br><br>
 			</div>
+            <?php get_sidebar();?>
 		</div>
 		<div class="row">
 
-			<div class="col-xs-12 div col-sm-12 col-md-12 col-lg-9">
+			<div class="col-lg-12">
 				
 				<!-- Tabs Menu -->
 				<ul class="marcador-nav top nav nav-pills">

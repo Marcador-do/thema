@@ -496,7 +496,7 @@ li[sidebar-nav-submenu].toggled #menu-principal .sub-menu{
 /*Sidebar and Main-content positioning*/
 
 #main-content{position: relative; padding-right: 395px;}
-#sidebar{position: absolute; top: 0; right: 80px; width: 300px; height: 100%; min-height: 300px; overflow: hidden;}
+#sidebar{position: absolute; top: 0; right: 80px; width: 300px; height: 100%; min-height: 300px; overflow-x: hidden;}
 @media screen and (max-width:1127px){#sidebar{position: relative; right: 0; width: 100%; height: auto; float: left; padding: 15px;}#main-content{padding-right: 15px;}}
 
 @media screen and (min-width:1000px) and (max-width: 1127px){

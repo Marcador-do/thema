@@ -11,9 +11,9 @@
 ?>
 <?php get_header(); ?>
 <div id="marcador-page-template">
-  <div class="container-fluid">
+  <div id="main-content" class="container-fluid">
     <div class="row">
-      <div class="col-xs-12 div col-sm-12 col-md-12 col-lg-9">
+      <div class="col-lg-12">
          
            <!--PERFIL DEL REDACTOR -->
           <div id="redactor" class="row" >

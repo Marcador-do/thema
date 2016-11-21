@@ -17,9 +17,9 @@
 ?>
 <?php get_header(); ?>
 <div id="marcador-page-template" class="search">
-  <div class="container-fluid">
+  <div id="main-content" class="container-fluid">
     <div class="row">
-      <div class="col-xs-12 div col-sm-12 col-md-12 col-lg-9">
+      <div class="col-lg-12">
         <header class="page-header-template">
           <h2 class="page-title">
             <?php the_title(); ?>
@@ -27,7 +27,7 @@
         </header> 
       </div>
       <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
-      <div class="col-xs-12 div col-sm-12 col-md-12 col-lg-9">
+      <div class="col-lg-12">
         <div class="page-content-template">
           <?php echo $response; ?>
           <?php /*the_content();*/ ?>
@@ -56,6 +56,7 @@
         </div>
       </div>
       <?php endwhile; endif; ?>
+        <?php get_sidebar(); ?>
     </div>
   </div>
 </div> 
