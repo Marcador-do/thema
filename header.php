@@ -421,7 +421,7 @@ function banner() {
 								<ul class="drop-user-profile">
 									<li><a class="trans-3" href="<?php echo get_site_url()."/perfil"?>"><?php _e("Mi Perfil", $common_domain); ?></a></li>
 									<li><a class="trans-3" href="<?php echo get_site_url()."/mis-equipos"?>"><?php _e("Mis Equipos", $common_domain); ?></a></li>
-									<li><a class="trans-3" href="<?php echo get_admin_url(); ?>/post-new.php"><?php _e("Redactar un post", $common_domain); ?></a></li>									
+									<li><a class="trans-3" href="<?php echo get_admin_url(); ?>/post-new.php" target="_blank"><?php _e("Redactar un post", $common_domain); ?></a></li>									
 									<li><a class="trans-3" href="<?php echo wp_logout_url(home_url()); ?>"><?php _e("Cerrar Sesión", $common_domain); ?></a></li>
 								</ul>
 							</li>

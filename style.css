@@ -1757,6 +1757,7 @@ span.cintillo.field.score.away {
 }
 #profile-page .user-profile-picture {
 	margin-bottom: 15px;
+	max-width: 300px;
 }
 .user-profile-info {
     position: relative;

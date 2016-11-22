@@ -41,7 +41,7 @@ $query_own_posts = new WP_Query($args);
 			<div class="user-profile">
 				<!-- Please crop this image to be $dimension = 300x225  -->
 				<div class="user-profile-picture">
-					<img src="<?php echo get_avatar_url($user->ID , array("size"=>"300")); ?>" alt="USER PROFILE" class="img-responsive">
+					<img src="<?php  echo get_wp_user_avatar_src($user->ID , array("size"=>"300")); ?>" width="100%" alt="USER PROFILE" class="img-responsive">
 				</div>
 				<p>
 					<a href="<?php echo get_admin_url().'/profile.php'; ?>" class="btn btn-default marcador-special edit-profile" target="_blank" data-action="edit">Editar</a>
