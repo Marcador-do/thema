@@ -105,7 +105,7 @@ function banner() {
 												<input name="passwordConf" type="password" id="passRegisterTwo" placeholder="<?php echo __('Confirmar Contraseña', 'marcadordo'); ?>" class="form-control modal-input">
 											</div>
 											<div class="form-group">
-												<button class="btn btn-danger btn-block" type="submit">
+												<button class="btn btn-danger btn-submit btn-block" data-wait="<?php _e("Procesando...") ?>"  type="submit">
 													<?php echo __( 'Registrarse', 'marcadordo' ) ?>
 												</button>
 											</div>
@@ -245,7 +245,7 @@ function banner() {
 									<div class="marcador-modal-form">
 										<form name="forgot-form">
 											<div class="form-group">
-												<input type="email" placeholder="<?php echo __('Inserta Tu Correo Electrónico', 'marcadordo'); ?>" class="form-control modal-input">
+												<input type="email" name="email" placeholder="<?php echo __('Inserta tu correo electrónico', 'marcadordo'); ?>" class="form-control modal-input">
 											</div>
 											<div class="form-group">
 												<button class="btn btn-danger btn-block" type="submit">
