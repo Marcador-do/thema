@@ -48,6 +48,7 @@ function marcador_setup() {
 	register_nav_menus( array(
 		'primary' 		=> esc_html__( 'Principal', 'marcadordo' ), // Deportes
 		'primary_mas' 	=> esc_html__( 'Principal-Mas', 'marcadordo' ),
+		'primary_video'	=> esc_html__( 'Principal-Video', 'marcadordo' ),
 		'primary_top' 	=> esc_html__( 'Principal-Top', 'marcadordo' ),
 		'deportes_top' 	=> esc_html__( 'Deportes', 'marcadordo' ),
 		'perfil_top' 	=> esc_html__( 'Perfil', 'marcadordo' ),
@@ -457,7 +458,6 @@ function check_marcador_user_session_needed() {
 add_action('check_marcador_user_session', 'check_marcador_user_session_needed');
 
 
-
 function insert_marcador_user_section_menu () {
 	if ( has_nav_menu( 'perfil_top' ) ) {
 		$args = array(
@@ -470,6 +470,32 @@ function insert_marcador_user_section_menu () {
 	}
 }
 add_action('add_menu_marcador_user_section', 'insert_marcador_user_section_menu');
+
+
+function insert_marcador_mas_menu () {
+	if ( has_nav_menu( 'primary_mas' ) ) {
+		$args = array(
+				'theme_location' => 'primary_mas',
+				'container' => '',
+				'menu_class' => 'sidebar-nav-submenu',
+		);
+		wp_nav_menu( $args );
+	}
+}
+add_action('add_menu_marcador_mas', 'insert_marcador_mas_menu');
+
+
+function insert_marcador_video_menu () {
+	if ( has_nav_menu( 'primary_video' ) ) {
+		$args = array(
+				'theme_location' => 'primary_video',
+				'container' => '',
+				'menu_class' => 'sidebar-nav-submenu',
+		);
+		wp_nav_menu( $args );
+	}
+}
+add_action('add_menu_marcador_video', 'insert_marcador_video_menu');
 
 
 
