@@ -87,7 +87,7 @@ function banner() {
 							<div class="row">
 								<div class="col-sm-6 col-md-6 modal-col">
 									<div class="marcador-modal-form">
-										<form name="register-form">
+										<form name="register-form"  method="post">
 											<div class="form-group">
 												<input name="email" type="email" placeholder="<?php echo __('Correo Electrónico', 'marcadordo'); ?>" class="form-control modal-input">
 											</div>
@@ -169,7 +169,7 @@ function banner() {
 							<div class="row">
 								<div class="col-sm-6 col-md-6 modal-col">
 									<div class="marcador-modal-form">
-										<form name="login-form">
+										<form name="login-form"  method="post">
 											<div class="form-group">
 												<input name="username" type="text" placeholder="<?php echo __('Nombre de Usuario o Correo Electrónico', 'marcadordo'); ?>" class="form-control modal-input">
 											</div>
@@ -245,7 +245,7 @@ function banner() {
 							<div class="row">
 								<div class="col-xs-12 col-sm-12 col-md-12 modal-col">
 									<div class="marcador-modal-form">
-										<form name="forgot-form">
+										<form name="forgot-form" method="post">
 											<div class="form-group">
 												<input type="email" name="email" placeholder="<?php echo __('Inserta tu correo electrónico', 'marcadordo'); ?>" class="form-control modal-input">
 											</div>
