@@ -337,13 +337,14 @@ function banner() {
 						}
 					?>
 				</li>
-				<li>
-					<a href="#">
+				<li sidebar-nav-submenu class>
+					<a href="#" class="">
 						<span class="sidebar-icon">
 							<i class="material-icons md-light md-24">play_circle_outline</i>
 						</span>
 						<span class="sidebar-menu-item">Videos</span>
 					</a> 
+					<?php do_action('add_menu_marcador_video'); ?>
 				</li>
 				<?php if(is_user_logged_in() === true): ?>
 				<li>
@@ -355,13 +356,14 @@ function banner() {
 					</a> 
 				</li>
 			<?php endif; ?>
-				<li>
+				<li sidebar-nav-submenu class>
 					<a href="#" class="sidebar-show-more">
 						<span class="sidebar-icon">
 							<i class="material-icons md-light md-24">more_horiz</i>
 						</span>
 						<span class="sidebar-menu-item">Más</span>
 					</a> 
+					<?php do_action('add_menu_marcador_mas'); ?>
 				</li>
 			</ul>
 			<ul id="social" class="sidebar-nav">
