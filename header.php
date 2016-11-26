@@ -185,7 +185,9 @@ function banner() {
 											</div>
 											<div class="form-group">
 												<p class="modal-form-copy text-center">
-													<a href="#" data-toggle="modal" data-target="#forgotModal">¿Olvidaste tu contraseña?</a>
+
+													<a href="#" data-toggle="modal" data-target="#forgotModal"><?php _e("¿Olvidaste tu contraseña?"); ?></a>
+													
 												</p>
 											</div>
 											<?php wp_nonce_field( 'marcador_ajax_login' ); ?>
