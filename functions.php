@@ -7,7 +7,8 @@
  * @package marcadordo
  * @author  Richard Blondet <richardblondet@gmail.com>
  */
-
+$common_domain = "marcadordo";
+ 
 if ( ! function_exists( 'marcador_setup' ) ) :
 /**
  * Sets up theme defaults and registers support for various WordPress features.
@@ -47,6 +48,7 @@ function marcador_setup() {
 	register_nav_menus( array(
 		'primary' 		=> esc_html__( 'Principal', 'marcadordo' ), // Deportes
 		'primary_mas' 	=> esc_html__( 'Principal-Mas', 'marcadordo' ),
+		'primary_video'	=> esc_html__( 'Principal-Video', 'marcadordo' ),
 		'primary_top' 	=> esc_html__( 'Principal-Top', 'marcadordo' ),
 		'deportes_top' 	=> esc_html__( 'Deportes', 'marcadordo' ),
 		'perfil_top' 	=> esc_html__( 'Perfil', 'marcadordo' ),
@@ -77,7 +79,7 @@ function marcador_setup() {
 		array(
 			'read' 							=> true,
 			'edit_posts' 				=> true,
-			'edit_pages' 				=> true,
+			'edit_pages' 				=> false,
 			'create_posts'			=> true,
 			'manage_categories' => true,
 			'edit_themes' 			=> false,
@@ -148,12 +150,24 @@ function marcador_scripts() {
 	$benton_marcador_font = 'assets/fonts/benton-marcador/font.css';
 	$twitter_bootstrap  = 'assets/vendor/bootstrap/css/bootstrap.min.css?id=5d472e23c7e390b505e8dd6606f3a9ce';
 	$materialize_spinner = 'assets/css/materialize.spinner.css';
+	$custom = 'assets/css/custom.css';
 
 	wp_enqueue_style( 'google-roboto-font', $google_roboto_font, array() );
 	wp_enqueue_style( 'benton-marcador-font', $src . $benton_marcador_font, array() );
 	wp_enqueue_style( 'twitter-bootstrap', $src . $twitter_bootstrap, array() );
 	wp_enqueue_style( 'materialize-spinner', $src . $materialize_spinner, array() );
+
 	
+
+	/** Raylin Code Start **/
+
+	wp_enqueue_style( 'fontawesome-css', 'https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css' , array() );
+	wp_enqueue_style( 'custom-css', $src . $custom , array() );
+
+	
+	/** Raylin Code End  **/
+
+
 
 	$sidebar_menu = 'assets/js/sidebar-menu.js';
 	$sidebar_nav_submenu = 'assets/js/sidebar-nav-submenu.js';
@@ -161,6 +175,11 @@ function marcador_scripts() {
 	$marcador_toastr = 'assets/js/toastr-notify.js';
 	// More details at: http://jquery.malsup.com/block/
 	$blockUI = 'assets/js/jquery.blockUI.js';
+	$mainJs = 'assets/js/main.js';
+	$jValidate = 'assets/js/jquery.validate.js';
+	$jMask = 'assets/js/jquery.mask.js';
+
+
 
 	wp_enqueue_script( 'jquery' );
 	wp_enqueue_script( 'sidebar-menu', $src . $sidebar_menu, array(), '1.0.0' );
@@ -169,9 +188,18 @@ function marcador_scripts() {
 	wp_enqueue_script( 'bootstrap-js', $src . $bootstrap_js, 'jquery', '3', false );
 	// More details at: http://jquery.malsup.com/block/
 	wp_enqueue_script( 'blockUI', $src . $blockUI, array('jquery'), '3', false );
+
 	// wp_enqueue_script( 'marcador-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true );
 
 	wp_enqueue_script( 'marcador-skip-link-focus-fix', $src . 'assets/js/skip-link-focus-fix.js', array(), '20151215', true );
+	
+
+	/** Raylin Code Start **/
+	wp_enqueue_script( 'jquery-validate', $src . $jValidate, array('jquery'), '3', false );
+	wp_enqueue_script( 'jquery-mask', $src . $jMask, array('jquery'), '3', false );
+
+	wp_enqueue_script( 'main-js', $src . $mainJs, 'jquery', '3', false );
+	/** Raylin Code End  **/
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
@@ -418,9 +446,17 @@ add_action('marcador_add_spinner_action', 'insert_loading_spinner');
  */
 function marcador_user_session_needed() {
 	$user = wp_get_current_user();
-	if ( is_marcador_user($user, $check_active = TRUE) === FALSE) wp_redirect( "/" );
+	if ( is_marcador_user($user, $check_active = TRUE) === FALSE) wp_redirect( get_site_url() );
 }
 add_action('is_marcador_user_session', 'marcador_user_session_needed');
+
+function check_marcador_user_session_needed() {
+	$user = wp_get_current_user();
+	if ( is_marcador_user($user, $check_active = TRUE) === FALSE) return false;
+	return true;
+}
+add_action('check_marcador_user_session', 'check_marcador_user_session_needed');
+
 
 function insert_marcador_user_section_menu () {
 	if ( has_nav_menu( 'perfil_top' ) ) {
@@ -434,3 +470,35 @@ function insert_marcador_user_section_menu () {
 	}
 }
 add_action('add_menu_marcador_user_section', 'insert_marcador_user_section_menu');
+
+
+function insert_marcador_mas_menu () {
+	if ( has_nav_menu( 'primary_mas' ) ) {
+		$args = array(
+				'theme_location' => 'primary_mas',
+				'container' => '',
+				'menu_class' => 'sidebar-nav-submenu',
+		);
+		wp_nav_menu( $args );
+	}
+}
+add_action('add_menu_marcador_mas', 'insert_marcador_mas_menu');
+
+
+function insert_marcador_video_menu () {
+	if ( has_nav_menu( 'primary_video' ) ) {
+		$args = array(
+				'theme_location' => 'primary_video',
+				'container' => '',
+				'menu_class' => 'sidebar-nav-submenu',
+		);
+		wp_nav_menu( $args );
+	}
+}
+add_action('add_menu_marcador_video', 'insert_marcador_video_menu');
+
+
+
+
+/*** Codes by Raylin ***/
+include("function-extension.php");

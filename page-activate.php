@@ -27,9 +27,9 @@
 ?>
 <?php get_header(); ?>
 <div id="marcador-page-template" class="search">
-  <div class="container-fluid">
+  <div id="main-content" class="container-fluid">
     <div class="row">
-      <div class="col-xs-12 div col-sm-12 col-md-12 col-lg-9">
+      <div class="col-lg-12">
         <header class="page-header-template">
           <h2 class="page-title">
             <?php the_title(); ?>
@@ -38,7 +38,7 @@
       </div>
         <?php get_sidebar(); ?>
       <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
-      <div class="col-xs-12 div col-sm-12 col-md-12 col-lg-9">
+      <div class="col-lg-12">
         <div class="page-content-template">
           <h3>Enhorabuena, <?php echo $user->display_name; ?>!</h3>
           <p>Ya puedes colaborar en Marcador.do. <strong>Tu cuenta esta activada.</strong></p>

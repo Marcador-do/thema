@@ -7,7 +7,7 @@
  * @package marcadordo
  * 
  */
-
+global $user_admin_name;
 $authors = <<<AUTHORS
 <!--
 *|==============================
@@ -23,7 +23,7 @@ $authors = <<<AUTHORS
 *|  Ronnie Baez
 *|  ronnie.baez@gmail.com
 *|==============================
--->\n
+-->
 AUTHORS;
 
 /**
@@ -48,7 +48,7 @@ function banner() {
 	
 	<?php wp_head(); ?>
 </head>
-<body <?php body_class(); ?>>
+<body <?php body_class(); ?> data-url='<?php echo get_site_url(); ?>'>
 	<script>
 	  window.fbAsyncInit = function() {
 		  FB.init({
@@ -87,7 +87,7 @@ function banner() {
 							<div class="row">
 								<div class="col-sm-6 col-md-6 modal-col">
 									<div class="marcador-modal-form">
-										<form name="register-form">
+										<form name="register-form"  method="post">
 											<div class="form-group">
 												<input name="email" type="email" placeholder="<?php echo __('Correo Electrónico', 'marcadordo'); ?>" class="form-control modal-input">
 											</div>
@@ -95,13 +95,17 @@ function banner() {
 												<input name="username" type="text" placeholder="<?php echo __('Usuario', 'marcadordo'); ?>" class="form-control modal-input">
 											</div>
 											<div class="form-group">
-												<input name="password" type="password" placeholder="<?php echo __('Contraseña', 'marcadordo'); ?>" class="form-control modal-input">
+											<i class="fa fa-eye showHidePass trans-3" data-passID = 'passRegisterOne' aria-hidden="true"></i>				
+
+												<input name="password" type="password" id="passRegisterOne" placeholder="<?php echo __('Contraseña', 'marcadordo'); ?>" class="form-control modal-input">
 											</div>
 											<div class="form-group">
-												<input name="passwordConf" type="password" placeholder="<?php echo __('Confirmar Contraseña', 'marcadordo'); ?>" class="form-control modal-input">
+											<i class="fa fa-eye showHidePass trans-3" data-passID = 'passRegisterTwo' aria-hidden="true"></i>				
+
+												<input name="passwordConf" type="password" id="passRegisterTwo" placeholder="<?php echo __('Confirmar Contraseña', 'marcadordo'); ?>" class="form-control modal-input">
 											</div>
 											<div class="form-group">
-												<button class="btn btn-danger btn-block" type="submit">
+												<button class="btn btn-danger btn-submit btn-block" data-wait="<?php _e("Procesando...") ?>"  type="submit">
 													<?php echo __( 'Registrarse', 'marcadordo' ) ?>
 												</button>
 											</div>
@@ -165,12 +169,14 @@ function banner() {
 							<div class="row">
 								<div class="col-sm-6 col-md-6 modal-col">
 									<div class="marcador-modal-form">
-										<form name="login-form">
+										<form name="login-form"  method="post">
 											<div class="form-group">
 												<input name="username" type="text" placeholder="<?php echo __('Nombre de Usuario o Correo Electrónico', 'marcadordo'); ?>" class="form-control modal-input">
 											</div>
 											<div class="form-group">
-												<input name="password" type="password" placeholder="<?php echo __('Contraseña', 'marcadordo'); ?>" class="form-control modal-input">
+												<i class="fa fa-eye showHidePass trans-3" data-passID = 'passLogin' aria-hidden="true"></i>				
+
+												<input name="password" id='passLogin' type="password" placeholder="<?php echo __('Contraseña', 'marcadordo'); ?>" class="form-control modal-input">
 											</div>
 											<div class="form-group">
 												<button class="btn btn-danger btn-block" type="submit">
@@ -179,7 +185,9 @@ function banner() {
 											</div>
 											<div class="form-group">
 												<p class="modal-form-copy text-center">
-													<a href="#" data-toggle="modal" data-target="#forgotModal">¿Olvidaste tu contraseña?</a>
+
+													<a href="#" data-toggle="modal" data-target="#forgotModal"><?php _e("¿Olvidaste tu contraseña?"); ?></a>
+													
 												</p>
 											</div>
 											<?php wp_nonce_field( 'marcador_ajax_login' ); ?>
@@ -237,9 +245,9 @@ function banner() {
 							<div class="row">
 								<div class="col-xs-12 col-sm-12 col-md-12 modal-col">
 									<div class="marcador-modal-form">
-										<form name="forgot-form">
+										<form name="forgot-form" method="post">
 											<div class="form-group">
-												<input type="email" placeholder="<?php echo __('Inserta Tu Correo Electrónico', 'marcadordo'); ?>" class="form-control modal-input">
+												<input type="email" name="email" placeholder="<?php echo __('Inserta tu correo electrónico', 'marcadordo'); ?>" class="form-control modal-input">
 											</div>
 											<div class="form-group">
 												<button class="btn btn-danger btn-block" type="submit">
@@ -329,29 +337,33 @@ function banner() {
 						}
 					?>
 				</li>
-				<li>
-					<a href="#">
+				<li sidebar-nav-submenu class>
+					<a href="#" class="">
 						<span class="sidebar-icon">
 							<i class="material-icons md-light md-24">play_circle_outline</i>
 						</span>
 						<span class="sidebar-menu-item">Videos</span>
 					</a> 
+					<?php do_action('add_menu_marcador_video'); ?>
 				</li>
+				<?php if(is_user_logged_in() === true): ?>
 				<li>
-					<a href="#">
+					<a href="<?php echo get_site_url(); ?>/favoritos">
 						<span class="sidebar-icon">
 							<i class="material-icons md-light md-24">star</i>
 						</span>
-						<span class="sidebar-menu-item">Favoritos</span>
+						<span class="sidebar-menu-item"><?php _e('Favoritos'); ?></span>
 					</a> 
 				</li>
-				<li>
+			<?php endif; ?>
+				<li sidebar-nav-submenu class>
 					<a href="#" class="sidebar-show-more">
 						<span class="sidebar-icon">
 							<i class="material-icons md-light md-24">more_horiz</i>
 						</span>
 						<span class="sidebar-menu-item">Más</span>
 					</a> 
+					<?php do_action('add_menu_marcador_mas'); ?>
 				</li>
 			</ul>
 			<ul id="social" class="sidebar-nav">
@@ -407,9 +419,15 @@ function banner() {
 							<?php else: /* <!-- Logged user --> */ ?>
 							<?php /* <!-- END OF Not logged user --> */ ?>
 							<li class="logged-in">
-								<a href="/perfil/">
+								<a href="javascript:;">
 									<?php echo get_avatar( get_current_user_id(), $size = 40); ?>
 								</a>
+								<ul class="drop-user-profile">
+									<li><a class="trans-3" href="<?php echo get_site_url()."/perfil"?>"><?php _e("Mi Perfil", $common_domain); ?></a></li>
+									<li><a class="trans-3" href="<?php echo get_site_url()."/mis-equipos"?>"><?php _e("Mis Equipos", $common_domain); ?></a></li>
+									<li><a class="trans-3" href="<?php echo get_admin_url(); ?>/post-new.php" target="_blank"><?php _e("Redactar un post", $common_domain); ?></a></li>									
+									<li><a class="trans-3" href="<?php echo wp_logout_url(home_url()); ?>"><?php _e("Cerrar Sesión", $common_domain); ?></a></li>
+								</ul>
 							</li>
 							<?php endif; ?>
 							<li class="dropdown dropdown-lg">

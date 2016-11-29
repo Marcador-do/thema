@@ -65,6 +65,10 @@ h3 {
 p {
 	font-family: 'marcador-regular';
 }
+.form-success{
+	text-align:center;
+	margin:7rem 0 0 0;
+}
 .text-center {
     text-align: center;
 }
@@ -499,7 +503,7 @@ li[sidebar-nav-submenu].toggled #menu-principal .sub-menu{
 /*Sidebar and Main-content positioning*/
 
 #main-content{position: relative; padding-right: 395px;}
-#sidebar{position: absolute; top: 0; right: 80px; width: 300px; height: 100%; min-height: 300px; overflow: hidden;}
+#sidebar{position: absolute; top: 0; right: 80px; width: 300px; height: 100%; min-height: 300px; overflow-x: hidden;}
 @media screen and (max-width:1127px){#sidebar{position: relative; right: 0; width: 100%; height: auto; float: left; padding: 15px;}#main-content{padding-right: 15px;}}
 
 @media screen and (min-width:1000px) and (max-width: 1127px){
@@ -1023,6 +1027,32 @@ li[sidebar-nav-submenu].toggled #menu-principal .sub-menu{
 .marcador-posts-listing-wrapper.cards-wrapper {
 	border-top: none;
 }
+.marcador-post-list-category{
+	margin: 1em 0 0 0;
+	text-transform: uppercase;
+	font-weight: 700;
+	color: #6d6c6c;
+	font-style: italic;
+}
+.marcador-post-list-category small{
+	font-weight:400;
+	font-style:normal;
+	font-size:70%;
+}
+.marcador-post-list-category .post-categories{
+	margin:0;
+	padding:0;
+	list-style:none;
+}
+.marcador-post-list-category li {
+	display:inline-block;
+	vertical-align:top;
+	margin-right:1em;
+}
+.marcador-post-list-category li:last-child {
+	margin-right:0;
+}
+
 .marcador-post-list-category a {
     text-transform: uppercase;
     font-weight: 700;
@@ -1045,8 +1075,12 @@ min-height: 200px;
 }
 .marcador-post-list-title { 
     font-family: 'marcador-bold';
+<<<<<<< HEAD
+    margin-bottom: 1em;
+=======
     min-height: 40px;
    
+>>>>>>> fc1c7064bc42d95ce557ac9ed7af8a8164fd37e7
 }
 .marcador-post-list-excerpt {
 	font-family: 'marcador-regular';
@@ -1055,6 +1089,7 @@ min-height: 200px;
 
 .marcador-post-list-title a {
 	color: #333;
+	font-size: 1.3em;
 }
 .marcador-post-list-meta a {
     position: relative;
@@ -1249,6 +1284,16 @@ img.aligncenter.size-full {
     border-radius: 0;
     box-shadow: none;
     font-size: 13px;
+}
+.form-group span.errorField{
+	background:#fffcdb;
+	color:#6b662e;
+	display:block !important;
+	padding:1rem;
+	font-size:.9em;
+}
+.form-group span.errorField.checked{
+	display: none !important;
 }
 .marcador-modal button[type='submit'],
 .btn.google,
@@ -1729,9 +1774,11 @@ span.cintillo.field.score.away {
 }
 #profile-page .user-profile-picture {
 	margin-bottom: 15px;
+	max-width: 300px;
 }
 .user-profile-info {
     position: relative;
+    margin-top: 3em;
 }
 .user-field-group {
     margin-bottom: 15px;

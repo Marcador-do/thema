@@ -47,6 +47,14 @@
 	<?php // <!-- /#wrapper --> ?>
 	<?php wp_footer(); ?>
 	<script type="text/javascript">
+
+
+
+
+
+
+	var baseUrl = jQuery('body').attr('data-url');
+
 		var MARCADOR = (function( APP ){
 
 			<?php
@@ -151,11 +159,11 @@
 					});
 					<?php /* Handler for from Login */ ?>
 					jQuery('form[name="login-form"]', function(){
-						jQuery('form[name="login-form"]').submit( formLogin );
+						//jQuery('form[name="login-form"]').submit( formLogin );
 					});
 					<?php /* Handler for from Registration */ ?>
 					jQuery('form[name="register-form"]', function(){
-						jQuery('form[name="register-form"]').submit( formRegister );
+						//jQuery('form[name="register-form"]').submit( formRegister );
 					});
 				<?php else: ?>
 					<?php /* Handler for Logout */ ?>
@@ -164,7 +172,7 @@
 
 			var ajax = function ( payload, successCallback, errorCallback ) {
 				var options = {
-					url: '/wp-admin/admin-ajax.php',
+					url: baseUrl+'/wp-admin/admin-ajax.php',
 					type: 'post',
 					dataType: 'json',
 					data: payload
@@ -189,7 +197,7 @@
 						if ( data.error ) { 
 							// Checks error from backend
 							// TODO: change copy message as needed
-							MARCADOR.notify('Algo ocurrió, vuelve a intentarlo');
+							//MARCADOR.notify('Algo ocurrió, vuelve a intentarlo');
 							console.log( data );
 							return;
 						}
@@ -197,24 +205,36 @@
 						// TODO: 2 seconds delay
 						// console.log( data );
 						if ( data.valid ) {
+							MARCADOR.notify('Procesando...');
 							window.setTimeout(function() {
-								document.location.href = referer;
-							}, 5000);
+								
+								if($form.attr("name") == "register-form"){
+									
+									document.location.href = baseUrl+"/form-success/?ref="+$form.attr("name");
+								} else{
+									document.location.href = baseUrl+"/perfil/";
+								}
+								
+
+								
+							}, 2000);
 						}
 					},
 					function (err) { 
 						// Error Callback
 						// TODO: Show message
-						MARCADOR.notify('Algo ocurrió, vuelve a intentarlo');
+						//MARCADOR.notify('Algo ocurrió, vuelve a intentarlo');
 						console.log(err);
 					}
 				);
 			};
 			<?php if ( !is_user_logged_in() ):  ?>
 				var formAction 	= function (e) {
-					var $form 	= jQuery(e.target); // Holds the current form
-					var payload = formData( $form );
 
+
+					var $form 	= jQuery(e); // Holds the current form
+					var payload = formData( $form );
+					console.log(payload);
 					if ( null === payload ) return;
 					// TODO: Validate Input on front end
 
@@ -231,6 +251,7 @@
 							password: $form.find("input[name='password']").val()
 						};
 					} else if ( "register-form" === $form.attr("name") ) {
+
 						payload = {
 							action	: 'marcador_register',
 							email 	: $form.find("input[name='email']").val(),
@@ -244,9 +265,7 @@
 					return payload;
 				};
 
-				var formLogin 	 = function (e) { formAction(e); };
-				var formRegister = function (e) { formAction(e); };
-
+				
 				APP.googleLogin  = function ( payload ) {
 					$form = jQuery("form[name='login-form']");
 					ajaxAction($form , payload);
@@ -277,8 +296,144 @@
 			}
 			APP.ajax = ajax;
 
+
+            jQuery.extend(jQuery.validator.messages, {
+            nameFormat: "Por favor introduce un nombre válido.",
+            phoneNumber: "Por favor, introduce un número de teléfono válido.",
+            cedulaFormat: "Por favor, insertar una cédula valida o pasaporte válido.",
+            required: "Este campo es obligatorio. ",
+            remote: "Por favor, rellena este campo.",
+            email: "Por favor, escribe una dirección de correo válida",
+            url: "Por favor, escribe una URL válida.",
+            date: "Por favor, escribe una fecha válida.",
+            dateISO: "Por favor, escribe una fecha (ISO) válida.",
+            number: "Por favor, escribe un número entero válido.",
+            digits: "Por favor, escribe sólo dígitos.",
+            creditcard: "Por favor, escribe un número de tarjeta válido.",
+            equalTo: "Por favor, escribe el mismo valor de nuevo.",
+            accept: "Por favor, escribe un valor con una extensión aceptada.",
+            maxlength: jQuery.validator.format("Por favor, no escribas más de {0} caracteres."),
+            minlength: jQuery.validator.format("Por favor, no escribas menos de {0} caracteres."),
+            rangelength: jQuery.validator.format("Por favor, escribe un valor entre {0} y {1} caracteres."),
+            range: jQuery.validator.format("Por favor, escribe un valor entre {0} y {1}."),
+            max: jQuery.validator.format("Por favor, escribe un valor menor o igual a {0}."),
+            min: jQuery.validator.format("Por favor, escribe un valor mayor o igual a {0}.")
+        });
+	
+
+
+		/*** FORM LOGIN ***/
+        var formLogin = jQuery("form[name='login-form']");
+        if (formLogin.length > 0) {
+            var validator = formLogin.validate({
+                meta: "validate",
+                errorElement: "span",
+                errorClass: "errorField",
+                rules: {
+                    email: {
+                        required: true
+                    },
+                    password: {
+                        required: true,
+                        minlength: 3
+                    }
+
+
+                },
+               	submitHandler: function(e) {
+                	var btnSub = formLogin.find("[type='submit']");
+                    btnSub.attr("disabled","disabled").val(btnSub.attr("data-wait"));
+                   
+                    formAction(e);
+
+                },
+                success: function(label, e) {
+                    label.addClass("checked");
+
+                }
+            });
+        }
+
+
+
+		/*** FORM REGISTER ***/
+        var formForget = jQuery("form[name='forgot-form']");
+        if (formForget.length > 0) {
+            var validator = formForget.validate({
+                meta: "validate",
+                errorElement: "span",
+                errorClass: "errorField",
+                rules: {
+                    email: {
+                        required: true,
+                        email:true
+                    }
+
+
+                },
+               	submitHandler: function(e) {
+                	var btnSub = formForget.find("[type='submit']");
+                    btnSub.attr("disabled","disabled").val(btnSub.attr("data-wait"));
+                   
+                    e.submit();
+
+                },
+                success: function(label, e) {
+                    label.addClass("checked");
+
+                }
+            });
+        }
+        
+
+ 		/*** FORM REGISTER ***/
+        var formRegister = jQuery("form[name='register-form']");
+        if (formRegister.length > 0) {
+            var validator = formRegister.validate({
+                meta: "validate",
+                errorElement: "span",
+                errorClass: "errorField",
+                rules: {
+                    email: {
+                        required: true,
+                        email: true
+                    },
+                    username: {
+                        required: true,
+                        minlength: 3
+                    },
+                    password: {
+                        required: true
+                    },
+                    passwordConf: {
+                        required: true,
+                       equalTo: "#passRegisterOne"
+                    },
+
+
+                },
+               	submitHandler: function(e) {
+                	var btnSub = formRegister.find("[type='submit']");
+                    btnSub.attr("disabled","disabled").val(btnSub.attr("data-wait"));
+                   
+                    formAction(e);
+
+                },
+                success: function(label, e) {
+                    label.addClass("checked");
+
+                }
+            });
+        }
+
+/*
+		setTimeout(function(){
+		  document.location.href = "http://localhost/marcador/proyectoweb/wp/form-success/?ref=register-form";
+		},15000);*/
+
+      
 			return APP;
-		
+			
 		}( MARCADOR || {} ));
 		
 		<?php
@@ -327,6 +482,7 @@
 
 	function checkLoginState() {
 		FB.getLoginStatus(function(response) {
+			
 			console.log("Checking log in response", response);
 			statusChangeCallback( response, MARCADOR.facebookLogin );
 		});
@@ -334,6 +490,7 @@
 
 	function checkRegisterState () {
 		FB.getLoginStatus(function(response) {
+
 			console.log("Checking register response", response);
 			statusChangeCallback( response, MARCADOR.facebookRegister );
 		});
@@ -400,7 +557,7 @@
 				auth: authResponse.id_token,
 				auth_type: "google"
 			};
-
+			MARCADOR.notify('Registrado con éxito. Favor revisar tu correo.');
 		  MARCADOR.googleRegister(payload);
 		}
 
@@ -425,6 +582,9 @@
         'onfailure': onFailureGoogle
       });
     }
+
+
+})(jQuery);
 	</script>
 	<script src="https://apis.google.com/js/platform.js?onload=renderGoogleButton" async defer></script>
 	<?php endif; ?>

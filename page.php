@@ -11,9 +11,9 @@
 ?>
 <?php get_header(); ?>
 <div id="marcador-page-template" class="search">
-  <div class="container-fluid">
+  <div id="main-content" class="container-fluid">
     <div class="row">
-      <div class="col-md-12 col-lg-9">
+      <div class="col-lg-12">
         <header class="page-header-template">
           <h2 class="page-title">
             <?php the_title(); ?>
