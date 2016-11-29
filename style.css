@@ -2351,7 +2351,7 @@ select#score-liga-selector {
 
 #en-vivo .encuesta header span:first-child{font-size: 20px; line-height: 20px;}
 
-#en-vivo .encuesta header .participantes i{vertical-align: middle;}
+#en-vivo .encuesta header .cta i{vertical-align: middle;}
 #en-vivo .encuesta header .participantes, #en-vivo .encuesta header .cta{float: right; margin-left: 20px;}
 
 #en-vivo .encuesta .pregunta{
@@ -2371,6 +2371,11 @@ select#score-liga-selector {
 #en-vivo .encuesta .valor{display: inline-block; width: 30%; height: 100%; text-align: center;}
 
 #chat{margin-bottom: 20px;  min-height: 400px; background: #ccc;}
+
+@media screen and (max-width:480){
+    #en-vivo .encuesta header{font-size: 14px;}
+    #en-vivo .encuesta .pregunta{font-size: 18px;}  
+}
 
 /*2.3 Marcador - Favoritos*/
 #favoritos{padding-left: 35px;}
