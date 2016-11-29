@@ -107,6 +107,7 @@ if(!empty($user_cat_options)){
 
 							continue;
 						}
+						if($cate_tree_val['slug'] =="actividades")	continue;
 						?>
 						<li role="presentation">
 							<a href="#tab-<?php echo $cate_tree_val['slug'];?>" aria-controls="<?php echo $cate_tree_val['slug'];?>" role="tab" data-toggle="tab"><?php echo $cate_tree_val['name'];?></a>
