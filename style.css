@@ -425,6 +425,7 @@ p {
 	    padding: 0;
 	    height: auto;
 	    display: none;
+        
 	}
 	#wrapper .sidebar-nav li[sidebar-nav-submenu]:hover .sidebar-nav-submenu {
 		display: block;
@@ -492,6 +493,8 @@ li[sidebar-nav-submenu].toggled #menu-principal .sub-menu{
     left: 0;
     width: 100%;
 }
+
+#menu-principal-mas{min-width: 200px;}
 
 /*Sidebar and Main-content positioning*/
 
