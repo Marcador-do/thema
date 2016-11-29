@@ -23,7 +23,7 @@
           <div id="en-vivo" class="row">
         
            
-        <div class="stream" class="col-lg-12">
+        <div class="stream col-lg-12">
     <iframe id="live" src="https://www.youtube.com/embed/1UdirOGTjOg" frameborder="0" allowfullscreen></iframe>
             
         <div class="banner hidden-sm-down">ANUNCIO</div>
