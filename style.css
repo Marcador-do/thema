@@ -503,7 +503,7 @@ li[sidebar-nav-submenu].toggled #menu-principal .sub-menu{
 /*Sidebar and Main-content positioning*/
 
 #main-content{position: relative; padding-right: 395px;}
-#sidebar{position: absolute; top: 0; right: 80px; width: 300px; height: 100%; min-height: 300px; overflow-x: hidden;}
+#sidebar{position: absolute; top: 0; right: 80px; width: 300px; height: 100%; min-height: 300px; overflow-x: hidden; overflow-y: visible;}
 @media screen and (max-width:1127px){#sidebar{position: relative; right: 0; width: 100%; height: auto; float: left; padding: 15px;}#main-content{padding-right: 15px;}}
 
 @media screen and (min-width:1000px) and (max-width: 1127px){
@@ -1021,14 +1021,13 @@ li[sidebar-nav-submenu].toggled #menu-principal .sub-menu{
 /* 12. Marcador Post Listing */
 .marcador-posts-listing-wrapper {
 	border-top: solid 1px #ececec;
-	padding-top: 25px;
+	padding-top: 15px;
     margin-bottom: 25px;
 }
 .marcador-posts-listing-wrapper.cards-wrapper {
 	border-top: none;
 }
 .marcador-post-list-category{
-	margin: 1em 0 0 0;
 	text-transform: uppercase;
 	font-weight: 700;
 	color: #6d6c6c;
@@ -1069,18 +1068,15 @@ li[sidebar-nav-submenu].toggled #menu-principal .sub-menu{
     background-position: center;
 }
 .marcador-post-list .marcador-post-list-image-col {
+    padding: 0;
 }
 .marcador-post-list-content{
 min-height: 200px;
 }
 .marcador-post-list-title { 
     font-family: 'marcador-bold';
-<<<<<<< HEAD
     margin-bottom: 1em;
-=======
     min-height: 40px;
-   
->>>>>>> fc1c7064bc42d95ce557ac9ed7af8a8164fd37e7
 }
 .marcador-post-list-excerpt {
 	font-family: 'marcador-regular';
@@ -1089,7 +1085,7 @@ min-height: 200px;
 
 .marcador-post-list-title a {
 	color: #333;
-	font-size: 1.3em;
+	font-size: 1.2em;
 }
 .marcador-post-list-meta a {
     position: relative;
@@ -1133,7 +1129,7 @@ min-height: 200px;
 @media screen and ( min-width: 768px ) {
 	.marcador-post-list {
 	}
-    .marcador-posts-listing-wrapper{padding: 0 20px;}
+    .marcador-posts-listing-wrapper{padding: 15px 30px;}
     
 	.marcador-post-list-image {
 		min-height: 165px;
