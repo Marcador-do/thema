@@ -217,7 +217,7 @@
 								
 
 								
-							}, 2000);
+							}, 5000);
 						}
 					},
 					function (err) { 
@@ -584,7 +584,6 @@
     }
 
 
-})(jQuery);
 	</script>
 	<script src="https://apis.google.com/js/platform.js?onload=renderGoogleButton" async defer></script>
 	<?php endif; ?>

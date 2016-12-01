@@ -130,7 +130,7 @@ function banner() {
 									<div class="marcador-modal-form">
 										<div class="form-group">
 											<div id="marcador-g-signup2"></div>
-											<?php /*<a href="#google-handler" class="btn btn-danger btn-block google ">
+											<?php /*<a href="#google-handler" class="btn btn-danger btn-block google">
 												<?php echo __( 'Conéctate con Google', 'marcadordo' ); ?>
 											</a> */ ?>
 										</div>
@@ -213,7 +213,7 @@ function banner() {
 											<div id="marcador-g-signin2"></div>
 											<?php /*<a href="#google-handler" class="btn btn-danger btn-block google">
 												<?php echo __( 'Conéctate con Google', 'marcadordo' ); ?>
-											</a> */ ?>
+											</a>*/?>
 										</div>
 										<div class="form-group">
 											<?php /* <fb:login-button scope="public_profile,email" onlogin="checkLoginState();"></fb:login-button> */ ?>
