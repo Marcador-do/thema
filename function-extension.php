@@ -395,5 +395,10 @@ function get_custom_pagination($num, $current_page){
 //* Redirect WordPress Logout to Home Page
 add_action('wp_logout',create_function('','wp_redirect(home_url());exit();'));
 
+function wps_logout_redirect($logouturl, $redir)
+    {
+        return $logouturl . '&amp;redirect_to='.get_site_url();
+    }
+add_filter('logout_url', 'wps_logout_redirect', 10, 2);
 
  ?>

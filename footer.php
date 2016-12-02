@@ -193,19 +193,27 @@
 				ajax(
 					payload,
 					function ( data ) { 
+
+
 						// Success Callback
 						if ( data.error ) { 
 							// Checks error from backend
 							// TODO: change copy message as needed
-							//MARCADOR.notify('Algo ocurrió, vuelve a intentarlo');
-							console.log( data );
+							MARCADOR.notify('Algo ocurrió, vuelve a intentarlo.');
+							
+							$form.find("[type='submit']").removeAttr('disabled');
+
+							console.log("ERROR - ", data );
 							return;
 						}
 						// TODO: Show message?
 						// TODO: 2 seconds delay
 						// console.log( data );
 						if ( data.valid ) {
+							
+							console.log("VALID  + ", data)
 							MARCADOR.notify('Procesando...');
+
 							window.setTimeout(function() {
 								
 								if($form.attr("name") == "register-form"){
@@ -214,7 +222,6 @@
 								} else{
 									document.location.href = baseUrl+"/perfil/";
 								}
-								
 
 								
 							}, 5000);
@@ -227,6 +234,7 @@
 						console.log(err);
 					}
 				);
+				return false;
 			};
 			<?php if ( !is_user_logged_in() ):  ?>
 				var formAction 	= function (e) {
@@ -234,11 +242,12 @@
 
 					var $form 	= jQuery(e); // Holds the current form
 					var payload = formData( $form );
-					console.log(payload);
+				
 					if ( null === payload ) return;
 					// TODO: Validate Input on front end
 
 					ajaxAction( $form, payload );
+					return false;
 					e.preventDefault();
 				};
 
@@ -346,6 +355,8 @@
                    
                     formAction(e);
 
+                    return false;
+
                 },
                 success: function(label, e) {
                     label.addClass("checked");
@@ -375,7 +386,9 @@
                 	var btnSub = formForget.find("[type='submit']");
                     btnSub.attr("disabled","disabled").val(btnSub.attr("data-wait"));
                    
-                    e.submit();
+                    //e.submit();
+                     formAction(e);
+                     return false;
 
                 },
                 success: function(label, e) {
@@ -417,6 +430,7 @@
                     btnSub.attr("disabled","disabled").val(btnSub.attr("data-wait"));
                    
                     formAction(e);
+                     return false;
 
                 },
                 success: function(label, e) {
