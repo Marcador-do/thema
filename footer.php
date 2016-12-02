@@ -194,9 +194,10 @@
 					payload,
 					function ( data ) { 
 
-
+						console.log("FORM", $form.html());
+						
 						// Success Callback
-						if ( data.error ) { 
+						if ( data.error && $form ) { 
 							// Checks error from backend
 							// TODO: change copy message as needed
 							MARCADOR.notify('Algo ocurrió, vuelve a intentarlo.');
@@ -209,7 +210,7 @@
 						// TODO: Show message?
 						// TODO: 2 seconds delay
 						// console.log( data );
-						if ( data.valid ) {
+						if ( data.valid  && $form ) {
 							
 							console.log("VALID  + ", data)
 							MARCADOR.notify('Procesando...');
