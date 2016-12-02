@@ -37,21 +37,21 @@
             </a> 
             <div class="panel-body">
               <div class="marcador-post-list-excerpt">
-                <?php the_excerpt(); ?>
+                <?php echo excerpt(25); ?>
               </div>
             </div>
             <div class="panel-footer">
               <div class="marcador-post-list-meta">
                   <div class="row">
                     
-                    <div class="col-md-4 col-md-push-4 col-xs-4 marcador-post-list-author">
+                    <div class="col-xs-6 col-md-4 col-md-push-4 marcador-post-list-author">
                       
                         <a href="<?php echo get_author_posts_url( get_the_author_meta( 'ID' ), get_the_author_meta( 'user_nicename' ) ); ?>">
                           <?php echo get_the_author_meta( 'user_nicename' ); ?>
                         </a>
                       
                     </div>
-                      <div class="col-md-4 col-md-push-4 col-xs-4 marcador-post-list-date">
+                      <div class="col-xs-6 col-md-4 col-md-push-4 marcador-post-list-date">
                     <?php 
                     $before = ''; 
                     $before .= '<a href="' . esc_url( get_day_link( $year = get_the_date('Y') , $month = get_the_date('m'), $day = get_the_date('d') ) ) . '">';

@@ -510,9 +510,9 @@ li[sidebar-nav-submenu].toggled #menu-principal .sub-menu{
     #main-content{padding-right: 15px;}
 }
 
-@media screen and (min-width:1024px) and (max-width: 1270px){
+@media screen and (min-width:1024px) and (max-width: 1269px){
 #sidebar{right: 10px;}
-#main-content{padding-right: 315px;}
+#main-content{padding-right: 320px;}
 }
 
 /*Temporary Tennis Ball Icon*/
@@ -826,11 +826,10 @@ li[sidebar-nav-submenu].toggled #menu-principal .sub-menu{
 	box-shadow: 0 2px 4px #a0a0a0;
     overflow: hidden;
 }
-#marcador-navbar-submenu .nav {
-	margin-top: 0;
-	padding-left: 15px;
-	padding-right: 15px;
-}
+#marcador-navbar-submenu .nav {	margin-top: 0; padding:0 2%;}
+@media screen and (min-width:360px){
+#marcador-navbar-submenu .nav {	margin-top: 0; padding:0 15px;}
+    }
 #marcador-navbar-submenu .nav li a {
 	border-radius: 0;
 	color: #fafafa;
@@ -876,6 +875,7 @@ li[sidebar-nav-submenu].toggled #menu-principal .sub-menu{
     color: #333;
     margin-left:15px;
 }
+@media screen and (max-width:360px){.marcador-hero-post .date{float: right;}
 
 .marcador-hero-unit {
 	position: relative;
@@ -1078,9 +1078,9 @@ li[sidebar-nav-submenu].toggled #menu-principal .sub-menu{
 .marcador-post-list .marcador-post-list-image-col {
     padding: 0;
 }
-.marcador-post-list-content{
-min-height: 200px;
-}
+@media screen and (min-width:){
+.marcador-post-list-content{min-height: 200px;}
+    }
 .marcador-post-list-title { 
     font-family: 'marcador-bold';
     min-height: 40px;
@@ -1088,13 +1088,20 @@ min-height: 200px;
 .marcador-post-list-excerpt {
 	font-family: 'marcador-regular';
 	color: #888;
+    max-height: 40px;
 }
 
 .marcador-post-list-title a {
 	color: #333;
-	font-size: 1.2em;
-}
+	font-size: 16px;
+} 
 @media screen and (max-width: 1023px){.marcador-post-list-title a {font-size: 1.3em; margin: .3em 0;}}
+@media screen and (max-width: 480px){
+    .marcador-post-list-title a {font-size: 16px; margin: .3em 0;}
+    .marcador-post-list .marcador-post-list-image-col {padding: 0 15px 0 0;}
+}
+
+
 .marcador-post-list-meta a {
     position: relative;
     color: #aab0b5;
@@ -1134,16 +1141,12 @@ min-height: 200px;
 		// border-left: solid 3px #aab0b5;
 	}
 }
-@media screen and ( min-width: 768px ) {
-	.marcador-post-list {
-	}
-    .marcador-posts-listing-wrapper{padding: 15px 30px;}
+@media screen and (min-width:768px){.marcador-post-list-image {min-height: 165px;}}
+@media screen and (min-width:1270){ .marcador-posts-listing-wrapper{padding: 15px 30px;}}
+@media screen and (min-width:1120) and (max-width:1270){.marcador-post-list-excerpt{display: none;}}
+@media screen and (min-width:1024px) and (max-width:1119){.marcador-post-list{width: 100%;}.marcador-posts-listing-wrapper{padding: 15px 0;}}
+@media screen and (min-width:992px) and (max-width:1023){.marcador-post-list-excerpt{display: none;}}
     
-	.marcador-post-list-image {
-		min-height: 165px;
-	}
-}
-
 /* 13. Marcador archive, date, author, search generic title */
 #marcador-page-template {
     margin-top: 15px;
@@ -1624,8 +1627,7 @@ span.cintillo.field.score.away {
 .marcador-favoritos-equipos-container {
     position: relative;
     min-height: 270px;
-    padding-top: 25px;
-    padding-bottom: 35px;
+    padding: 15px 0 25px 0;
     background-color: #f5f5f5;
     overflow-x: scroll;
     overflow-y: hidden;
