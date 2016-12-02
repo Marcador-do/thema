@@ -1094,7 +1094,7 @@ min-height: 200px;
 	color: #333;
 	font-size: 1.2em;
 }
-@media screen and (max-width: 1023px){.marcador-post-list-title a {font-size: 1.3em; margin: .3em 0;}
+@media screen and (max-width: 1023px){.marcador-post-list-title a {font-size: 1.3em; margin: .3em 0;}}
 .marcador-post-list-meta a {
     position: relative;
     color: #aab0b5;
