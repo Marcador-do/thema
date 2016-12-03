@@ -366,6 +366,41 @@
             });
         }
 
+        
+		/*** FORM FORGOT ***/
+        var formForgot = jQuery("form[name='forgot-form-change']");
+        if (formForgot.length > 0) {
+            var validator = formForgot.validate({
+                meta: "validate",
+                errorElement: "span",
+                errorClass: "errorField",
+                rules: {
+                     passw: {
+                        required: true
+                    },
+                    "repit-passw": {
+                        required: true,
+                       equalTo: "#repit-passw"
+                    },
+
+
+                },
+               	submitHandler: function(e) {
+                	var btnSub = formForgot.find("[type='submit']");
+                    btnSub.attr("disabled","disabled").val(btnSub.attr("data-wait"));
+                   	
+                   	e.submit();
+
+                    return false;
+
+                },
+                success: function(label, e) {
+                    label.addClass("checked");
+
+                }
+            });
+        }
+
 
 
 		/*** FORM REGISTER ***/
