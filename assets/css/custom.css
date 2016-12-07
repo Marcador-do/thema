@@ -20,13 +20,13 @@
 	opacity: 1;
 }
 .showHidePass.active {
-	opacity: 1 !Important;
+	opacity: 1 !important;
 	color: #4285f4;
 }
 .marcador-modal-form .form-group {
 	position: relative;
 }
-.marcador-modal-form .form-control[type=password] {
+.marcador-modal-form .form-control[type="password"] {
 	padding-right: 40px;
 }
 .form-edit {
