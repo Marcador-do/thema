@@ -19,26 +19,31 @@
 					<a href="#">
 						<img src="http://placehold.it/50x50&text=M" alt="Equipo" class="img-circle">
 					</a>
+                    <span class="description">Nombre categoria</span>
 				</li>
 				<li>
 					<a href="#">
 						<img src="http://placehold.it/50x50&text=M" alt="Equipo" class="img-circle">
 					</a>
+                     <span class="description">Nombre categoria</span>
 				</li>
 				<li>
 					<a href="#">
 						<img src="http://placehold.it/50x50&text=M" alt="Equipo" class="img-circle">
 					</a>
+                     <span class="description">Nombre categoria</span>
 				</li>
 				<li>
 					<a href="#">
 						<img src="http://placehold.it/50x50&text=M" alt="Equipo" class="img-circle">
 					</a>
+                     <span class="description">Nombre categoria</span>
 				</li>
 				<li>
 					<a href="#">
 						<img src="http://placehold.it/50x50&text=M" alt="Equipo" class="img-circle">
 					</a>
+                     <span class="description">Nombre categoria</span>
 				</li>
 			</ul>
 		</div>

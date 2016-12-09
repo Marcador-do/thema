@@ -41,7 +41,7 @@ $query_fav = new WP_Query($args);
     <div class="row">
       <div class="col-lg-12">
        <div id="favoritos" class="row">
-       <h1><?php _e('Favoritos'); ?></h1>
+       <h1 class="page-title"><?php _e('Favoritos'); ?></h1>
        <h2><?php _e('Esta sección filtra los contenidos de las categorías que has elegido en la sección de') ?> <a href="<?php echo get_site_url(); ?>/mis-equipos"><strong>Mis Equipos</strong></a></h2>
 
         <?php 
@@ -84,11 +84,11 @@ $query_fav = new WP_Query($args);
           ?>
 
           <article class="col-sm-6">
-            <div class="post" stayle='background-image:url("<?php echo $image ?>");'>
+            <div class="post" style='background-image:url("<?php echo $image ?>");'>
               <a href="<?php the_permalink(); ?>">
                 <footer>
-                  <h4 class="col-xs-6 title"><?php the_title(); ?></h4>
-                  <div class="col-xs-6 tags">
+                  <h4 class="col-xs-7 title"><?php the_title(); ?></h4>
+                  <div class="col-xs-5 tags">
                     <?php 
                     $icono = "";
                     foreach($icons_cat as $icon): 

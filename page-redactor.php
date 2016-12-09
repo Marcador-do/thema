@@ -19,15 +19,15 @@
           <div id="redactor" class="row" >
             <h2 class="page-title"><?php the_title(); ?></h2>
 <div class="row">
-<div class="col-lg-3">
-<div id="user-image"></div>
+<div class="profile col-xs-12 col-sm-4 col-md-3">
+<div class="user-image"></div>
 <div class="social">
 <a></a>
 <a></a>
 <a></a>
 </div>
  </div>
-<div class="col-lg-9">
+<div class="info col-xs-12 col-sm-8 col-md-9">
 <div class="name">Cesar Marchena</div>
 <p>
 Ut efficitur bibendum porta. Donec iaculis lacus nec purus elementum, vitae mattis tortor eleifend. Donec lacinia dictum odio, at blandit mi tincidunt quis. Suspendisse potenti. Curabitur eget neque aliquam tortor pharetra consequat. Nam luctus ligula tellus, a porttitor diam viverra sit amet. Sed ligula nisi, maximus a ultrices sit amet, eleifend eget tortor. Proin lacinia nunc vitae rhoncus sodales. Ut sed purus at ligula commodo laoreet lacinia sed ante. Integer consequat bibendum turpis, at molestie orci lacinia vitae. Aliquam eget justo sed nisi vehicula porttitor. Aliquam tempus vehicula ante, tristique mollis justo commodo id. Vestibulum egestas gravida quam, id blandit dolor interdum in. Sed pretium pellentesque turpis vehicula volutpat. Suspendisse eget erat ut nisi laoreet aliquet. Etiam non porttitor felis, non dapibus nulla.
@@ -42,29 +42,36 @@ Ut efficitur bibendum porta. Donec iaculis lacus nec purus elementum, vitae matt
 
 <div id="destacados" class="col-lg-12">
     <header>Articulos Destacados</header>
-   
-    <div class="col-lg-6">
-        <article>
-    <div class="image col-lg-4 col-xs-12"></div>
-        <div class="col-lg-8">
+   <div class="row">
+       
+    <div class="col-sm-6">
+        <article class="clearfix">
+            <div class="row">
+    <div class="col-xs-4"><div class="image"></div></div>
+    <div class="col-xs-8">
             <div class="category">TENIS</div>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut vitae eleifend metus, ut elementum risus.</p>
-            <p class="date">Jun 16, 2016</p>
+            <div class="title">Lorem ipsum dolor sit amet, consectetur. Ut vitae eleifend metus, ut elementum risus.</div>
+            <div class="date">Jun 16, 2016</div>
         </div>
+            </div>
         </article>
     </div>  
     
-     <div class="col-lg-6">
-        <article>
-    <div class="image col-lg-4 col-xs-12"></div>
-        <div class="col-lg-8">
+     <div class="col-sm-6">
+        <article class="clearfix">
+            <div class="row">
+    <div class="col-xs-4"><div class="image"></div></div>
+    <div class="col-xs-8">
             <div class="category">TENIS</div>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut vitae eleifend metus, ut elementum risus.</p>
-            <p class="date">Jun 16, 2016</p>
+            <div class="title">Lorem ipsum dolor sit amet, consectetur. Ut vitae eleifend metus, ut elementum risus.</div>
+            <div class="date">Jun 16, 2016</div>
         </div>
+            </div>
         </article>
     </div>  
     
+    
+    </div>
 </div>
     </div>
             </div>

@@ -860,6 +860,7 @@ li[sidebar-nav-submenu].toggled #menu-principal .sub-menu{
 }
 
 .marcador-hero-post .author, .marcador-hero-post .author a{text-transform: uppercase; color: #666; text-decoration: none;}
+.marcador-hero-post .author a{font-weight: bold;}
 .marcador-hero-post .date{text-transform: uppercase;
     font-weight: bold;
     color: #333;
@@ -1062,9 +1063,9 @@ li[sidebar-nav-submenu].toggled #menu-principal .sub-menu{
     background-position: center;
 }
 .marcador-post-list .marcador-post-list-image-col {
-    padding: 0;
+    padding-right: 0;
 }
-@media screen and (min-width:){
+@media screen and (min-width:768px){
 .marcador-post-list-content{min-height: 200px;}
     }
 .marcador-post-list-title { 
@@ -1650,6 +1651,11 @@ span.cintillo.field.score.away {
     background: #3D3D3D;
     text-align: center;
 }
+.sidebar-nav.right li{position: relative;}
+.sidebar-nav.right li a{background: #3D3D3D;}
+.sidebar-nav.right a + span{display: block; position: absolute; top: 10px; right: -130px; width: 200px; height: 50px; background: #707070; transition: right .15s ease-out; z-index: -1; vertical-align: middle; text-align: center; line-height: 50px; color:#fff; text-transform: uppercase;}
+.sidebar-nav.right a:hover{background-color: #4a4a4a;}
+.sidebar-nav.right a:hover + span{right: 70px; transition: right 0.15s ease-out;}
 @media screen and (max-width:480px){
    #right-sidebar-wrapper{display: none;}
 }
@@ -2338,35 +2344,38 @@ select#score-liga-selector {
 #en-vivo .stream{padding-left: 35px; box-sizing: border-box;}
 #en-vivo iframe{margin-bottom: 20px;  width: 100%; min-height: 400px;}
 #en-vivo .banner{margin-bottom: 20px;  min-height: 100px; background: #ccc;}
-#en-vivo .encuesta{margin-bottom: 20px;  min-height: 400px; font-family: 'Roboto' sans-serif;}
-#en-vivo .encuesta header{position: relative; width: 100%; height: 40px; top: 0; left: 0; background: #3D3D3D; color: #fff; font-family: 'Roboto' sans-serif; font-size: 18px; line-height: 40px; vertical-align: middle; padding: 0 20px; box-sizing: border-box;}
+#en-vivo .encuesta{margin-bottom: 20px; font-family: 'Roboto' sans-serif;}
+#en-vivo .encuesta header{position: relative; padding: 10px 0; background: #3D3D3D; color: #fff; font-family: 'Roboto' sans-serif; font-size: 18px; line-height: 40px; vertical-align: middle; box-sizing: border-box;}
 
-#en-vivo .encuesta header span:first-child{font-size: 20px; line-height: 20px;}
-
+#en-vivo .encuesta header span:first-child{font-size: 20px;}
+#en-vivo .encuesta header .cta, #en-vivo .encuesta header .participantes{padding-left: 0; text-align: right;}
 #en-vivo .encuesta header .cta i{vertical-align: middle;}
-#en-vivo .encuesta header .participantes, #en-vivo .encuesta header .cta{float: right; margin-left: 20px;}
 
-#en-vivo .encuesta .pregunta{
-    margin: 20px 0;
-    font-size: 24px;
-}
+#en-vivo .encuesta .pregunta{margin: 20px 0; font-size: 24px;}
 
 #en-vivo .encuesta p{position: relative;height: 30px; line-height: 30px; vertical-align: middle; margin: 0;}
 #en-vivo .encuesta p:nth-child(odd){background: #eee;}
 #en-vivo .encuesta input[type=radio]{display: none;}
-#en-vivo .encuesta label::before{font-family: 'Material Icons'; content: "check_box_outline_blank"; font-size: 20px; display: block; position: absolute; top: 5px; left: 10%; width: 20px; height: 20px; line-height: 20px;}
+#en-vivo .encuesta label::before{font-family: 'Material Icons'; content: "check_box_outline_blank"; font-size: 20px; display: block; position: absolute; top: 5px; left: 10px; width: 20px; height: 20px; line-height: 20px;}
 #en-vivo .encuesta input[type=radio]:checked + label::before{content: "check_box"; color: teal;}
-#en-vivo .encuesta label{position: relative;width: 30%; vertical-align: top; text-align: left; height: 100%; padding-left: 8%; cursor: pointer; box-sizing: border-box;}
+#en-vivo .encuesta label{position: relative;width: 40%; vertical-align: top; text-align: left; height: 100%; padding-left:40px; cursor: pointer; box-sizing: border-box;}
 #en-vivo .encuesta .barra{display: inline-block;height: 100%; width: 40%; border-left: 1px solid #666; border-right: 1px solid #666;text-align: center; box-sizing: border-box;}
 #en-vivo .encuesta .barra b{width: 100%; max-width: 90%; height: 20px;margin-top: 5px; background: #ccc; display: inline-block; text-align: left;}
 #en-vivo .encuesta .barra i{display: inline-block; width: 100%; max-width: 60%; height: 100%; background: teal;}
-#en-vivo .encuesta .valor{display: inline-block; width: 30%; height: 100%; text-align: center;}
+#en-vivo .encuesta .valor{display: inline-block; width: 20%; height: 100%; text-align: center; vertical-align: top;}
 
 #chat{margin-bottom: 20px;  min-height: 400px; background: #ccc;}
 
-@media screen and (max-width:480){
-    #en-vivo .encuesta header{font-size: 14px;}
-    #en-vivo .encuesta .pregunta{font-size: 18px;}  
+@media screen and (max-width:480px){
+    #broadcasting{text-align: center;}
+    #broadcasting .cta{width: 100%; padding:5px 0 10px;}
+    #en-vivo .stream{padding: 0;}
+    #en-vivo .banner{display: none;}
+    #en-vivo .encuesta header{font-size: 14px; line-height: 20px;}
+    #en-vivo .encuesta header span:first-child{font-size: 14px;}
+    #en-vivo .encuesta header .cta i{font-size: 14px;}
+    #en-vivo .encuesta .pregunta{font-size: 18px;} 
+    
 }
 
 /*2.3 Marcador - Favoritos*/
@@ -2381,32 +2390,42 @@ select#score-liga-selector {
 .badge.real-madrid{background-image: url(assets/imgs/soccer-badges/real-madrid.png);}
 .badge.fcb{background-image: url(assets/imgs/soccer-badges/fcb.png);}
 
-@media screen and (max-width: 768px){
+@media screen and (max-width: 767px){
     #favoritos{padding-left: 0;}
     #favoritos article{padding: 0;}
     #favoritos article footer h4.title{font-size: 13px; margin: 5px 0;}
+    #favoritos article footer .tags .badge{width:30px; height:30px;}
 }
 
 /*2.4 Marcador - Perfil del Redactor*/
 #redactor{font: 16px/22px 'Roboto', sans-serif; font-weight: 400;}
-#redactor .name{margin-top: 0; font-size: 24px; font-weight: 400;}
+#redactor .profile{text-align: center;}
+#redactor .name{margin-top: 0; font-size: 24px; font-weight: 600;}
 #redactor .name + p{font-size: 16px; text-align: justify;}
-#redactor #user-image{min-height: 250px; background:url(assets/messi.jpg) no-repeat; background-size: cover; width: 100%; height: 100%;}
-#redactor .especialidades{width: auto;border-top: 1px #ccc solid;}
+#redactor .user-image{display: inline-block; min-height: 250px; height: 100%; max-width: 200px; }
+#redactor .especialidades{width: auto;border-top: 1px #ccc solid; padding-bottom: 10px;}
 #redactor .especialidades .title{padding: 10px 0;}
 #redactor .especialidades .icon{display: inline-block; height: 30px; width: 30px; margin-right: 10px; background: #ccc; border-radius: 50%;}
 #redactor .social{padding: 10px 0; text-align: center;}
 #redactor .social a{display: inline-block; width: 40px; height: 40px; background: #ccc; border-radius: 50%;}
 /*DESTACADOS REDACTOR*/
 #redactor header{font-size: 24px; font-weight: 400; padding: 30px 0; border-top:1px solid #ccc;}
-#redactor article{width: 100%; min-height: 150px; margin-left: -15px; border-bottom: 1px solid #ccc;}
-#redactor .image{background: url(assets/messi.jpg); padding-bottom: 30%;}
-#redactor #destacados .category{font-style: italic;}
-#redactor #destacados .date{text-align: right; color: #aab0b5; font-style: italic;}
+#redactor article{width: 100%; min-height: 150px; margin-bottom: 15px; border-bottom: 1px solid #ccc;}
+#redactor article .image{background: url(assets/messi.jpg); padding-bottom: 100%;}
+#redactor article .category{font-style: italic;}
+#redactor article .title{font-weight: bold; padding: 10px 0;}
+#redactor article .category{font-style: italic;}
+#redactor article .date{padding:10px 15px; text-align: right; color: #aab0b5; font-style: italic;}
 
+
+@media screen and (max-width:767px){
+    #redactor .name {padding-top: 10px; text-align: center;}
+    #redactor .user-image{width: 200px; height: 200px; padding: 0;}
+    #destacados header{font-size: 16px; padding: 10px 0;}
+}
 
 /*2.5 Marcador - Concursos */
-
+#concursos .marcador-post-list-excerpt{max-height: none;}
 #concursos .panel-footer .cerrado{color:firebrick; text-align: right; }
 #concursos .panel-footer{background: inherit; border: inherit;}
 #concursos .concurso-wrapper{max-width: 90%; margin: 0 auto;}
@@ -2416,8 +2435,8 @@ select#score-liga-selector {
 
 #virales h4{color: #999; font-weight: 400; font-family: 'Roboto', sans-serif; margin: 0; padding: 10px;}
 
-#virales .marcador-post-list-title{margin: 0; font-family: 'Roboto',sans-serif; font-size: 16px; padding: 15px 15px 0 15px;}
-#virales .marcador-post-list-excerpt{margin-top:10px; padding:0 15px;}
+#virales .marcador-post-list-title{margin: 0; font-family: 'Roboto',sans-serif; font-size: 16px;}
+#virales .marcador-post-list-excerpt{margin-top:10px; max-height: none;}
 #virales .marcador-post-list-meta a{top: 0;}
 #virales .marcador-post-list-author{text-align: right;}
 #virales .marcador-post-list-date{border-left: 1px solid #999;}
@@ -2426,40 +2445,17 @@ select#score-liga-selector {
 #virales .panel-video iframe{min-height: 400px; width: 100%;}
 #virales .panel-default{overflow: hidden; min-height: 400px;}
 
-/*2.6 Marcador - Resumen */
-
-#resumen h4{color: #4a4a4a; padding-bottom: 15px; margin: 0 0 25px 0; border-bottom: 1px solid #ccc;}
-
-/*2.6.1 Header Score */
-.header_score{font: bold 18px/18px 'Roboto',sans-serif;}
-.header_score .panel{line-height: 45px;}
-.header_score .panel .panel-body{height: 100px;}
-.header_score .panel .panel-body .row{height: 100%;}
-.header_score .panel .panel-body .row div{height: 100%; line-height: 70px;}
-.header_score .panel .panel-body .row .logos{line-height: 100px;}
-.header_score .score{font-size: 24px; text-align: center;}
-.header_score .panel-header{text-align: center; border-bottom: 1px solid #ccc; font-size: 14px;}
-.header_score .game-type, .header_score .team-score{position: absolute; font:400 16px/16px 'Roboto',sans-serif;}
-.header_score .game-type{top: 0px; left: 50%; transform: translateX(-50%);}
-.header_score .team:first-child{text-align: right;}
-.header_score .team div{display: inline-block; position: relative;}
-.header_score .team-score{bottom: 0px; left: 50%; transform: translateX(-50%);}
-
-@media screen and (max-width:768px){
-    .header_score .panel .panel-body .row div{line-height: 18px; top: 50%; transform: translateY(-50%);}
-    .header_score .team{font: bold 14px/14px 'Roboto',sans-serif; text-align: center;}
-    .header_score .team:first-child{text-align: center;}
-    .header_score .team-score, .header_score .game-type{display: none;}
+@media screen and (max-width:991px){
+    #virales .panel-default{min-height: none;}
 }
 
-/*TEAM LOGOS*/
-.logo{display: inline-block; min-width: 45px; min-height: 45px; background-repeat: no-repeat; background-size: contain;}
+/*2.6 Marcador - Resumen */
 
-.mlb-min{background-image: url(assets/imgs/mlb/MIN-logo-sm.png)}
-.mlb-oak{background-image: url(assets/imgs/mlb/OAK-logo-sm.png)}
+#resumen h4{color: #4a4a4a; padding-bottom: 15px; margin: 0 0 15px 0; border-bottom: 1px solid #ccc;}
+#resumen #stats{overflow-x: auto;}
 
 #estadisticas .panel{padding: 25px; background-color:#fafafa; box-shadow: 0 2px 2px rgba(0,0,0,.1);}
-table.stats{width: 100%;}
+table.stats{width: 100%; min-width: 768px;}
 .stats tr{}
 
 .stats tr:nth-child(odd){background:#ebebeb;}
@@ -2471,17 +2467,19 @@ table.stats{width: 100%;}
 #resumen .stats th:first-child{background:transparent;}
 #resumen .stats td:first-child{text-align:left; padding-left: 10px;}
 .stats tr:first-child th{left: 0;}
+.table-scroll{overflow-x: auto;}
 
-/*COLLAPSED*/
-#imagenes-slider{position: relative; width: 100%; height: 150px; overflow: hidden; transition: height .5s ease-out;}
+/*COLLAPSED SLIDER*/
+#imagenes-slider{position: relative; width: 100%; height: 200px; overflow: hidden; transition: height .5s ease-out;}
 #imagenes-slider .button{width: 30px; height: 100%; position: absolute; background: #ccc; cursor: pointer; text-align: center;}
 #imagenes-slider .button.left{left: 0;}
 #imagenes-slider .button.right{right: 0;}
+#imagenes-slider .button.right i, #imagenes-slider .button.left i{top: 50%; transform: translateY(-50%); position: relative;}
 #imagenes-slider .thumbnails{height: 100%; width: 2200px;}
 #imagenes-slider .thumbnails img{height: 100%;}
 #imagenes-slider .display{width: 100%; height: 0px; background: url(assets/messi.jpg) no-repeat; background-size: cover; transition: height 1s ease-out;}
 
-/*EXPANDED*/
+/*EXPANDED SLIDER*/
 
 #imagenes-slider.expanded{height: auto; background: #666;}
 #imagenes-slider.expanded .button{width: 80px; background: #666; color: #ccc;}
@@ -2490,14 +2488,29 @@ table.stats{width: 100%;}
 
 
 /*CONVERSACION*/
+#comments{}
+#comments #comments-toggle{text-align: center; display: none;}
+#comments #comments-toggle .close{display: none;}
+#comments.toggled #comments-toggle .open{display: none;}
+#comments.toggled #comments-toggle .close{display: block;}
+
 .comments-header{margin: 10px 0; padding: 10px 0; border-bottom: 1px solid #ccc;}
-.comments-header select{margin-left: 25px;}
+.comments-header select{margin-left: 15px; height: 100%;}
 
 .user-image{width: 100%; padding-bottom: 100%; box-sizing: border-box; background: url(assets/messi.jpg) no-repeat; background-size: cover;}
-.comments-list textarea{width: 100%; padding: 15px; min-height: 70px; font-size: 18px; color: #ccc;}
+
+.comments-list textarea{width: 100%; padding: 15px; height: 100%; font-size: 18px; color: #ccc; box-sizing: border-box;}
 
 .comments-order{text-align: right;}
-.comments-number{}
+.comments-number{font-weight: bold; padding: 0;}
+#comments .disclaimer{}
+
+@media screen and (max-width:768px){
+    #comments{height: 50px; overflow: hidden; border: 2px solid #999; border-radius: 3px;}
+    #comments.toggled{height: auto; transition: height .15s ease-out;}
+    #comments  #comments-toggle{display: block;}
+    .comments-list textarea{font-size: 14px; padding: 15px 15px 5px 15px;}
+}
 
 #related .title{padding: 15px 0; border-top: 1px solid #ccc; font-size: 16px;}
 #related article{position: relative; margin-bottom: 15px; background: url(assets/messi.jpg) no-repeat; background-size: cover; min-height: 250px;}
@@ -2505,20 +2518,21 @@ table.stats{width: 100%;}
 
 #resumen #imagenes, #resumen #estadisticas, #resumen #comments, #resumen #related{margin: 20px 0;}
 
-
 #estadisticas_resumen{}
 
 #cintillo_estadisticas{border-top: 10px solid red;}
 
-#stats{border: 1px solid #ccc; border-top: 0; padding-top: 20px; box-shadow: 0 2px 2px rgba(0,0,0,.1); margin-bottom: 20px;}
+#stats{border: 1px solid #ccc; border-top: 0; padding-top: 20px; box-shadow: 0 2px 2px rgba(0,0,0,.1); -moz-box-shadow: 0 2px 2px rgba(0,0,0,.1); -webkit-box-shadow: 0 2px 2px rgba(0,0,0,.1); margin-bottom: 20px;}
+
 #estadisticas_resumen .stats{border: 1px solid #ccc; border-bottom: 0;}
 
 .pitcher{height: 120px; border: 1px solid #ccc; margin-bottom: 15px; overflow: hidden;}
 .pitcher h4{margin: 0; background: #7e7e7e; padding: 0 0 0 15px; color: #fff; font-weight: 400;}
 .pitcher .detail{border-left: 12px solid red; height: 100px;}
+.pitcher.loser .detail{border-left-color: #ccc;}
 .pitcher .detail span{display: inline-block;}
 .pitcher .player-image{height: 100%; background-image: url(assets/messi.jpg); }
-.pitcher .player-name{font-size: 18px; font-weight: bold; top: 50%; transform: translateY(-50%c);}
+.pitcher .player-name{font-size: 18px; font-weight: bold; top: 50%; transform: translateY(-50%);}
 .pitcher .player-stats{}
 
 .status.key{font-weight: 700;}
@@ -2532,3 +2546,44 @@ table.players{width: 100%; padding: 15px; margin-bottom: 20px; color: #707070;}
 .players tr th:first-child{border-right: 1px solid #707070;}
 .players tr:last-child{background: #707070; color: #fff; font-weight: 600;}
 .players tr:last-child td:first-child{border: 0;}
+
+#glosary{padding: 15px; background-color: #f7f7f7;    border-radius: 4px; margin-bottom: 15px; box-shadow: 0 1px 2px rgba(0,0,0,0.5); }
+
+@media screen and (max-width:480px){
+    #stats{padding: 15px 0;}
+    #glosary .status{font-size: 12px;}
+   
+}
+
+
+
+/*2.6.1 Header Score */
+.header_score{font: bold 18px/18px 'Roboto',sans-serif;}
+.header_score .panel{line-height: 45px;}
+.header_score .panel .panel-body{height: 100px;}
+.header_score .panel .panel-body .row{height: 100%;}
+.header_score .team div{height: 100%; line-height: 70px;}
+.header_score .logos{line-height: 100px;}
+.header_score .score{font-size: 24px; text-align: center; line-height: 70px;}
+.header_score .panel-header{text-align: center; border-bottom: 1px solid #ccc; font-size: 14px;}
+.header_score .game-type, .header_score .team-score{position: absolute; font:400 16px/16px 'Roboto',sans-serif;}
+.header_score .game-type{top: 0px; left: 50%; transform: translateX(-50%);}
+.header_score .team:first-child{text-align: right;}
+.header_score .team div{display: inline-block; position: relative;}
+.header_score .team-score{bottom: 0px; left: 50%; transform: translateX(-50%);}
+/*TEAM LOGOS*/
+.header_score .logo{position: relative; left: 50%; transform: translateX(-50%); display: inline-block; min-width: 45px; min-height: 45px; background-repeat: no-repeat; background-size: contain; background-position: center; width: 100%; height: 100%;}
+
+.mlb-min{background-image: url(assets/imgs/mlb/MIN-logo-sm.png)}
+.mlb-oak{background-image: url(assets/imgs/mlb/OAK-logo-sm.png)}
+
+@media screen and (max-width:768px){
+    .header_score .team div{height: auto; line-height: 18px; top: 50%; transform: translateY(-50%);}
+    .header_score .team{font: bold 14px/14px 'Roboto',sans-serif; text-align: center; height: 100%;}
+    .header_score .team:first-child{text-align: center;}
+    .header_score .team-score, .header_score .game-type{display: none;}
+    .header_score .logos{ height: 100%;}
+}
+@media screen and (max-width:480px){
+    .header_score .score{padding: 0; font-size: 18px;}
+}

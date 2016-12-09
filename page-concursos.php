@@ -13,7 +13,7 @@
 <div id="marcador-page-template">
   <div id="main-content" class="container-fluid">
     <div class="row">
-      <div class="col-lg-12">
+      <div id="concursos" class="col-lg-12">
           <h1 class="page-title">Concursos</h1>
        <div class="concurso-wrapper">
         <div class="row">
@@ -31,8 +31,8 @@
                 <div class="panel-footer">
                     <div class="row">
                         <div class="col-md-3 col-xs-4">COMPARTE</div>
-                        <div class="col-md-3 col-xs-4">MAS INFO</div>
-                        <div class="col-md-push-3 col-md-3 col-xs-4 cerrado">CERRADO</div>
+                        <div class="col-md-4 col-xs-4">MAS INFO...</div>
+                        <div class="col-md-push-2 col-md-3 col-xs-4 cerrado">CERRADO</div>
                     </div>
                 </div>
         </div>
@@ -55,8 +55,8 @@
                 <div class="panel-footer">
                     <div class="row">
                 <div class="col-md-3 col-xs-4 ">COMPARTE</div>
-                <div class="col-md-3 col-xs-4">MAS INFO</div>
-                <div class="col-md-push-3 col-md-3 col-xs-4 cerrado">CERRADO</div>
+                <div class="col-md-4 col-xs-4">MAS INFO</div>
+                <div class="col-md-push-2 col-md-3 col-xs-4 cerrado">CERRADO</div>
                     </div>
                 </div>
         </div></div> 
@@ -75,8 +75,8 @@
                 <div class="panel-footer">
                     <div class="row">
                 <div class="col-md-3 col-xs-4 ">COMPARTE</div>
-                <div class="col-md-3 col-xs-4">MAS INFO</div>
-                <div class="col-md-push-3 col-md-3 col-xs-4 cerrado">CERRADO</div>
+                <div class="col-md-4 col-xs-4">MAS INFO</div>
+                <div class="col-md-push-2 col-md-3 col-xs-4 cerrado">CERRADO</div>
                     </div>
                 </div>
         </div>

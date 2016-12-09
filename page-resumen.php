@@ -20,14 +20,14 @@
     <div class="row header_score">
             <div class="col-xs-12">
             <div class="panel panel-default">
-                
+                <div class="panel-header">Minnesota vs. Athetics Agosto 01, 2016</div>
                 <div class="panel-body">
             <div class="row">
-            <div class="col-xs-4 team"><div>Minnesota Twins</div></div>
-            <div class="logos col-xs-1"><span class="logo mlb-min"></span></div>
-            <div class="col-xs-2 score">15/10</div>
-            <div class="logos col-xs-1"><span class="logo mlb-oak"></span></div>
-            <div class="col-xs-4 team"><div>Oakland Athletics</div></div>
+            <div class="col-xs-3 col-sm-4 team"><div>Minnesota Twins</div></div>
+            <div class="logos col-xs-2 col-sm-1"><span class="logo mlb-min"></span></div>
+            <div class="col-xs-2 col-sm-2 score">15/10</div>
+            <div class="logos col-xs-2 col-sm-1"><span class="logo mlb-oak"></span></div>
+            <div class="col-xs-3 col-sm-4 team"><div>Oakland Athletics</div></div>
             </div>
                 </div>
             </div>
@@ -35,7 +35,7 @@
         </div>
         
     <div id="hero-video-post" class="row">
-        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        <div class="col-xs-12">
             <div class="single-post-featured-image" style="background-image: url('http://dev.marcador.do/wp-content/uploads/2016/09/Captura-de-pantalla-2016-09-22-a-las-23.00.10.png')"></div>
 <div class="single-post-featured-image-description">
 Rays de Tampa</div>
@@ -65,7 +65,7 @@ Rays de Tampa</div>
             <div class="col-xs-12"><h4>Estadisticas del Partido</h4></div>
         
             <div class="col-xs-12">
-                <div class="panel panel-default">
+                <div id="stats" class="panel panel-default">
                 <table class="stats">
                     <tr><th>bien</th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6</th><th>7</th><th>8</th><th>9</th><th>10</th><th>R</th><th>H</th><th>E</th></tr>
                     <tr><td>Baltimore</td><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td></tr>
@@ -95,23 +95,27 @@ Rays de Tampa</div>
             </div>
             </div>
         </div>
-            
+         <h4>Conversacion</h4>   
     <div id="comments" class="row">
-        <div class="col-xs-12">
-            <h4>Conversacion</h4>
             <div class="col-xs-12">
+            <div id="comments-toggle">COMENTAR
+            <i class="close material-icons">keyboard_arrow_up</i>
+            <i class="open material-icons">keyboard_arrow_down</i>
+        </div>
+            <div class="col-xs-12 disclaimer">
                 <p>Usa una <a href="#">cuenta de Facebook</a> para agregar un comentario, sujeto a las <a href="#">politicas de privacidad</a> y <a href="#">Terminos de Uso de Facebook.</a> Tu nombre de Facebook, foto y otra informacion personal que hagas publica en Facebook, aparecera en tu comentario y puede ser usado en las plataformas de medios de Marcador.do. <a href="#">Mas informacion.</a>
             </p></div>
             </div>
             
             <div class="col-xs-12">
             <div class="comments-header row">
-            <span class="col-lg-8 comments-number">0 Comentarios</span><span class="col-lg-4 comments-order">Ordenar por:<select><option>Los mas antiguos</option></select></span></div>
+            <span class="col-xs-4 comments-number">0 Comentarios</span><span class="col-xs-8 comments-order">Ordenar por:<select><option>Los mas antiguos</option></select></span></div>
             </div>
+        
             <div class="col-xs-12">
         <div class="comments-list" class="row">
-            <div class="col-sm-2"><div class="user-image"></div></div>
-            <div class="col-sm-10"><textarea>Anade un comentario...</textarea></div>
+            <div class="col-xs-2 clearfix" style="padding:0;"><div class="user-image"></div></div>
+            <div class="col-xs-10 clearfix"><textarea>Anade un comentario...</textarea></div>
             </div>
                 </div>
         </div>
@@ -133,67 +137,56 @@ Rays de Tampa</div>
     </div>
     
     <div id="estadisticas_resumen" class="row tabs hidden">
-        
+        <!-- CINTILLO DE ESTADISTICAS
+            INCLUDE BELOW -->
         <div id="cintillo_estadisticas">
         <div id="cintillo">
-				<div class="cintillo-row">
-					<div class="cintillo-wrapper">
-						<div class="cintillo-container">
-							<div id="cintillo-selects-container">
-								<div id="cintillo-selects">
-									<select id="league" class="form-control">
-										<option value="mlb" selected="selected">MLB</option>
-										<option value="lidom">LiDom</option>
-									</select>
-									<select id="league_day" class="form-control">
-																					<option value="2016-10-25" selected="">
-												25 Oct											</option>
-																					<option value="2016-10-24">
-												24 Oct											</option>
-																					<option value="2016-10-23">
-												23 Oct											</option>
-																			</select>
-									
-								</div>
-							</div> 
-							<div id="cintillo-results-wrapper">
-								<div id="cintillo-results"></div>
-							</div>
-							
-							<div class="cintillo-next-btn">
-								<a href="#next">
-									<i class="material-icons md-24">chevron_right</i>
-								</a>
-							</div>
-						</div>
-
-					</div>
+<div class="cintillo-row">
+				<div class="cintillo-wrapper">
+				<div class="cintillo-container">
+				<div id="cintillo-selects-container">
+				<div id="cintillo-selects">
+<select id="league" class="form-control">
+				<option value="mlb" selected="selected">MLB</option>
+				<option value="lidom">LiDom</option>
+</select>
+<select id="league_day" class="form-control">			<option value="2016-10-25" selected="">25 Oct</option>
+<option value="2016-10-24">24 Oct</option>
+<option value="2016-10-23">23 Oct</option>
+</select>
+                    </div></div> 
+<div id="cintillo-results-wrapper">
+<div id="cintillo-results"></div>
+</div>
+<div class="cintillo-next-btn">
+<a href="#next"><i class="material-icons md-24">chevron_right</i></a></div></div></div>
 				</div>
 			</div>
         </div>
-        
+        <!-- END OF CINTILLO ESTADISTICAS, INCLUDE ABOVE -->
         <div class="row header_score">
             <div class="col-xs-12">
             <div class="panel panel-default">
                 <div class="panel-header">Minnesota vs. Athetics Agosto 01, 2016</div>
                 <div class="panel-body">
             <div class="row">
-            <div class="col-xs-4 team"><div>Minnesota Twins<span class="team-score">(56-46)</span></div></div>
-            <div class="logos col-xs-1"><span class="logo mlb-min"></span></div>
-            <div class="col-xs-2 score"><span class="game-type">FINAL</span>15/10</div>
-            <div class="logos col-xs-1"><span class="logo mlb-oak"></span></div>
-            <div class="col-xs-4 team"><div>Oakland Athletics<span class="team-score">(58-46)</span></div></div>
+            <div class="col-xs-3 col-sm-4 team"><div>Minnesota Twins<span class="team-score">(56-46)</span></div></div>
+            <div class="logos col-xs-2 col-sm-1"><span class="logo mlb-min"></span></div>
+            <div class="col-xs-2 col-sm-2 score"><span class="game-type">FINAL</span>15/10</div>
+            <div class="logos col-xs-2 col-sm-1"><span class="logo mlb-oak"></span></div>
+            <div class="col-xs-3 col-sm-4 team"><div>Oakland Athletics<span class="team-score">(58-46)</span></div></div>
             </div>
                 </div>
             </div>
        </div>
         </div>
-        
+        <div class="table-scroll">
         <table class="stats">
                     <tr><th></th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6</th><th>7</th><th>8</th><th>9</th><th>10</th><th>R</th><th>H</th><th>E</th></tr>
                     <tr><td>Baltimore</td><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td></tr>
                     <tr><td>Minnesota</td><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td></tr>
                     </table>
+        </div>
     <div id="stats" class="col-sm-12">
         
         <div class="col-sm-6">
@@ -253,8 +246,8 @@ Rays de Tampa</div>
         </div>
         
         <div class="col-sm-6">
-        <div class="pitcher">
-            <h4>Winner Pitcher</h4>
+        <div class="pitcher loser">
+            <h4>Loser Pitcher</h4>
             <div class="detail">
                 <span class="player-image col-xs-2"></span>
                 <span class="player-name col-xs-3">Trevor Plouffe</span>
@@ -267,8 +260,8 @@ Rays de Tampa</div>
         </div>
         
         <div class="col-sm-6">
-        <div class="pitcher">
-            <h4>Winner Pitcher</h4>
+        <div class="pitcher loser">
+            <h4>Loser Pitcher</h4>
             <div class="detail">
                 <span class="player-image col-xs-2"></span>
                 <span class="player-name col-xs-3">Trevor Plouffe</span>
@@ -330,11 +323,11 @@ Rays de Tampa</div>
                 <div class="panel-header">Minnesota vs. Athetics Agosto 01, 2016</div>
                 <div class="panel-body">
             <div class="row">
-            <div class="col-xs-4 team"><div>Minnesota Twins<span class="team-score">(56-46)</span></div></div>
-            <div class="logos col-xs-1"><span class="logo mlb-min"></span></div>
-            <div class="col-xs-2 score"><span class="game-type">FINAL</span>15/10</div>
-            <div class="logos col-xs-1 "><span class="logo mlb-oak"></span></div>
-            <div class="col-xs-4 team"><div>Oakland Athletics<span class="team-score">(58-46)</span></div></div>
+            <div class="col-xs-3 col-sm-4 team"><div>Minnesota Twins<span class="team-score">(56-46)</span></div></div>
+            <div class="logos col-xs-2 col-sm-1"><span class="logo mlb-min"></span></div>
+            <div class="col-xs-2 col-sm-2 score"><span class="game-type">FINAL</span>15/10</div>
+            <div class="logos col-xs-2 col-sm-1"><span class="logo mlb-oak"></span></div>
+            <div class="col-xs-3 col-sm-4 team"><div>Oakland Athletics<span class="team-score">(58-46)</span></div></div>
             </div>
                 </div>
             </div>
@@ -342,15 +335,18 @@ Rays de Tampa</div>
         </div>
         
     <div id="glosary" class="col-xs-12">
-    <div class="row calendar-row">
+    <div class="row">
             <!-- Col 1 -->
-            <div class="col-xs-12 col-sm-6 col-md-3 col-lg-2">
+            <div class="col-xs-12 col-sm-2">
               <div class="glosary">
                 Glosary
               </div>
             </div>
-            <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
-              <!-- Col 2 -->
+            
+            <div class="col-xs-12 col-sm-10">
+                <div class="row">
+            <!-- Col 2 -->
+            <div class="col-xs-4">
               <div class="status">
                 <span class="status key">AB:</span> <span class="status value w">At Bats</span>
               </div>
@@ -365,7 +361,7 @@ Rays de Tampa</div>
               </div>
             </div>
             <!-- Col 3 -->
-            <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+            <div class="col-xs-4">
               <div class="status">
                 <span class="status key">RBI:</span> <span class="status value home-visit">Run Batten In</span>
               </div>
@@ -380,7 +376,7 @@ Rays de Tampa</div>
               </div>
             </div>
             <!-- Col4 -->
-            <div class="col-xs-12 col-sm-6 col-md-3 col-lg-4">
+            <div class="col-xs-4">
               <div class="status">
                 <span class="status key">OBP:</span> <span class="status value gb">On Base Percentage</span>
               </div>
@@ -397,6 +393,8 @@ Rays de Tampa</div>
                 <span class="status key">ERA:</span> <span class="status value pct">Earned Run Average</span>
               </div>
             </div>
+                </div>
+                </div>
           </div>
     </div>
         
