@@ -1653,13 +1653,18 @@ span.cintillo.field.score.away {
 }
 .sidebar-nav.right li{position: relative;}
 .sidebar-nav.right li a{background: #3D3D3D;}
-.sidebar-nav.right a + span{display: block; position: absolute; top: 10px; right: -130px; width: 200px; height: 50px; background: #707070; transition: right .15s ease-out; z-index: -1; vertical-align: middle; text-align: center; line-height: 50px; color:#fff; text-transform: uppercase;}
+.sidebar-nav.right a + span{display: block; visibility: hidden; position: absolute; top: 10px; right: 85px; width: auto; height: 45px; background: #eee; transition: opacity .15s ease-out; z-index: -1; vertical-align: middle; text-align: center; line-height: 45px; color:#000; text-transform: uppercase; box-shadow: 0px 0px 4px #999; border-radius: 6px; padding: 0 15px; opacity: 0; white-space: nowrap; font-family: "marcador-regular";}
+.sidebar-nav.right a + span::after{content: ""; display: block; width: 15px; height: 15px; position: absolute; right: -6px; transform: rotate(45deg); top: 16px; background: #eee; }
+.sidebar-nav.right a + span::before{content: ""; display: block; width: 10px; height: 10px; position: absolute; right: -6px; transform: rotate(45deg); top: 19px; background: #eee; box-shadow: 1px 0px 3px #999; z-index: -1;}
 .sidebar-nav.right a:hover{background-color: #4a4a4a;}
-.sidebar-nav.right a:hover + span{right: 70px; transition: right 0.15s ease-out;}
+.sidebar-nav.right a:hover + span{transition: opacity 0.15s ease-out; opacity: 1; visibility: visible;}
 @media screen and (max-width:480px){
    #right-sidebar-wrapper{display: none;}
 }
 @media screen and (max-width:1270px){
+    .sidebar-nav.right a + span{top:-62px; right: 50%; transform: translateX(50%); z-index: 1; }
+    .sidebar-nav.right a + span::after{right: 50%; top: 36px; margin-right: -7px;}
+    .sidebar-nav.right a + span::before{right:50%; margin-right: -6px;top: 41px; box-shadow: 1px 2px 3px #999;}
     .sidebar-nav.right li{display: inline-block;}
 }
 @media screen and ( min-width : 1270px ) {
