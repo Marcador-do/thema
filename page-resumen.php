@@ -10,6 +10,15 @@
  */
 ?>
 <?php get_header(); ?>
+<script>
+        jQuery("#comments").ready(function(){
+            jQuery("#comments-toggle").click(function(){
+                console.log("Comments toggled");
+                jQuery("#comments").toggleClass(
+"toggled");
+            });
+        });
+        </script>
 <div id="marcador-page-template">
   <div id="main-content" class="container-fluid">
     <div class="row">
@@ -98,8 +107,9 @@ Rays de Tampa</div>
          <h4>Conversacion</h4>   
     <div id="comments" class="row">
             <div class="col-xs-12">
-            <div id="comments-toggle">COMENTAR
-            <i class="close material-icons">keyboard_arrow_up</i>
+            <div id="comments-toggle">
+            <span>COMENTAR</span>
+            <i class="closed material-icons">keyboard_arrow_up</i>
             <i class="open material-icons">keyboard_arrow_down</i>
         </div>
             <div class="col-xs-12 disclaimer">
@@ -115,7 +125,7 @@ Rays de Tampa</div>
             <div class="col-xs-12">
         <div class="comments-list" class="row">
             <div class="col-xs-2 clearfix" style="padding:0;"><div class="user-image"></div></div>
-            <div class="col-xs-10 clearfix"><textarea>Anade un comentario...</textarea></div>
+            <div class="col-xs-10 clearfix" style="padding-right:0;"><textarea>Anade un comentario...</textarea></div>
             </div>
                 </div>
         </div>

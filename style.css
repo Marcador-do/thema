@@ -2494,10 +2494,11 @@ table.stats{width: 100%; min-width: 768px;}
 
 /*CONVERSACION*/
 #comments{}
-#comments #comments-toggle{text-align: center; display: none;}
-#comments #comments-toggle .close{display: none;}
+#comments #comments-toggle{text-align: center; display: none; height: 50px; line-height: 50px;}
+#comments #comments-toggle .closed,#comments #comments-toggle .open{vertical-align: middle; height: 26px;}
+#comments #comments-toggle .closed{display: none;}
 #comments.toggled #comments-toggle .open{display: none;}
-#comments.toggled #comments-toggle .close{display: block;}
+#comments.toggled #comments-toggle .closed{display: inline-block;}
 
 .comments-header{margin: 10px 0; padding: 10px 0; border-bottom: 1px solid #ccc;}
 .comments-header select{margin-left: 15px; height: 100%;}
@@ -2511,8 +2512,8 @@ table.stats{width: 100%; min-width: 768px;}
 #comments .disclaimer{}
 
 @media screen and (max-width:768px){
-    #comments{height: 50px; overflow: hidden; border: 2px solid #999; border-radius: 3px;}
-    #comments.toggled{height: auto; transition: height .15s ease-out;}
+    #comments{max-height: 50px; overflow: hidden; border: 2px solid #999; border-radius: 3px; transition: max-height .33s ease-out; padding-bottom: 15px;}
+    #comments.toggled{transition: max-height .33s ease-out; max-height: 2000px;}
     #comments  #comments-toggle{display: block;}
     .comments-list textarea{font-size: 14px; padding: 15px 15px 5px 15px;}
 }
