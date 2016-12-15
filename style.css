@@ -1658,6 +1658,14 @@ span.cintillo.field.score.away {
 .sidebar-nav.right a + span::before{content: ""; display: block; width: 10px; height: 10px; position: absolute; right: -6px; transform: rotate(45deg); top: 19px; background: #eee; box-shadow: 1px 0px 3px #999; z-index: -1;}
 .sidebar-nav.right a:hover{background-color: #4a4a4a;}
 .sidebar-nav.right a:hover + span{transition: opacity 0.15s ease-out; opacity: 1; visibility: visible;}
+
+ul#menu-categorias-populares{
+	padding:0px;
+	text-decoration: none;
+}
+ul#menu-categorias-populares li{
+	list-style-type:none;
+}
 @media screen and (max-width:480px){
    #right-sidebar-wrapper{display: none;}
 }
