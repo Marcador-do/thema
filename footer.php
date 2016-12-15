@@ -14,9 +14,7 @@
 
 		<?php /* Right Sidebar */ ?>
 		<div id="right-sidebar-wrapper">
-			<ul class="sidebar-nav right">
-
-				
+			<div class="sidebar-nav right">
 					<!--Argumentos para menú top categories -->
 					<?php
 					if( has_nav_menu('categoria_top' )){
@@ -27,41 +25,8 @@
 						);
 						
 						wp_nav_menu($args);
-					};
-					?>
-					<!--<a href="#">
-						<img src="<?php echo get_term_meta(term_id, 'wpcf-icono') ?>" alt="Equipo" class="img-circle">
-					</a>
-                    <span class="description"><?php echo get_term_meta(term_id)?></span>
-                    <?php
-               		 
-               		 ?>
-				
-				<li>
-					<a href="#">
-						<img src="http://placehold.it/50x50&text=M" alt="Equipo" class="img-circle">
-					</a>
-                     <span class="description">Nombre categoria</span>
-				</li>
-				<li>
-					<a href="#">
-						<img src="http://placehold.it/50x50&text=M" alt="Equipo" class="img-circle">
-					</a>
-                     <span class="description">Nombre categoria</span>
-				</li>
-				<li>
-					<a href="#">
-						<img src="http://placehold.it/50x50&text=M" alt="Equipo" class="img-circle">
-					</a>
-                     <span class="description">Nombre categoria</span>
-				</li>
-				<li>
-					<a href="#">
-						<img src="http://placehold.it/50x50&text=M" alt="Equipo" class="img-circle">
-					</a>
-                     <span class="description">Nombre categoria</span>
-				</li>-->
-			</ul>
+					};?>	
+			</div>
 		</div>
 		<?php /* End Right Sidebar */ ?>
 	</div>
