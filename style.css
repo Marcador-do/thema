@@ -1065,6 +1065,7 @@ li[sidebar-nav-submenu].toggled #menu-principal .sub-menu{
 .marcador-post-list .marcador-post-list-image-col {
     padding-right: 0;
 }
+.marcador-post-list-full-row .marcador-post-list-excerpt{max-height: none;}
 @media screen and (min-width:768px){
 .marcador-post-list-content{min-height: 200px;}
     }
@@ -2475,22 +2476,25 @@ table.stats{width: 100%; min-width: 768px;}
 .table-scroll{overflow-x: auto;}
 
 /*COLLAPSED SLIDER*/
-#imagenes-slider{position: relative; width: 100%; height: 200px; overflow: hidden; transition: height .5s ease-out;}
+#imagenes-slider{position: relative; width: 100%; height: 200px; overflow: hidden; transition: height .5s ease-out; z-index: 1000;}
 #imagenes-slider .button{width: 30px; height: 100%; position: absolute; background: #ccc; cursor: pointer; text-align: center;}
 #imagenes-slider .button.left{left: 0;}
 #imagenes-slider .button.right{right: 0;}
 #imagenes-slider .button.right i, #imagenes-slider .button.left i{top: 50%; transform: translateY(-50%); position: relative;}
-#imagenes-slider .thumbnails{height: 100%; width: 2200px;}
-#imagenes-slider .thumbnails img{height: 100%;}
-#imagenes-slider .display{width: 100%; height: 0px; background: url(assets/messi.jpg) no-repeat; background-size: cover; transition: height 1s ease-out;}
+#imagenes-slider .thumbnails{height: 100%; width: 100%; white-space: nowrap; overflow: hidden;}
+#imagenes-slider .thumbnails span{display: inline-block; background: url(assets/messi.jpg) no-repeat; background-size: cover; width: 300px; height: 100%; overflow: hidden; margin: 0 10px; cursor: pointer;}
+#imagenes-slider .display{width: 100%; height: 0px; background: url(assets/messi.jpg) no-repeat; background-size: contain; background-position: center; transition: height 1s ease-out;}
+#imagenes-slider .exit{width: 45px; height: 45px; line-height: 45px; position: absolute; top: 0; right: 0; color: #fff; z-index: 1; text-align: center; display: none; cursor: pointer;}
+#imagenes-slider .exit i{vertical-align: middle; text-align: center;}
 
 /*EXPANDED SLIDER*/
 
-#imagenes-slider.expanded{height: auto; background: #666;}
+#imagenes-slider.expanded{margin-left: -15px; width: 142%; height: auto; background: #666;}
 #imagenes-slider.expanded .button{width: 80px; background: #666; color: #ccc;}
 #imagenes-slider.expanded .display{display: block; height: 600px}
-#imagenes-slider.expanded .thumbnails{height: 60px; margin: 10px 0;}
-
+#imagenes-slider.expanded .thumbnails{height: 60px; margin: 10px 0; text-align: center;}
+#imagenes-slider.expanded .thumbnails span{width: 80px;}
+#imagenes-slider.expanded .exit{display: block;}
 
 /*CONVERSACION*/
 #comments{}

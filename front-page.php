@@ -43,12 +43,8 @@ if ( has_nav_menu( 'primary_top' ) ) {
 		<!-- GRID START -->
 		<?php the_content(); ?>
 		<!-- GRID END -->
-
-	</div>
-
-	<!-- SIDEBAR -->
+        <!-- SIDEBAR -->
 	<?php get_sidebar('front-page'); ?>
-</div><!-- / ROW -->
-</div><!-- / CONTAINER FLUID -->
-
+	</div><!-- / CONTAINER FLUID -->
+	
 <?php get_footer(); ?>

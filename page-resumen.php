@@ -85,21 +85,51 @@ Rays de Tampa</div>
         </div>
         
     <div id="imagenes" class="row">
+        <script>
+        jQuery("#imagenes-slider").ready(function () { 
+    var thumbnail_scroll;
+    
+    function sliderScroll(scroll){
+        console.log("Sliding");
+        positionX = jQuery("#imagenes-slider .thumbnails").scrollLeft();
+        jQuery("#imagenes-slider .thumbnails").scrollLeft(positionX + scroll);
+    }
+    jQuery("#imagenes-slider .right").mousedown(function(){
+        console.log("Sliding right");
+        thumbnail_scroll = setInterval(function(){sliderScroll(10);},100);
+    });
+    jQuery("#imagenes-slider .left").mousedown(function(){
+        console.log("Sliding left");
+        thumbnail_scroll = setInterval(function(){sliderScroll(-10);},100);
+    });
+    jQuery("#imagenes-slider .right, #imagenes-slider .right").mouseup(function(){
+        console.log("Stop slide right");
+        clearInterval(thumbnail_scroll);
+    });
+     jQuery("#imagenes-slider .thumbnails span").click(function(){
+       jQuery("#imagenes-slider").addClass("expanded") 
+    });
+    jQuery("#imagenes-slider .exit").click(function(){
+       jQuery("#imagenes-slider").removeClass("expanded") 
+    });
+});
+        </script>
         <div class="col-xs-12">
             <h4>Imagenes</h4>
             
         <div id="imagenes-slider">
+            <div class="exit"><i class="material-icons">close</i></div>
             <div class="button left"><i class="material-icons">keyboard_arrow_left</i></div>
             <div class="button right"><i class="material-icons">keyboard_arrow_right</i></div>
                 <div class="display"></div>
             <div class="thumbnails">
-                <img src="assets/messi.jpg"/>
-                <img src="assets/messi.jpg"/>
-                <img src="assets/messi.jpg"/>
-                <img src="assets/messi.jpg"/>
-                <img src="assets/messi.jpg"/>
-                <img src="assets/messi.jpg"/>
-                <img src="assets/messi.jpg"/>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
                 </div>
             </div>
             </div>
