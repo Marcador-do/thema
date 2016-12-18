@@ -13,7 +13,15 @@
 /*** Raylin Codes ***/
 $user_admin_name = "wp-admin";
 
+function dt_get_link_edit($post_id){
 
+    if ( !current_user_can( 'manage_options' ) ) return false;
+?>
+<div class="edit-wrap">
+    <a href="<?php echo get_edit_post_link($post_id); ?>" class='adm-edit-post trans-3' target='_blank' title='<?php _e('Editar contenido'); ?>'><?php _e('Editar'); ?></a>
+</div>
+<?php
+}
 /**
  * Get an attachment ID given a URL.
  * 
