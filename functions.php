@@ -423,6 +423,8 @@ function excerpt($limit) {
 }
  
 
+ 
+
 function insert_loading_spinner() {
     ?>
 
