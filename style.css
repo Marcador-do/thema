@@ -1661,7 +1661,7 @@ span.cintillo.field.score.away {
 .sidebar-nav.right a:hover + span{transition: opacity 0.15s ease-out; opacity: 1; visibility: visible;}
 
 ul#menu-categorias-populares{
-	padding:0px;
+	padding-left:0px;
 	text-decoration: none;
 }
 ul#menu-categorias-populares li{
