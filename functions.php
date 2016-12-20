@@ -52,6 +52,7 @@ function marcador_setup() {
 		'primary_top' 	=> esc_html__( 'Principal-Top', 'marcadordo' ),
 		'deportes_top' 	=> esc_html__( 'Deportes', 'marcadordo' ),
 		'perfil_top' 	=> esc_html__( 'Perfil', 'marcadordo' ),
+		'categoria_top'	=> esc_html__( 'Categorías-Top', 'marcadordo'),
 	) );
 
 	/*
@@ -422,6 +423,8 @@ function excerpt($limit) {
 }
  
 
+ 
+
 function insert_loading_spinner() {
     ?>
 
@@ -497,6 +500,17 @@ function insert_marcador_video_menu () {
 	}
 }
 add_action('add_menu_marcador_video', 'insert_marcador_video_menu');
+
+function insert_marcador_top_category(){
+	if( has_nav_menu('categoria_top' )){
+		$args = array(
+				'theme_location' => 'categoria_top',
+				'container' => false,
+		);
+		wp_nav_menu($args);
+	};
+}
+add_action('add_menu_marcador_top_category', 'insert_marcador_top_category');
 
 
 

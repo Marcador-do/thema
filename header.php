@@ -352,7 +352,7 @@ function banner() {
 						<span class="sidebar-icon">
 							<i class="material-icons md-light md-24">star</i>
 						</span>
-						<span class="sidebar-menu-item"><?php _e('Favoritos'); ?></span>
+						<span class="sidebar-menu-item"><?php ; ?></span>
 					</a> 
 				</li>
 			<?php endif; ?>
@@ -368,13 +368,13 @@ function banner() {
 			</ul>
 			<ul id="social" class="sidebar-nav">
 				<li>
-					<a href="#facebook"><span class="marcador-icon facebook"></span></a>
+					<a href="https://www.facebook.com/Marcador.do/"><span class="marcador-icon facebook"></span></a>
 				</li>
 				<li>
-					<a href="#twitter"><span class="marcador-icon twitter"></span></a>
+					<a href="https://twitter.com/Marcador_Do"><span class="marcador-icon twitter"></span></a>
 				</li>
 				<li>
-					<a href="#instagram"><span class="marcador-icon instagram"></span></a>
+					<a href="https://www.instagram.com/marcador.do/"><span class="marcador-icon instagram"></span></a>
 				</li>
 				<li>
 					<a href="#rss"><span class="marcador-icon rss"></span></a>
