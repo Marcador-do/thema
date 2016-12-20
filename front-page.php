@@ -41,10 +41,15 @@ if ( has_nav_menu( 'primary_top' ) ) {
 	<div id="main-content" class="container-fluid">
 
 		<!-- GRID START -->
+        <!-- SIDEBAR -->
+        <?php get_sidebar('front-page'); ?>
+        
 		<?php the_content(); ?>
 		<!-- GRID END -->
-        <!-- SIDEBAR -->
-	<?php get_sidebar('front-page'); ?>
-	</div><!-- / CONTAINER FLUID -->
+        
+	
+	</div>
+</div><!-- / ROW -->
+</div><!-- / CONTAINER FLUID -->
 	
 <?php get_footer(); ?>

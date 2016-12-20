@@ -1065,10 +1065,9 @@ li[sidebar-nav-submenu].toggled #menu-principal .sub-menu{
 .marcador-post-list .marcador-post-list-image-col {
     padding-right: 0;
 }
-.marcador-post-list-full-row .marcador-post-list-excerpt{max-height: none;}
-@media screen and (min-width:768px){
-.marcador-post-list-content{min-height: 200px;}
-    }
+.marcador-post-list-full-row .marcador-post-list .marcador-post-list-excerpt,.marcador-post-list-full-row .marcador-post-list .marcador-post-list-content{max-height: none;}
+.marcador-post-list-full-row .marcador-post-list .marcador-post-list-excerpt::after, .marcador-post-list.card .panel .marcador-post-list-excerpt::after{display: none;}
+
 .marcador-post-list-title { 
     font-family: 'marcador-bold';
     min-height: 40px;
@@ -1076,8 +1075,9 @@ li[sidebar-nav-submenu].toggled #menu-principal .sub-menu{
 .marcador-post-list-excerpt {
 	font-family: 'marcador-regular';
 	color: #888;
-    max-height: 40px;
+    position: relative;
 }
+
 
 .marcador-post-list-title a {
 	color: #333;
@@ -1086,7 +1086,7 @@ li[sidebar-nav-submenu].toggled #menu-principal .sub-menu{
 @media screen and (max-width: 1023px){.marcador-post-list-title a {font-size: 1.3em; margin: .3em 0;}}
 @media screen and (max-width: 480px){
     .marcador-post-list-title a {font-size: 16px; margin: .3em 0;}
-    .marcador-post-list .marcador-post-list-image-col {padding: 0 15px 0 0;}
+    .marcador-post-list .marcador-post-list-image-col {padding: 0 0 0 15px;}
 }
 
 
@@ -1129,7 +1129,20 @@ li[sidebar-nav-submenu].toggled #menu-principal .sub-menu{
 		// border-left: solid 3px #aab0b5;
 	}
 }
-@media screen and (min-width:768px){.marcador-post-list-image {min-height: 165px;}}
+@media screen and (min-width:768px){
+    .marcador-post-list-image {min-height: 165px;}
+    .marcador-post-list-content{min-height: 170px; max-height: 200px; overflow: hidden;}
+    .marcador-post-list-excerpt{overflow: hidden; max-height: 80px;}
+    .marcador-post-list-excerpt::after {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 30px;
+    background: linear-gradient(0deg, white, transparent);
+    bottom: 0;
+}
+}
 @media screen and (min-width:1270){ .marcador-posts-listing-wrapper{padding: 15px 30px;}}
 @media screen and (min-width:1120) and (max-width:1270){.marcador-post-list-excerpt{display: none;}}
 @media screen and (min-width:1024px) and (max-width:1119){.marcador-post-list{width: 100%;}.marcador-posts-listing-wrapper{padding: 15px 0;}}
