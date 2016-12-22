@@ -859,7 +859,7 @@ li[sidebar-nav-submenu].toggled #menu-principal .sub-menu{
 	margin-bottom: 15px;
 }
 
-.marcador-hero-post .author, .marcador-hero-post .author a{text-transform: uppercase; color: #666; text-decoration: none;}
+.marcador-hero-post .author, .marcador-hero-post .author a{text-transform: uppercase; color: #888; text-decoration: none;}
 .marcador-hero-post .author a{font-weight: bold;}
 .marcador-hero-post .date{text-transform: uppercase;
     font-weight: bold;
@@ -1071,6 +1071,7 @@ li[sidebar-nav-submenu].toggled #menu-principal .sub-menu{
 .marcador-post-list-title { 
     font-family: 'marcador-bold';
     min-height: 40px;
+    padding: 5px 0;
 }
 .marcador-post-list-excerpt {
 	font-family: 'marcador-regular';
@@ -1089,18 +1090,18 @@ li[sidebar-nav-submenu].toggled #menu-principal .sub-menu{
     .marcador-post-list .marcador-post-list-image-col {padding: 0 0 0 15px;}
 }
 
-
+.marcador-post-list-meta{min-height: 25px; padding: 5px 0; font-family: "marcador-regular"; color: #888; text-transform: uppercase;}
 .marcador-post-list-meta a {
     position: relative;
-    color: #aab0b5;
+    color: inherit;
     font-weight: 700;
 }
 .marcador-post-list-author,
 .marcador-post-list-date {
     display: inline-block;
 }
-.marcador-post-list-author {min-height:25px;}
-.marcador-post-list-date {min-height:25px;}
+.marcador-post-list-author {padding-right: 3px;}
+.marcador-post-list-date {padding-left: 5px; border-left: 1px solid #888;}
 
 .marcador-post-list .row:first-child {
     border-bottom: solid 1px #ececec;
@@ -1131,7 +1132,7 @@ li[sidebar-nav-submenu].toggled #menu-principal .sub-menu{
 }
 @media screen and (min-width:768px){
     .marcador-post-list-image {min-height: 165px;}
-    .marcador-post-list-content{min-height: 170px; max-height: 200px; overflow: hidden;}
+    .marcador-post-list-content{height: 200px; overflow: hidden;}
     .marcador-post-list-excerpt{overflow: hidden; max-height: 80px;}
     .marcador-post-list-excerpt::after {
     content: "";
