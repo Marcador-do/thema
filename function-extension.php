@@ -11,6 +11,15 @@
  * Customizer additions.
  */
 /*** Raylin Codes ***/
+add_image_size( 'full', 1600, 507, true );
+add_image_size( 'large', 1200, 380, true );
+add_image_size( 'medium', 800, 253, true );
+add_image_size( 'medium_large', 800, 253, true );
+add_image_size( 'thumbnail', 300, 300, true );
+
+
+
+
 $user_admin_name = "wp-admin";
 
 function dt_get_link_edit($post_id){
