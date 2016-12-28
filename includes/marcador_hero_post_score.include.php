@@ -1,7 +1,7 @@
 <!-- Marcador Hero Post Score -->
 <div class="row marcador-hero-post score">
       <div class="col-xs-12">
-        <header class="marcador-hero-unit" style="background-image: url('<?php echo the_post_thumbnail_url(); ?>');">
+        <header class="marcador-hero-unit" style="background-image: url('<?php echo the_post_thumbnail_url('full'); ?>');">
             <div class="scoreboard">
                  <?php
                 $meta = get_post_meta($post->ID);
