@@ -18,6 +18,11 @@
 	$parents = explode("/", trim($parents, "/"));
 	if (count($parents) > 1) $liga = $parents[1];
 	//echo "<pre>";print_r(  );echo "</pre>";
+
+
+  $categories = get_the_category();
+$category_id = $categories[0]->cat_ID;
+
 ?>
 <?php get_header(); ?>
 
