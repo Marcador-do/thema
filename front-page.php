@@ -42,9 +42,9 @@ if ( has_nav_menu( 'primary_top' ) ) {
 
 		<!-- GRID START -->
         
-		<?php the_content(); ?>
          <!-- SIDEBAR -->
         <?php get_sidebar('front-page'); ?>
+		<?php the_content(); ?>
 		<!-- GRID END -->
         
 	
