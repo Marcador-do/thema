@@ -11,7 +11,7 @@
  * Customizer additions.
  */
 /*** Raylin Codes ***/
-add_image_size( 'full', 1600, 507, true );
+add_image_size( 'full', 1600, 600, true );
 add_image_size( 'large', 1200, 380, true );
 add_image_size( 'medium', 800, 253, true );
 add_image_size( 'medium_large', 800, 253, true );
