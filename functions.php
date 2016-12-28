@@ -374,10 +374,7 @@ function selector_deportes_top_menu ( $items, $args ) {
     	}
     	$disciplina_id = get_cat_id($parents[0]);
     	if ($disciplina_id > 0) {
-	    	$all_ligas = get_categories( $args = array(
-		      'taxonomy' => 'category',
-		      'child_of' =>$disciplina_id)
-		    );
+            $all_ligas = get_tax_children($disciplina_id);
     	}
 
     	$options = "<option value=''>Seleccione</option>";
@@ -397,6 +394,25 @@ function selector_deportes_top_menu ( $items, $args ) {
       $items = $li . $items;
     }
     return $items;
+}
+
+if(!function_exists('get_tax_children')){
+    /** By Raylin */
+    /** Pasar ID de la categoria y te mostrara los hijos directo**/
+	function get_tax_children($tid){
+		$taxonomy_name = 'category';
+		$term_id_find = $tid;
+		$termchildren = get_term_children($term_id_find,$taxonomy_name);
+		$json_terms = array();
+
+		foreach ( $termchildren as $child ) {
+			$term = get_term_by( 'id', $child, $taxonomy_name );
+			if($term->parent != $term_id_find) continue;
+			$json_terms[] = $term;
+		}
+
+		return $json_terms;
+	}
 }
 
 /**
