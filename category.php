@@ -99,20 +99,26 @@ if (count( $cat_ids ) > 0) {
         <div id="principal-tab" class="row tabs">
             <div class="col-lg-12"> 
              <!-- DISPLAY HERO POST -->
+
         <?php if ( $principal ): 
+        $_c = true;
 	while ( $principal->have_posts() ): $principal->the_post(); ?>
-	<?php if ( $principal->current_post === 0 ): ?>
+	<?php if ( $_c ): /*?>
 		<?php if ( get_post_type() === "marcador_partido" ): ?>
 			<?php include (get_template_directory() . "/includes/marcador_hero_post_score.include.php"); ?>
 		<?php else: ?>
 			<?php include (get_template_directory() . "/includes/marcador_hero_post.include.php"); ?>
-		<?php endif; ?>
+		<?php endif;*/ ?>
+    <?php 
+    include (get_template_directory() . "/includes/marcador_hero_post.include.php");
+     ?>
+
          <!--/ DISPLAY HERO POST -->
                
 						<!-- Marcador posts -->
                 <div class="col-lg-12">
 						<div class="marcador-posts-listing-wrapper cards row">
-	<?php continue; endif; ?>
+	<?php $_c = false; continue; endif; ?>
 									<?php include (get_template_directory() . "/includes/marcador_hero_post_list_item.include.php"); ?>
 <?php endwhile; ?>
 										

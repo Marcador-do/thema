@@ -1,5 +1,5 @@
 <!-- Marcador Hero Post Score -->
-<div class="row marcador-hero-post score">
+<div class="row marcador-hero-post score aaaa">
       <div class="col-xs-12">
         <header class="marcador-hero-unit">
         <img src="<?php echo the_post_thumbnail_url('full'); ?>" width='100%' alt="<?php the_title(); ?>">
