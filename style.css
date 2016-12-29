@@ -51,6 +51,7 @@ Colors:
 25. Marcador Concursos
 26. Marcador Virales
 27. Marcador Resumen/Estadisticas/Puntuacion
+28. Elementos de condición
 /*------------------------------*/
 
 /* 0. General Styling */
@@ -884,7 +885,7 @@ li[sidebar-nav-submenu].toggled #menu-principal .sub-menu{
 
 .marcador-hero-unit {
 	position: relative;
-	min-height: 225px;
+	min-height: 167px;
 	background-color: #ccc;
 	background-size: cover;
 	background-position: center;
@@ -896,6 +897,7 @@ li[sidebar-nav-submenu].toggled #menu-principal .sub-menu{
 	transition: all 0.2s ease;
 	margin-left: -15px;
 	margin-right: -15px;
+	overflow: hidden;
 }
 .marcador-hero-unit h1.heading {
 	position: absolute;
@@ -942,7 +944,7 @@ li[sidebar-nav-submenu].toggled #menu-principal .sub-menu{
 	margin-top: 10px;
 }
 
-.scoreboard{position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); width: auto; color: #FFF; font-size: 18px;}
+.scoreboard{position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); width: auto; color: #FFF; font-size: 1.4em;}
 .scoreboard h6{margin: 0; padding: 0; background: #666; text-align: center; font-weight: bold;}
 .scoreboard .board{display: inline-block;width: 100px; height: auto; background: #CCC; border: 5px #fff solid; box-sizing: border-box; border-radius: 3px; vertical-align: middle; margin: 0 10px;}
 .scoreboard span:first-child,.scoreboard span:last-child{vertical-align: middle; line-height: 50px;}
@@ -2633,4 +2635,13 @@ table.players{width: 100%; padding: 15px; margin-bottom: 20px; color: #707070;}
 }
 @media screen and (max-width:480px){
     .header_score .score{padding: 0; font-size: 18px;}
+}
+/*27 Elementos condicionales para editores */
+a.adm-edit-post.trans-3{
+	color: #eee;
+	text-decoration:none;
+	margin-left:1em;
+	background-color: #e62117;
+	padding:1px 5px;
+	box-shadow: #6d6b6b 1px 1px 3px;
 }
