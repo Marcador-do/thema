@@ -3,19 +3,19 @@
       <div class="col-xs-12">
         <header class="marcador-hero-unit">
         <img src="<?php echo the_post_thumbnail_url('full'); ?>" width='100%' alt="<?php the_title(); ?>">
-            <div class="scoreboard">
+            <div class="scoreboard row">
                  <?php
                 $meta = get_post_meta($post->ID);
                 $status = $meta['marcador_sp_game_status'][0];
                 $data = json_decode( $meta['marcador_sp_game_data'][0] );
               ?>
                 
-<span><?php echo $data->home->name; ?></span>
+<div class="team-1 col-xs-6"><?php echo $data->home->name; ?></div>
     <div class="board">
     <div><span><?php echo $data->home->runs; ?></span><span> <?php echo $data->away->runs; ?></span></div>
-    <h6><?php echo $status; ?></h6>
+    <div class="status"><?php echo $status; ?></div>
     </div>
-<span><?php echo $data->away->name; ?></span>
+<div class="team-2 col-xs-6"><?php echo $data->away->name; ?></div>
 </div>
           </header>
         <a href="<?php the_permalink(); ?>" class="marcador-hero-permalink">
