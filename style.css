@@ -966,6 +966,81 @@ li[sidebar-nav-submenu].toggled #menu-principal .sub-menu{
     
 .scoreboard  header{position: relative; width: 100%; max-width: 960px; margin: 0 auto; height: 400px; background: url(messi.jpg) no-repeat; background-size: cover;}
 
+.hero-score {
+     display: none;
+     position: absolute;
+     bottom: -30px;
+     width: 100%;
+     color: #fff;
+ }
+ .score-marc {
+     position: relative;
+     width: 125px;
+     border: solid 8px #fff;
+     margin: 0 auto;
+     height: 95px;
+     border-radius: 5px;
+     background-color: #777;
+ }
+ .score-marc:before {
+ 	content: "";
+ 	position: absolute;
+ 	top: 7px;
+ 	left: 0;
+ 	width: 51%;
+ 	height: 50%;
+ 	border-right: solid 2px #fff;
+ 	display: block;
+ 	z-index: 1;
+ }
+ .team-name {
+     font-size: 16px;
+ }
+ .team-1, 
+ .team-2 {
+     position: absolute;
+     bottom: 45px;
+     width: 30%;
+ }
+ .team-1 {
+ 	left: 0;
+ 	text-align: right;
+ }
+ .team-2 {
+     right: 0;
+     text-align: left;
+ }
+ .score-team-1,
+ .score-team-2 {
+     position: absolute;
+     top: 0;
+     height: 100%;
+     background-color: #999;
+     width: 50%;
+     font-size: 3em;
+     text-align: center;
+ }
+ .score-team-1 {
+ 	left: 0;
+ }
+ .score-team-2 {
+     right: 0;
+ }
+ .score-status {
+     position: absolute;
+     bottom: 0;
+     left: 0;
+     width: 100%;
+     background-color: #3d3d3d;
+     text-align: center;
+     padding: 3px 0;
+     font-size: 12px;
+ }
+ @media screen and ( min-width: 480px ) {
+ 	.team-name {font-size: 30px;}
+ 	.team-1, 
+ 	.team-2 {width: 40%;
+ }
 @media screen and ( max-width: 480px ) {
     .scoreboard{font-size: 16px;}
     .scoreboard .status{font-size: 12px;}
