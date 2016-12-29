@@ -42,11 +42,9 @@ if ( has_nav_menu( 'primary_top' ) ) {
 		<div class="the-content">
 				<!-- GRID START -->
 		        <?php the_content(); ?>
-		        </div>
+		        <!-- GRID END -->
 		
-				<!-- GRID END -->
-		</div>
-
+				
 	
         
         <!-- SIDEBAR -->
