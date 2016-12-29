@@ -39,14 +39,18 @@ if ( has_nav_menu( 'primary_top' ) ) {
 
 
 	<div id="main-content" class="container-fluid">
+		<div class="the-content">
+				<!-- GRID START -->
+		        <?php the_content(); ?>
+		        </div>
+		
+				<!-- GRID END -->
+		</div>
 
-		<!-- GRID START -->
+	
         
-         <!-- SIDEBAR -->
+        <!-- SIDEBAR -->
         <?php get_sidebar('front-page'); ?>
-		<?php the_content(); ?>
-		<!-- GRID END -->
-        
 	
 	</div>
 	

@@ -381,7 +381,7 @@ function selector_deportes_top_menu ( $items, $args ) {
     	if (count($all_ligas) > 0){
 	      foreach ($all_ligas as $liga) {
 	      	$selected = ($parents[1] === $liga->slug) ? "selected" : "";
-	      	$option ="<option value=\"" . get_category_link( $liga->cat_ID ) . "\" ".$selected.">".$liga->name."</option>";
+	      	$option ="<option value=\"" . get_term_link( $liga->term_id) . "\" ".$selected.">".$liga->name."</option>";
 	      	$options .= $option;
 	      }
 	    }
