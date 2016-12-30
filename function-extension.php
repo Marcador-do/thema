@@ -13,9 +13,9 @@
 /*** Raylin Codes ***/
 add_image_size( 'full', 1600, 600, true );
 add_image_size( 'large', 1200, 500, true );
-add_image_size( 'medium', 800, 450, true );
-add_image_size( 'medium_large', 800, 450, true );
-add_image_size( 'thumbnail', 170, 170, true );
+add_image_size( 'medium', 800, 400, true );
+add_image_size( 'medium_large', 800, 350, true );
+add_image_size( 'thumbnail', 250, 250, true );
 
 
 

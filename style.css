@@ -1079,10 +1079,9 @@ li[sidebar-nav-submenu].toggled #menu-principal .sub-menu{
 .marcador-post-list-fav {
 	display: inline-block;
     color: #E80303;
+    vertical-align:middle;
 }
-.marcador-post-list-fav .material-icons {
-	
-}
+
 @media screen and ( min-width: 480px ) {
 	.marcador-post-list-author a {
 		// padding-right: 15px;
@@ -1556,6 +1555,13 @@ span.cintillo.field.score.away {
 .marcador-post-list.card .marcador-post-list-image {
 	min-height: 220px;
 	background-color:#ccc;
+	background-size:cover;
+}
+
+@media screen and (min-width:1200px){
+	.marcador-post-list.card .marcador-post-list-image {
+	min-height: 280px;
+}
 }
 .marcador-post-list.card .panel-default {
 	-webkit-box-shadow: 0 4px 5px rgba(0,0,0,0.05);
