@@ -35,7 +35,7 @@
                             <?php the_author_posts_link(); ?>
                           </div>
                           <div class="marcador-post-list-date">
-                            <a href="#date-link">
+                            <a href="<?php echo esc_url( get_day_link( $year = get_the_date('Y') , $month = get_the_date('m'), $day = get_the_date('d') ) ) ?>">
                               <?php the_date('M d, Y'); ?>
                             </a> 
                           </div>

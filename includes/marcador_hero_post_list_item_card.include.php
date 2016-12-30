@@ -37,7 +37,7 @@
             </a> 
             <div class="panel-body">
               <div class="marcador-post-list-excerpt">
-                <?php echo excerpt(25); ?>
+                <?php echo excerpt(30); ?>
               </div>
             </div>
             <div class="panel-footer">
@@ -52,13 +52,9 @@
                       
                     </div>
                       <div class="col-xs-6 col-md-4 col-md-push-4 marcador-post-list-date">
-                    <?php 
-                    $before = ''; 
-                    $before .= '<a href="' . esc_url( get_day_link( $year = get_the_date('Y') , $month = get_the_date('m'), $day = get_the_date('d') ) ) . '">';
-                    $after = '</a>';
-                    ?>
-                    
-                    <?php the_date( $d = 'M d, Y', $before, $after, $echo = true ); ?>
+                        <a href="<?php echo esc_url( get_day_link( $year = get_the_date('Y') , $month = get_the_date('m'), $day = get_the_date('d') ) ) ?>">
+                          <?php the_date('M d, Y', '<div class="meta-divisor"></div>', ''); ?>
+                        </a> 
                           <i class="material-icons marcador-post-list-fav">star</i></div>
                   </div>
               </div>

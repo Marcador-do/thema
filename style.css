@@ -877,7 +877,10 @@ li[sidebar-nav-submenu].toggled #menu-principal .sub-menu{
     font-weight: bold;
     color: #333;
     margin-left:15px;
+    padding-left:10px;
+    border-left:solid 1px #7e7e7e;
 }
+
 @media screen and (max-width:360px){.marcador-hero-post .date{float: right;}}
 
 .marcador-hero-unit {
@@ -912,7 +915,20 @@ li[sidebar-nav-submenu].toggled #menu-principal .sub-menu{
 	text-decoration: none;
 	outline: none;
 }
-@media screen and ( min-width: 480px ) {
+@media screen and ( min-width: 1280px ) {
+	.marcador-hero-unit {
+		margin-left: 0;
+		margin-right: 0;
+		min-height: 450px;
+	}
+	.marcador-hero-unit h1.heading {
+		font-size: 35px;
+		line-height: 1.2;
+		letter-spacing: 0.5px;
+	}
+}
+
+@media screen and ( min-width: 480px ) and (max-width: 1279px){
 	.marcador-hero-unit {
 		margin-left: 0;
 		margin-right: 0;
@@ -1061,11 +1077,8 @@ li[sidebar-nav-submenu].toggled #menu-principal .sub-menu{
     margin-bottom: 25px;
 }
 .marcador-post-list-fav {
-	display: block;
-    position: absolute;
+	display: inline-block;
     color: #E80303;
-    right: 10px;
-	bottom:0;
 }
 .marcador-post-list-fav .material-icons {
 	
@@ -1542,6 +1555,7 @@ span.cintillo.field.score.away {
 }
 .marcador-post-list.card .marcador-post-list-image {
 	min-height: 220px;
+	background-color:#ccc;
 }
 .marcador-post-list.card .panel-default {
 	-webkit-box-shadow: 0 4px 5px rgba(0,0,0,0.05);
@@ -1562,15 +1576,21 @@ span.cintillo.field.score.away {
 }
 .marcador-post-list.card .marcador-post-list-date,
 .marcador-post-list.card .marcador-post-list-author {
-	display: block;
+	display: inline-block;
     position: relative;
-    min-height: 25px;
+    min-height: 20px;
+    vertical-align:middle;
 }
 .marcador-post-list.card .marcador-post-list-author a {
 	top: 0;
 }
 .marcador-post-list.card .marcador-post-list-fav {
 	
+}
+.marcador-post-list.card .panel-heading .marcador-post-list-title a{
+	border-left: solid 10px #E80303;
+	margin-left:-1em;
+	padding-left: 10px;
 }
 
 /* 18. Marcador favoritos boxes */
