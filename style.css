@@ -49,6 +49,7 @@ Colors:
 25. Marcador Concursos
 26. Marcador Virales
 27. Marcador Resumen/Estadisticas/Puntuacion
+28. Elementos externos: Plugins, embed, object;
 /*------------------------------*/
 
 /* 0. General Styling */
@@ -1041,7 +1042,6 @@ li[sidebar-nav-submenu].toggled #menu-principal .sub-menu{
 .marcador-post-list-excerpt {
 	font-family: 'marcador-regular';
 	color: #888;
-    position: relative;
 }
 
 
@@ -2594,7 +2594,7 @@ table.players{width: 100%; padding: 15px; margin-bottom: 20px; color: #707070;}
 @media screen and (max-width:480px){
     .header_score .score{padding: 0; font-size: 18px;}
 }
-/*27 Elementos condicionales para editores */
+/*28 Elementos condicionales para editores */
 a.adm-edit-post.trans-3{
 	color: #eee;
 	text-decoration:none;
@@ -2602,4 +2602,27 @@ a.adm-edit-post.trans-3{
 	background-color: #e62117;
 	padding:1px 5px;
 	box-shadow: #6d6b6b 1px 1px 3px;
+}
+
+ul.rss-aggregator{
+	-webkit-padding-start:0px;
+	padding:10px 15px;
+	background-color:#e80303;
+	color:#d4d4d4;
+}
+
+ul.rss-aggregator li{
+	list-style:none;
+}
+
+ul.rss-aggregator li a{
+	color:white;
+	font-weight: bold;
+}
+.nav-previous.alignleft, .nav-next.alignright{
+	display:inline-block;
+}
+.nav-next.alignright{
+	border-left: solid 1px #c3c3c3;
+	padding-left: 5px; 
 }
