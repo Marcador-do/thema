@@ -1097,7 +1097,7 @@ li[sidebar-nav-submenu].toggled #menu-principal .sub-menu{
 }
 @media screen and (min-width:768px){
     .marcador-post-list-image {}
-    .marcador-post-list-content{height: 200px; overflow: hidden;}
+    .marcador-post-list-content{ min-height:120px; overflow: hidden;}
     .marcador-post-list-excerpt{overflow: hidden; max-height: 80px;}
     .marcador-post-list-excerpt::after {
     content: "";
@@ -1105,7 +1105,7 @@ li[sidebar-nav-submenu].toggled #menu-principal .sub-menu{
     position: absolute;
     width: 100%;
     height: 30px;
-    background: linear-gradient(0deg, white, transparent);
+    /*background: linear-gradient(0deg, white, transparent);*/
     bottom: 0;
 }
 }
