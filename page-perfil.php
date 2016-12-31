@@ -228,7 +228,11 @@ $query_own_posts = new WP_Query($args);
 		</div>
 	</div>
 	<!-- .marcador-posts-listing -->
+	</div>
+        <?php get_sidebar('marcador-user');?>
+	</div>
 </div>
+
 </div>
 </div>
 
