@@ -2384,11 +2384,11 @@ select#score-liga-selector {
 /*2.3 Marcador - Favoritos*/
 #favoritos{padding-left: 35px;}
 #favoritos article{position: relative; padding:0 10px; margin-bottom:20px;}
-#favoritos article .post{position: relative; width: 100%; height: 250px; background: url(assets/messi.jpg) no-repeat; background-size: cover; }
-#favoritos article footer{display:block; position: absolute; bottom: 0px; left: 0px; width:100%; background: rgba(0,0,0,.25);}
+#favoritos article .post{position: relative; width: 100%; height: 250px; background: url(assets/messi.jpg) no-repeat; background-size: cover; border-radius:9px; box-shadow:#767676 0px 2px 2px;}
+#favoritos article footer{display:block; position: absolute; bottom: 0px; left: 0px; width:100%; background: rgba(0,0,0,.45);border-bottom-left-radius:9px; border-bottom-right-radius: 9px;}
 #favoritos article footer h4.title{color: #fff; padding: 0 0 0 10px; margin: 10px 0; font-family: 'Roboto' sans-serif; font-weight: 400; font-size: 15px;}
 
-#favoritos article footer .tags{text-align: right;}
+#favoritos article footer .tags{text-align: right; min-height:62px; vertical-align: middle; padding-top:8px; padding-bottom:5px;}
 #favoritos article footer .tags .badge{display: inline-block; position: relative; width: 40px; height: 40px; background-position: center; background-size: cover; background-color: transparent; margin: 0;}
 .badge.real-madrid{background-image: url(assets/imgs/soccer-badges/real-madrid.png);}
 .badge.fcb{background-image: url(assets/imgs/soccer-badges/fcb.png);}
