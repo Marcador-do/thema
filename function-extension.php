@@ -86,13 +86,15 @@ function get_attachment_id( $url ) {
 	return $attachment_id;
 }
 
-/** Chekc if a category is into Favorites categories stock */
+/** Check if a category is into Favorites categories stock */
 
 function check_favorite_category_user($cat_array){
 	if(gettype($cat_array) !== 'array'){
 		throw new Exception(__FUNCTION__." - Only accept array value");
 		
 	}
+
+	if(wp_get_current_user()->caps['marcador_contributor'] != 1) return false;
 
 	$cats = get_option(get_user_meta_category_favorites());
 	$be = false;
@@ -371,6 +373,7 @@ add_action('manage_pages_custom_column', 'ST4_columns_content', 10, 2);
  	return $has_child_with_posts;
  }
  has_children_with_posts($cat_tree);
+
 
 
 

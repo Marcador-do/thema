@@ -55,7 +55,11 @@
                         <a href="<?php echo esc_url( get_day_link( $year = get_the_date('Y') , $month = get_the_date('m'), $day = get_the_date('d') ) ) ?>">
                           <?php the_date('M d, Y', '<div class="meta-divisor"></div>', ''); ?>
                         </a> 
-                          <i class="material-icons marcador-post-list-fav">star</i></div>
+                         <?php if(check_favorite_category_user(wp_get_post_categories(get_the_id()))): ?>
+                        <!-- Conditional -->
+                       <i class="material-icons marcador-post-list-fav">star</i></div>
+                      <?php endif; ?>
+                          
                   </div>
               </div>
               

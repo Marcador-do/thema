@@ -53,10 +53,12 @@
                             if ($is_colaborator !== false && $is_colaborator >= 0):
                               // TODO: Check Favoritos
                         ?>
-                          <!-- Conditional -->
-                          <div class="marcador-post-list-fav">
-                            <i class="material-icons">star</i>
-                          </div>
+                            <?php if(check_favorite_category_user(wp_get_post_categories(get_the_id()))): ?>
+                        <!-- Conditional -->
+                        <div class="marcador-post-list-fav">
+                          <i class="material-icons">star</i>
+                        </div>
+                      <?php endif; ?>
                           <!-- end conditional -->
                         <?php endif; ?>
                         <?php endif; ?>

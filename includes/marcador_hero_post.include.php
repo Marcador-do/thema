@@ -82,10 +82,12 @@ $posted_id[] = get_the_id();
                   ?>
                 <span class="date">
                   <?php echo get_the_date('M d, Y'); ?>
-                    <!-- Conditional -->
-                  <span class="marcador-post-list-fav">
-                  <i class="material-icons">star</i>
-                  </span>
+                   <?php if(check_favorite_category_user(wp_get_post_categories(get_the_id()))): ?>
+                        <!-- Conditional -->
+                        <span class="marcador-post-list-fav">
+                          <i class="material-icons">star</i>
+                        </span>
+                      <?php endif; ?>
                 </span>
               <?php endif; ?>
             </p>
