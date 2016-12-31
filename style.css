@@ -112,6 +112,10 @@ p {
 	-o-transition: all 0.2s ease;
 	transition: all 0.2s ease;
 }
+#sidebar .row{
+	margin-left:0px;
+	margin-right:0px;
+}
 #sidebar-wrapper::-webkit-scrollbar {
     width: 0px;  /* remove scrollbar space */
     background: transparent;  /* optional: just make scrollbar invisible */
