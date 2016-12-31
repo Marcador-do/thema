@@ -90,7 +90,7 @@ if(!empty($user_cat_options)){
 				<input type='submit' class='btn btn-primary' value='Guardar Favoritos' />
 				<br><br>
 			</div>
-            <?php get_sidebar();?>
+            <?php get_sidebar('marcador-user');?>
 		</div>
 		<div class="row">
 

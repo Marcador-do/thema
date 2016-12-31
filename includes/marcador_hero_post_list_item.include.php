@@ -35,7 +35,7 @@
                             <?php the_author_posts_link(); ?>
                           </div>
                           <div class="marcador-post-list-date">
-                            <a href="#date-link">
+                            <a href="<?php echo esc_url( get_day_link( $year = get_the_date('Y') , $month = get_the_date('m'), $day = get_the_date('d') ) ) ?>">
                               <?php the_date('M d, Y'); ?>
                             </a> 
                           </div>
@@ -53,10 +53,12 @@
                             if ($is_colaborator !== false && $is_colaborator >= 0):
                               // TODO: Check Favoritos
                         ?>
-                          <!-- Conditional -->
-                          <div class="marcador-post-list-fav">
-                            <i class="material-icons">star</i>
-                          </div>
+                            <?php if(check_favorite_category_user(wp_get_post_categories(get_the_id()))): ?>
+                        <!-- Conditional -->
+                        <div class="marcador-post-list-fav">
+                          <i class="material-icons">star</i>
+                        </div>
+                      <?php endif; ?>
                           <!-- end conditional -->
                         <?php endif; ?>
                         <?php endif; ?>

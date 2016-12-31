@@ -50,11 +50,12 @@
                     			<?php the_date('M d, Y', '<div class="meta-divisor"></div>', ''); ?>
                   			</a> 
             			</div>
-            			<!-- Conditional if favorite -->
-		                <div class="marcador-post-list-fav">
-		                	<i class="material-icons">star</i>
-		                </div>
-            			<!-- end conditional -->
+            			<?php if(check_favorite_category_user(wp_get_post_categories(get_the_id()))): ?>
+                        <!-- Conditional -->
+                        <div class="marcador-post-list-fav">
+                          <i class="material-icons">star</i>
+                        </div>
+                      <?php endif; ?>
               		</div>
             	</div>
           	</div>

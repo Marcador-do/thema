@@ -1,3 +1,4 @@
+
 <!-- Marcador Hero Post Score -->
 <div class="row marcador-hero-post score aaaa">
       <div class="col-xs-12">
@@ -8,7 +9,7 @@
                 $meta = get_post_meta($post->ID);
                 $status = $meta['marcador_sp_game_status'][0];
                 $data = json_decode( $meta['marcador_sp_game_data'][0] );
-              ?>
+                ?>
                 
 <div class="team-1 col-xs-6"><?php echo $data->home->name; ?></div>
     <div class="board">

@@ -40,6 +40,8 @@ if ( has_nav_menu( 'primary_top' ) ) {
 
 	<div id="main-content" class="container-fluid">
 		<div class="the-content">
+			<div>
+
 				<!-- GRID START -->
 		        <?php the_content(); ?>
 		        <!-- GRID END -->
