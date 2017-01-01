@@ -2633,3 +2633,10 @@ ul.rss-aggregator li a{
 .container-fluid{
 	position:relative;
 }
+ #en-vivo .chat{
+	padding-left:0px;
+}
+#main-content.vivo{
+	padding-right:88px;
+}
+@media screen and (max-width: 764px){#main-content.vivo{padding-right:15px}
