@@ -350,7 +350,7 @@ function banner() {
 				<li>
 					<a href="<?php echo get_site_url(); ?>/favoritos">
 						<span class="sidebar-icon">
-							<i class="material-icons md-light md-24">star</i>
+							<i class="material-icons md-light md-24">star</i> Favoritos
 						</span>
 						<span class="sidebar-menu-item"><?php ; ?></span>
 					</a> 
