@@ -27,16 +27,12 @@
                   <iframe id="live" src="https://www.youtube.com/embed/1UdirOGTjOg" frameborder="0" allowfullscreen></iframe>
                 </div>
 
-                <iframe width="100%" height="550px" scrolling="no" style="border: none;" src="http://www.opinionstage.com/polls/2410620/poll" frameBorder="0" name="os_frame" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>    
-                      <!--<div class="banner col-sm-12 hidden-sm-down">ANUNCIO</div>-->    
+                  <div class="banner col-sm-12 hidden-sm-down">ANUNCIO</div> 
            </div>
       
 
-          <div class="chat col-lg-4">
-              <div id="chatenvivo"></div>
-
-              <br />
-
+          <div id="sidebar-Streaming" class="col-lg-4">
+              <iframe width="100%" height="550px" scrolling="no" style="border: none;" src="http://www.opinionstage.com/polls/2410620/poll" frameBorder="0" name="os_frame" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>  
           </div>       
                  
      </div>
