@@ -27,7 +27,7 @@
                   <iframe id="live" src="https://www.youtube.com/embed/1UdirOGTjOg" frameborder="0" allowfullscreen></iframe>
                 </div>
 
-                  <div class="banner col-sm-12 hidden-sm-down">ANUNCIO</div> 
+                 <!-- <div class="banner col-sm-12 hidden-sm-down">ANUNCIO</div> -->
            </div>
       
 
