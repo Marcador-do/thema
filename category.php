@@ -668,7 +668,7 @@ EST_COLUMN_BODY_SECTION_ROW;
                             
                              //Make the menu scrollable/draggable
                              jQuery('#marcador-navbar-submenu').kinetic({filterTarget: function(target, e){
-if (!/down|start/.test(e.type)){return !(/area|a|select/i.test(target.tagName));}}});
+if (!/down|start/.test(e.type)){return !(/area|a|li|select/i.test(target.tagName));}}});
                             
                             jQuery(".fadeOut.right").fadeIn(150);
                         }
