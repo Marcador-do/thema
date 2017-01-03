@@ -522,7 +522,7 @@ li[sidebar-nav-submenu].toggled #menu-principal .sub-menu{
 /*Sidebar and Main-content positioning*/
 
 #main-content{position: relative; padding-right: 395px;}
-#sidebar{position: absolute; top: 0; right: 80px; width: 300px; height: auto; min-height: 300px;}
+#sidebar{position: absolute; top: 0; right: 80px; width: 300px; height: auto; min-height: 300px; overflow-x: hidden;}
 
 @media screen and (max-width:1023px){
     #sidebar{position: relative; right: 0; width: 100%; height: auto; float: left; padding: 15px;}
@@ -1099,7 +1099,7 @@ li[sidebar-nav-submenu].toggled #menu-principal .sub-menu{
 }
 @media screen and (min-width:768px){
     .marcador-post-list-image {}
-    .marcador-post-list-content{height: 200px; overflow: hidden;}
+    .marcador-post-list-content{ min-height:120px; overflow: hidden;}
     .marcador-post-list-excerpt{overflow: hidden; max-height: 80px;}
     .marcador-post-list-excerpt::after {
     content: "";
@@ -1107,7 +1107,7 @@ li[sidebar-nav-submenu].toggled #menu-principal .sub-menu{
     position: absolute;
     width: 100%;
     height: 30px;
-    background: linear-gradient(0deg, white, transparent);
+    /*background: linear-gradient(0deg, white, transparent);*/
     bottom: 0;
 }
 }
@@ -2635,3 +2635,10 @@ ul.rss-aggregator li a{
 .container-fluid{
 	position:relative;
 }
+ #en-vivo .chat{
+	padding-left:0px;
+}
+#main-content.vivo{
+	padding-right:88px;
+}
+@media screen and (max-width: 764px){#main-content.vivo{padding-right:15px}

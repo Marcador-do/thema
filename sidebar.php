@@ -2,6 +2,7 @@
 <div id="sidebar">
 	
 		<?php dynamic_sidebar( 'sidebar-estandar' ); ?>
+
 	
 </div>
 <?php endif; ?>

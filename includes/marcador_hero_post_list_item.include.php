@@ -1,6 +1,6 @@
  <div <?php post_class('col-xs-12 col-sm-12 col-md-6 col-lg-6 marcador-post-list', $post->ID ); ?>>
                   <div class="row">
-                    <div class="col-xs-4 col-sm-5 marcador-post-list-image-col">
+                    <div class="col-xs-4 marcador-post-list-image-col">
                       <a href="<?php the_permalink(); ?>">
                         <?php if ( has_post_thumbnail($post->ID) ): ?>
                         <div class="marcador-post-list-image thumb">
