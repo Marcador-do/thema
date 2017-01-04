@@ -272,7 +272,7 @@ function banner() {
 	<?php endif; ?>
 
 	<?php /* <!-- Wrapper --> */ ?>
-	<div id="wrapper" class="<?php if( is_search()){ echo "toggled"; } ?>">
+	<div id="wrapper" class="toggled <?php if( is_search()){ echo "toggled"; } ?>">
 		
 		<?php /* <!-- Sidebar --> */ ?>
 		<div id="sidebar-wrapper">

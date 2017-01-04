@@ -509,6 +509,8 @@ p {
     background-color: #888;
 }
 
+#menu-item-61548 .sub-menu{bottom: 0; top: auto;}
+
 li[sidebar-nav-submenu].toggled #menu-principal .sub-menu{
     position: relative;
     left: 0;
