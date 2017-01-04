@@ -1115,6 +1115,7 @@ li[sidebar-nav-submenu].toggled #menu-principal .sub-menu{
 @media screen and (min-width:1120) and (max-width:1270){.marcador-post-list-excerpt{display: none;}}
 @media screen and (min-width:1024px) and (max-width:1119){.marcador-post-list{width: 100%;}.marcador-posts-listing-wrapper{padding: 15px 0;}}
 @media screen and (min-width:992px) and (max-width:1023){.marcador-post-list-excerpt{display: none;}}
+@media screen and (max-width:720px) { .marcador-post-list-excerpt{display:none;} }
 
     
 /* 13. Marcador archive, date, author, search generic title */
