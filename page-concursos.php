@@ -19,7 +19,7 @@
         <div class="row">
             <div class="col-xs-12">
             <div class="panel panel-default">
-                <div class="panel-body marcador-post-list-image" style="background-image: url('http://dev.marcador.do/wp-content/uploads/2016/09/NBA-Sindicato.jpg')"></div>
+                <div class="panel-body marcador-post-list-image-card" style="background-image: url('http://dev.marcador.do/wp-content/uploads/2016/09/NBA-Sindicato.jpg')"></div>
                 <div class="panel-body">
                     <div class="marcador-post-list-title">
                 <a href="#">Echate unas risas de compania</a>
@@ -42,7 +42,7 @@
         <div class="row">
             <div class="col-lg-6">
                 <div class="panel panel-default">
-                <div class="panel-body marcador-post-list-image" style="background-image: url('http://dev.marcador.do/wp-content/uploads/2016/09/NBA-Sindicato.jpg')"></div>
+                <div class="panel-body marcador-post-list-image-card" style="background-image: url('http://dev.marcador.do/wp-content/uploads/2016/09/NBA-Sindicato.jpg')"></div>
                 
                 <div class="panel-body">
                     <div class="marcador-post-list-title">
@@ -62,7 +62,7 @@
         </div></div> 
             <div class="col-lg-6">
                 <div class="panel panel-default">
-                <div class="panel-body marcador-post-list-image" style="background-image: url('http://dev.marcador.do/wp-content/uploads/2016/09/NBA-Sindicato.jpg')"></div>
+                <div class="panel-body marcador-post-list-image-card" style="background-image: url('http://dev.marcador.do/wp-content/uploads/2016/09/NBA-Sindicato.jpg')"></div>
                 
                 <div class="panel-body">
                     <div class="marcador-post-list-title">

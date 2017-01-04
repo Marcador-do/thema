@@ -64,7 +64,7 @@ $virales = new WP_Query( $args ); ?>
         <div class="col-xs-12 col-md-8">
             <div class="panel panel-default">
             <h4 class="page-title">Baloncesto</h4>
-                <div class="panel-body marcador-post-list-image" style="background-image: url('http://dev.marcador.do/wp-content/uploads/2016/09/NBA-Sindicato.jpg')"></div>
+                <div class="panel-body marcador-post-list-image-card" style="background-image: url('http://dev.marcador.do/wp-content/uploads/2016/09/NBA-Sindicato.jpg')"></div>
                 <div class="panel-body">
                 <div class="marcador-post-list-title">
                 <a href="#">Temporada perfecta para Warriors arruinada: Lebron e Irving dan titulo. Lorem ipsum dolor sit amet.</a>
@@ -99,7 +99,7 @@ $virales = new WP_Query( $args ); ?>
         <div class="col-xs-12 col-md-4">
         <div class="panel panel-default">
             <h4 class="page-title">Baloncesto</h4>
-                <div class="panel-body marcador-post-list-image" style="background-image: url('http://dev.marcador.do/wp-content/uploads/2016/09/NBA-Sindicato.jpg')"></div>
+                <div class="panel-body marcador-post-list-image-card" style="background-image: url('http://dev.marcador.do/wp-content/uploads/2016/09/NBA-Sindicato.jpg')"></div>
                 <div class="panel-body">
                 <div class="marcador-post-list-title">
                 <a href="#">Temporada perfecta para Warriors arruinada: Lebron e Irving dan titulo.</a>
@@ -140,7 +140,7 @@ $virales = new WP_Query( $args ); ?>
         <div class="col-sm-12 col-md-6">
         <div class="panel panel-default">
             <h4 class="page-title">Baloncesto</h4>
-                <div class="panel-body marcador-post-list-image" style="background-image: url('http://dev.marcador.do/wp-content/uploads/2016/09/NBA-Sindicato.jpg')"></div>
+                <div class="panel-body marcador-post-list-image-card" style="background-image: url('http://dev.marcador.do/wp-content/uploads/2016/09/NBA-Sindicato.jpg')"></div>
                 <div class="panel-body">
                 <div class="marcador-post-list-title">
                 <a href="#">Temporada perfecta para Warriors arruinada: Lebron e Irving dan titulo. Lorem ipsum dolor sit amet.</a>
@@ -173,7 +173,7 @@ $virales = new WP_Query( $args ); ?>
         <div class="col-sm-12 col-md-6">
         <div class="panel panel-default">
             <h4 class="page-title">Baloncesto</h4>
-                <div class="panel-body marcador-post-list-image" style="background-image: url('http://dev.marcador.do/wp-content/uploads/2016/09/NBA-Sindicato.jpg')"></div>
+                <div class="panel-body marcador-post-list-image-card" style="background-image: url('http://dev.marcador.do/wp-content/uploads/2016/09/NBA-Sindicato.jpg')"></div>
                 <div class="panel-body">
                 <div class="marcador-post-list-title">
                 <a href="#">Temporada perfecta para Warriors arruinada: Lebron e Irving dan titulo. Lorem ipsum dolor sit amet.</a>
