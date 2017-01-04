@@ -1024,13 +1024,13 @@ li[sidebar-nav-submenu].toggled #menu-principal .sub-menu{
 }
 
 .marcador-post-list-image {
-	/*
-    height: 120px;
+	
+    min-height: 200px;
     width: 100%;
     background-color: #ccc;
     background-size: cover;
     background-repeat: no-repeat;
-    background-position: center;*/
+    background-position: center;
 }
 .marcador-post-list .marcador-post-list-image-col {
     padding-right: 0;
