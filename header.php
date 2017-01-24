@@ -49,10 +49,11 @@ function banner() {
 	<meta name="google-signin-client_id" content="465680398170-fk6tnqqmhleqffjpp5e58u5r3tgipjk1.apps.googleusercontent.com">
 	<link rel="profile" href="http://gmpg.org/xfn/11" />
 	<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />
-	
+	<link rel="shortcut icon" href="<?php echo get_template_directory_uri(); ?>/assets/imgs/favicon.png" type="image/png">
+
 	<?php wp_head(); ?>
 
-	<!-- Google Analytic -->
+	<!-- Google Analytics -->
 	<script>
  	 (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
 	 (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
