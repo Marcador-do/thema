@@ -1185,9 +1185,15 @@ li[sidebar-nav-submenu].toggled #menu-principal .sub-menu{
     color: #aab0b5;
 }
 
-@media screen and (min-width : 480px) {
+@media screen and (min-width : 720px) and (max-width: 1367px) {
 	.single-post-featured-image {
-		min-height: 400px;
+		min-height: 496px;
+	}
+}
+
+@media screen and (min-width : 1370px) {
+	.single-post-featured-image {
+		min-height: 675px;
 	}
 }
 
