@@ -12,20 +12,19 @@ $authors = <<<AUTHORS
 <!--
 *|==============================
 *| Design:
-*|  Yuriko Sone
-*|  yurikosone@gmail.com
+*|  Yuriko Sone 	|  	yurikosone@gmail.com
 *|
 *| Frontend Development: 
-*|  Richard Blondet 
-*|  richardblondet@gmail.com
+*|  Richard Blondet | 	richardblondet@gmail.com
+*|	Arturo Mena 	| 	arturomega@gmail.com
+*|	
 *|
 *| Backend Development:
-*|  Ronnie Baez
-*|  ronnie.baez@gmail.com
+*|  Ronnie Baez 	|	ronnie.baez@gmail.com
+*|	Rayling Aquino	|	raylinaquino@gmail.com
 *|
 *| Web project manager:
-*|	Edwin Marte
-*|	egm0815@gmail.com
+*|	Edwin Marte 	| 	egm0815@gmail.com
 *|==============================
 -->
 AUTHORS;
