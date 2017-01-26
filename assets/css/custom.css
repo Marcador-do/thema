@@ -80,6 +80,7 @@
 	padding: 0;
 	margin: 0;
 	position: absolute;
+	right:0px;
 	display: none;
 }
 .navbar-marcador .navbar-header.pull-right ul li.logged-in ul.drop-user-profile li {

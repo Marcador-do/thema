@@ -447,7 +447,7 @@ function banner() {
 								</ul>
 							</li>
 							<?php endif; ?>
-							<li class="dropdown dropdown-lg">
+							<!--<li class="dropdown dropdown-lg">
 								<a href="#score" class="dropdown-toggle">Score</a>
 
 								<ul class="dropdown-menu dropdown-menu-lg row">
@@ -532,7 +532,7 @@ function banner() {
 												</p>
 											</div>
 										</div>
-									</li>
+									</li>-->
 								</ul>
 							</li>
 						</ul>
