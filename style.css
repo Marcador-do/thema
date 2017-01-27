@@ -1065,7 +1065,7 @@ li[sidebar-nav-submenu].toggled #menu-principal .sub-menu{
     .marcador-post-list .marcador-post-list-image-col {padding: 0 0 0 15px;}
 }
 
-.marcador-post-list-meta{min-height: 25px; padding: 5px 0; font-family: "marcador-regular"; color: #888; text-transform: uppercase;}
+.marcador-post-list-meta{min-height: 25px; padding: 5px 0; font-family: "marcador-regular"; color: #888;}
 .marcador-post-list-meta a {
     position: relative;
     color: inherit;
