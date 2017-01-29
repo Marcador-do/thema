@@ -64,6 +64,16 @@ h3 {
 p {
 	font-family: 'marcador-regular';
 }
+
+div#sidebar img{
+	width:100%;
+	height:auto;
+}
+
+div#sidebar ul li{
+	display:inline-block;
+	padding:0px 5px;
+}
 .video-container{
 	position:relative;
 	padding-bottom:56.25%;
