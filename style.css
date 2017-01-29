@@ -98,6 +98,15 @@ p {
 	// margin-left: 64px;
 	padding-left: 64px;
 }
+
+#sidebar ul{
+	list-style:none;
+}
+
+#sidebar ul li{
+	display:inline-block;
+	margin-left:7px;
+}
 #sidebar-wrapper {
 	z-index: 1000;
 	position: fixed;
@@ -1065,7 +1074,7 @@ li[sidebar-nav-submenu].toggled #menu-principal .sub-menu{
     .marcador-post-list .marcador-post-list-image-col {padding: 0 0 0 15px;}
 }
 
-.marcador-post-list-meta{max-height: 25px; padding: 5px 0; font-family: "marcador-regular"; color: #888; overflow:hidden;}
+.marcador-post-list-meta{max-height: 25px; padding: 5px 0; font-family: "marcador-regular"; color: #888; text-transform: uppercase; overflow:hidden;}
 .marcador-post-list-meta a {
     position: relative;
     color: inherit;
