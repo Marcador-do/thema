@@ -2675,3 +2675,20 @@ ul.rss-aggregator li a{
 	padding-right:88px;
 }
 @media screen and (max-width: 764px){#main-content.vivo{padding-right:15px}
+
+/*Widget Twitter*/
+
+.atf-tweet-wrapper{
+	border-top:#e8e8e8 solid 1px;
+	padding-top:10px;
+}
+
+.atf-user-card{
+	display:-webkit-box;
+	margin-top:15px;
+}
+
+.atf-user-card img{
+	width:32px!important;
+	margin-right:10px;
+}
