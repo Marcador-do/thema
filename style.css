@@ -2678,17 +2678,17 @@ ul.rss-aggregator li a{
 
 /*Widget Twitter*/
 
-div.atf-tweet-wrapper{
+div#sidebar div.atf-tweet-wrapper{
 	border-top:#e8e8e8 solid 1px;
 	padding-top:10px;
 }
 
-div.atf-user-card{
+div#sidebar div.atf-user-card{
 	display:-webkit-box;
 	margin-top:15px;
 }
 
-div.atf-user-card img{
-	width:32px!important;
+div#sidebar div.atf-user-card img{
+	width:36px!important;
 	margin-right:10px;
 }
