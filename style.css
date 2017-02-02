@@ -2688,7 +2688,8 @@ div#sidebar div.atf-user-card{
 	margin-top:15px;
 }
 
-div#sidebar div.atf-user-card img{
-	width:36px!important;
-	margin-right:10px;
+div#sidebar div.atf-object div.atf-inner-wrapper div.atf-tweet-wrapper div.atf-user-card img{
+	width:32px!important;
+	/*margin-right:10px;*/
 }
+
