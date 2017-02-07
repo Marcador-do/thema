@@ -28,7 +28,7 @@
 </div>
  </div>
 <div class="info col-xs-12 col-sm-8 col-md-9">
-<div class="name">Cesar Marchena</div>
+<div class="name">Autores</div>
 <p>
 Ut efficitur bibendum porta. Donec iaculis lacus nec purus elementum, vitae mattis tortor eleifend. Donec lacinia dictum odio, at blandit mi tincidunt quis. Suspendisse potenti. Curabitur eget neque aliquam tortor pharetra consequat. Nam luctus ligula tellus, a porttitor diam viverra sit amet. Sed ligula nisi, maximus a ultrices sit amet, eleifend eget tortor. Proin lacinia nunc vitae rhoncus sodales. Ut sed purus at ligula commodo laoreet lacinia sed ante. Integer consequat bibendum turpis, at molestie orci lacinia vitae. Aliquam eget justo sed nisi vehicula porttitor. Aliquam tempus vehicula ante, tristique mollis justo commodo id. Vestibulum egestas gravida quam, id blandit dolor interdum in. Sed pretium pellentesque turpis vehicula volutpat. Suspendisse eget erat ut nisi laoreet aliquet. Etiam non porttitor felis, non dapibus nulla.
 </p>
