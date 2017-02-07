@@ -44,9 +44,10 @@
 									</div>
 									<div class="single-post-meta-content">
 										<div class="single-post-list-author">
-											<a href="<?php echo get_author_posts_url( get_the_author_meta( 'ID' ), get_the_author_meta( 'user_nicename' ) ); ?>">
-												<?php echo get_the_author_meta( 'user_nicename' ); ?>
-											</a>
+											<!--<a href="<?php /*echo get_author_posts_url( get_the_author_meta( 'ID' ), get_the_author_meta( 'user_nicename' ) ); ?>">
+												<?php echo get_the_author_meta( 'user_nicename' ); */ ?>
+											</a>-->
+											<?php the_author_posts_link(); ?>
 										</div>
 										<div class="single-post-list-date">
 											<a href="<?php echo esc_url( get_day_link( $year = get_the_date('Y') , $month = get_the_date('m'), $day = get_the_date('d') ) ) ?>">
