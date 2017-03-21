@@ -62,7 +62,11 @@ function banner() {
   	ga('create', 'UA-68190205-1', 'auto');
   	ga('send', 'pageview');
 
-</script>
+	</script>
+
+	<!-- Google Recapchat -->
+	<script src='https://www.google.com/recaptcha/api.js'></script>
+
 
 </head>
 <body <?php body_class(); ?> data-url='<?php echo get_site_url(); ?>'>
@@ -140,6 +144,8 @@ function banner() {
 													</a>
 												</p>
 											</div>
+											<!-- Etiqueta google Recapchat -->
+											<div class="g-recaptcha" data-sitekey="6Le6vRkUAAAAAFYC2zqEjlj5LgPpt39p28CF-51z"></div>
 										</form>
 									</div> 
 								</div>
